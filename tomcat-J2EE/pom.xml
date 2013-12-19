@@ -4,7 +4,7 @@
 
   <groupId>org.fao.fenix</groupId>
   <artifactId>tomcat-J2EE</artifactId>
-  <version>1.0</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Nome del progetto</name>
@@ -29,9 +29,9 @@
 
   <distributionManagement>
     <repository>
-        <id>Engineering projects</id>
-        <name>Engineering projects-releases</name>
-        <url>http://10.5.67.135/artifactory/libs-release-local</url>
+      <id>snapshots</id>
+      <name>fenix</name>
+      <url>http://fenixapps.fao.org/artifactory/fenix-developers</url>
     </repository>
   </distributionManagement>
 
