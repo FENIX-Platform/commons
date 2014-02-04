@@ -5,58 +5,32 @@
   <groupId>org.fao.fenix</groupId>
   <artifactId>fenix-ui-creator</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <packaging>war</packaging>
+  <packaging>js</packaging>
 
-  <name>FENIX Platform</name>
+  <name>FENIX UI Creator</name>
   <url>http://fenix.fao.org</url>
 
-  <properties>
+ <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+    <dependencies>
+      <dependency>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jquery-amd</artifactId>
+        <version>1.7.1-alpha-1</version>
+        <type>js</type>
+      </dependency>
+    </dependencies>
+
   <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <configuration>
-          <packagingExcludes>**/.svn</packagingExcludes>
-           <archiveClasses>true</archiveClasses>
-                <webResources>
-                    <!-- in order to interpolate version from pom into appengine-web.xml -->
-                    <resource>
-                        <directory>${basedir}/src/main/webapp/WEB-INF</directory>
-                        <filtering>true</filtering>
-                        <targetPath>WEB-INF</targetPath>
-                    </resource>
-                    <resource>
-                        <directory>${basedir}/src/main/js</directory>
-                        <filtering>true</filtering>
-                        <targetPath>js</targetPath>
-                    </resource>
-                    <resource>
-                        <directory>${basedir}/src/main/resources</directory>
-                        <filtering>true</filtering>
-                        <targetPath></targetPath>
-                    </resource>
-                </webResources>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-    </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javascript-maven-plugin</artifactId>
+        <version>2.0.0-alpha-1</version>
+      </extension>
+    </extensions>
   </build>
   
-   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
 </project>
