@@ -156,9 +156,7 @@ public class CodeSystem implements Comparable<CodeSystem> {
             rootCodes = new LinkedList<Code>();
 		rootCodes.add(code);
 		code.setSystem(this);
-        int ln = code.countLevels();
-		if (levelsNumber==null || levelsNumber<ln)
-			levelsNumber = ln;
+        levelsNumber = Math.max(levelsNumber,code.countLevels());
 	}
 	public boolean hasCodeList() { return rootCodes!=null && rootCodes.size()>0; }
 	
@@ -183,11 +181,45 @@ public class CodeSystem implements Comparable<CodeSystem> {
 	}
 
 
-    public void resetLevels() {
-        if (rootCodes!=null)
+
+    public void compress() throws Exception {
+        if (rootCodes!=null) {
+            Map<String,Code> processedCodes = new HashMap<>();
             for (Code code : rootCodes)
-                code.resetLevels(1);
+                compressGraph(null, code, processedCodes, new Stack<Code>());
+        }
     }
+    private void compressGraph (Code parent, Code code, Map<String,Code> processedCodes, Stack<Code> branch) throws Exception {
+        if (branch.contains(code))
+            throw new Exception("The code list must be an oriented graph. Cycle reference identified: "+code.getCode());
+
+        branch.push(code);
+        Code processed = processedCodes.get(code.getCode());
+        if (processed!=null) {
+            //Add the parent
+            if (parent!=null) {
+                Set<Code> processedParents = processed.isRoot() ? null : new HashSet<>(processed.getParents());
+                if (processedParents==null || !processedParents.contains(parent))
+                    parent.addChild(processed);
+            }
+
+            if (!code.isLeaf()) {
+                Set<Code> processedChildren = processed.isLeaf() ? null : new HashSet<>(processed.getChilds());
+                for (Code child : code.getChilds())
+                    if (!processedChildren.contains(child))
+                        processed.addChild(child);
+            }
+
+            code = processed;
+
+        } else
+            processedCodes.put(code.getCode(), code);
+
+        if (!code.isLeaf())
+            for (Code child : code.getChilds())
+                compressGraph(code,child,processedCodes,branch);
+    }
+
 
 
     //Compare

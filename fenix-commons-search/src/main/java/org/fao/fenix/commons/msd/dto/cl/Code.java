@@ -4,10 +4,7 @@ import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.fao.fenix.commons.msd.dto.common.ValueOperator;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 public class Code implements Comparable<Code> {
 	
@@ -19,7 +16,9 @@ public class Code implements Comparable<Code> {
 	private Map<String,String> title;
 	private Map<String,String> description;
 	private Map<String,String> supplemental;
-	
+    private Date fromDate;
+    private Date toDate;
+
 	private Collection<ValueOperator> aggregationRules;
 
 	//Tree connections
@@ -74,7 +73,20 @@ public class Code implements Comparable<Code> {
 			for (Code child : childs)
 				child.setSystem(system);
 	}
-	public Collection<Code> getExclusionList() {
+
+    public Date getFromDate() {
+        return fromDate;
+    }
+    public void setFromDate(Date fromDate) {
+        this.fromDate = fromDate;
+    }
+    public Date getToDate() {
+        return toDate;
+    }
+    public void setToDate(Date toDate) {
+        this.toDate = toDate;
+    }
+    public Collection<Code> getExclusionList() {
 		return exclusionList;
 	}
 	public void setExclusionList(Collection<Code> exclusionList) {
@@ -233,7 +245,7 @@ public class Code implements Comparable<Code> {
 	@JsonIgnore public boolean isLeaf() { return childs==null || childs.size()==0; }
 	@JsonIgnore public boolean isRoot() { return parents==null || parents.size()==0; }
 	public int countLevels() {
-		int count=0;
+        int count=0;
 		if (!isLeaf())
 			for (Code child : childs)
 				count = Math.max(count, child.countLevels());
@@ -252,16 +264,6 @@ public class Code implements Comparable<Code> {
 		branchBuffer.removeLast();
 		return buffer;
 	}
-    public void resetLevels(int currentLevel) {
-        setLevel(currentLevel);
-        if (!isLeaf())
-            for(Code child : childs)
-                child.resetLevels(currentLevel+1);
-    }
-
-	
-	
-	
 	
 	//Ordering
 	@Override
