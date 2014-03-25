@@ -2,6 +2,8 @@ package org.fao.fenix.commons.msd.dto.cl;
 
 import org.codehaus.jackson.annotate.JsonManagedReference;
 import org.fao.fenix.commons.msd.dto.cl.type.CSSharingPolicy;
+import org.fao.fenix.commons.msd.dto.cl.type.CycleCodeReferenceException;
+import org.fao.fenix.commons.msd.dto.cl.type.DuplicateCodeException;
 import org.fao.fenix.commons.msd.dto.common.ContactIdentity;
 import org.fao.fenix.commons.msd.utils.DataUtils;
 
@@ -27,7 +29,7 @@ public class CodeSystem implements Comparable<CodeSystem> {
 	private CSSharingPolicy sharingPolicy;
 
 	//Code list
-	private Collection<Code> rootCodes;
+	private Set<Code> rootCodes;
 	private Integer levelsNumber;
 	
 	public CodeSystem() {}
@@ -118,12 +120,11 @@ public class CodeSystem implements Comparable<CodeSystem> {
 	@JsonManagedReference("system") public Collection<Code> getRootCodes() {
 		return rootCodes;
 	}
-	@JsonManagedReference("system") public void setRootCodes(Collection<Code> rootCodes) {
-        levelsNumber = 0;
+	@JsonManagedReference("system") public void setRootCodes(Collection<Code> rootCodes) throws DuplicateCodeException {
 		if (rootCodes==null)
             this.rootCodes = null;
         else {
-            this.rootCodes = new LinkedList<Code>();
+            this.rootCodes = new HashSet<>();
             for (Code code : rootCodes)
                 addCode(code);
         }
@@ -151,12 +152,11 @@ public class CodeSystem implements Comparable<CodeSystem> {
             this.description = new HashMap<String, String>();
 		this.description.put(language, description);
 	}
-	public void addCode(Code code) {
+	public void addCode(Code code) throws DuplicateCodeException {
         if (rootCodes==null)
-            rootCodes = new LinkedList<Code>();
-		rootCodes.add(code);
-		code.setSystem(this);
-        levelsNumber = Math.max(levelsNumber,code.countLevels());
+            rootCodes = new HashSet<>();
+		if (!rootCodes.add(code))
+            throw new DuplicateCodeException(this,code);
 	}
 	public boolean hasCodeList() { return rootCodes!=null && rootCodes.size()>0; }
 	
@@ -173,7 +173,7 @@ public class CodeSystem implements Comparable<CodeSystem> {
 	}
 	
 	public Collection<Collection<Code>> findBranches() {
-		Collection<Collection<Code>> buffer = new LinkedList<Collection<Code>>();
+		Collection<Collection<Code>> buffer = new LinkedList<>();
 		if (rootCodes!=null)
 			for (Code code : rootCodes)
 				buffer.addAll(code.findBranches());
@@ -181,45 +181,57 @@ public class CodeSystem implements Comparable<CodeSystem> {
 	}
 
 
+    //CODE LIST NORMALIZATION
+    public void normalize() throws CycleCodeReferenceException, DuplicateCodeException {
+        resetSystemReference();
+        resetLevelsNumber();
+        compress();
+    }
 
-    public void compress() throws Exception {
+    private void resetSystemReference() {
+        if (rootCodes!=null)
+            for (Code code : rootCodes)
+                code.resetSystem(this);
+    }
+    private void resetLevelsNumber() {
+        levelsNumber = 0;
+        if (rootCodes!=null)
+            for (Code code : rootCodes)
+                levelsNumber = Math.max(levelsNumber,code.resetLevel(0));
+    }
+    private void compress() throws CycleCodeReferenceException, DuplicateCodeException {
         if (rootCodes!=null) {
             Map<String,Code> processedCodes = new HashMap<>();
+            Stack<String> branchCodes = new Stack<>();
             for (Code code : rootCodes)
-                compressGraph(null, code, processedCodes, new Stack<Code>());
+                rootCodes.add(compress(null, code, processedCodes, branchCodes));
         }
     }
-    private void compressGraph (Code parent, Code code, Map<String,Code> processedCodes, Stack<Code> branch) throws Exception {
-        if (branch.contains(code))
-            throw new Exception("The code list must be an oriented graph. Cycle reference identified: "+code.getCode());
 
-        branch.push(code);
+    private Code compress(Code parent, Code code, Map<String, Code> processedCodes, Stack<String> branch) throws CycleCodeReferenceException, DuplicateCodeException {
+        if (branch.contains(code)) //Check for cycle references
+            throw new CycleCodeReferenceException(this,code);
+
+        branch.push(code.getCode());
+
         Code processed = processedCodes.get(code.getCode());
         if (processed!=null) {
-            //Add the parent
-            if (parent!=null) {
-                Set<Code> processedParents = processed.isRoot() ? null : new HashSet<>(processed.getParents());
-                if (processedParents==null || !processedParents.contains(parent))
-                    parent.addChild(processed);
-            }
-
-            if (!code.isLeaf()) {
-                Set<Code> processedChildren = processed.isLeaf() ? null : new HashSet<>(processed.getChilds());
-                for (Code child : code.getChilds())
-                    if (!processedChildren.contains(child))
-                        processed.addChild(child);
-            }
-
+            //Use processed code for next recursive iteration
             code = processed;
-
+            //Add the parent
+            if (parent!=null)
+                code.addParentNoCheck(parent);
         } else
             processedCodes.put(code.getCode(), code);
 
         if (!code.isLeaf())
             for (Code child : code.getChilds())
-                compressGraph(code,child,processedCodes,branch);
-    }
+                compress(code, child, processedCodes, branch);
 
+        branch.pop();
+
+        return code;
+    }
 
 
     //Compare

@@ -2,10 +2,7 @@ package org.fao.fenix.commons.msd.utils;
 
 import org.fao.fenix.commons.msd.dto.dsd.type.DSDDataType;
 
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.Date;
-import java.util.LinkedList;
+import java.util.*;
 
 public class DataUtils {
 
@@ -134,48 +131,13 @@ public class DataUtils {
     }
 
 
-    //TEST
-    public static void main(String[] args) throws Exception {
-        Calendar cf = Calendar.getInstance();
-        cf.set(2010,10,13);
-        Calendar ct = Calendar.getInstance();
-        ct.set(2013,6,18);
 
-        long year,month,date;
-        System.out.println("Data a numero (anno): "+(year=dateToNumber(cf.getTime(),DSDDataType.year)));
-        System.out.println("Data a numero (mese): "+(month=dateToNumber(cf.getTime(),DSDDataType.month)));
-        System.out.println("Data a numero (giorno): "+(date=dateToNumber(cf.getTime(),DSDDataType.date)));
-        System.out.println("millisec a numero (anno): "+dateToNumber(cf.getTime().getTime(),DSDDataType.year));
-        System.out.println("millisec a numero (mese): "+dateToNumber(cf.getTime().getTime(),DSDDataType.month));
-        System.out.println("millisec a numero (giorno): "+dateToNumber(cf.getTime().getTime(),DSDDataType.date));
-        System.out.println("anno a numero (anno): "+dateToNumber(year,DSDDataType.year));
-        System.out.println("anno a numero (mese): "+dateToNumber(year,DSDDataType.month));
-        System.out.println("anno a numero (giorno): "+dateToNumber(year,DSDDataType.date));
-        System.out.println("mese a numero (anno): "+dateToNumber(month,DSDDataType.year));
-        System.out.println("mese a numero (mese): "+dateToNumber(month,DSDDataType.month));
-        System.out.println("mese a numero (giorno): "+dateToNumber(month,DSDDataType.date));
-        System.out.println("giorno a numero (anno): "+dateToNumber(date,DSDDataType.year));
-        System.out.println("giorno a numero (mese): "+dateToNumber(date,DSDDataType.month));
-        System.out.println("giorno a numero (giorno): "+dateToNumber(date,DSDDataType.date));
-
-        Collection<Long> series = getTimeSeries(cf.getTime(),ct.getTime(), DSDDataType.year);
-        if (series!=null) {
-            System.out.println("\n\nSerie anni:");
-            for (Long n : series)
-                System.out.print(n+" - ");
-        }
-        series = getTimeSeries(cf.getTime(),ct.getTime(), DSDDataType.month);
-        if (series!=null) {
-            System.out.println("\n\nSerie mesi:");
-            for (Long n : series)
-                System.out.print(n+" - ");
-        }
-        series = getTimeSeries(cf.getTime(),ct.getTime(), DSDDataType.date);
-        if (series!=null) {
-            System.out.println("\n\nSerie giorni:");
-            for (Long n : series)
-                System.out.print(n+" - ");
-        }
+    public static <T> Set<T> toSet(Collection<T> array) {
+        return array==null ? new HashSet<T>() : new HashSet<>(array);
     }
+    public static <T> List<T> toList(Collection<T> array) {
+        return array==null ? new LinkedList<T>() : new LinkedList<>(array);
+    }
+
 
 }

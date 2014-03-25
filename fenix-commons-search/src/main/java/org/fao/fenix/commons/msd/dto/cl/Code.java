@@ -2,9 +2,11 @@ package org.fao.fenix.commons.msd.dto.cl;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.fao.fenix.commons.msd.dto.cl.type.DuplicateCodeException;
 import org.fao.fenix.commons.msd.dto.common.ValueOperator;
 
 import java.util.*;
+import java.util.regex.Matcher;
 
 public class Code implements Comparable<Code> {
 	
@@ -23,8 +25,8 @@ public class Code implements Comparable<Code> {
 
 	//Tree connections
 	@JsonIgnore
-	public Collection<Code> parents;
-	private Collection<Code> childs;
+	public Set<Code> parents;
+	private Set<Code> childs;
 	
 	//Matching rules
 	private Collection<CodeRelationship> relations;
@@ -37,21 +39,18 @@ public class Code implements Comparable<Code> {
 	
 	public Code() {}
 	public Code(String composedCode) {
-        String[] codeParts = getDecomposedCode(composedCode);
-        init(codeParts[0],codeParts[1],codeParts[2]);
+        this(getDecomposedCode(composedCode));
 	}
+    public Code(String[] codeParts) {
+        this(codeParts[0],codeParts[1],codeParts[2]);
+    }
 	public Code(String system, String version, String code) {
-        init(system,version,code);
+        this (new CodeSystem(system,version), code);
 	}
 	public Code(CodeSystem system, String code) {
         this.code = code;
         setSystem(system);
 	}
-
-    private void init(String system, String version, String code) {
-        this.code = code;
-        setSystem(new CodeSystem(system, version));
-    }
 
 
 	//GET-SET
@@ -68,10 +67,10 @@ public class Code implements Comparable<Code> {
 		if ((this.system = system)!=null) {
 			systemKey = system.getSystem();
 			systemVersion = system.getVersion();
-		}
-		if (!isLeaf())
-			for (Code child : childs)
-				child.setSystem(system);
+		} else {
+            systemKey = null;
+            systemVersion = null;
+        }
 	}
 
     public Date getFromDate() {
@@ -119,17 +118,19 @@ public class Code implements Comparable<Code> {
 	public Collection<Code> getChilds() {
 		return childs;
 	}
-	public void setChilds(Collection<Code> childs) {
-		this.childs = childs;
+	public void setChilds(Collection<Code> childs) throws DuplicateCodeException {
+		if (childs!=null) {
+            this.childs = new HashSet<>();
+            for (Code child : childs)
+                addChild(child);
+        } else
+            this.childs = null;
 	}
 	@JsonIgnore
 	public Collection<Code> getParents() {
 		return parents;
 	}
-	@JsonIgnore
-	public void setParents(Collection<Code> parents) {
-		this.parents = parents;
-	}
+
 //	@JsonBackReference("linkRelationship")
 	public Collection<CodeRelationship> getRelations() {
 		return relations;
@@ -156,14 +157,6 @@ public class Code implements Comparable<Code> {
 	}
 	public String getGlobalCode() {
 		return systemKey+'|'+systemVersion+'|'+code;
-	}
-	public void setGlobalCode(String globalCode) {
-		String[] codeElements = globalCode.split("|");
-		if (codeElements.length==3) {
-			setSystemKey(codeElements[0]);
-			setSystemVersion(codeElements[1]);
-			setCode(codeElements[2]);
-		}
 	}
 	public Collection<ValueOperator> getAggregationRules() {
 		return aggregationRules;
@@ -201,56 +194,48 @@ public class Code implements Comparable<Code> {
             this.supplemental = new HashMap<String, String>();
 		this.supplemental.put(language, supplemental);
 	}
-	public void addChild(Code child) {
+	public void addChild(Code child) throws DuplicateCodeException {
         if (childs==null)
-            childs = new LinkedList<Code>();
-		childs.add(child);
-		child.addParent(this);
-		child.setSystem(system);
-	}
-	public void addParent(Code parent) {
+            childs = new HashSet<>();
+        if (!childs.add(child))
+            throw new DuplicateCodeException (system,child);
+        child.addParent(this);
+    }
+	public void addParent(Code parent) throws DuplicateCodeException {
 		if (parents==null)
-			parents = new LinkedList<Code>();
-		parents.add(parent);
-		if (parent.getLevel()!=null && (level==null || parent.getLevel()>=level))
-			level = parent.getLevel()+1;
+			parents = new HashSet<>();
+        if (!parents.add(parent))
+            throw new DuplicateCodeException (system,parent);
 	}
 	public void addExclusion(Code toExclude) {
 		if (exclusionList==null)
-			exclusionList = new LinkedList<Code>();
+			exclusionList = new LinkedList<>();
 		exclusionList.add(toExclude);
 	}
 	public void addAggregationRule(ValueOperator aggregationRule) {
         if (aggregationRules==null)
-            aggregationRules = new LinkedList<ValueOperator>();
+            aggregationRules = new LinkedList<>();
 		aggregationRules.add(aggregationRule);
 	}
 	public void addRelation(CodeRelationship rule) {
         if (relations==null)
-            relations = new LinkedList<CodeRelationship>();
+            relations = new LinkedList<>();
 		relations.add(rule);
 	}
 	public void addConversion(CodeConversion conversion) {
         if (conversions==null)
-            conversions = new LinkedList<CodeConversion>();
+            conversions = new LinkedList<>();
 		conversions.add(conversion);
 	}
 	public void addPropaedeutic(CodePropaedeutic prop) {
         if (propaedeutics==null)
-            propaedeutics = new LinkedList<CodePropaedeutic>();
+            propaedeutics = new LinkedList<>();
 		propaedeutics.add(prop);
 	}
 	@JsonIgnore public boolean isSemanticOther() { return exclusionList!=null && exclusionList.size()>0; }
 	
 	@JsonIgnore public boolean isLeaf() { return childs==null || childs.size()==0; }
 	@JsonIgnore public boolean isRoot() { return parents==null || parents.size()==0; }
-	public int countLevels() {
-        int count=0;
-		if (!isLeaf())
-			for (Code child : childs)
-				count = Math.max(count, child.countLevels());
-		return count+1;
-	}
 	public Collection<Collection<Code>> findBranches() {
 		return findBranches(true, new LinkedList<Collection<Code>>(), new LinkedList<Code>());
 	}
@@ -264,7 +249,34 @@ public class Code implements Comparable<Code> {
 		branchBuffer.removeLast();
 		return buffer;
 	}
-	
+
+    //Code list normalization utilities
+    protected int resetLevel(int parentLevel) {
+        level = parentLevel+1;
+        int depth = level;
+        if (childs!=null)
+            for (Code child: childs)
+                depth = Math.max(depth, child.resetLevel(level));
+        return depth;
+    }
+    protected void resetSystem (CodeSystem system) {
+        setSystem(system);
+        if (childs!=null)
+            for (Code child: childs)
+                child.resetSystem(system);
+    }
+    protected void addParentNoCheck(Code parent) {
+        if (parents==null)
+            parents = new HashSet<>();
+        parents.add(parent);
+    }
+    protected void addChildNoCheck(Code child) {
+        if (childs==null)
+            childs = new HashSet<>();
+        childs.add(child);
+    }
+
+
 	//Ordering
 	@Override
 	public int hashCode() {
