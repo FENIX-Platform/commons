@@ -265,15 +265,14 @@ public class Code implements Comparable<Code> {
             for (Code child: childs)
                 child.resetSystem(system);
     }
-    protected void addParentNoCheck(Code parent) {
+    protected void addReplaceParent(Code parent) {
         if (parents==null)
             parents = new HashSet<>();
+        parents.remove(parent);
         parents.add(parent);
     }
-    protected void addChildNoCheck(Code child) {
-        if (childs==null)
-            childs = new HashSet<>();
-        childs.add(child);
+    protected void replaceChilds(Set<Code> childs) {
+        this.childs = childs;
     }
 
 

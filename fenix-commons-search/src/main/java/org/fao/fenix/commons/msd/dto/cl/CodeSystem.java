@@ -215,22 +215,25 @@ public class CodeSystem implements Comparable<CodeSystem> {
         branch.push(code.getCode());
 
         Code processed = processedCodes.get(code.getCode());
-        if (processed!=null) {
-            //Use processed code for next recursive iteration
-            code = processed;
-            //Add the parent
-            if (parent!=null)
-                code.addParentNoCheck(parent);
-        } else
-            processedCodes.put(code.getCode(), code);
+        if (processed==null)
+            processedCodes.put(code.getCode(), processed = code);
 
-        if (!code.isLeaf())
-            for (Code child : code.getChilds())
-                compress(code, child, processedCodes, branch);
+        if (parent!=null)
+            processed.addReplaceParent(parent);
+        if (!code.isLeaf()) {
+            Set<Code> childs = new HashSet<>(processed.getChilds());
+            for (Code child : code.getChilds()) {
+                Code processedChild = compress(processed, child, processedCodes, branch);
+                childs.remove(processedChild);
+                childs.add(processedChild);
+            }
+            processed.replaceChilds(childs);
+        }
+        processed.setLevel(Math.min(processed.getLevel(), code.getLevel()));
 
         branch.pop();
 
-        return code;
+        return processed;
     }
 
 
