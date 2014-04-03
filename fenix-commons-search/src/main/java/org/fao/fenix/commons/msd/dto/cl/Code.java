@@ -250,6 +250,21 @@ public class Code implements Comparable<Code> {
 		return buffer;
 	}
 
+
+
+
+
+    //Converter utilities
+    public void addChildOnly(Code child) throws DuplicateCodeException {
+        if (childs==null)
+            childs = new HashSet<>();
+        if (!childs.add(child))
+            throw new DuplicateCodeException (system,child);
+    }
+
+
+
+
     //Code list normalization utilities
     protected int resetLevel(int parentLevel) {
         level = parentLevel+1;
@@ -261,9 +276,13 @@ public class Code implements Comparable<Code> {
     }
     protected void resetSystem (CodeSystem system) {
         setSystem(system);
-        if (childs!=null)
-            for (Code child: childs)
+        if (parents!=null)
+            parents = new HashSet<>(parents);
+        if (childs!=null) {
+            for (Code child : childs)
                 child.resetSystem(system);
+            childs = new HashSet<>(childs);
+        }
     }
     protected void addReplaceParent(Code parent) {
         if (parents==null)

@@ -182,10 +182,11 @@ public class CodeSystem implements Comparable<CodeSystem> {
 
 
     //CODE LIST NORMALIZATION
-    public void normalize() throws CycleCodeReferenceException, DuplicateCodeException {
+    public CodeSystem normalize() throws CycleCodeReferenceException, DuplicateCodeException {
         resetSystemReference();
         resetLevelsNumber();
         compress();
+        return this;
     }
 
     private void resetSystemReference() {
@@ -203,8 +204,10 @@ public class CodeSystem implements Comparable<CodeSystem> {
         if (rootCodes!=null) {
             Map<String,Code> processedCodes = new HashMap<>();
             Stack<String> branchCodes = new Stack<>();
+            Set<Code> newRootCodes = new HashSet<>();
             for (Code code : rootCodes)
-                rootCodes.add(compress(null, code, processedCodes, branchCodes));
+                newRootCodes.add(compress(null, code, processedCodes, branchCodes));
+            rootCodes = newRootCodes;
         }
     }
 
@@ -221,7 +224,7 @@ public class CodeSystem implements Comparable<CodeSystem> {
         if (parent!=null)
             processed.addReplaceParent(parent);
         if (!code.isLeaf()) {
-            Set<Code> childs = new HashSet<>(processed.getChilds());
+            Set<Code> childs = !processed.isLeaf() ? new HashSet<>(processed.getChilds()) : new HashSet<Code>();
             for (Code child : code.getChilds()) {
                 Code processedChild = compress(processed, child, processedCodes, branch);
                 childs.remove(processedChild);
