@@ -184,15 +184,22 @@ public class CodeSystem implements Comparable<CodeSystem> {
     //CODE LIST NORMALIZATION
     public CodeSystem normalize() throws CycleCodeReferenceException, DuplicateCodeException {
         resetSystemReference();
+        resetRelationships();
         resetLevelsNumber();
         compress();
         return this;
     }
 
-    private void resetSystemReference() {
+    private void resetSystemReference() throws CycleCodeReferenceException {
+        Stack<String> branchCodes = new Stack<>();
         if (rootCodes!=null)
             for (Code code : rootCodes)
-                code.resetSystem(this);
+                code.resetSystem(this,branchCodes);
+    }
+    private void resetRelationships() {
+        if (rootCodes!=null)
+            for (Code code : rootCodes)
+                code.resetRelationships();
     }
     private void resetLevelsNumber() {
         levelsNumber = 0;
@@ -203,20 +210,14 @@ public class CodeSystem implements Comparable<CodeSystem> {
     private void compress() throws CycleCodeReferenceException, DuplicateCodeException {
         if (rootCodes!=null) {
             Map<String,Code> processedCodes = new HashMap<>();
-            Stack<String> branchCodes = new Stack<>();
             Set<Code> newRootCodes = new HashSet<>();
             for (Code code : rootCodes)
-                newRootCodes.add(compress(null, code, processedCodes, branchCodes));
+                newRootCodes.add(compress(null, code, processedCodes));
             rootCodes = newRootCodes;
         }
     }
 
-    private Code compress(Code parent, Code code, Map<String, Code> processedCodes, Stack<String> branch) throws CycleCodeReferenceException, DuplicateCodeException {
-        if (branch.contains(code)) //Check for cycle references
-            throw new CycleCodeReferenceException(this,code);
-
-        branch.push(code.getCode());
-
+    private Code compress(Code parent, Code code, Map<String, Code> processedCodes) throws DuplicateCodeException {
         Code processed = processedCodes.get(code.getCode());
         if (processed==null)
             processedCodes.put(code.getCode(), processed = code);
@@ -226,15 +227,13 @@ public class CodeSystem implements Comparable<CodeSystem> {
         if (!code.isLeaf()) {
             Set<Code> childs = !processed.isLeaf() ? new HashSet<>(processed.getChilds()) : new HashSet<Code>();
             for (Code child : code.getChilds()) {
-                Code processedChild = compress(processed, child, processedCodes, branch);
+                Code processedChild = compress(processed, child, processedCodes);
                 childs.remove(processedChild);
                 childs.add(processedChild);
             }
             processed.replaceChilds(childs);
         }
         processed.setLevel(Math.min(processed.getLevel(), code.getLevel()));
-
-        branch.pop();
 
         return processed;
     }

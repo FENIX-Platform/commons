@@ -2,6 +2,7 @@ package org.fao.fenix.commons.msd.dto.cl;
 
 import org.codehaus.jackson.annotate.JsonBackReference;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.fao.fenix.commons.msd.dto.cl.type.CycleCodeReferenceException;
 import org.fao.fenix.commons.msd.dto.cl.type.DuplicateCodeException;
 import org.fao.fenix.commons.msd.dto.common.ValueOperator;
 
@@ -155,9 +156,11 @@ public class Code implements Comparable<Code> {
 	public void setPropaedeutics(Collection<CodePropaedeutic> propaedeutics) {
 		this.propaedeutics = propaedeutics;
 	}
-	public String getGlobalCode() {
+    @JsonIgnore
+    public String getGlobalCode() {
 		return systemKey+'|'+systemVersion+'|'+code;
 	}
+
 	public Collection<ValueOperator> getAggregationRules() {
 		return aggregationRules;
 	}
@@ -266,23 +269,34 @@ public class Code implements Comparable<Code> {
 
 
     //Code list normalization utilities
+    protected void resetSystem (CodeSystem system, Stack<String> branch) throws CycleCodeReferenceException {
+        if (branch.contains(code)) //Check for cycle references
+            throw new CycleCodeReferenceException(system,this);
+
+        branch.push(code);
+        if (childs!=null)
+            for (Code child : childs)
+                child.resetSystem(system,branch);
+        branch.pop();
+
+        setSystem(system);
+    }
+    protected void resetRelationships() {
+        if (childs!=null)
+            for (Code child : childs)
+                child.resetRelationships();
+
+        if (parents!=null)
+            parents = new HashSet<>(parents);
+        if (childs!=null)
+            childs = new HashSet<>(childs);
+    }
     protected int resetLevel(int parentLevel) {
-        level = parentLevel+1;
-        int depth = level;
+        int depth = level = parentLevel+1;
         if (childs!=null)
             for (Code child: childs)
                 depth = Math.max(depth, child.resetLevel(level));
         return depth;
-    }
-    protected void resetSystem (CodeSystem system) {
-        setSystem(system);
-        if (parents!=null)
-            parents = new HashSet<>(parents);
-        if (childs!=null) {
-            for (Code child : childs)
-                child.resetSystem(system);
-            childs = new HashSet<>(childs);
-        }
     }
     protected void addReplaceParent(Code parent) {
         if (parents==null)

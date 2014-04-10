@@ -20,6 +20,21 @@ public class DataUtils {
         }
     }
 
+    public static Date fromStringToDate(String yearName, String month, String day, boolean start) {
+        if (yearName!=null && !"".equals(yearName.trim())) {
+            Calendar calendar = Calendar.getInstance();
+            if (start) {
+                calendar.set(Integer.parseInt(yearName.trim()), month!=null ? Integer.parseInt(month) : Calendar.JANUARY, day!=null ? Integer.parseInt(day) : 1, 0, 0, 0);
+                calendar.set(Calendar.MILLISECOND,0);
+            } else {
+                calendar.set(Integer.parseInt(yearName.trim()), month!=null ? Integer.parseInt(month) : Calendar.DECEMBER, day!=null ? Integer.parseInt(day) : 31, 23, 59, 59);
+                calendar.set(Calendar.MILLISECOND,999);
+            }
+            return calendar.getTime();
+        } else
+            return null;
+    }
+
     public static Collection<Long> dateToNumber (Collection<?> values, DSDDataType dateType) throws Exception {
         if(values!=null) {
             Collection<Long> dates = new LinkedList<Long>();
