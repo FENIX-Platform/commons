@@ -76,6 +76,7 @@ public class CSVReader implements Iterable<String[]> {
                     } catch (Exception e) {
                         currentRow = null;
                     }
+                consumed = true;
                 return currentRow;
             }
 

@@ -10,7 +10,6 @@ import java.nio.file.StandardCopyOption;
 @ApplicationScoped
 public class FileUtils {
     public static final Charset UTF8 = Charset.forName("UTF-8");
-    @Inject private WebContext webContext;
 
     public void copy (File source, File destination) throws IOException {
         Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
@@ -28,8 +27,6 @@ public class FileUtils {
         }
     }
 
-    public String readWebrootTextFile(String file) throws IOException { return readTextFile(webContext.getWebrootFileStream(file)); }
-    public String readWebrootTextFile(String file, Charset charset) throws IOException { return readTextFile(webContext.getWebrootFileStream(file), charset); }
     public String readTextFile(String file) throws IOException { return readTextFile(new FileInputStream(file), UTF8); }
     public String readTextFile(File file) throws IOException { return readTextFile(new FileInputStream(file), UTF8); }
     public String readTextFile(String file, Charset charset) throws IOException { return readTextFile(new FileInputStream(file), charset); }
