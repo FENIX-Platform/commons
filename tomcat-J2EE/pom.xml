@@ -38,13 +38,13 @@
   </distributionManagement>
 
   <dependencies>
-
-        <dependency>
-           <groupId>org.jboss.spec</groupId>
-           <artifactId>jboss-javaee-all-6.0</artifactId>
-           <version>3.0.2.Final</version>
-           <scope>provided</scope>
-       </dependency>
+	<!-- J2EE -->
+	<dependency>
+	    <groupId>javax</groupId> 
+	    <artifactId>javaee-api</artifactId>
+	    <version>7.0</version>        
+	    <scope>compile</scope>
+	</dependency>
 
                 <dependency>
                     <groupId>org.jboss.resteasy</groupId>
