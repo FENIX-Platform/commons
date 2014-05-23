@@ -4,9 +4,18 @@
     <parent>
         <groupId>org.fao.fenix</groupId>
         <artifactId>fenix-commons</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0</version>
     </parent>
   <artifactId>fenix-commons-utils</artifactId>
   <name>FENIX cross platform utilities</name>
+
+    <!-- UUID Generator -->
+    <dependencies>
+        <dependency>
+            <groupId>com.eaio.uuid</groupId>
+            <artifactId>uuid</artifactId>
+            <version>3.4</version>
+        </dependency>
+    </dependencies>
 
 </project>
