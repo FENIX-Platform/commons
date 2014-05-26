@@ -4,7 +4,7 @@
 
   <groupId>org.fao.fenix</groupId>
   <artifactId>fenix-commons</artifactId>
-  <version>1.0</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Catalog</name>

@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.fao.fenix</groupId>
         <artifactId>fenix-commons</artifactId>
-        <version>1.0</version>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
   <artifactId>fenix-commons-utils</artifactId>
   <name>FENIX cross platform utilities</name>
