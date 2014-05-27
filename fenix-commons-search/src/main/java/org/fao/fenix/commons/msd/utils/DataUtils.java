@@ -1,6 +1,6 @@
 package org.fao.fenix.commons.msd.utils;
 
-import org.fao.fenix.commons.msd.dto.dsd.type.DSDDataType;
+import org.fao.fenix.commons.msd.dto.type.dsd.DSDDataType;
 
 import java.util.*;
 

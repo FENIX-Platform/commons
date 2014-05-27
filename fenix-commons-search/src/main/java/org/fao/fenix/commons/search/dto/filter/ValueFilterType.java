@@ -1,6 +1,6 @@
 package org.fao.fenix.commons.search.dto.filter;
 
-import org.fao.fenix.commons.msd.dto.dsd.type.DSDDataType;
+import org.fao.fenix.commons.msd.dto.type.dsd.DSDDataType;
 
 import java.util.Collection;
 import java.util.LinkedList;

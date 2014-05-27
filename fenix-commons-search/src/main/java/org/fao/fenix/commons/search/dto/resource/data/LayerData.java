@@ -1,6 +1,6 @@
 package org.fao.fenix.commons.search.dto.resource.data;
 
-import org.fao.fenix.commons.msd.dto.dsd.DSD;
+import org.fao.fenix.commons.msd.dto.full.dsd.DSD;
 import org.fao.fenix.commons.search.dto.resource.index.Index;
 
 public class LayerData extends StandardData {

@@ -2,8 +2,10 @@ package org.fao.fenix.commons.msd.dto.cl;
 
 import static org.junit.Assert.*;
 
-import org.fao.fenix.commons.msd.dto.cl.type.CycleCodeReferenceException;
-import org.fao.fenix.commons.msd.dto.cl.type.DuplicateCodeException;
+import org.fao.fenix.commons.msd.dto.full.cl.Code;
+import org.fao.fenix.commons.msd.dto.full.cl.CodeSystem;
+import org.fao.fenix.commons.msd.dto.type.cl.CycleCodeReferenceException;
+import org.fao.fenix.commons.msd.dto.type.cl.DuplicateCodeException;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

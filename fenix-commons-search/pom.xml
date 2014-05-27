@@ -16,5 +16,28 @@
           <artifactId>fenix-commons-utils</artifactId>
           <version>${project.version}</version>
       </dependency>
+
+
+      <!-- Jackson custom support -->
+      <dependency>
+          <groupId>org.codehaus.jackson</groupId>
+          <artifactId>jackson-mapper-asl</artifactId>
+          <version>${jackson.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      <!-- Orient -->
+      <dependency>
+          <groupId>com.orientechnologies</groupId>
+          <artifactId>orientdb-object</artifactId>
+          <version>${orient.version}</version>
+          <scope>provided</scope>
+      </dependency>
+      <dependency>
+          <groupId>com.orientechnologies</groupId>
+          <artifactId>orientdb-client</artifactId>
+          <version>${orient.version}</version>
+          <scope>provided</scope>
+      </dependency>
+
   </dependencies>
 </project>

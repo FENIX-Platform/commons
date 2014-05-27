@@ -1,8 +1,8 @@
 package org.fao.fenix.commons.search.dto.resource.data;
 
-import org.fao.fenix.commons.msd.dto.cl.Code;
-import org.fao.fenix.commons.msd.dto.dsd.DSD;
-import org.fao.fenix.commons.msd.dto.dsd.DSDColumn;
+import org.fao.fenix.commons.msd.dto.full.cl.Code;
+import org.fao.fenix.commons.msd.dto.full.dsd.DSD;
+import org.fao.fenix.commons.msd.dto.full.dsd.DSDColumn;
 import org.fao.fenix.commons.search.dto.resource.index.Index;
 
 import java.util.Collection;
