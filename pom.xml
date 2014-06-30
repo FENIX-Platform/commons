@@ -17,9 +17,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <resteasy.version>3.0.6.Final</resteasy.version>
         <jackson.version>1.9.13</jackson.version>
-        <orient.version>1.6.3</orient.version>
+        <orient.version>1.7.2</orient.version>
     </properties>
 
     <build>
@@ -51,34 +50,21 @@
 
 
    <dependencies>
-       <!-- J2EE -->
-       <dependency>
-           <groupId>org.jboss.spec</groupId>
-           <artifactId>jboss-javaee-all-6.0</artifactId>
-           <version>3.0.2.Final</version>
-           <scope>provided</scope>
-       </dependency>
+	<!-- J2EE -->
+	<dependency>
+	    <groupId>javax</groupId> 
+	    <artifactId>javaee-api</artifactId>
+	    <version>7.0</version>        
+	    <scope>provided</scope>
+	</dependency>
 
-       <dependency>
-           <groupId>javax.enterprise</groupId>
-           <artifactId>cdi-api</artifactId>
-           <version>1.1</version>
-           <scope>provided</scope>
-       </dependency>
-
-      <!-- Rest easy -->
-      <dependency>
-          <groupId>org.jboss.resteasy</groupId>
-          <artifactId>resteasy-jaxrs</artifactId>
-          <version>${resteasy.version}</version>
-          <scope>provided</scope>
-      </dependency>
-      <dependency>
-          <groupId>org.jboss.resteasy</groupId>
-          <artifactId>resteasy-jackson-provider</artifactId>
-          <version>${resteasy.version}</version>
-          <scope>provided</scope>
-      </dependency>
+	<!-- Jackson utils support -->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>${jackson.version}</version>
+            <scope>provided</scope>
+        </dependency>
 
        <!-- Test -->
        <dependency>
