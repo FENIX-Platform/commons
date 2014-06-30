@@ -17,14 +17,6 @@
           <version>${project.version}</version>
       </dependency>
 
-
-      <!-- Jackson custom support -->
-      <dependency>
-          <groupId>org.codehaus.jackson</groupId>
-          <artifactId>jackson-mapper-asl</artifactId>
-          <version>${jackson.version}</version>
-          <scope>provided</scope>
-      </dependency>
       <!-- Orient -->
       <dependency>
           <groupId>com.orientechnologies</groupId>
