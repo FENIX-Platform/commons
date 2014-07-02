@@ -50,29 +50,34 @@ public abstract class ResponseHandler extends JSONdto implements MethodHandler {
 
         //Call original bean method stack
         Object sourceReturn = null;
-        Method sourceMethod = sourceClass.getMethod(m.getName());
+        try {
+            Method sourceMethod = sourceClass.getMethod(m.getName());
 
-        if (m.getReturnType().isAssignableFrom(Map.class)) { //Manage multilanguage labels
-            sourceReturn = new HashMap<>();
-            for (int i=sources.length-1; i>=0; i--) {
-                Map sourceReturnValue = (Map)sourceMethod.invoke(sources[i]);
-                if (sourceReturnValue!=null)
-                    ((Map) sourceReturn).putAll(sourceReturnValue);
-            }
-            if (((Map) sourceReturn).size()==0)
-                sourceReturn = null;
-        } else if (m.getReturnType().isAssignableFrom(Collection.class)) { //Manage collection values
-            sourceReturn = new LinkedList<>();
-            for (int i=sources.length-1; i>=0; i--) {
-                Collection sourceReturnValue = (Collection)sourceMethod.invoke(sources[i]);
-                if (sourceReturnValue!=null)
-                    ((Collection) sourceReturn).addAll(sourceReturnValue);
-            }
-            if (((Collection) sourceReturn).size()==0)
-                sourceReturn = null;
-        } else
-            for (int i=0; i<sources.length && sourceReturn==null ; i++) //Manage collections and maps
-                sourceReturn = sourceMethod.invoke(sources[i]);
+            if (m.getReturnType().isAssignableFrom(Map.class)) { //Manage multilanguage labels
+                sourceReturn = new HashMap<>();
+                for (int i=sources.length-1; i>=0; i--) {
+                    Map sourceReturnValue = (Map)sourceMethod.invoke(sources[i]);
+                    if (sourceReturnValue!=null)
+                        ((Map) sourceReturn).putAll(sourceReturnValue);
+                }
+                if (((Map) sourceReturn).size()==0)
+                    sourceReturn = null;
+            } else if (m.getReturnType().isAssignableFrom(Collection.class)) { //Manage collection values
+                sourceReturn = new LinkedList<>();
+                for (int i=sources.length-1; i>=0; i--) {
+                    Collection sourceReturnValue = (Collection)sourceMethod.invoke(sources[i]);
+                    if (sourceReturnValue!=null)
+                        ((Collection) sourceReturn).addAll(sourceReturnValue);
+                }
+                if (((Collection) sourceReturn).size()==0)
+                    sourceReturn = null;
+            } else
+                for (int i=0; i<sources.length && sourceReturn==null ; i++) //Manage single values
+                    sourceReturn = sourceMethod.invoke(sources[i]);
+
+        } catch (NoSuchMethodException ex) {
+            sourceReturn = processed.invoke(self);
+        }
 
         //Return response
         if (returnHandlerClass!=null) //Override response if needed

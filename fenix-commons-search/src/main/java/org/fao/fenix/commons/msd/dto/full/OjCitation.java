@@ -1,0 +1,94 @@
+package org.fao.fenix.commons.msd.dto.full;
+
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.fao.fenix.commons.msd.dto.JSONdto;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Map;
+
+public class OjCitation extends JSONdto implements Serializable {
+
+    @JsonProperty private String documentKind;
+    @JsonProperty private Map<String, String> title;
+    @JsonProperty private Date date;
+    @JsonProperty private OjResponsibleParty documentContact;
+    @JsonProperty private Map<String, String> notes;
+    @JsonProperty private String link;
+    @JsonProperty private OjCodeList periodicity;
+    @JsonProperty private String ISBN;
+    @JsonProperty private String ISSN;
+
+
+    public String getDocumentKind() {
+        return documentKind;
+    }
+
+    public void setDocumentKind(String documentKind) {
+        this.documentKind = documentKind;
+    }
+
+    public Map<String, String> getTitle() {
+        return title;
+    }
+
+    public void setTitle(Map<String, String> title) {
+        this.title = title;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public OjResponsibleParty getDocumentContact() {
+        return documentContact;
+    }
+
+    public void setDocumentContact(OjResponsibleParty documentContact) {
+        this.documentContact = documentContact;
+    }
+
+    public Map<String, String> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(Map<String, String> notes) {
+        this.notes = notes;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public OjCodeList getPeriodicity() {
+        return periodicity;
+    }
+
+    public void setPeriodicity(OjCodeList periodicity) {
+        this.periodicity = periodicity;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
+    public String getISSN() {
+        return ISSN;
+    }
+
+    public void setISSN(String ISSN) {
+        this.ISSN = ISSN;
+    }
+}
