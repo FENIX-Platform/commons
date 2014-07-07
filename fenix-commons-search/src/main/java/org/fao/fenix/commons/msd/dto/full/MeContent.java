@@ -14,6 +14,10 @@ public class MeContent extends JSONdto implements Serializable {
     @JsonProperty private Collection<String> keyWords;
     @JsonProperty private Map<String, String> description;
 
+    @JsonProperty private SeReferencePopulation seReferencePopulation;
+    @JsonProperty private SeCoverage seCoverage;
+    @JsonProperty private SeCodeList seCodeList;
+
 
     public RepresentationType getResourceRepresentationType() {
         return resourceRepresentationType;
@@ -37,5 +41,29 @@ public class MeContent extends JSONdto implements Serializable {
 
     public void setDescription(Map<String, String> description) {
         this.description = description;
+    }
+
+    public SeReferencePopulation getSeReferencePopulation() {
+        return seReferencePopulation;
+    }
+
+    public void setSeReferencePopulation(SeReferencePopulation seReferencePopulation) {
+        this.seReferencePopulation = seReferencePopulation;
+    }
+
+    public SeCoverage getSeCoverage() {
+        return seCoverage;
+    }
+
+    public void setSeCoverage(SeCoverage seCoverage) {
+        this.seCoverage = seCoverage;
+    }
+
+    public SeCodeList getSeCodeList() {
+        return seCodeList;
+    }
+
+    public void setSeCodeList(SeCodeList seCodeList) {
+        this.seCodeList = seCodeList;
     }
 }

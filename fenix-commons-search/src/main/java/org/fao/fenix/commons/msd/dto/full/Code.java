@@ -12,6 +12,7 @@ public class Code extends JSONdto implements Serializable {
     
     @JsonProperty private MeIdentification codeList;
     @JsonProperty private String code;
+    @JsonProperty private Integer level;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Map<String, String> description;
     @JsonProperty @Embedded private Period validityPeriod;
@@ -82,5 +83,13 @@ public class Code extends JSONdto implements Serializable {
 
     public void setRelations(Collection<Code> relations) {
         this.relations = relations;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 }

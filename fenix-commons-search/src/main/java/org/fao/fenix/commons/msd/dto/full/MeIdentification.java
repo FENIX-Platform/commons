@@ -7,21 +7,24 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Map;
+import java.util.Set;
 
 public class MeIdentification extends JSONdto implements Serializable {
 
     @JsonProperty private String uid;
+    @JsonProperty private Set<String> parentsIdentifier;
     @JsonProperty private Collection<OjCodeList> languages;
     @JsonProperty private Map<String, String> languageDetail;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Date creationDate;
     @JsonProperty private OjCodeList characterSet;
-    @JsonProperty private Map<String, String> parentsIdentifier;
     @JsonProperty private Map<String, String> metadataStandardName;
     @JsonProperty private Map<String, String> metadataStandardVersion;
     @JsonProperty private Collection<OjCodeList> metadataLanguage;
     @JsonProperty private Collection<OjResponsibleParty> contacts;
     @JsonProperty private String noDataValue;
+
+    @JsonProperty private MeContent meContent;
 
 
     public String getUid() {
@@ -72,11 +75,11 @@ public class MeIdentification extends JSONdto implements Serializable {
         this.characterSet = characterSet;
     }
 
-    public Map<String, String> getParentsIdentifier() {
+    public Set<String> getParentsIdentifier() {
         return parentsIdentifier;
     }
 
-    public void setParentsIdentifier(Map<String, String> parentsIdentifier) {
+    public void setParentsIdentifier(Set<String> parentsIdentifier) {
         this.parentsIdentifier = parentsIdentifier;
     }
 
@@ -118,5 +121,13 @@ public class MeIdentification extends JSONdto implements Serializable {
 
     public void setNoDataValue(String noDataValue) {
         this.noDataValue = noDataValue;
+    }
+
+    public MeContent getMeContent() {
+        return meContent;
+    }
+
+    public void setMeContent(MeContent meContent) {
+        this.meContent = meContent;
     }
 }
