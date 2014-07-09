@@ -1,6 +1,6 @@
 package org.fao.fenix.commons.msd.utils;
 
-import org.fao.fenix.commons.msd.dto.type.dsd.DSDDataType;
+//import org.fao.fenix.commons.msd.dto.type.dsd.DSDDataType;
 
 import java.util.*;
 
@@ -35,8 +35,8 @@ public class DataUtils {
             return null;
     }
 
-    public static Collection<Long> dateToNumber (Collection<?> values, DSDDataType dateType) throws Exception {
-        if(values!=null) {
+    public static Collection<Long> dateToNumber (Collection<?> values/*, DSDDataType dateType*/) throws Exception {
+/*        if(values!=null) {
             Collection<Long> dates = new LinkedList<Long>();
             long number;
             for (Object value : values)
@@ -46,10 +46,10 @@ public class DataUtils {
                     dates.add(number);
             return dates;
         }
-        return null;
+*/        return null;
     }
-    private static long dateToNumber(Object value, DSDDataType dateType) {
-        if (value!=null && (dateType==DSDDataType.year || dateType==DSDDataType.month || dateType==DSDDataType.date)) {
+    private static long dateToNumber(Object value/*, DSDDataType dateType*/) {
+/*        if (value!=null && (dateType==DSDDataType.year || dateType==DSDDataType.month || dateType==DSDDataType.date)) {
             if (value instanceof Date) {
                 Calendar c = Calendar.getInstance();
                 c.setTime((Date)value);
@@ -93,11 +93,11 @@ public class DataUtils {
                     }
             }
         }
-        return -1;
+*/        return -1;
     }
 
-    public static Collection<Long> getTimeSeries (Date from, Date to, DSDDataType dataType) throws Exception {
-        if (from!=null && to!=null) {
+    public static Collection<Long> getTimeSeries (Date from, Date to/*, DSDDataType dataType*/) throws Exception {
+/*        if (from!=null && to!=null) {
             Calendar cf = Calendar.getInstance();
             cf.setTime(roundDate(from));
             Calendar ct = Calendar.getInstance();
@@ -120,7 +120,7 @@ public class DataUtils {
             }
             return series;
         }
-        return null;
+*/        return null;
     }
 
 
