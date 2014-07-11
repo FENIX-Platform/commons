@@ -5,10 +5,9 @@ import org.fao.fenix.commons.msd.dto.JSONdto;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Map;
+import java.util.*;
 
-public class Code extends JSONdto implements Serializable {
+public class Code extends JSONdto implements Serializable, Comparable<Code> {
     
     @JsonProperty private MeIdentification codeList;
     @JsonProperty private String code;
@@ -20,6 +19,11 @@ public class Code extends JSONdto implements Serializable {
     @JsonProperty private Collection<Code> children;
     @JsonProperty private Collection<Code> relations;
 
+    public Code() { }
+    public Code(MeIdentification codeList, String code) {
+        this.codeList = codeList;
+        this.code = code;
+    }
 
     public MeIdentification getCodeList() {
         return codeList;
@@ -91,5 +95,66 @@ public class Code extends JSONdto implements Serializable {
 
     public void setLevel(Integer level) {
         this.level = level;
+    }
+
+    //Utils
+    public void addTitle(String language, String label) {
+        if (title == null)
+            title = new HashMap<>();
+        title.put(language, label);
+    }
+    public void addDescription(String language, String label) {
+        if (description == null)
+            description = new HashMap<>();
+        description.put(language, label);
+    }
+
+    public void addParent(Code code) {
+        if (parents == null)
+            parents = new HashSet<>();
+        parents.add(code);
+    }
+    public void addChild(Code code) {
+        if (children == null)
+            children = new HashSet<>();
+        children.add(code);
+        code.addParent(this);
+    }
+    public void addRelation(Code code) {
+        if (relations == null)
+            relations = new HashSet<>();
+        relations.add(code);
+    }
+
+    public void setFromDate (Integer date) {
+        if (validityPeriod==null)
+            validityPeriod = new Period();
+        validityPeriod.setFrom(date);
+    }
+    public void setToDate (Integer date) {
+        if (validityPeriod==null)
+            validityPeriod = new Period();
+        validityPeriod.setTo(date);
+    }
+
+    public boolean isChild() {
+        return parents!=null && parents.size()>0;
+    }
+
+
+    //Compare
+    @Override
+    public boolean equals(Object obj) {
+        return obj!=null && obj instanceof Code && ((Code)obj).code.equals(code);
+    }
+
+    @Override
+    public int compareTo(Code o) {
+        return code.compareTo(o.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
     }
 }
