@@ -1,12 +1,12 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.CodeListType;
 
 import java.io.Serializable;
 
-public class SeCodeList extends JSONdto implements Serializable {
+public class SeCodeList extends JSONEntity implements Serializable {
 
     @JsonProperty private Integer numberOfLevels;
     @JsonProperty private CodeListType typeOfCodeList;

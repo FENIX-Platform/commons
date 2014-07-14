@@ -1,12 +1,12 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 import java.util.Map;
 
-public class SeReferencePopulation extends JSONdto implements Serializable {
+public class SeReferencePopulation extends JSONEntity implements Serializable {
 
     @JsonProperty private Map<String, String> statisticalPopulation;
     @JsonProperty private Map<String, String> statisticalUnit;

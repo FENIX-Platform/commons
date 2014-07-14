@@ -1,11 +1,11 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 
-public class Period extends JSONdto implements Serializable {
+public class Period extends JSONEntity implements Serializable {
 
     @JsonProperty private Integer from;
     @JsonProperty private Integer to;

@@ -1,13 +1,13 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.*;
 
-public class Code extends JSONdto implements Serializable, Comparable<Code> {
+public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     
     @JsonProperty private MeIdentification codeList;
     @JsonProperty private String code;
@@ -118,7 +118,6 @@ public class Code extends JSONdto implements Serializable, Comparable<Code> {
         if (children == null)
             children = new HashSet<>();
         children.add(code);
-        code.addParent(this);
     }
     public void addRelation(Code code) {
         if (relations == null)

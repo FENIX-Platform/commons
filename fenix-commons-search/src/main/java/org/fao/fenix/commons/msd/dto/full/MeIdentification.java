@@ -1,7 +1,7 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Set;
 
-public class MeIdentification extends JSONdto implements Serializable {
+public class MeIdentification extends JSONEntity implements Serializable {
 
     @JsonProperty private String uid;
     @JsonProperty private Set<String> parentsIdentifier;

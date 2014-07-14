@@ -1,14 +1,14 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
 
-public class SeCoverage extends JSONdto implements Serializable {
+public class SeCoverage extends JSONEntity implements Serializable {
 
     @JsonProperty private Collection<OjCodeList> coverageSector;
     @JsonProperty private Map<String, String> coverageSectorDetails;

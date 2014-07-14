@@ -1,14 +1,14 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.ResponsiblePartyRole;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Map;
 
-public class OjResponsibleParty extends JSONdto implements Serializable {
+public class OjResponsibleParty extends JSONEntity implements Serializable {
 
     @JsonProperty private Map<String, String> organisation;
     @JsonProperty private Map<String, String> organisationUnit;

@@ -14,7 +14,7 @@ import javax.persistence.Version;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonAutoDetect({JsonMethod.NONE})
-public class JSONdto {
+public class JSONEntity {
     private ORID orid;
     @Version private Object oversion;
 

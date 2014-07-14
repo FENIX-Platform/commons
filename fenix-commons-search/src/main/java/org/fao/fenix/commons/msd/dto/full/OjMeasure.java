@@ -1,12 +1,12 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 import java.util.Map;
 
-public class OjMeasure extends JSONdto implements Serializable {
+public class OjMeasure extends JSONEntity implements Serializable {
     @JsonProperty private Map<String, String> extent;
     @JsonProperty private Boolean composed;
     @JsonProperty private Map<String, String> measurementSystem;

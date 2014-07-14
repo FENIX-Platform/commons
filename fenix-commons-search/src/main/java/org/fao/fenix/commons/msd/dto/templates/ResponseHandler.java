@@ -1,15 +1,14 @@
 package org.fao.fenix.commons.msd.dto.templates;
 
-import com.orientechnologies.orient.core.db.object.OLazyObjectMapInterface;
 import javassist.util.proxy.MethodHandler;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.*;
 
-public abstract class ResponseHandler extends JSONdto implements MethodHandler {
+public abstract class ResponseHandler extends JSONEntity implements MethodHandler {
 
     private static final Set<String> returnedDTOChecked = new HashSet<>();
     private static final Set<String> returnCollectionOfDTO = new HashSet<>();
@@ -38,11 +37,11 @@ public abstract class ResponseHandler extends JSONdto implements MethodHandler {
             Class returnClass = m.getReturnType();
             if (collection = Collection.class.isAssignableFrom(returnClass)) {
                 Class elementsClass = (Class) ((ParameterizedType) returnType).getActualTypeArguments()[0];
-                if (JSONdto.class.isAssignableFrom(elementsClass))
+                if (JSONEntity.class.isAssignableFrom(elementsClass))
                     returnedDTO.put(key, returnHandlerClass = (Class<? extends ResponseHandler>)elementsClass);
                 returnCollectionOfDTO.add(key);
             } else {
-                if (JSONdto.class.isAssignableFrom(returnClass))
+                if (JSONEntity.class.isAssignableFrom(returnClass))
                     returnedDTO.put(key, returnHandlerClass = (Class<? extends ResponseHandler>)returnClass);
             }
             returnedDTOChecked.add(key);

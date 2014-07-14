@@ -1,12 +1,12 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONdto;
+import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 import java.util.Map;
 
-public class OjCodeList extends JSONdto implements Serializable {
+public class OjCodeList extends JSONEntity implements Serializable {
     @JsonProperty private Code linkedSource;
     @JsonProperty private String codeList;
     @JsonProperty private String version;
