@@ -39,6 +39,7 @@ public class JSONUtils {
 	public static <T> T toObject(String json, Class<T> objClass) throws Exception { return mapper.readValue(json, objClass); }
 
 	public static JsonParser createParser(Reader reader) throws Exception { return jsonFactory.createJsonParser(reader); }
+	public static JsonParser createParser(String content) throws Exception { return jsonFactory.createJsonParser(content); }
     public static <T> Iterator<T> toObject(JsonParser parser, Class<T> objClass) throws Exception { return mapper.readValues(parser, objClass); }
     public static <T> Iterator<T> toObject(Reader reader, Class<T> objClass) throws Exception { return mapper.readValues(jsonFactory.createJsonParser(reader), objClass); }
 

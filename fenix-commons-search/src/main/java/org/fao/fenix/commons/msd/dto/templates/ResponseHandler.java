@@ -1,5 +1,6 @@
 package org.fao.fenix.commons.msd.dto.templates;
 
+import com.orientechnologies.orient.object.db.OObjectLazyMap;
 import javassist.util.proxy.MethodHandler;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
@@ -57,7 +58,7 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
                 for (int i=sources.length-1; i>=0; i--) {
                     Map sourceReturnValue = (Map)sourceMethod.invoke(sources[i]);
                     if (sourceReturnValue!=null)
-                        ((Map) sourceReturn).putAll(sourceReturnValue);
+                        ((Map) sourceReturn).putAll(sourceReturnValue instanceof OObjectLazyMap ? ((OObjectLazyMap)sourceReturnValue).getUnderlying() : sourceReturnValue);//TODO manage orient bug intead of thsi workaround
                 }
                 if (((Map) sourceReturn).size()==0)
                     sourceReturn = null;

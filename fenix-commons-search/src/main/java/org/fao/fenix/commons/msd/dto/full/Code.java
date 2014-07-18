@@ -14,7 +14,7 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     @JsonProperty private Integer level;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Map<String, String> description;
-    @JsonProperty @Embedded private Period validityPeriod;
+    @JsonProperty private Period validityPeriod;
     @JsonProperty private Collection<Code> parents;
     @JsonProperty private Collection<Code> children;
     @JsonProperty private Collection<Code> relations;
@@ -60,7 +60,7 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     public Period getValidityPeriod() {
         return validityPeriod;
     }
-
+    @Embedded
     public void setValidityPeriod(Period validityPeriod) {
         this.validityPeriod = validityPeriod;
     }

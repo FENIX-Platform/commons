@@ -16,7 +16,7 @@ import javax.persistence.Version;
 @JsonAutoDetect({JsonMethod.NONE})
 public class JSONEntity {
     private ORID orid;
-    @Version private Object oversion;
+    @Version private Object oVersion;
 
 
     @JsonProperty
@@ -26,7 +26,7 @@ public class JSONEntity {
 
     @JsonProperty
     public void setRID(String rid) {
-        orid = toRID(rid);
+        orid = rid!=null && rid.trim().length()>0 ? toRID(rid) : null;
     }
 
     public ORID getORID() {
@@ -35,7 +35,7 @@ public class JSONEntity {
 
 
     public static String toString (ORID rid) {
-        return rid.getClusterId()+"_"+rid.getClusterPosition();
+        return rid.getClusterId()>0 ? rid.getClusterId()+"_"+rid.getClusterPosition() : null;
     }
     public static ORID toRID(String rid) {
         if (rid!=null) {
