@@ -21,12 +21,14 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
 
     public ResponseHandler() {}
     public ResponseHandler(Object ... sources) {
-        this.sources = sources;
+        this.sources = sources; //Multiple sources to support inheritance
         sourceClass = sources!=null && sources.length>0 ? sources[0].getClass() : null;
     }
 
     @Override
     public Object invoke(Object self, Method m, Method processed, Object[] args) throws Throwable {
+
+
         //Retrieve informations from cache
         String key = this.getClass().getName()+'.'+m.getName();
         Class<? extends ResponseHandler> returnHandlerClass = returnedDTO.get(key);
@@ -49,7 +51,7 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
         }
 
         //Call original bean method stack
-        Object sourceReturn = null;
+        Object sourceReturn = processed.invoke(self); //Priority to the current bean
         try {
             Method sourceMethod = sourceClass.getMethod(m.getName());
 
@@ -58,7 +60,7 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
                 for (int i=sources.length-1; i>=0; i--) {
                     Map sourceReturnValue = (Map)sourceMethod.invoke(sources[i]);
                     if (sourceReturnValue!=null)
-                        ((Map) sourceReturn).putAll(sourceReturnValue instanceof OObjectLazyMap ? ((OObjectLazyMap)sourceReturnValue).getUnderlying() : sourceReturnValue);//TODO manage orient bug intead of thsi workaround
+                        ((Map) sourceReturn).putAll(sourceReturnValue instanceof OObjectLazyMap ? ((OObjectLazyMap)sourceReturnValue).getUnderlying() : sourceReturnValue);//TODO manage orient bug intead of this workaround
                 }
                 if (((Map) sourceReturn).size()==0)
                     sourceReturn = null;
@@ -74,13 +76,10 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
             } else
                 for (int i=0; i<sources.length && sourceReturn==null ; i++) //Manage single values
                     sourceReturn = sourceMethod.invoke(sources[i]);
-
-        } catch (NoSuchMethodException ex) {
-            sourceReturn = processed.invoke(self);
-        }
+        } catch (NoSuchMethodException ex) { }
 
         //Return response
-        if (returnHandlerClass!=null) //Override response if needed
+        if (returnHandlerClass!=null) //Override response if recursion is needed
             if (collection)
                 return ResponseBeanFactory.getInstances((Collection)sourceReturn, returnHandlerClass);
             else

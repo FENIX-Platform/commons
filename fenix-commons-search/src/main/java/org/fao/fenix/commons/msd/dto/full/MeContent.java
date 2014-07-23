@@ -4,6 +4,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.RepresentationType;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Map;
@@ -14,9 +15,9 @@ public class MeContent extends JSONEntity implements Serializable {
     @JsonProperty private Collection<String> keyWords;
     @JsonProperty private Map<String, String> description;
 
-    @JsonProperty private SeReferencePopulation seReferencePopulation;
-    @JsonProperty private SeCoverage seCoverage;
-    @JsonProperty private SeCodeList seCodeList;
+    @JsonProperty @Embedded private SeReferencePopulation seReferencePopulation;
+    @JsonProperty @Embedded private SeCoverage seCoverage;
+    @JsonProperty @Embedded private SeCodeList seCodeList;
 
 
     public RepresentationType getResourceRepresentationType() {

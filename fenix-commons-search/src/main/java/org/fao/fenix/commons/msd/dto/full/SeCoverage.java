@@ -10,10 +10,10 @@ import java.util.Map;
 
 public class SeCoverage extends JSONEntity implements Serializable {
 
-    @JsonProperty private Collection<OjCodeList> coverageSector;
+    @JsonProperty @Embedded private Collection<OjCodeList> coverageSector;
     @JsonProperty private Map<String, String> coverageSectorDetails;
     @JsonProperty @Embedded private Period coverageTime;
-    @JsonProperty private Collection<OjCodeList> coverageGeographic;
+    @JsonProperty @Embedded private Collection<OjCodeList> coverageGeographic;
 
 
     public Collection<OjCodeList> getCoverageSector() {

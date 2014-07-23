@@ -3,6 +3,7 @@ package org.fao.fenix.commons.msd.dto.full;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Map;
 
@@ -10,8 +11,8 @@ public class SeReferencePopulation extends JSONEntity implements Serializable {
 
     @JsonProperty private Map<String, String> statisticalPopulation;
     @JsonProperty private Map<String, String> statisticalUnit;
-    @JsonProperty private OjCodeList referencePeriod;
-    @JsonProperty private OjCodeList referenceArea;
+    @JsonProperty @Embedded private OjCodeList referencePeriod;
+    @JsonProperty @Embedded private OjCodeList referenceArea;
 
 
     public Map<String, String> getStatisticalPopulation() {

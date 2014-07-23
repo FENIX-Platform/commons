@@ -3,6 +3,7 @@ package org.fao.fenix.commons.msd.dto.full;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -12,19 +13,20 @@ import java.util.Set;
 public class MeIdentification extends JSONEntity implements Serializable {
 
     @JsonProperty private String uid;
+    @JsonProperty private String version;
     @JsonProperty private Set<String> parentsIdentifier;
-    @JsonProperty private Collection<OjCodeList> languages;
+    @JsonProperty @Embedded private Collection<OjCodeList> languages;
     @JsonProperty private Map<String, String> languageDetail;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Date creationDate;
-    @JsonProperty private OjCodeList characterSet;
+    @JsonProperty @Embedded private OjCodeList characterSet;
     @JsonProperty private Map<String, String> metadataStandardName;
     @JsonProperty private Map<String, String> metadataStandardVersion;
-    @JsonProperty private Collection<OjCodeList> metadataLanguage;
-    @JsonProperty private Collection<OjResponsibleParty> contacts;
+    @JsonProperty @Embedded private Collection<OjCodeList> metadataLanguage;
+    @JsonProperty @Embedded private Collection<OjResponsibleParty> contacts;
     @JsonProperty private String noDataValue;
 
-    @JsonProperty private MeContent meContent;
+    @JsonProperty @Embedded private MeContent meContent;
 
 
     public String getUid() {
@@ -33,6 +35,14 @@ public class MeIdentification extends JSONEntity implements Serializable {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
     }
 
     public Collection<OjCodeList> getLanguages() {
