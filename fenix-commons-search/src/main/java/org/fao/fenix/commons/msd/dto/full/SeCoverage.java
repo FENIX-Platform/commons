@@ -10,16 +10,16 @@ import java.util.Map;
 
 public class SeCoverage extends JSONEntity implements Serializable {
 
-    @JsonProperty @Embedded private Collection<OjCodeList> coverageSector;
+    @JsonProperty private Collection<OjCodeList> coverageSector;
     @JsonProperty private Map<String, String> coverageSectorDetails;
-    @JsonProperty @Embedded private Period coverageTime;
-    @JsonProperty @Embedded private Collection<OjCodeList> coverageGeographic;
+    @JsonProperty private Period coverageTime;
+    @JsonProperty private Collection<OjCodeList> coverageGeographic;
 
 
     public Collection<OjCodeList> getCoverageSector() {
         return coverageSector;
     }
-
+    @Embedded
     public void setCoverageSector(Collection<OjCodeList> coverageSector) {
         this.coverageSector = coverageSector;
     }
@@ -35,7 +35,7 @@ public class SeCoverage extends JSONEntity implements Serializable {
     public Period getCoverageTime() {
         return coverageTime;
     }
-
+    @Embedded
     public void setCoverageTime(Period coverageTime) {
         this.coverageTime = coverageTime;
     }
@@ -43,7 +43,7 @@ public class SeCoverage extends JSONEntity implements Serializable {
     public Collection<OjCodeList> getCoverageGeographic() {
         return coverageGeographic;
     }
-
+    @Embedded
     public void setCoverageGeographic(Collection<OjCodeList> coverageGeographic) {
         this.coverageGeographic = coverageGeographic;
     }

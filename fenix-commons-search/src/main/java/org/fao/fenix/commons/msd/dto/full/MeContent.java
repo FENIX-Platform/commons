@@ -15,9 +15,9 @@ public class MeContent extends JSONEntity implements Serializable {
     @JsonProperty private Collection<String> keyWords;
     @JsonProperty private Map<String, String> description;
 
-    @JsonProperty @Embedded private SeReferencePopulation seReferencePopulation;
-    @JsonProperty @Embedded private SeCoverage seCoverage;
-    @JsonProperty @Embedded private SeCodeList seCodeList;
+    @JsonProperty private SeReferencePopulation seReferencePopulation;
+    @JsonProperty private SeCoverage seCoverage;
+    @JsonProperty private SeCodeList seCodeList;
 
 
     public RepresentationType getResourceRepresentationType() {
@@ -47,7 +47,7 @@ public class MeContent extends JSONEntity implements Serializable {
     public SeReferencePopulation getSeReferencePopulation() {
         return seReferencePopulation;
     }
-
+    @Embedded
     public void setSeReferencePopulation(SeReferencePopulation seReferencePopulation) {
         this.seReferencePopulation = seReferencePopulation;
     }
@@ -55,7 +55,7 @@ public class MeContent extends JSONEntity implements Serializable {
     public SeCoverage getSeCoverage() {
         return seCoverage;
     }
-
+    @Embedded
     public void setSeCoverage(SeCoverage seCoverage) {
         this.seCoverage = seCoverage;
     }
@@ -63,7 +63,7 @@ public class MeContent extends JSONEntity implements Serializable {
     public SeCodeList getSeCodeList() {
         return seCodeList;
     }
-
+    @Embedded
     public void setSeCodeList(SeCodeList seCodeList) {
         this.seCodeList = seCodeList;
     }

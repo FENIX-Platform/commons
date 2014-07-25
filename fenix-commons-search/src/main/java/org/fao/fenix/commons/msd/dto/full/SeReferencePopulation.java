@@ -11,8 +11,8 @@ public class SeReferencePopulation extends JSONEntity implements Serializable {
 
     @JsonProperty private Map<String, String> statisticalPopulation;
     @JsonProperty private Map<String, String> statisticalUnit;
-    @JsonProperty @Embedded private OjCodeList referencePeriod;
-    @JsonProperty @Embedded private OjCodeList referenceArea;
+    @JsonProperty private OjCodeList referencePeriod;
+    @JsonProperty private OjCodeList referenceArea;
 
 
     public Map<String, String> getStatisticalPopulation() {
@@ -34,7 +34,7 @@ public class SeReferencePopulation extends JSONEntity implements Serializable {
     public OjCodeList getReferencePeriod() {
         return referencePeriod;
     }
-
+    @Embedded
     public void setReferencePeriod(OjCodeList referencePeriod) {
         this.referencePeriod = referencePeriod;
     }
@@ -42,7 +42,7 @@ public class SeReferencePopulation extends JSONEntity implements Serializable {
     public OjCodeList getReferenceArea() {
         return referenceArea;
     }
-
+    @Embedded
     public void setReferenceArea(OjCodeList referenceArea) {
         this.referenceArea = referenceArea;
     }

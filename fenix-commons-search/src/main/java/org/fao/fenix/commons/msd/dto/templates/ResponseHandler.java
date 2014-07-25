@@ -51,7 +51,7 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
         }
 
         //Call original bean method stack
-        Object sourceReturn = processed.invoke(self); //Priority to the current bean
+        Object sourceReturn = !"getRID".equals(m.getName()) ? processed.invoke(self) : null; //Priority to the current bean
         try {
             Method sourceMethod = sourceClass.getMethod(m.getName());
 

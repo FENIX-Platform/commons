@@ -1,8 +1,10 @@
 package org.fao.fenix.commons.msd.dto.templates.codeList;
 
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.fao.fenix.commons.msd.dto.full.*;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
+import java.util.Collection;
 import java.util.Map;
 
 public class OjCodeList extends ResponseHandler {
@@ -13,16 +15,18 @@ public class OjCodeList extends ResponseHandler {
     }
 
 
+
     @JsonProperty
     public String getCodeList() {
-        return null;
+        Collection<org.fao.fenix.commons.msd.dto.full.Code> linkedCodes = getLinkedCodes();
+        return linkedCodes!=null && linkedCodes.size()>0 ? linkedCodes.iterator().next().getCodeList().getUid() : null;
     }
     @JsonProperty
     public String getVersion() {
         return null;
     }
     @JsonProperty
-    public String getCode() {
+    public Collection<OjCode> getCodes() {
         return null;
     }
     @JsonProperty
@@ -37,4 +41,9 @@ public class OjCodeList extends ResponseHandler {
     public String getLink() {
         return null;
     }
+
+    public Collection<org.fao.fenix.commons.msd.dto.full.Code> getLinkedCodes() {
+        return null;
+    }
+
 }

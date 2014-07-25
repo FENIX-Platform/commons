@@ -3,26 +3,20 @@ package org.fao.fenix.commons.msd.dto.full;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Map;
 
 public class OjCodeList extends JSONEntity implements Serializable {
-    @JsonProperty private Code linkedSource;
+    @JsonProperty private Collection<Code> linkedCodes;
     @JsonProperty private String codeList;
     @JsonProperty private String version;
-    @JsonProperty private String code;
+    @JsonProperty private Collection<OjCode> codes;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private OjResponsibleParty contactInfo;
     @JsonProperty private String link;
 
-
-    public Code getLinkedSource() {
-        return linkedSource;
-    }
-
-    public void setLinkedSource(Code linkedSource) {
-        this.linkedSource = linkedSource;
-    }
 
     public String getCodeList() {
         return codeList;
@@ -40,12 +34,12 @@ public class OjCodeList extends JSONEntity implements Serializable {
         this.version = version;
     }
 
-    public String getCode() {
-        return code;
+    public Collection<OjCode> getCodes() {
+        return codes;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setCodes(Collection<OjCode> codes) {
+        this.codes = codes;
     }
 
     public Map<String, String> getTitle() {
@@ -59,7 +53,7 @@ public class OjCodeList extends JSONEntity implements Serializable {
     public OjResponsibleParty getContactInfo() {
         return contactInfo;
     }
-
+    @Embedded
     public void setContactInfo(OjResponsibleParty contactInfo) {
         this.contactInfo = contactInfo;
     }
@@ -70,5 +64,13 @@ public class OjCodeList extends JSONEntity implements Serializable {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public Collection<Code> getLinkedCodes() {
+        return linkedCodes;
+    }
+
+    public void setLinkedCodes(Collection<Code> linkedCodes) {
+        this.linkedCodes = linkedCodes;
     }
 }

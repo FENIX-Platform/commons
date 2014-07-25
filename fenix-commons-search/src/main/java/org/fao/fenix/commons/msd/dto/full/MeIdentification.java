@@ -15,18 +15,18 @@ public class MeIdentification extends JSONEntity implements Serializable {
     @JsonProperty private String uid;
     @JsonProperty private String version;
     @JsonProperty private Set<String> parentsIdentifier;
-    @JsonProperty @Embedded private Collection<OjCodeList> languages;
+    @JsonProperty private Collection<OjCodeList> languages;
     @JsonProperty private Map<String, String> languageDetail;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Date creationDate;
-    @JsonProperty @Embedded private OjCodeList characterSet;
+    @JsonProperty private OjCodeList characterSet;
     @JsonProperty private Map<String, String> metadataStandardName;
     @JsonProperty private Map<String, String> metadataStandardVersion;
-    @JsonProperty @Embedded private Collection<OjCodeList> metadataLanguage;
-    @JsonProperty @Embedded private Collection<OjResponsibleParty> contacts;
+    @JsonProperty private Collection<OjCodeList> metadataLanguage;
+    @JsonProperty private Collection<OjResponsibleParty> contacts;
     @JsonProperty private String noDataValue;
 
-    @JsonProperty @Embedded private MeContent meContent;
+    @JsonProperty private MeContent meContent;
 
 
     public String getUid() {
@@ -48,7 +48,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     public Collection<OjCodeList> getLanguages() {
         return languages;
     }
-
+    @Embedded
     public void setLanguages(Collection<OjCodeList> languages) {
         this.languages = languages;
     }
@@ -80,7 +80,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     public OjCodeList getCharacterSet() {
         return characterSet;
     }
-
+    @Embedded
     public void setCharacterSet(OjCodeList characterSet) {
         this.characterSet = characterSet;
     }
@@ -112,7 +112,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     public Collection<OjCodeList> getMetadataLanguage() {
         return metadataLanguage;
     }
-
+    @Embedded
     public void setMetadataLanguage(Collection<OjCodeList> metadataLanguage) {
         this.metadataLanguage = metadataLanguage;
     }
@@ -120,7 +120,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     public Collection<OjResponsibleParty> getContacts() {
         return contacts;
     }
-
+    @Embedded
     public void setContacts(Collection<OjResponsibleParty> contacts) {
         this.contacts = contacts;
     }
@@ -136,7 +136,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     public MeContent getMeContent() {
         return meContent;
     }
-
+    @Embedded
     public void setMeContent(MeContent meContent) {
         this.meContent = meContent;
     }
