@@ -21,6 +21,10 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public String getVersion() {
+        return null;
+    }
+    @JsonProperty
     public Map<String, String> getTitle() {
         return null;
     }

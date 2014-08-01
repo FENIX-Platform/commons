@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Map;
 
 public class OjCodeList extends JSONEntity implements Serializable {
-    @JsonProperty private Collection<Code> linkedCodes;
+    private MeIdentification linkedCodeList;
     @JsonProperty private String codeList;
     @JsonProperty private String version;
     @JsonProperty private Collection<OjCode> codes;
@@ -37,7 +37,7 @@ public class OjCodeList extends JSONEntity implements Serializable {
     public Collection<OjCode> getCodes() {
         return codes;
     }
-
+    @Embedded
     public void setCodes(Collection<OjCode> codes) {
         this.codes = codes;
     }
@@ -66,11 +66,11 @@ public class OjCodeList extends JSONEntity implements Serializable {
         this.link = link;
     }
 
-    public Collection<Code> getLinkedCodes() {
-        return linkedCodes;
+    public MeIdentification getLinkedCodeList() {
+        return linkedCodeList;
     }
 
-    public void setLinkedCodes(Collection<Code> linkedCodes) {
-        this.linkedCodes = linkedCodes;
+    public void setLinkedCodeList(MeIdentification linkedCodeList) {
+        this.linkedCodeList = linkedCodeList;
     }
 }

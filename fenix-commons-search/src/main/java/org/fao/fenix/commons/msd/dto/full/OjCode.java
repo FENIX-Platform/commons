@@ -9,8 +9,10 @@ import java.util.Collection;
 import java.util.Map;
 
 public class OjCode extends JSONEntity implements Serializable {
+    private Code linkedCode;
     @JsonProperty private String code;
     @JsonProperty private Map<String, String> title;
+
 
 
     public String getCode() {
@@ -27,5 +29,13 @@ public class OjCode extends JSONEntity implements Serializable {
 
     public void setTitle(Map<String, String> title) {
         this.title = title;
+    }
+
+    public Code getLinkedCode() {
+        return linkedCode;
+    }
+
+    public void setLinkedCode(Code linkedCode) {
+        this.linkedCode = linkedCode;
     }
 }

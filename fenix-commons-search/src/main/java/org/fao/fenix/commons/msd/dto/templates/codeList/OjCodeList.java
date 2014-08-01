@@ -1,7 +1,6 @@
 package org.fao.fenix.commons.msd.dto.templates.codeList;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.full.*;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
 import java.util.Collection;
@@ -15,15 +14,20 @@ public class OjCodeList extends ResponseHandler {
     }
 
 
+    public MeIdentification getLinkedCodeList() {
+        return null;
+    }
+
 
     @JsonProperty
     public String getCodeList() {
-        Collection<org.fao.fenix.commons.msd.dto.full.Code> linkedCodes = getLinkedCodes();
-        return linkedCodes!=null && linkedCodes.size()>0 ? linkedCodes.iterator().next().getCodeList().getUid() : null;
+        MeIdentification linked = getLinkedCodeList();
+        return linked!=null ? linked.getUid() : null;
     }
     @JsonProperty
     public String getVersion() {
-        return null;
+        MeIdentification linked = getLinkedCodeList();
+        return linked!=null ? linked.getVersion() : null;
     }
     @JsonProperty
     public Collection<OjCode> getCodes() {
@@ -31,7 +35,8 @@ public class OjCodeList extends ResponseHandler {
     }
     @JsonProperty
     public Map<String, String> getTitle() {
-        return null;
+        MeIdentification linked = getLinkedCodeList();
+        return linked!=null ? linked.getTitle() : null;
     }
     @JsonProperty
     public OjResponsibleParty getContactInfo() {
@@ -39,10 +44,6 @@ public class OjCodeList extends ResponseHandler {
     }
     @JsonProperty
     public String getLink() {
-        return null;
-    }
-
-    public Collection<org.fao.fenix.commons.msd.dto.full.Code> getLinkedCodes() {
         return null;
     }
 
