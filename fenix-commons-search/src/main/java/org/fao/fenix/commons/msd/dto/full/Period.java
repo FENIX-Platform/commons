@@ -7,22 +7,22 @@ import java.io.Serializable;
 
 public class Period extends JSONEntity implements Serializable {
 
-    @JsonProperty private Integer from;
-    @JsonProperty private Integer to;
+    @JsonProperty private Long from;
+    @JsonProperty private Long to;
 
-    public Integer getFrom() {
+    public Long getFrom() {
         return from;
     }
 
-    public void setFrom(Integer from) {
+    public void setFrom(Long from) {
         this.from = from;
     }
 
-    public Integer getTo() {
+    public Long getTo() {
         return to;
     }
 
-    public void setTo(Integer to) {
+    public void setTo(Long to) {
         this.to = to;
     }
 }

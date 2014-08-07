@@ -53,10 +53,4 @@ public class ResourceProxy <M extends ResponseHandler, D> {
         return data;
     }
 
-    //Utils
-    @JsonProperty
-    public Integer getSize() {
-        return data!=null ? data.size() : 0;
-    }
-
 }

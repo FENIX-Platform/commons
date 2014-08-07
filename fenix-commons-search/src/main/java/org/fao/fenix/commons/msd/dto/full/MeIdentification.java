@@ -12,6 +12,8 @@ import java.util.Set;
 
 public class MeIdentification extends JSONEntity implements Serializable {
 
+    @JsonProperty private DSD dsd;
+
     @JsonProperty private String uid;
     @JsonProperty private String version;
     @JsonProperty private Set<String> parentsIdentifier;
@@ -28,6 +30,14 @@ public class MeIdentification extends JSONEntity implements Serializable {
 
     @JsonProperty private MeContent meContent;
 
+
+    public DSD getDsd() {
+        return dsd;
+    }
+
+    public void setDsd(DSD dsd) {
+        this.dsd = dsd;
+    }
 
     public String getUid() {
         return uid;
