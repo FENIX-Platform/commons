@@ -125,12 +125,12 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         relations.add(code);
     }
 
-    public void setFromDate (Integer date) {
+    public void setFromDate (Long date) {
         if (validityPeriod==null)
             validityPeriod = new Period();
         validityPeriod.setFrom(date);
     }
-    public void setToDate (Integer date) {
+    public void setToDate (Long date) {
         if (validityPeriod==null)
             validityPeriod = new Period();
         validityPeriod.setTo(date);

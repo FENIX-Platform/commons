@@ -9,13 +9,4 @@
   <artifactId>fenix-commons-utils</artifactId>
   <name>FENIX cross platform utilities</name>
 
-    <!-- UUID Generator -->
-    <dependencies>
-        <dependency>
-            <groupId>com.eaio.uuid</groupId>
-            <artifactId>uuid</artifactId>
-            <version>3.4</version>
-        </dependency>
-    </dependencies>
-
 </project>
