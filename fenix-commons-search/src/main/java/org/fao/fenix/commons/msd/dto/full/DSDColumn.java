@@ -14,7 +14,7 @@ public class DSDColumn extends JSONEntity implements Serializable {
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Map<String, String> supplemental;
 
-    @JsonProperty private DSDColumnSubject subject;
+    @JsonProperty private String subject;
     @JsonProperty private DataType dataType;
 
     @JsonProperty private Object[] values;
@@ -50,11 +50,11 @@ public class DSDColumn extends JSONEntity implements Serializable {
         this.supplemental = supplemental;
     }
 
-    public DSDColumnSubject getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    public void setSubject(DSDColumnSubject subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
     }
 
