@@ -1,27 +1,29 @@
 package org.fao.fenix.commons.msd.dto.full;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.DataType;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Map;
 
 public class DSDColumn extends JSONEntity implements Serializable {
 
-    private String id;
-    private Map<String, String> title;
-    private Map<String, String> supplemental;
+    @JsonProperty private String id;
+    @JsonProperty private Map<String, String> title;
+    @JsonProperty private Map<String, String> supplemental;
 
-    private DSDColumnSubject subject;
-    private DataType dataType;
+    @JsonProperty private DSDColumnSubject subject;
+    @JsonProperty private DataType dataType;
 
-    private Object[] values;
-    private DSDDomain domain;
-    private String columnLink;
+    @JsonProperty private Object[] values;
+    @JsonProperty private DSDDomain domain;
+    @JsonProperty private String columnLink;
 
-    private Boolean key;
-    private Boolean transposed;
-    private Boolean virtual;
+    @JsonProperty private Boolean key;
+    @JsonProperty private Boolean transposed;
+    @JsonProperty private Boolean virtual;
 
 
     public String getId() {
@@ -75,7 +77,7 @@ public class DSDColumn extends JSONEntity implements Serializable {
     public DSDDomain getDomain() {
         return domain;
     }
-
+    @Embedded
     public void setDomain(DSDDomain domain) {
         this.domain = domain;
     }

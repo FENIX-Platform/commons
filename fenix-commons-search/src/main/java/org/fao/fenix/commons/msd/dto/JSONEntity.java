@@ -38,11 +38,12 @@ public class JSONEntity {
         return rid.getClusterId()>0 ? rid.getClusterId()+"_"+rid.getClusterPosition() : null;
     }
     public static ORID toRID(String rid) {
-        if (rid!=null) {
+        try {
             int splitIndex = rid.indexOf('_');
-            rid = splitIndex>0 ? '#'+rid.substring(0, splitIndex)+':'+rid.substring(splitIndex+1) : rid;
+            return new ORecordId("#"+Integer.parseInt(rid.substring(0, splitIndex))+':'+Integer.parseInt(rid.substring(splitIndex+1)));
+        } catch (Exception ex) {
+            return null;
         }
-        return new ORecordId(rid);
     }
 
 

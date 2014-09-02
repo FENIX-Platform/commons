@@ -1,5 +1,6 @@
 package org.fao.fenix.commons.msd.dto.full;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -7,17 +8,18 @@ import java.util.Map;
 
 public class DSDColumnSubject extends JSONEntity implements Serializable {
 
-    private String uid;
-    private String link;
-    private Map<String, String> title;
+    @JsonProperty private String name;
+    @JsonProperty private String link;
+    @JsonProperty private Map<String, String> title;
 
 
-    public String getUid() {
-        return uid;
+
+    public String getName() {
+        return name;
     }
 
-    public void setUid(String uid) {
-        this.uid = uid;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLink() {

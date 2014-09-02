@@ -1,15 +1,14 @@
 package org.fao.fenix.commons.msd.dto.full;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 
 public class DSD extends JSONEntity implements Serializable {
 
-    private String contextSystem;
-    private String datasource;
-    private DSDAggregationRule[] aggregationRules;
-    private DSDColumn[] columns;
+    @JsonProperty private String contextSystem;
+    @JsonProperty private String datasource;
 
 
     public String getContextSystem() {
@@ -26,21 +25,5 @@ public class DSD extends JSONEntity implements Serializable {
 
     public void setDatasource(String datasource) {
         this.datasource = datasource;
-    }
-
-    public DSDAggregationRule[] getAggregationRules() {
-        return aggregationRules;
-    }
-
-    public void setAggregationRules(DSDAggregationRule[] aggregationRules) {
-        this.aggregationRules = aggregationRules;
-    }
-
-    public DSDColumn[] getColumns() {
-        return columns;
-    }
-
-    public void setColumns(DSDColumn[] columns) {
-        this.columns = columns;
     }
 }

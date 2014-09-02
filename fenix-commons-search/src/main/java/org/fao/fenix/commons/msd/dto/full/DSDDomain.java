@@ -1,46 +1,39 @@
 package org.fao.fenix.commons.msd.dto.full;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
 
 public class DSDDomain extends JSONEntity implements Serializable {
 
-    private Collection<OjCodeList> codes;
-    private Collection<OjCode> customCodes;
-    private String enumeration;
-    private Period period;
+    @JsonProperty private Collection<OjCodeList> codes;
+    @JsonProperty private Collection<String> enumeration;
+    @JsonProperty private Period period;
 
 
     public Collection<OjCodeList> getCodes() {
         return codes;
     }
-
+    @Embedded
     public void setCodes(Collection<OjCodeList> codes) {
         this.codes = codes;
     }
 
-    public Collection<OjCode> getCustomCodes() {
-        return customCodes;
-    }
-
-    public void setCustomCodes(Collection<OjCode> customCodes) {
-        this.customCodes = customCodes;
-    }
-
-    public String getEnumeration() {
+    public Collection<String> getEnumeration() {
         return enumeration;
     }
 
-    public void setEnumeration(String enumeration) {
+    public void setEnumeration(Collection<String> enumeration) {
         this.enumeration = enumeration;
     }
 
     public Period getPeriod() {
         return period;
     }
-
+    @Embedded
     public void setPeriod(Period period) {
         this.period = period;
     }
