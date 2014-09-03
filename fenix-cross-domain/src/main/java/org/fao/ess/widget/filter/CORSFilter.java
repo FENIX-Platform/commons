@@ -35,7 +35,14 @@ public class CORSFilter implements Filter {
         if (methods!=null)
             ((HttpServletResponse) response).addHeader("Access-Control-Allow-Methods", methods);
 
-        chain.doFilter(request, response);
+        if ("OPTIONS".equalsIgnoreCase(((HttpServletRequest) request).getMethod())) {
+            ((HttpServletResponse) response).setStatus(HttpServletResponse.SC_OK);
+            String allow = (methods!=null ? methods+", " : "") + "OPTIONS";
+            ((HttpServletResponse) response).addHeader("Allow", allow);
+            ((HttpServletResponse) response).addHeader("Content-Type", "text/plain");
+            response.getWriter().print(allow);
+        } else
+            chain.doFilter(request, response);
 
         //Echo requested permissions without checks
         if (origin!=null && ((HttpServletResponse) response).getHeader("Access-Control-Allow-Origin")==null)
