@@ -3,7 +3,7 @@ package org.fao.fenix.commons.msd.dto.dsd.type;
 import java.io.Serializable;
 
 public enum DSDDao implements Serializable{
-	cstat("CountrySTAT"), faostat("FAOSTAT");
+	cstat("CountrySTAT"), faostat("FAOSTAT"), crowd("CrowdDataDemo");
 	
 	private String dbCode;
 	private DSDDao(String code) { this.dbCode = code; }
