@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class MeIdentification extends JSONEntity implements Serializable {
 
-    @JsonProperty private DSD dsd;
+    @JsonProperty private DSDDataset dsd;
 
     @JsonProperty private String uid;
     @JsonProperty private String version;
@@ -31,11 +31,11 @@ public class MeIdentification extends JSONEntity implements Serializable {
     @JsonProperty private MeContent meContent;
 
 
-    public DSD getDsd() {
+    public DSDDataset getDsd() {
         return dsd;
     }
 
-    public void setDsd(DSD dsd) {
+    public void setDsd(DSDDataset dsd) {
         this.dsd = dsd;
     }
 

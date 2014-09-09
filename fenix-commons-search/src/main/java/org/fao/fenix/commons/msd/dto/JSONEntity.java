@@ -32,10 +32,13 @@ public class JSONEntity {
     public ORID getORID() {
         return orid==null && this instanceof Proxy ? ((OObjectProxyMethodHandler) ProxyFactory.getHandler((Proxy) this)).getDoc().getIdentity() : orid;
     }
+    public void setORID(ORID orid) {
+        this.orid = orid;
+    }
 
 
     public static String toString (ORID rid) {
-        return rid.getClusterId()>0 ? rid.getClusterId()+"_"+rid.getClusterPosition() : null;
+        return rid!=null && rid.getClusterId()>0 ? rid.getClusterId()+"_"+rid.getClusterPosition() : null;
     }
     public static ORID toRID(String rid) {
         try {

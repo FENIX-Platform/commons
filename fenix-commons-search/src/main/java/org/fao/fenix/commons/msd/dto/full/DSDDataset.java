@@ -3,26 +3,27 @@ package org.fao.fenix.commons.msd.dto.full;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.persistence.Embedded;
+import java.util.Collection;
 
 public class DSDDataset extends DSD {
 
-    @JsonProperty private DSDAggregationRule[] aggregationRules;
-    @JsonProperty private DSDColumn[] columns;
+    @JsonProperty private Collection<DSDAggregationRule> aggregationRules;
+    @JsonProperty private Collection<DSDColumn> columns;
 
 
-    public DSDAggregationRule[] getAggregationRules() {
+    public Collection<DSDAggregationRule> getAggregationRules() {
         return aggregationRules;
     }
-
-    public void setAggregationRules(DSDAggregationRule[] aggregationRules) {
+    @Embedded
+    public void setAggregationRules(Collection<DSDAggregationRule> aggregationRules) {
         this.aggregationRules = aggregationRules;
     }
 
-    public DSDColumn[] getColumns() {
+    public Collection<DSDColumn> getColumns() {
         return columns;
     }
     @Embedded
-    public void setColumns(DSDColumn[] columns) {
+    public void setColumns(Collection<DSDColumn> columns) {
         this.columns = columns;
     }
 
