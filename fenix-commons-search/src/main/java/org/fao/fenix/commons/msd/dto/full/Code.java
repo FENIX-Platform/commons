@@ -70,7 +70,7 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     }
 
     public void setParents(Collection<Code> parents) {
-        this.parents = parents;
+        this.parents = parents!=null ? new LinkedHashSet<>(parents) : null;
     }
 
     public Collection<Code> getChildren() {
@@ -78,7 +78,7 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     }
 
     public void setChildren(Collection<Code> children) {
-        this.children = children;
+        this.children = children!=null ? new LinkedHashSet<>(children) : null;
     }
 
     public Collection<Code> getRelations() {
@@ -86,7 +86,7 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     }
 
     public void setRelations(Collection<Code> relations) {
-        this.relations = relations;
+        this.relations = relations!=null ? new LinkedHashSet<>(relations) : null;
     }
 
     public Integer getLevel() {
@@ -111,17 +111,23 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
 
     public void addParent(Code code) {
         if (parents == null)
-            parents = new HashSet<>();
+            parents = new LinkedHashSet<>();
         parents.add(code);
     }
     public void addChild(Code code) {
         if (children == null)
-            children = new HashSet<>();
+            children = new LinkedHashSet<>();
         children.add(code);
+    }
+    public void addChildren(Collection<Code> codes) {
+        if (children == null)
+            children = new LinkedHashSet<>();
+        if (codes!=null)
+            children.addAll(codes);
     }
     public void addRelation(Code code) {
         if (relations == null)
-            relations = new HashSet<>();
+            relations = new LinkedHashSet<>();
         relations.add(code);
     }
 

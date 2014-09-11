@@ -11,11 +11,11 @@ public class Period extends ResponseHandler {
     }
 
     @JsonProperty
-    public Integer getFrom() {
+    public Long getFrom() {
         return null;
     }
     @JsonProperty
-    public Integer getTo() {
+    public Long getTo() {
         return null;
     }
 }
