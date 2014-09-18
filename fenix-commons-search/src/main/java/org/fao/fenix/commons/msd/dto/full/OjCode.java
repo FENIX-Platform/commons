@@ -11,7 +11,7 @@ import java.util.Map;
 public class OjCode extends JSONEntity implements Serializable {
     private Code linkedCode;
     @JsonProperty private String code;
-    @JsonProperty private Map<String, String> title;
+    @JsonProperty private Map<String, String> label;
 
 
 
@@ -23,12 +23,12 @@ public class OjCode extends JSONEntity implements Serializable {
         this.code = code;
     }
 
-    public Map<String, String> getTitle() {
-        return title;
+    public Map<String, String> getLabel() {
+        return label;
     }
 
-    public void setTitle(Map<String, String> title) {
-        this.title = title;
+    public void setLabel(Map<String, String> label) {
+        this.label = label;
     }
 
     public Code getLinkedCode() {

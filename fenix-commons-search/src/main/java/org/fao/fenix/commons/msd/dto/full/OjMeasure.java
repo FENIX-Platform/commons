@@ -8,9 +8,9 @@ import java.util.Map;
 
 public class OjMeasure extends JSONEntity implements Serializable {
     @JsonProperty private Map<String, String> extent;
-    @JsonProperty private Boolean composed;
+    @JsonProperty private Boolean composedMU;
     @JsonProperty private Map<String, String> measurementSystem;
-    @JsonProperty private String name;
+    @JsonProperty private String nameMU;
     @JsonProperty private Double conversionToStandard;
 
 
@@ -22,12 +22,12 @@ public class OjMeasure extends JSONEntity implements Serializable {
         this.extent = extent;
     }
 
-    public Boolean getComposed() {
-        return composed;
+    public Boolean getComposedMU() {
+        return composedMU;
     }
 
-    public void setComposed(Boolean composed) {
-        this.composed = composed;
+    public void setComposedMU(Boolean composedMU) {
+        this.composedMU = composedMU;
     }
 
     public Map<String, String> getMeasurementSystem() {
@@ -38,12 +38,12 @@ public class OjMeasure extends JSONEntity implements Serializable {
         this.measurementSystem = measurementSystem;
     }
 
-    public String getName() {
-        return name;
+    public String getNameMU() {
+        return nameMU;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameMU(String nameMU) {
+        this.nameMU = nameMU;
     }
 
     public Double getConversionToStandard() {

@@ -10,30 +10,15 @@ import java.util.Map;
 
 public class OjResponsibleParty extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> organisation;
-    @JsonProperty private Map<String, String> organisationUnit;
     @JsonProperty private String name;
+    @JsonProperty private Map<String, String> organization;
+    @JsonProperty private Map<String, String> organizationUnit;
     @JsonProperty private Map<String, String> position;
     @JsonProperty private ResponsiblePartyRole role;
     @JsonProperty private Map<String, String> specify;
     @JsonProperty @Embedded private OjContact contactInfo;
 
 
-    public Map<String, String> getOrganisation() {
-        return organisation;
-    }
-
-    public void setOrganisation(Map<String, String> organisation) {
-        this.organisation = organisation;
-    }
-
-    public Map<String, String> getOrganisationUnit() {
-        return organisationUnit;
-    }
-
-    public void setOrganisationUnit(Map<String, String> organisationUnit) {
-        this.organisationUnit = organisationUnit;
-    }
 
     public String getName() {
         return name;
@@ -73,5 +58,21 @@ public class OjResponsibleParty extends JSONEntity implements Serializable {
 
     public void setContactInfo(OjContact contactInfo) {
         this.contactInfo = contactInfo;
+    }
+
+    public Map<String, String> getOrganization() {
+        return organization;
+    }
+
+    public void setOrganization(Map<String, String> organization) {
+        this.organization = organization;
+    }
+
+    public Map<String, String> getOrganizationUnit() {
+        return organizationUnit;
+    }
+
+    public void setOrganizationUnit(Map<String, String> organizationUnit) {
+        this.organizationUnit = organizationUnit;
     }
 }

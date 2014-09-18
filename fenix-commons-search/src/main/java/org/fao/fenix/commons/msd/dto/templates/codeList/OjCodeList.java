@@ -20,7 +20,7 @@ public class OjCodeList extends ResponseHandler {
 
 
     @JsonProperty
-    public String getCodeList() {
+    public String getIDcodeList() {
         MeIdentification linked = getLinkedCodeList();
         return linked!=null ? linked.getUid() : null;
     }
@@ -34,7 +34,7 @@ public class OjCodeList extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public Map<String, String> getTitle() {
+    public Map<String, String> getExtendedName() {
         MeIdentification linked = getLinkedCodeList();
         return linked!=null ? linked.getTitle() : null;
     }

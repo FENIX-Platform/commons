@@ -15,11 +15,11 @@ public class OjResponsibleParty extends ResponseHandler {
 
 
     @JsonProperty
-    public Map<String, String> getOrganisation() {
+    public Map<String, String> getOrganization() {
         return null;
     }
     @JsonProperty
-    public Map<String, String> getOrganisationUnit() {
+    public Map<String, String> getOrganizationUnit() {
         return null;
     }
     @JsonProperty

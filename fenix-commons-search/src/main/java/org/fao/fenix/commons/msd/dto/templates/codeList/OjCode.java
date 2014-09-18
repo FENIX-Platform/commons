@@ -25,7 +25,7 @@ public class OjCode extends ResponseHandler {
     }
 
     @JsonProperty
-    public Map<String, String> getTitle() {
+    public Map<String, String> getLabel() {
         Code linked = getLinkedCode();
         return linked!=null ? linked.getTitle() : null;
     }

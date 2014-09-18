@@ -10,20 +10,22 @@ import java.util.Map;
 
 public class OjCodeList extends JSONEntity implements Serializable {
     private MeIdentification linkedCodeList;
-    @JsonProperty private String codeList;
-    @JsonProperty private String version;
+
     @JsonProperty private Collection<OjCode> codes;
-    @JsonProperty private Map<String, String> title;
+    @JsonProperty private String IDcodeList;
+    @JsonProperty private String version;
+    @JsonProperty private Map<String, String> extendedName;
     @JsonProperty private OjResponsibleParty contactInfo;
+    @JsonProperty private Collection<OjCitation> codeListResources;
     @JsonProperty private String link;
 
 
-    public String getCodeList() {
-        return codeList;
+    public String getIDcodeList() {
+        return IDcodeList;
     }
 
-    public void setCodeList(String codeList) {
-        this.codeList = codeList;
+    public void setIDcodeList(String IDcodeList) {
+        this.IDcodeList = IDcodeList;
     }
 
     public String getVersion() {
@@ -42,12 +44,12 @@ public class OjCodeList extends JSONEntity implements Serializable {
         this.codes = codes;
     }
 
-    public Map<String, String> getTitle() {
-        return title;
+    public Map<String, String> getExtendedName() {
+        return extendedName;
     }
 
-    public void setTitle(Map<String, String> title) {
-        this.title = title;
+    public void setExtendedName(Map<String, String> extendedName) {
+        this.extendedName = extendedName;
     }
 
     public OjResponsibleParty getContactInfo() {
@@ -72,5 +74,13 @@ public class OjCodeList extends JSONEntity implements Serializable {
 
     public void setLinkedCodeList(MeIdentification linkedCodeList) {
         this.linkedCodeList = linkedCodeList;
+    }
+
+    public Collection<OjCitation> getCodeListResources() {
+        return codeListResources;
+    }
+    @Embedded
+    public void setCodeListResources(Collection<OjCitation> codeListResources) {
+        this.codeListResources = codeListResources;
     }
 }
