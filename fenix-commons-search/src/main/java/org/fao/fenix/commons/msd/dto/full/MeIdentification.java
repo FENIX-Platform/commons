@@ -11,23 +11,23 @@ import java.util.Map;
 import java.util.Set;
 
 public class MeIdentification extends JSONEntity implements Serializable {
-
+    //Internal usage properties
     @JsonProperty private DSDDataset dsd;
-
+    //Properties
     @JsonProperty private String uid;
     @JsonProperty private String version;
-    @JsonProperty private Set<String> parentsIdentifier;
-    @JsonProperty private Collection<OjCodeList> languages;
-    @JsonProperty private Map<String, String> languageDetail;
+    @JsonProperty private OjCodeList language;
+    @JsonProperty private Map<String, String> languageDetails;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Date creationDate;
     @JsonProperty private OjCodeList characterSet;
-    @JsonProperty private Map<String, String> metadataStandardName;
-    @JsonProperty private Map<String, String> metadataStandardVersion;
-    @JsonProperty private Collection<OjCodeList> metadataLanguage;
+    @JsonProperty private Set<String> parentIdentifiers;
+    @JsonProperty private String metadataStandardName;
+    @JsonProperty private String metadataStandardVersion;
+    @JsonProperty private OjCodeList metadataLanguage;
     @JsonProperty private Collection<OjResponsibleParty> contacts;
     @JsonProperty private String noDataValue;
-
+    //Connected entities
     @JsonProperty private MeContent meContent;
 
 
@@ -55,20 +55,20 @@ public class MeIdentification extends JSONEntity implements Serializable {
         this.version = version;
     }
 
-    public Collection<OjCodeList> getLanguages() {
-        return languages;
+    public OjCodeList getLanguages() {
+        return language;
     }
     @Embedded
-    public void setLanguages(Collection<OjCodeList> languages) {
-        this.languages = languages;
+    public void setLanguages(OjCodeList language) {
+        this.language = language;
     }
 
-    public Map<String, String> getLanguageDetail() {
-        return languageDetail;
+    public Map<String, String> getLanguageDetails() {
+        return languageDetails;
     }
 
-    public void setLanguageDetail(Map<String, String> languageDetail) {
-        this.languageDetail = languageDetail;
+    public void setLanguageDetails(Map<String, String> languageDetails) {
+        this.languageDetails = languageDetails;
     }
 
     public Map<String, String> getTitle() {
@@ -95,35 +95,35 @@ public class MeIdentification extends JSONEntity implements Serializable {
         this.characterSet = characterSet;
     }
 
-    public Set<String> getParentsIdentifier() {
-        return parentsIdentifier;
+    public Set<String> getParentIdentifiers() {
+        return parentIdentifiers;
     }
 
-    public void setParentsIdentifier(Set<String> parentsIdentifier) {
-        this.parentsIdentifier = parentsIdentifier;
+    public void setParentIdentifiers(Set<String> parentIdentifiers) {
+        this.parentIdentifiers = parentIdentifiers;
     }
 
-    public Map<String, String> getMetadataStandardName() {
+    public String getMetadataStandardName() {
         return metadataStandardName;
     }
 
-    public void setMetadataStandardName(Map<String, String> metadataStandardName) {
+    public void setMetadataStandardName(String metadataStandardName) {
         this.metadataStandardName = metadataStandardName;
     }
 
-    public Map<String, String> getMetadataStandardVersion() {
+    public String getMetadataStandardVersion() {
         return metadataStandardVersion;
     }
 
-    public void setMetadataStandardVersion(Map<String, String> metadataStandardVersion) {
+    public void setMetadataStandardVersion(String metadataStandardVersion) {
         this.metadataStandardVersion = metadataStandardVersion;
     }
 
-    public Collection<OjCodeList> getMetadataLanguage() {
+    public OjCodeList getMetadataLanguage() {
         return metadataLanguage;
     }
     @Embedded
-    public void setMetadataLanguage(Collection<OjCodeList> metadataLanguage) {
+    public void setMetadataLanguage(OjCodeList metadataLanguage) {
         this.metadataLanguage = metadataLanguage;
     }
 
@@ -143,6 +143,9 @@ public class MeIdentification extends JSONEntity implements Serializable {
         this.noDataValue = noDataValue;
     }
 
+
+
+    //Connected entities
     public MeContent getMeContent() {
         return meContent;
     }
