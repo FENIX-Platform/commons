@@ -4,5 +4,5 @@ import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 
-public class MeResourceDimensions extends JSONEntity implements Serializable {
+public class SePrimaryDataCollection extends JSONEntity implements Serializable {
 }

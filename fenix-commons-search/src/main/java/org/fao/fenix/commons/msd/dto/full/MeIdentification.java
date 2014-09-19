@@ -16,19 +16,28 @@ public class MeIdentification extends JSONEntity implements Serializable {
     //Properties
     @JsonProperty private String uid;
     @JsonProperty private String version;
+    @JsonProperty private Collection<String> parentIdentifiers;
     @JsonProperty private OjCodeList language;
     @JsonProperty private Map<String, String> languageDetails;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Date creationDate;
     @JsonProperty private OjCodeList characterSet;
-    @JsonProperty private Set<String> parentIdentifiers;
     @JsonProperty private String metadataStandardName;
     @JsonProperty private String metadataStandardVersion;
     @JsonProperty private OjCodeList metadataLanguage;
     @JsonProperty private Collection<OjResponsibleParty> contacts;
     @JsonProperty private String noDataValue;
     //Connected entities
+    @JsonProperty private MeDocuments meDocuments;
+    @JsonProperty private MeInstitutionalMandate meInstitutionalMandate;
+    @JsonProperty private MeAccessibility meAccessibility;
     @JsonProperty private MeContent meContent;
+    @JsonProperty private MeDataQuality meDataQuality;
+    @JsonProperty private MeMaintenance meMaintenance;
+    @JsonProperty private MeReferenceSystem meReferenceSystem;
+    @JsonProperty private MeResourceStructure meResourceStructure;
+    @JsonProperty private MeSpatialRepresentation meSpatialRepresentation;
+    @JsonProperty private MeStatisticalProcessing meStatisticalProcessing;
 
 
     public DSDDataset getDsd() {
@@ -55,11 +64,11 @@ public class MeIdentification extends JSONEntity implements Serializable {
         this.version = version;
     }
 
-    public OjCodeList getLanguages() {
+    public OjCodeList getLanguage() {
         return language;
     }
     @Embedded
-    public void setLanguages(OjCodeList language) {
+    public void setLanguage(OjCodeList language) {
         this.language = language;
     }
 
@@ -95,11 +104,11 @@ public class MeIdentification extends JSONEntity implements Serializable {
         this.characterSet = characterSet;
     }
 
-    public Set<String> getParentIdentifiers() {
+    public Collection<String> getParentIdentifiers() {
         return parentIdentifiers;
     }
 
-    public void setParentIdentifiers(Set<String> parentIdentifiers) {
+    public void setParentIdentifiers(Collection<String> parentIdentifiers) {
         this.parentIdentifiers = parentIdentifiers;
     }
 
@@ -152,5 +161,77 @@ public class MeIdentification extends JSONEntity implements Serializable {
     @Embedded
     public void setMeContent(MeContent meContent) {
         this.meContent = meContent;
+    }
+
+    public MeDocuments getMeDocuments() {
+        return meDocuments;
+    }
+    @Embedded
+    public void setMeDocuments(MeDocuments meDocuments) {
+        this.meDocuments = meDocuments;
+    }
+
+    public MeInstitutionalMandate getMeInstitutionalMandate() {
+        return meInstitutionalMandate;
+    }
+    @Embedded
+    public void setMeInstitutionalMandate(MeInstitutionalMandate meInstitutionalMandate) {
+        this.meInstitutionalMandate = meInstitutionalMandate;
+    }
+
+    public MeAccessibility getMeAccessibility() {
+        return meAccessibility;
+    }
+    @Embedded
+    public void setMeAccessibility(MeAccessibility meAccessibility) {
+        this.meAccessibility = meAccessibility;
+    }
+
+    public MeDataQuality getMeDataQuality() {
+        return meDataQuality;
+    }
+    @Embedded
+    public void setMeDataQuality(MeDataQuality meDataQuality) {
+        this.meDataQuality = meDataQuality;
+    }
+
+    public MeMaintenance getMeMaintenance() {
+        return meMaintenance;
+    }
+    @Embedded
+    public void setMeMaintenance(MeMaintenance meMaintenance) {
+        this.meMaintenance = meMaintenance;
+    }
+
+    public MeReferenceSystem getMeReferenceSystem() {
+        return meReferenceSystem;
+    }
+    @Embedded
+    public void setMeReferenceSystem(MeReferenceSystem meReferenceSystem) {
+        this.meReferenceSystem = meReferenceSystem;
+    }
+
+    public MeResourceStructure getMeResourceStructure() {
+        return meResourceStructure;
+    }
+    @Embedded
+    public void setMeResourceStructure(MeResourceStructure meResourceStructure) {
+        this.meResourceStructure = meResourceStructure;
+    }
+
+    public MeSpatialRepresentation getMeSpatialRepresentation() {
+        return meSpatialRepresentation;
+    }
+    @Embedded
+    public void setMeSpatialRepresentation(MeSpatialRepresentation meSpatialRepresentation) {
+        this.meSpatialRepresentation = meSpatialRepresentation;
+    }
+
+    public MeStatisticalProcessing getMeStatisticalProcessing() {
+        return meStatisticalProcessing;
+    }
+    @Embedded
+    public void setMeStatisticalProcessing(MeStatisticalProcessing meStatisticalProcessing) {
+        this.meStatisticalProcessing = meStatisticalProcessing;
     }
 }
