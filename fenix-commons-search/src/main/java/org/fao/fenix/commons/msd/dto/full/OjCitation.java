@@ -2,15 +2,16 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
-import org.fao.fenix.commons.msd.dto.type.DocumentKind;
+import org.fao.fenix.commons.msd.dto.type.DocumentType;
 
+import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 
 public class OjCitation extends JSONEntity implements Serializable {
 
-    @JsonProperty private DocumentKind documentKind;
+    @JsonProperty private DocumentType documentKind;
     @JsonProperty private Map<String, String> title;
     @JsonProperty private Date date;
     @JsonProperty private OjResponsibleParty documentContact;
@@ -20,11 +21,11 @@ public class OjCitation extends JSONEntity implements Serializable {
     @JsonProperty private String ISSN;
 
 
-    public DocumentKind getDocumentKind() {
+    public DocumentType getDocumentKind() {
         return documentKind;
     }
 
-    public void setDocumentKind(DocumentKind documentKind) {
+    public void setDocumentKind(DocumentType documentKind) {
         this.documentKind = documentKind;
     }
 
@@ -47,7 +48,7 @@ public class OjCitation extends JSONEntity implements Serializable {
     public OjResponsibleParty getDocumentContact() {
         return documentContact;
     }
-
+    @Embedded
     public void setDocumentContact(OjResponsibleParty documentContact) {
         this.documentContact = documentContact;
     }

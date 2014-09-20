@@ -16,7 +16,7 @@ public class OjResponsibleParty extends JSONEntity implements Serializable {
     @JsonProperty private Map<String, String> position;
     @JsonProperty private ResponsiblePartyRole role;
     @JsonProperty private Map<String, String> specify;
-    @JsonProperty @Embedded private OjContact contactInfo;
+    @JsonProperty private OjContact contactInfo;
 
 
 
@@ -55,7 +55,7 @@ public class OjResponsibleParty extends JSONEntity implements Serializable {
     public OjContact getContactInfo() {
         return contactInfo;
     }
-
+    @Embedded
     public void setContactInfo(OjContact contactInfo) {
         this.contactInfo = contactInfo;
     }

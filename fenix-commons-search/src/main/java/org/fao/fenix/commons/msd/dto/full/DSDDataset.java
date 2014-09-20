@@ -14,7 +14,7 @@ public class DSDDataset extends DSD {
     public Collection<DSDAggregationRule> getAggregationRules() {
         return aggregationRules;
     }
-    @Embedded
+
     public void setAggregationRules(Collection<DSDAggregationRule> aggregationRules) {
         this.aggregationRules = aggregationRules;
     }

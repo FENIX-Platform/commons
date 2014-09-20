@@ -12,8 +12,9 @@ import java.util.Map;
 public class MeContent extends JSONEntity implements Serializable {
 
     @JsonProperty private RepresentationType resourceRepresentationType;
-    @JsonProperty private Collection<String> keyWords;
+    @JsonProperty private Collection<String> keywords;
     @JsonProperty private Map<String, String> description;
+    @JsonProperty private Map<String, String> statisticalConceptsDefinitions;
 
     @JsonProperty private SeReferencePopulation seReferencePopulation;
     @JsonProperty private SeCoverage seCoverage;
@@ -28,12 +29,20 @@ public class MeContent extends JSONEntity implements Serializable {
         this.resourceRepresentationType = resourceRepresentationType;
     }
 
-    public Collection<String> getKeyWords() {
-        return keyWords;
+    public Collection<String> getKeywords() {
+        return keywords;
     }
 
-    public void setKeyWords(Collection<String> keyWords) {
-        this.keyWords = keyWords;
+    public void setKeywords(Collection<String> keywords) {
+        this.keywords = keywords;
+    }
+
+    public Map<String, String> getStatisticalConceptsDefinitions() {
+        return statisticalConceptsDefinitions;
+    }
+
+    public void setStatisticalConceptsDefinitions(Map<String, String> statisticalConceptsDefinitions) {
+        this.statisticalConceptsDefinitions = statisticalConceptsDefinitions;
     }
 
     public Map<String, String> getDescription() {

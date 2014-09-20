@@ -4,14 +4,15 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class OjContact extends JSONEntity implements Serializable {
     
     @JsonProperty private String phone;
     @JsonProperty private String address;
     @JsonProperty private String emailAddress;
-    @JsonProperty private String hoursOfService;
-    @JsonProperty private String contactInstruction;
+    @JsonProperty private Map<String, String> hoursOfService;
+    @JsonProperty private Map<String, String> contactInstruction;
 
 
     public String getPhone() {
@@ -38,19 +39,19 @@ public class OjContact extends JSONEntity implements Serializable {
         this.emailAddress = emailAddress;
     }
 
-    public String getHoursOfService() {
+    public Map<String, String> getHoursOfService() {
         return hoursOfService;
     }
 
-    public void setHoursOfService(String hoursOfService) {
+    public void setHoursOfService(Map<String, String> hoursOfService) {
         this.hoursOfService = hoursOfService;
     }
 
-    public String getContactInstruction() {
+    public Map<String, String> getContactInstruction() {
         return contactInstruction;
     }
 
-    public void setContactInstruction(String contactInstruction) {
+    public void setContactInstruction(Map<String, String> contactInstruction) {
         this.contactInstruction = contactInstruction;
     }
 }
