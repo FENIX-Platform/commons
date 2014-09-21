@@ -10,41 +10,41 @@ import java.util.Map;
 
 public class SeCoverage extends JSONEntity implements Serializable {
 
-    @JsonProperty private Collection<OjCodeList> coverageSector;
-    @JsonProperty private Map<String, String> coverageSectorDetails;
-    @JsonProperty private Period coverageTime;
-    @JsonProperty private Collection<OjCodeList> coverageGeographic;
+    @JsonProperty private OjCodeList coverageSectors;
+    @JsonProperty private Map<String, String> coverageSectorsDetails;
+    @JsonProperty private OjPeriod coverageTime;
+    @JsonProperty private OjCodeList coverageGeographic;
 
 
-    public Collection<OjCodeList> getCoverageSector() {
-        return coverageSector;
+    public OjCodeList getCoverageSectors() {
+        return coverageSectors;
     }
     @Embedded
-    public void setCoverageSector(Collection<OjCodeList> coverageSector) {
-        this.coverageSector = coverageSector;
+    public void setCoverageSectors(OjCodeList coverageSectors) {
+        this.coverageSectors = coverageSectors;
     }
 
-    public Map<String, String> getCoverageSectorDetails() {
-        return coverageSectorDetails;
+    public Map<String, String> getCoverageSectorsDetails() {
+        return coverageSectorsDetails;
     }
 
-    public void setCoverageSectorDetails(Map<String, String> coverageSectorDetails) {
-        this.coverageSectorDetails = coverageSectorDetails;
+    public void setCoverageSectorsDetails(Map<String, String> coverageSectorsDetails) {
+        this.coverageSectorsDetails = coverageSectorsDetails;
     }
 
-    public Period getCoverageTime() {
+    public OjPeriod getCoverageTime() {
         return coverageTime;
     }
     @Embedded
-    public void setCoverageTime(Period coverageTime) {
+    public void setCoverageTime(OjPeriod coverageTime) {
         this.coverageTime = coverageTime;
     }
 
-    public Collection<OjCodeList> getCoverageGeographic() {
+    public OjCodeList getCoverageGeographic() {
         return coverageGeographic;
     }
     @Embedded
-    public void setCoverageGeographic(Collection<OjCodeList> coverageGeographic) {
+    public void setCoverageGeographic(OjCodeList coverageGeographic) {
         this.coverageGeographic = coverageGeographic;
     }
 }
