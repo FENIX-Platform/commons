@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum DimensionType {
-    freeText,
-    coded,
-    number;
+    freeText (new String[]{"EN", "Free text"}),
+    coded (new String[]{"EN", "Coded"}),
+    number (new String[]{"EN", "Number"});
 
     private Map<String,String> label = new HashMap<>();
     private DimensionType(String[]... labels) { //EN,FR,ES,PT

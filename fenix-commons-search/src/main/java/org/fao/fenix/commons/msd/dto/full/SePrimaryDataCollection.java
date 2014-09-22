@@ -11,7 +11,7 @@ public class SePrimaryDataCollection extends JSONEntity implements Serializable 
 
     @JsonProperty private OjResponsibleParty dataCollector;
     @JsonProperty private OjCodeList typeOfCollection;
-    @JsonProperty private Map<String, String> sampligProcedure;
+    @JsonProperty private Map<String, String> samplingProcedure;
     @JsonProperty private Map<String, String> dataCollection;
     @JsonProperty private OjCodeList collectionPeriodicity;
 
@@ -32,12 +32,12 @@ public class SePrimaryDataCollection extends JSONEntity implements Serializable 
         this.typeOfCollection = typeOfCollection;
     }
 
-    public Map<String, String> getSampligProcedure() {
-        return sampligProcedure;
+    public Map<String, String> getSamplingProcedure() {
+        return samplingProcedure;
     }
 
-    public void setSampligProcedure(Map<String, String> sampligProcedure) {
-        this.sampligProcedure = sampligProcedure;
+    public void setSamplingProcedure(Map<String, String> samplingProcedure) {
+        this.samplingProcedure = samplingProcedure;
     }
 
     public Map<String, String> getDataCollection() {

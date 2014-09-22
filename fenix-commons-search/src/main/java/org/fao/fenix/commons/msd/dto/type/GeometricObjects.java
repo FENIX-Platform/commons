@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum GeometricObjects {
-    curve,
-    point,
-    solid,
-    surface
+    curve (new String[]{"EN", "Curve"}),
+    point (new String[]{"EN", "Point"}),
+    solid (new String[]{"EN", "Solid"}),
+    surface (new String[]{"EN", "Surface"})
 
     ;private Map<String,String> label = new HashMap<>();
     private GeometricObjects(String[]... labels) { //EN,FR,ES,PT

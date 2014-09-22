@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum XYPosition {
-    centre,
-    corner
+    centre (new String[]{"EN", "Centre"}),
+    corner (new String[]{"EN", "Corner"})
 
     ;private Map<String,String> label = new HashMap<>();
     private XYPosition(String[]... labels) { //EN,FR,ES,PT

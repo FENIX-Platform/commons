@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ConfidentialityStatus {
-    open,
-    shared,
-    restricted;
+    open (new String[]{"EN", "Open"}),
+    shared (new String[]{"EN", "Shared"}),
+    restricted (new String[]{"EN", "Restricted"});
 
     private Map<String,String> label = new HashMap<>();
     private ConfidentialityStatus(String[]... labels) { //EN,FR,ES,PT

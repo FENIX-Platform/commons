@@ -4,10 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum CodeListType {
-    list,
-    tree,
-    balancedTree,
-    orientedGraph;
+    list (new String[]{"EN", "List"}),
+    tree (new String[]{"EN", "Tree"}),
+    balancedTree (new String[]{"EN", "Balanced tree"}),
+    orientedGraph (new String[]{"EN", "Oriented graph"});
 
     private Map<String,String> label = new HashMap<>();
     private CodeListType(String[] ... labels) { //EN,FR,ES,PT

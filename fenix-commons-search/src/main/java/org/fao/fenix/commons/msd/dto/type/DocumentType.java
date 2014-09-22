@@ -4,15 +4,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum DocumentType {
-    scientificPaper,
-    mothodologicalNotes,
-    legalDocument,
-    handbook,
-    guidelines,
-    adHocPress,
-    news,
-    website,
-    other;
+    scientificPaper (new String[]{"EN", "Scientific paper"}),
+    mothodologicalNotes (new String[]{"EN", "Mothodological notes"}),
+    legalDocument (new String[]{"EN", "Legal document"}),
+    handbook (new String[]{"EN", "Handbook"}),
+    guidelines (new String[]{"EN", "Guidelines"}),
+    adHocPress (new String[]{"EN", "Ad hoc press"}),
+    news (new String[]{"EN", "News"}),
+    website (new String[]{"EN", "Website"}),
+    other (new String[]{"EN", "Other"});
 
     private Map<String,String> label = new HashMap<>();
     private DocumentType(String[] ... labels) { //EN,FR,ES,PT

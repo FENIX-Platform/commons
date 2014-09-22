@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum LayerType {
-    vector,
-    raster
+    vector (new String[]{"EN", "Vector"}),
+    raster (new String[]{"EN", "Raster"})
 
     ;private Map<String,String> label = new HashMap<>();
     private LayerType(String[]... labels) { //EN,FR,ES,PT

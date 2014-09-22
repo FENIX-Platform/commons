@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum CellGeometry {
-    point,
-    area
+    point (new String[]{"EN", "Point"}),
+    area (new String[]{"EN", "Area"})
 
     ;private Map<String,String> label = new HashMap<>();
     private CellGeometry(String[]... labels) { //EN,FR,ES,PT

@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ResponsiblePartyRole {
-    resourceProvider,
-    custodian,
-    owner,
-    user,
-    distributor,
-    originator,
-    pointOfContact,
-    principalInvestigator,
-    processor,
-    pubblisher,
-    agency,
-    coordinator,
-    other;
+    resourceProvider (new String[]{"EN", "Resource provider"}),
+    custodian (new String[]{"EN", "Custodian"}),
+    owner (new String[]{"EN", "Owner"}),
+    user (new String[]{"EN", "User"}),
+    distributor (new String[]{"EN", "Distributor"}),
+    originator (new String[]{"EN", "Originator"}),
+    pointOfContact (new String[]{"EN", "Point of contact"}),
+    principalInvestigator (new String[]{"EN", "Principal investigator"}),
+    processor (new String[]{"EN", "Processor"}),
+    pubblisher (new String[]{"EN", "Pubblisher"}),
+    agency (new String[]{"EN", "Agency"}),
+    coordinator (new String[]{"EN", "Coordinator"}),
+    other (new String[]{"EN", "Other"});
 
     private Map<String,String> label = new HashMap<>();
     private ResponsiblePartyRole(String[] ... labels) { //EN,FR,ES,PT

@@ -4,11 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum RepresentationType {
-    dataset,
-    document,
-    geographic,
-    codelist,
-    other;
+    dataset (new String[]{"EN", "Dataset"}),
+    document (new String[]{"EN", "Document"}),
+    geographic (new String[]{"EN", "Geographic"}),
+    codelist (new String[]{"EN", "Codelist"}),
+    other (new String[]{"EN", "Other"});
 
     private Map<String,String> label = new HashMap<>();
     private RepresentationType(String[] ... labels) { //EN,FR,ES,PT

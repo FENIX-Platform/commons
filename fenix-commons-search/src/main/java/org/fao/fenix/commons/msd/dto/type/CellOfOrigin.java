@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum CellOfOrigin {
-    lowerLeft,
-    upperLeft
+    lowerLeft (new String[]{"EN", "Lower left"}),
+    upperLeft (new String[]{"EN", "Upper left"})
 
     ;private Map<String,String> label = new HashMap<>();
     private CellOfOrigin(String[]... labels) { //EN,FR,ES,PT
