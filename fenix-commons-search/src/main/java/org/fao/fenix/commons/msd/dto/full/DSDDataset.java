@@ -10,6 +10,10 @@ public class DSDDataset extends DSD {
     @JsonProperty private Collection<DSDAggregationRule> aggregationRules;
     @JsonProperty private Collection<DSDColumn> columns;
 
+    public DSDDataset() {}
+    public DSDDataset(String rid) {
+        setRID(rid);
+    }
 
     public Collection<DSDAggregationRule> getAggregationRules() {
         return aggregationRules;

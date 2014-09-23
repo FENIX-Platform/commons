@@ -1,30 +1,29 @@
 package org.fao.fenix.commons.msd.dto.templates.standard;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
-import java.io.Serializable;
 import java.util.Map;
 
-public class DSDColumnSubject extends ResponseHandler {
+public class SeDataValidation extends ResponseHandler {
 
-    public DSDColumnSubject() {}
-    public DSDColumnSubject(Object source) {
+    public SeDataValidation() {}
+    public SeDataValidation(Object source) {
         super(source);
     }
 
 
     @JsonProperty
-    public String getName() {
+    public Map<String, String> getDataValidationIntermediate() {
         return null;
     }
     @JsonProperty
-    public String getLink() {
+    public Map<String, String> getDataValidationOutput() {
         return null;
     }
     @JsonProperty
-    public Map<String, String> getTitle() {
+    public Map<String, String> getDataValidationSource() {
         return null;
     }
+
 }
