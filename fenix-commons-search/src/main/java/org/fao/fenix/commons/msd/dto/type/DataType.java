@@ -10,7 +10,7 @@ public enum DataType {
 
     date (new String[]{"EN", "Day"}),
     month (new String[]{"EN", "Month"}),
-    yaer (new String[]{"EN", "Yaer"}),
+    year(new String[]{"EN", "Year"}),
     time (new String[]{"EN", "Time stamp"}),
 
     text (new String[]{"EN", "Label"}),

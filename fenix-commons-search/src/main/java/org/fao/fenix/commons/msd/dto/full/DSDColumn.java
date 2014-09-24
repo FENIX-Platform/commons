@@ -6,6 +6,8 @@ import org.fao.fenix.commons.msd.dto.type.DataType;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 public class DSDColumn extends JSONEntity implements Serializable {
@@ -17,7 +19,7 @@ public class DSDColumn extends JSONEntity implements Serializable {
     @JsonProperty private String subject;
     @JsonProperty private DataType dataType;
 
-    @JsonProperty private Object[] values;
+    @JsonProperty private DSDDomain values;
     @JsonProperty private DSDDomain domain;
     @JsonProperty private String columnLink;
 
@@ -66,11 +68,11 @@ public class DSDColumn extends JSONEntity implements Serializable {
         this.dataType = dataType;
     }
 
-    public Object[] getValues() {
+    public DSDDomain getValues() {
         return values;
     }
-
-    public void setValues(Object[] values) {
+    @Embedded
+    public void setValues(DSDDomain values) {
         this.values = values;
     }
 

@@ -26,4 +26,9 @@ public class DSDDomain extends ResponseHandler {
     public Period getPeriod() {
         return null;
     }
+    @JsonProperty
+    public Collection<Long> getTimeList() {
+        return null;
+    }
+
 }

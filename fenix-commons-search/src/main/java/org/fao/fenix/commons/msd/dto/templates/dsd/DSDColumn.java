@@ -4,6 +4,7 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 import org.fao.fenix.commons.msd.dto.type.DataType;
 
+import java.util.Collection;
 import java.util.Map;
 
 public class DSDColumn extends ResponseHandler {
@@ -35,7 +36,7 @@ public class DSDColumn extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public Object[] getValues() {
+    public DSDDomain getValues() {
         return null;
     }
     @JsonProperty

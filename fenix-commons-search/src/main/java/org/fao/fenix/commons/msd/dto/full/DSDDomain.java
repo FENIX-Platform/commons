@@ -12,6 +12,7 @@ public class DSDDomain extends JSONEntity implements Serializable {
     @JsonProperty private Collection<OjCodeList> codes;
     @JsonProperty private Collection<String> enumeration;
     @JsonProperty private Period period;
+    @JsonProperty private Collection<Long> timeList;
 
 
     public Collection<OjCodeList> getCodes() {
@@ -36,5 +37,13 @@ public class DSDDomain extends JSONEntity implements Serializable {
     @Embedded
     public void setPeriod(Period period) {
         this.period = period;
+    }
+
+    public Collection<Long> getTimeList() {
+        return timeList;
+    }
+
+    public void setTimeList(Collection<Long> timeList) {
+        this.timeList = timeList;
     }
 }
