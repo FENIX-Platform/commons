@@ -12,7 +12,7 @@ public class OjCodeList extends JSONEntity implements Serializable {
     private MeIdentification linkedCodeList;
 
     @JsonProperty private Collection<OjCode> codes;
-    @JsonProperty private String IDcodeList;
+    @JsonProperty private String idCodeList;
     @JsonProperty private String version;
     @JsonProperty private Map<String, String> extendedName;
     @JsonProperty private OjResponsibleParty contactInfo;
@@ -20,12 +20,12 @@ public class OjCodeList extends JSONEntity implements Serializable {
     @JsonProperty private String link;
 
 
-    public String getIDcodeList() {
-        return IDcodeList;
+    public String getIdCodeList() {
+        return idCodeList;
     }
 
-    public void setIDcodeList(String IDcodeList) {
-        this.IDcodeList = IDcodeList;
+    public void setIdCodeList(String idCodeList) {
+        this.idCodeList = idCodeList;
     }
 
     public String getVersion() {

@@ -20,7 +20,7 @@ public class OjCodeList extends ResponseHandler {
 
 
     @JsonProperty
-    public String getIDcodeList() {
+    public String getIdCodeList() {
         MeIdentification linked = getLinkedCodeList();
         return linked!=null ? linked.getUid() : null;
     }

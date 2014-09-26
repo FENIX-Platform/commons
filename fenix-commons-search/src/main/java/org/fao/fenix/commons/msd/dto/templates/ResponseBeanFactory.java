@@ -16,7 +16,7 @@ public class ResponseBeanFactory {
     private static Map<Class,Class> proxiedClasses = new HashMap<>();
 
     public static <T extends ResponseHandler> T getInstance(Object source, Class<T> destinationClass) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
-        if (source==null)
+        if (source==null || destinationClass==null)
             return null;
         Class proxyClass = proxiedClasses.get(destinationClass);
         if (proxyClass==null) {
