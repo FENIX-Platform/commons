@@ -39,19 +39,7 @@ public class Code extends ResponseHandler {
     public Collection<Code> getChildren() {
         Integer currentLevel = getLevel();
         Integer[] levelParameters = levelInfo.get();
-        if (currentLevel!=null && levelParameters!=null) {
-            Integer level = levelParameters[0];
-            Integer levels = levelParameters[1];
-            Integer levelIndex = levelParameters[2];
-            if (level!=null && currentLevel<level)
-                return new LinkedList<>();
-            if (levels!=null)
-                if (levelIndex>=levels)
-                    return new LinkedList<>();
-                else
-                    levelParameters[2] = levelIndex+1;
-        }
-        return null;
+        return currentLevel!=null && levelParameters!=null && (currentLevel<levelParameters[0] || currentLevel>=levelParameters[1]) ? new LinkedList<Code>() : null;
     }
 
     //Levels filter support
