@@ -9,8 +9,8 @@ public class CodesFilter {
     private String version;
     private Collection<String> codes;
 
-    private Integer level = 1;
-    private Integer levels = 1;
+    private Integer level;
+    private Integer levels;
 
 
     public String getRid() {
@@ -50,7 +50,7 @@ public class CodesFilter {
     }
 
     public void setLevel(Integer level) {
-        this.level = level!=null && level>0 ? level : 1;
+        this.level = levels!=null && level<1 ? null : level;
     }
 
     public Integer getLevels() {
@@ -58,6 +58,7 @@ public class CodesFilter {
     }
 
     public void setLevels(Integer levels) {
-        this.levels = levels!=null && levels>0 ? levels : 1;
+        this.levels = levels!=null && levels<1 ? null : levels;
     }
+
 }
