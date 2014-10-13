@@ -3,6 +3,8 @@ package org.fao.fenix.commons.msd.dto.templates.identification;
 import org.codehaus.jackson.annotate.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
+import java.util.Map;
+
 public class MeIdentification extends ResponseHandler {
 
     public MeIdentification() {}
@@ -19,5 +21,10 @@ public class MeIdentification extends ResponseHandler {
     public String getVersion() {
         return null;
     }
+    @JsonProperty
+    public Map<String, String> getTitle() {
+        return null;
+    }
+
 
 }
