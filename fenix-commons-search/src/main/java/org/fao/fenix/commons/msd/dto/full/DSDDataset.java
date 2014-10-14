@@ -1,6 +1,6 @@
 package org.fao.fenix.commons.msd.dto.full;
 
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Embedded;
 import java.util.Collection;

@@ -5,15 +5,14 @@ import com.orientechnologies.orient.core.id.ORecordId;
 import com.orientechnologies.orient.object.enhancement.OObjectProxyMethodHandler;
 import javassist.util.proxy.Proxy;
 import javassist.util.proxy.ProxyFactory;
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonMethod;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Version;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonAutoDetect({JsonMethod.NONE})
+@JsonAutoDetect(fieldVisibility=JsonAutoDetect.Visibility.NONE, getterVisibility=JsonAutoDetect.Visibility.NONE)
 public class JSONEntity {
     private ORID orid;
     @Version private Object oVersion;

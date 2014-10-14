@@ -1,9 +1,8 @@
 package org.fao.fenix.commons.msd.dto.data;
 
-import org.codehaus.jackson.annotate.JsonAutoDetect;
-import org.codehaus.jackson.annotate.JsonIgnoreProperties;
-import org.codehaus.jackson.annotate.JsonMethod;
-import org.codehaus.jackson.annotate.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseBeanFactory;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
@@ -11,7 +10,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonAutoDetect({JsonMethod.NONE})
+@JsonAutoDetect(fieldVisibility=JsonAutoDetect.Visibility.NONE)
 public class ResourceProxy {
 
     @JsonProperty private Object metadata;
