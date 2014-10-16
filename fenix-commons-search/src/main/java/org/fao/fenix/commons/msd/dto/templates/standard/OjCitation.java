@@ -40,11 +40,11 @@ public class OjCitation extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public String getISBN() {
+    public String getIsbn() {
         return null;
     }
     @JsonProperty
-    public String getISSN() {
+    public String getIssn() {
         return null;
     }
 

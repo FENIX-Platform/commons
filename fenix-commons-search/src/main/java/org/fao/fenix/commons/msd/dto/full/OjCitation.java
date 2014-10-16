@@ -17,8 +17,8 @@ public class OjCitation extends JSONEntity implements Serializable {
     @JsonProperty private OjResponsibleParty documentContact;
     @JsonProperty private Map<String, String> notes;
     @JsonProperty private String link;
-    @JsonProperty private String ISBN;
-    @JsonProperty private String ISSN;
+    @JsonProperty private String isbn;
+    @JsonProperty private String issn;
 
 
     public DocumentType getDocumentKind() {
@@ -69,19 +69,19 @@ public class OjCitation extends JSONEntity implements Serializable {
         this.link = link;
     }
 
-    public String getISBN() {
-        return ISBN;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getISSN() {
-        return ISSN;
+    public String getIssn() {
+        return issn;
     }
 
-    public void setISSN(String ISSN) {
-        this.ISSN = ISSN;
+    public void setIssn(String issn) {
+        this.issn = issn;
     }
 }

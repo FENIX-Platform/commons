@@ -4,18 +4,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ReferenceEntity {
-    ME_Identification (new String[]{"EN", "Identification"}),
-    ME_Content (new String[]{"EN", "Content"}),
-    ME_InstitutionalMandate (new String[]{"EN", "Institutional mandate"}),
-    ME_Comparability (new String[]{"EN", "Comparability"}),
-    ME_StatisticalProcessing (new String[]{"EN", "Statistical processing"}),
-    ME_DataQuality (new String[]{"EN", "Data quality"}),
-    ME_Accessibility (new String[]{"EN", "Accessibility"}),
-    ME_Maintenance (new String[]{"EN", "Maintenance"}),
-    ME_Documents (new String[]{"EN", "Documents"}),
-    ME_ResourceDimensions (new String[]{"EN", "Resource dimensions"}),
-    ME_SpatialRepresentation (new String[]{"EN", "Spatial representation"}),
-    ME_ReferenceSystem (new String[]{"EN", "Reference system"});
+    meIdentification (new String[]{"EN", "Identification"}),
+    meContent (new String[]{"EN", "Content"}),
+    meInstitutionalMandate (new String[]{"EN", "Institutional mandate"}),
+    meComparability (new String[]{"EN", "Comparability"}),
+    meStatisticalProcessing (new String[]{"EN", "Statistical processing"}),
+    meDataQuality (new String[]{"EN", "Data quality"}),
+    meAccessibility (new String[]{"EN", "Accessibility"}),
+    meMaintenance (new String[]{"EN", "Maintenance"}),
+    meDocuments (new String[]{"EN", "Documents"}),
+    meResourceDimensions (new String[]{"EN", "Resource dimensions"}),
+    meSpatialRepresentation (new String[]{"EN", "Spatial representation"}),
+    meReferenceSystem (new String[]{"EN", "Reference system"});
 
     private Map<String,String> label = new HashMap<>();
     private ReferenceEntity(String[]... labels) { //EN,FR,ES,PT

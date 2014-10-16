@@ -13,21 +13,18 @@ public class OjCode extends ResponseHandler {
     }
 
 
-
-    public Code getLinkedCode() {
-        return null;
-    }
-
-
     @JsonProperty
     public String getCode() {
         return null;
     }
-
     @JsonProperty
     public Map<String, String> getLabel() {
         Code linked = getLinkedCode();
         return linked!=null ? linked.getTitle() : null;
+    }
+
+    public Code getLinkedCode() {
+        return null;
     }
 
 }

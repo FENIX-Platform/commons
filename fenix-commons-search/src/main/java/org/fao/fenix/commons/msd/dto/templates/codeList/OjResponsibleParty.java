@@ -14,14 +14,7 @@ public class OjResponsibleParty extends ResponseHandler {
     }
 
 
-    @JsonProperty
-    public Map<String, String> getOrganization() {
-        return null;
-    }
-    @JsonProperty
-    public Map<String, String> getOrganizationUnit() {
-        return null;
-    }
+
     @JsonProperty
     public String getName() {
         return null;
@@ -42,4 +35,13 @@ public class OjResponsibleParty extends ResponseHandler {
     public OjContact getContactInfo() {
         return null;
     }
+    @JsonProperty
+    public Map<String, String> getOrganization() {
+        return null;
+    }
+    @JsonProperty
+    public Map<String, String> getOrganizationUnit() {
+        return null;
+    }
+
 }

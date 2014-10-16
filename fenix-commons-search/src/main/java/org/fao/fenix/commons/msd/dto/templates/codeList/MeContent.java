@@ -14,30 +14,25 @@ public class MeContent extends ResponseHandler {
         super(source);
     }
 
+
     @JsonProperty
     public RepresentationType getResourceRepresentationType() {
         return null;
     }
-
     @JsonProperty
-    public SeReferencePopulation getSeReferencePopulation() {
+    public Collection<String> getKeywords() {
         return null;
     }
-
     @JsonProperty
-    public Collection<String> getKeyWords() {
+    public Map<String, String> getStatisticalConceptsDefinitions() {
         return null;
     }
-
     @JsonProperty
     public Map<String, String> getDescription() {
         return null;
     }
-
     @JsonProperty
     public SeCodeList getSeCodeList() {
         return null;
     }
-
-
 }

@@ -76,7 +76,7 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public MeDocuments getMeDocuments() {
+    public Collection<MeDocuments> getMeDocuments() {
         return null;
     }
     @JsonProperty

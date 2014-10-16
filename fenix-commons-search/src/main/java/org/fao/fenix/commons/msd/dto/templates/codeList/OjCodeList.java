@@ -14,11 +14,6 @@ public class OjCodeList extends ResponseHandler {
     }
 
 
-    public MeIdentification getLinkedCodeList() {
-        return null;
-    }
-
-
     @JsonProperty
     public String getIdCodeList() {
         MeIdentification linked = getLinkedCodeList();
@@ -47,4 +42,7 @@ public class OjCodeList extends ResponseHandler {
         return null;
     }
 
+    public MeIdentification getLinkedCodeList() {
+        return null;
+    }
 }

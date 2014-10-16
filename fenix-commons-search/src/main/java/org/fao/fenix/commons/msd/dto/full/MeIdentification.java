@@ -28,7 +28,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     @JsonProperty private Collection<OjResponsibleParty> contacts;
     @JsonProperty private String noDataValue;
     //Connected entities
-    @JsonProperty private MeDocuments meDocuments;
+    @JsonProperty private Collection<MeDocuments> meDocuments;
     @JsonProperty private MeInstitutionalMandate meInstitutionalMandate;
     @JsonProperty private MeAccessibility meAccessibility;
     @JsonProperty private MeContent meContent;
@@ -163,11 +163,11 @@ public class MeIdentification extends JSONEntity implements Serializable {
         this.meContent = meContent;
     }
 
-    public MeDocuments getMeDocuments() {
+    public Collection<MeDocuments> getMeDocuments() {
         return meDocuments;
     }
     @Embedded
-    public void setMeDocuments(MeDocuments meDocuments) {
+    public void setMeDocuments(Collection<MeDocuments> meDocuments) {
         this.meDocuments = meDocuments;
     }
 

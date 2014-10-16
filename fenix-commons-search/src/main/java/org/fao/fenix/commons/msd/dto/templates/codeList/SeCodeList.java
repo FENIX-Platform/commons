@@ -12,6 +12,7 @@ public class SeCodeList extends ResponseHandler {
         super(source);
     }
 
+
     @JsonProperty
     public Integer getNumberOfLevels() {
         return null;
@@ -20,4 +21,5 @@ public class SeCodeList extends ResponseHandler {
     public CodeListType getTypeOfCodeList() {
         return null;
     }
+
 }
