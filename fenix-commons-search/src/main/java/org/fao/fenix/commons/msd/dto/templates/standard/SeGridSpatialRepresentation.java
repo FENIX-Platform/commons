@@ -33,7 +33,7 @@ public class SeGridSpatialRepresentation extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public XYPosition getXYposition() {
+    public XYPosition getXyPosition() {
         return null;
     }
 

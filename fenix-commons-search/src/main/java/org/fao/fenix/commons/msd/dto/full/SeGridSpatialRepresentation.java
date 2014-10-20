@@ -15,7 +15,7 @@ public class SeGridSpatialRepresentation extends JSONEntity implements Serializa
     @JsonProperty private OjAxis axisDimensionProperties;
     @JsonProperty private CellGeometry cellGeometry;
     @JsonProperty private CellOfOrigin cellOfOrigin;
-    @JsonProperty private XYPosition XYposition;
+    @JsonProperty private XYPosition xyPosition;
 
 
     public Integer getNumberOfDimensions() {
@@ -50,11 +50,11 @@ public class SeGridSpatialRepresentation extends JSONEntity implements Serializa
         this.cellOfOrigin = cellOfOrigin;
     }
 
-    public XYPosition getXYposition() {
-        return XYposition;
+    public XYPosition getXyPosition() {
+        return xyPosition;
     }
 
-    public void setXYposition(XYPosition XYposition) {
-        this.XYposition = XYposition;
+    public void setXyPosition(XYPosition xyPosition) {
+        this.xyPosition = xyPosition;
     }
 }
