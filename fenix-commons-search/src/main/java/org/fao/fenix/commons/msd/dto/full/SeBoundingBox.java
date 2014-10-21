@@ -8,45 +8,45 @@ import java.io.Serializable;
 
 public class SeBoundingBox extends JSONEntity implements Serializable {
 
-    @JsonProperty private Double xMin;
-    @JsonProperty private Double xMax;
-    @JsonProperty private Double yMin;
-    @JsonProperty private Double yMax;
+    @JsonProperty private Double xmin;
+    @JsonProperty private Double xmax;
+    @JsonProperty private Double ymin;
+    @JsonProperty private Double ymax;
 
     @JsonProperty private SeGridSpatialRepresentation seGridSpatialRepresentation;
     @JsonProperty private SeVectorSpatialRepresentation seVectorSpatialRepresentation;
 
 
-    public Double getxMin() {
-        return xMin;
+    public Double getXmin() {
+        return xmin;
     }
 
-    public void setxMin(Double xMin) {
-        this.xMin = xMin;
+    public void setXmin(Double xMin) {
+        this.xmin = xMin;
     }
 
-    public Double getxMax() {
-        return xMax;
+    public Double getXmax() {
+        return xmax;
     }
 
-    public void setxMax(Double xMax) {
-        this.xMax = xMax;
+    public void setXmax(Double xMax) {
+        this.xmax = xMax;
     }
 
-    public Double getyMin() {
-        return yMin;
+    public Double getYmin() {
+        return ymin;
     }
 
-    public void setyMin(Double yMin) {
-        this.yMin = yMin;
+    public void setYmin(Double yMin) {
+        this.ymin = yMin;
     }
 
-    public Double getyMax() {
-        return yMax;
+    public Double getYmax() {
+        return ymax;
     }
 
-    public void setyMax(Double yMax) {
-        this.yMax = yMax;
+    public void setYmax(Double yMax) {
+        this.ymax = yMax;
     }
 
     public SeGridSpatialRepresentation getSeGridSpatialRepresentation() {

@@ -13,19 +13,19 @@ public class SeBoundingBox extends ResponseHandler {
 
 
     @JsonProperty
-    public Double getxMin() {
+    public Double getXmin() {
         return null;
     }
     @JsonProperty
-    public Double getxMax() {
+    public Double getXmax() {
         return null;
     }
     @JsonProperty
-    public Double getyMin() {
+    public Double getYmin() {
         return null;
     }
     @JsonProperty
-    public Double getyMax() {
+    public Double getYmax() {
         return null;
     }
     @JsonProperty
