@@ -16,7 +16,7 @@ public class OjResponsibleParty extends ResponseHandler {
 
 
     @JsonProperty
-    public String getName() {
+    public String getPointOfContact() {
         return null;
     }
     @JsonProperty

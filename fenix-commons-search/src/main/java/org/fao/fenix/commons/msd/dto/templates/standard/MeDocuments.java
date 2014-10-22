@@ -19,10 +19,6 @@ public class MeDocuments extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public Collection<OjCitation> getAttachments() {
-        return null;
-    }
-    @JsonProperty
     public ReferenceEntity getReferenceEntity() {
         return null;
     }

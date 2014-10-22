@@ -25,5 +25,10 @@ public class SeSecondaryDataCollection extends ResponseHandler {
     public Map<String, String> getRawDataDescription() {
         return null;
     }
+    @JsonProperty
+    public Map<String, String> getDataCollection() {
+        return null;
+    }
+
 
 }

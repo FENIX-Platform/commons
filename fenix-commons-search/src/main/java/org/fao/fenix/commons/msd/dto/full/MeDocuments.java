@@ -10,7 +10,6 @@ import java.util.Collection;
 
 public class MeDocuments extends JSONEntity implements Serializable {
     @JsonProperty private OjCitation document;
-    @JsonProperty private Collection<OjCitation> attachments;
     @JsonProperty private ReferenceEntity referenceEntity;
     @JsonProperty private String referenceElement;
 
@@ -21,14 +20,6 @@ public class MeDocuments extends JSONEntity implements Serializable {
     @Embedded
     public void setDocument(OjCitation document) {
         this.document = document;
-    }
-
-    public Collection<OjCitation> getAttachments() {
-        return attachments;
-    }
-    @Embedded
-    public void setAttachments(Collection<OjCitation> attachments) {
-        this.attachments = attachments;
     }
 
     public ReferenceEntity getReferenceEntity() {

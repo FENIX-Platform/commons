@@ -13,6 +13,8 @@ public class SeSecondaryDataCollection extends JSONEntity implements Serializabl
     @JsonProperty private OjCodeList originOfCollectedData;
     @JsonProperty private OjCodeList organization;
     @JsonProperty private Map<String, String> rawDataDescription;
+    @JsonProperty private Map<String, String> dataCollection;
+
 
 
     public OjCodeList getOriginOfCollectedData() {
@@ -37,5 +39,13 @@ public class SeSecondaryDataCollection extends JSONEntity implements Serializabl
 
     public void setRawDataDescription(Map<String, String> rawDataDescription) {
         this.rawDataDescription = rawDataDescription;
+    }
+
+    public Map<String, String> getDataCollection() {
+        return dataCollection;
+    }
+
+    public void setDataCollection(Map<String, String> dataCollection) {
+        this.dataCollection = dataCollection;
     }
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class OjResponsibleParty extends JSONEntity implements Serializable {
 
-    @JsonProperty private String name;
+    @JsonProperty private String pointOfContact;
     @JsonProperty private Map<String, String> organization;
     @JsonProperty private Map<String, String> organizationUnit;
     @JsonProperty private Map<String, String> position;
@@ -20,12 +20,12 @@ public class OjResponsibleParty extends JSONEntity implements Serializable {
 
 
 
-    public String getName() {
-        return name;
+    public String getPointOfContact() {
+        return pointOfContact;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPointOfContact(String pointOfContact) {
+        this.pointOfContact = pointOfContact;
     }
 
     public Map<String, String> getPosition() {
