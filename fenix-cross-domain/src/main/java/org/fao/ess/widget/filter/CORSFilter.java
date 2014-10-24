@@ -29,7 +29,7 @@ public class CORSFilter implements Filter {
 
         //Echo requested permissions without checks
         if (origin!=null)
-            ((HttpServletResponse) response).addHeader("Access-Control-Allow-Origin", origin);
+            ((HttpServletResponse) response).addHeader("Access-Control-Allow-Origin", "*");
         if (headers!=null)
             ((HttpServletResponse) response).addHeader("Access-Control-Allow-Headers", headers);
         if (methods!=null)
@@ -46,7 +46,7 @@ public class CORSFilter implements Filter {
 
         //Echo requested permissions without checks
         if (origin!=null && ((HttpServletResponse) response).getHeader("Access-Control-Allow-Origin")==null)
-            ((HttpServletResponse) response).addHeader("Access-Control-Allow-Origin", origin);
+            ((HttpServletResponse) response).addHeader("Access-Control-Allow-Origin", "*");
         if (headers!=null && ((HttpServletResponse) response).getHeader("Access-Control-Allow-Headers")==null)
             ((HttpServletResponse) response).addHeader("Access-Control-Allow-Headers", headers);
         if (methods!=null && ((HttpServletResponse) response).getHeader("Access-Control-Allow-Methods")==null)
