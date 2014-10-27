@@ -4,13 +4,13 @@ import java.util.Collection;
 
 public class CodesFilter {
 
-    private String rid;
-    private String uid;
-    private String version;
-    private Collection<String> codes;
+    public String rid;
+    public String uid;
+    public String version;
+    public Collection<String> codes;
 
-    private Integer level;
-    private Integer levels;
+    public Integer level;
+    public Integer levels;
 
 
     public String getRid() {
