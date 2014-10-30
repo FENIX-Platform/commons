@@ -1,5 +1,6 @@
 package org.fao.fenix.commons.msd.dto.templates.standardDsd;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.identification.DSDDataset;
 
 public class MeIdentification extends org.fao.fenix.commons.msd.dto.templates.standard.MeIdentification {
@@ -10,7 +11,7 @@ public class MeIdentification extends org.fao.fenix.commons.msd.dto.templates.st
     }
 
 
-    //@JsonProperty
+    @JsonProperty
     public DSDDataset getDsd() {
         return null;
     }

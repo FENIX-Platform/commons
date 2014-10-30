@@ -2,13 +2,12 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
+import org.fao.fenix.commons.msd.dto.data.FieldFilter;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
-import java.util.Set;
+import java.lang.reflect.Field;
+import java.util.*;
 
 public class MeIdentification extends JSONEntity implements Serializable {
     //Internal usage properties
@@ -234,4 +233,27 @@ public class MeIdentification extends JSONEntity implements Serializable {
     public void setMeStatisticalProcessing(MeStatisticalProcessing meStatisticalProcessing) {
         this.meStatisticalProcessing = meStatisticalProcessing;
     }
+
+
+
+    //Utils
+    public boolean isIdentification() throws IllegalAccessException {
+        for (Field field : this.getClass().getDeclaredFields()) {
+            String fieldName = field.getName();
+            Object fieldValue = field.get(this);
+            if (!fieldName.equals("uid") && !fieldName.equals("version") && fieldValue!=null) {
+                if (fieldValue instanceof Collection) {
+                    if (((Collection)fieldValue).size()>0)
+                        return false;
+                } else if (fieldValue instanceof Map) {
+                    if (((Map)fieldValue).size()>0)
+                        return false;
+                } else
+                    return false;
+            }
+        }
+        return true;
+    }
+
+
 }
