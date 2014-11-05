@@ -1,4 +1,4 @@
-package org.fao.fenix.commons.msd.dto.data;
+package org.fao.fenix.commons.find.dto.filter;
 
 import java.util.HashMap;
 

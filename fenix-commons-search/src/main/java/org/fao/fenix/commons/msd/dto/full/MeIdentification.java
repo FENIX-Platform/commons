@@ -2,7 +2,6 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
-import org.fao.fenix.commons.msd.dto.data.FieldFilter;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
@@ -237,7 +236,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
 
 
     //Utils
-    public boolean isIdentification() throws IllegalAccessException {
+    public boolean isIdentificationOnly() throws IllegalAccessException {
         for (Field field : this.getClass().getDeclaredFields()) {
             String fieldName = field.getName();
             Object fieldValue = field.get(this);
