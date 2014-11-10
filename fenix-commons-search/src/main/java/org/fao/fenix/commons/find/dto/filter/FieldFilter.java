@@ -6,6 +6,7 @@ import java.util.Collection;
 
 public class FieldFilter {
 
+    public Collection<IdFilter> ids;
     public Collection<CodesFilter> codes;
     public Collection<ContactFilter> contacts;
     public Collection<String> enumeration;
@@ -14,6 +15,8 @@ public class FieldFilter {
 
     //Utils
     public FieldFilterType getFilterType() {
+        if (ids!=null && ids.size()>0)
+            return FieldFilterType.id;
         if (codes!=null && codes.size()>0)
             return FieldFilterType.code;
         if (contacts!=null && contacts.size()>0)
