@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 import org.fao.fenix.commons.msd.dto.type.DataType;
 
-import java.util.Collection;
 import java.util.Map;
 
 public class DSDColumn extends ResponseHandler {
