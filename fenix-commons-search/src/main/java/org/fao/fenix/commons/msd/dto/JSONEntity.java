@@ -35,7 +35,7 @@ public class JSONEntity {
         this.orid = orid;
     }
 
-
+    //Utils
     public static String toString (ORID rid) {
         return rid!=null && rid.getClusterId()>0 ? rid.getClusterId()+"_"+rid.getClusterPosition() : null;
     }
@@ -48,5 +48,17 @@ public class JSONEntity {
         }
     }
 
+    //Compare
+
+
+    @Override
+    public boolean equals(Object obj) {
+        return getORID().equals(((JSONEntity)obj).getORID());
+    }
+
+    @Override
+    public int hashCode() {
+        return getORID().hashCode();
+    }
 
 }
