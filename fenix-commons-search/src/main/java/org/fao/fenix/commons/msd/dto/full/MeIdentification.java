@@ -8,9 +8,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.*;
 
-public class MeIdentification extends JSONEntity implements Serializable {
-    //Internal usage properties
-    @JsonProperty private DSDDataset dsd;
+public abstract class MeIdentification extends JSONEntity implements Serializable {
     //Properties
     @JsonProperty private String uid;
     @JsonProperty private String version;
@@ -37,14 +35,7 @@ public class MeIdentification extends JSONEntity implements Serializable {
     @JsonProperty private MeSpatialRepresentation meSpatialRepresentation;
     @JsonProperty private MeStatisticalProcessing meStatisticalProcessing;
 
-
-    public DSDDataset getDsd() {
-        return dsd;
-    }
-
-    public void setDsd(DSDDataset dsd) {
-        this.dsd = dsd;
-    }
+    public abstract DSD getDsd();
 
     public String getUid() {
         return uid;

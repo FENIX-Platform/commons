@@ -8,28 +8,19 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public class Resource <T> extends JSONEntity implements Serializable {
+public abstract class Resource <T> extends JSONEntity implements Serializable {
 
-    @JsonProperty
-    private MeIdentification metadata;
     @JsonProperty
     private Collection<T> data;
 
 
     public Resource() { }
 
-    public Resource(MeIdentification metadata, Collection<T> data) {
-        this.metadata = metadata;
+    public Resource(Collection<T> data) {
         this.data = data;
     }
 
-    public MeIdentification getMetadata() {
-        return metadata;
-    }
-
-    public void setMetadata(MeIdentification metadata) {
-        this.metadata = metadata;
-    }
+    public abstract MeIdentification getMetadata();
 
     public Collection<T> getData() {
         return data;
