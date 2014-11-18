@@ -7,13 +7,15 @@ import java.util.Collection;
 public class ConditionFilter {
 
     public String fieldName;
+    public String indexedFieldName;
     public FieldFilterType filterType;
     public Collection<Object> values;
 
     public ConditionFilter() {
     }
-    public ConditionFilter(String fieldName, FieldFilterType filterType, Collection<Object> values) {
+    public ConditionFilter(String fieldName, String indexedFieldName, FieldFilterType filterType, Collection<Object> values) {
         this.fieldName = fieldName;
+        this.indexedFieldName = indexedFieldName;
         this.filterType = filterType;
         this.values = values;
     }
