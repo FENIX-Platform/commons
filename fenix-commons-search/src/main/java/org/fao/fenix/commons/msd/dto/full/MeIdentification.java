@@ -8,7 +8,8 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.*;
 
-public abstract class MeIdentification extends JSONEntity implements Serializable {
+public abstract class MeIdentification <T extends DSD> extends JSONEntity implements Serializable {
+
     //Properties
     @JsonProperty private String uid;
     @JsonProperty private String version;
@@ -34,8 +35,18 @@ public abstract class MeIdentification extends JSONEntity implements Serializabl
     @JsonProperty private MeResourceStructure meResourceStructure;
     @JsonProperty private MeSpatialRepresentation meSpatialRepresentation;
     @JsonProperty private MeStatisticalProcessing meStatisticalProcessing;
+    //DSD
+    @JsonProperty private T dsd;
 
-    public abstract DSD getDsd();
+
+
+    //GET - SET
+    public T getDsd() {
+        return dsd;
+    }
+    public void setDsd(T dsd) {
+        this.dsd = dsd;
+    }
 
     public String getUid() {
         return uid;
@@ -228,7 +239,7 @@ public abstract class MeIdentification extends JSONEntity implements Serializabl
 
     //Utils
     public boolean isIdentificationOnly() throws IllegalAccessException {
-        for (Field field : this.getClass().getDeclaredFields()) {
+        for (Field field : MeIdentification.class.getDeclaredFields()) {
             String fieldName = field.getName();
             Object fieldValue = field.get(this);
             if (!fieldName.equals("uid") && !fieldName.equals("version") && fieldValue!=null) {
