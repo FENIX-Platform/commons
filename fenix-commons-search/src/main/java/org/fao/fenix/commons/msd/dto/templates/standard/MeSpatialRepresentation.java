@@ -21,6 +21,10 @@ public class MeSpatialRepresentation extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public OjCodeList getProcessing() {
+        return null;
+    }
+    @JsonProperty
     public String getNoDataValue() {
         return null;
     }

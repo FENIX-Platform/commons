@@ -11,7 +11,7 @@ import java.util.Map;
 public class SeSecondaryDataCollection extends JSONEntity implements Serializable {
 
     @JsonProperty private OjCodeList originOfCollectedData;
-    @JsonProperty private OjCodeList organization;
+    @JsonProperty private Map<String, String> organization;
     @JsonProperty private Map<String, String> rawDataDescription;
     @JsonProperty private Map<String, String> dataCollection;
 
@@ -25,11 +25,11 @@ public class SeSecondaryDataCollection extends JSONEntity implements Serializabl
         this.originOfCollectedData = originOfCollectedData;
     }
 
-    public OjCodeList getOrganization() {
+    public Map<String, String> getOrganization() {
         return organization;
     }
     @Embedded
-    public void setOrganization(OjCodeList organization) {
+    public void setOrganization(Map<String, String> organization) {
         this.organization = organization;
     }
 

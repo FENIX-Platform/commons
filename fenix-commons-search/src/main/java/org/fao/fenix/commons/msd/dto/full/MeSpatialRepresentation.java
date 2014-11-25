@@ -11,6 +11,7 @@ public class MeSpatialRepresentation extends JSONEntity implements Serializable 
 
     @JsonProperty private LayerType layerType;
     @JsonProperty private OjCodeList typeOfProduct;
+    @JsonProperty private OjCodeList processing;
     @JsonProperty private String noDataValue;
 
     @JsonProperty private SeBoundingBox seBoundingBox;
@@ -30,6 +31,14 @@ public class MeSpatialRepresentation extends JSONEntity implements Serializable 
     @Embedded
     public void setTypeOfProduct(OjCodeList typeOfProduct) {
         this.typeOfProduct = typeOfProduct;
+    }
+
+    public OjCodeList getProcessing() {
+        return processing;
+    }
+    @Embedded
+    public void setProcessing(OjCodeList processing) {
+        this.processing = processing;
     }
 
     public String getNoDataValue() {

@@ -53,12 +53,16 @@ public class JSONEntity {
 
     @Override
     public boolean equals(Object obj) {
-        return getORID().equals(((JSONEntity)obj).getORID());
+        ORID orid1 = getORID();
+        ORID orid2 = obj!=null ? ((JSONEntity)obj).getORID() : null;
+
+        return orid1!=null && orid2!=null && orid1.getClusterId()>0 && orid2.getClusterId()>0 && orid1.equals(orid2);
     }
 
     @Override
     public int hashCode() {
-        return getORID().hashCode();
+        ORID orid = getORID();
+        return orid!=null && orid.getClusterId()>0 ? orid.hashCode() : 0;
     }
 
 }

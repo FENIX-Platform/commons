@@ -18,7 +18,7 @@ public class SeSecondaryDataCollection extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public OjCodeList getOrganization() {
+    public Map<String, String> getOrganization() {
         return null;
     }
     @JsonProperty
