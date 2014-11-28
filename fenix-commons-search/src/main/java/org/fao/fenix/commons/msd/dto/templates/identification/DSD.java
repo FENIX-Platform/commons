@@ -10,4 +10,8 @@ public class DSD extends ResponseHandler {
         super(source);
     }
 
+    @JsonProperty
+    public String getContextSystem() {
+        return null;
+    }
 }
