@@ -5,6 +5,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 import org.fao.fenix.commons.msd.dto.type.ReferenceEntity;
 
 import java.util.Collection;
+import java.util.Map;
 
 public class MeDocuments extends ResponseHandler {
 
@@ -22,6 +23,12 @@ public class MeDocuments extends ResponseHandler {
     public ReferenceEntity getReferenceEntity() {
         return null;
     }
+    @JsonProperty
+    public Map<String,String> getReferenceEntityLabel() {
+        ReferenceEntity value = getReferenceEntity();
+        return value!=null ? value.getLabel() : null;
+    }
+
     @JsonProperty
     public String getReferenceElement() {
         return null;

@@ -11,9 +11,10 @@ public class OjResponsibleParty extends ResponseHandler {
     public OjResponsibleParty() {}
     public OjResponsibleParty(Object source) {
         super(source);
+        this.source = source;
     }
 
-
+    private Object source;
 
     @JsonProperty
     public String getPointOfContact() {
@@ -26,6 +27,11 @@ public class OjResponsibleParty extends ResponseHandler {
     @JsonProperty
     public ResponsiblePartyRole getRole() {
         return null;
+    }
+    @JsonProperty
+    public Map<String,String> getRoleLabel() {
+        ResponsiblePartyRole value = getRole();
+        return value!=null ? value.getLabel() : null;
     }
     @JsonProperty
     public Map<String, String> getSpecify() {
@@ -43,5 +49,7 @@ public class OjResponsibleParty extends ResponseHandler {
     public Map<String, String> getOrganizationUnit() {
         return null;
     }
+
+
 
 }

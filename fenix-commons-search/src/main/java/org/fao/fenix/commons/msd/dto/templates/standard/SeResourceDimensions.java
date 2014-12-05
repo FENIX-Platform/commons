@@ -23,6 +23,12 @@ public class SeResourceDimensions extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public Map<String,String> getDimensionTypeLabel() {
+        DimensionType value = getDimensionType();
+        return value!=null ? value.getLabel() : null;
+    }
+
+    @JsonProperty
     public OjCodeList getDimensionSubject() {
         return null;
     }

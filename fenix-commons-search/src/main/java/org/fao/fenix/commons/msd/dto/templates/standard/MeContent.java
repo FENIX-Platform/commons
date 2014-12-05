@@ -20,6 +20,12 @@ public class MeContent extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public Map<String,String> getResourceRepresentationTypeLabel() {
+        RepresentationType value = getResourceRepresentationType();
+        return value!=null ? value.getLabel() : null;
+    }
+
+    @JsonProperty
     public Collection<String> getKeywords() {
         return null;
     }

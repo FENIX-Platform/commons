@@ -40,6 +40,12 @@ public class SeResourceRecords extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public Map<String,String> getConfidentialityStatusLabel() {
+        ConfidentialityStatus value = getConfidentialityStatus();
+        return value!=null ? value.getLabel() : null;
+    }
+
+    @JsonProperty
     public OjCodeList getObservationStatus() {
         return null;
     }
