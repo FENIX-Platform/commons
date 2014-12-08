@@ -80,8 +80,8 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
                 } else
                     for (int i=0; i<sources.length && sourceReturn==null ; i++) //Manage single values
                         sourceReturn = sourceMethod.invoke(sources[i]);
-            } catch (Throwable ex) {
-                ex.printStackTrace();
+            } catch (NoSuchMethodException ex) {
+                //Ignore unknown methods error
             }
 
         //Return response
