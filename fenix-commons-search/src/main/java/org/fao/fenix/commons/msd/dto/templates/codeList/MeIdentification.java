@@ -37,7 +37,7 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public Set<String> getParentsIdentifier() {
+    public Set<String> getParentIdentifiers() {
         return null;
     }
     @JsonProperty
