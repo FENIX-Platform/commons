@@ -1,9 +1,9 @@
 package org.fao.fenix.commons.utils;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Iterator;
 
 public class DatabaseUtils {
 
@@ -15,8 +15,14 @@ public class DatabaseUtils {
                 statement.setNull(i+1, types[i]);
     }
 
-    public Iterator<Object[]> getDataIterator(final ResultSet source) throws SQLException {
+    public Iterator<Object[]> getDataIterator(ResultSet source) throws SQLException {
+        return getDataConsumer(source,null);
+    }
+
+
+    public Iterator<Object[]> getDataConsumer(final ResultSet source, final Connection connection) throws SQLException {
         return new Iterator<Object[]>() {
+
             private int columnsNumber = source.getMetaData().getColumnCount();
             private Object[] next = null;
             private boolean consumed = true;
@@ -31,6 +37,9 @@ public class DatabaseUtils {
                     } else
                         next = null;
                 }
+                //Close connection
+                if (next==null && connection!=null && !connection.isClosed())
+                    connection.close();
 
                 return next;
             }
@@ -60,6 +69,31 @@ public class DatabaseUtils {
             public void remove() {
                 throw new UnsupportedOperationException();
             }
+
+
+            @Override
+            public void skip(int amount) {
+                try {
+                    if (amount>=0) {
+                        source.relative(amount);
+                        consumed = true;
+                        loadNext();
+                    }
+                } catch (SQLException e) {
+                    throw new UnsupportedOperationException();
+                }
+            }
+
+            @Override
+            public int getIndex() {
+                try {
+                    return source.getRow();
+                } catch (SQLException e) {
+                    throw new UnsupportedOperationException();
+                }
+
+            }
+
         };
     }
 }
