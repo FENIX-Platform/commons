@@ -1,12 +1,15 @@
-package org.fao.fenix.commons.utils;
+package org.fao.fenix.commons.utils.database;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Timer;
 import java.util.TimerTask;
 
 public class DataIterator extends TimerTask implements Iterator<Object[]> {
+    private java.util.Iterator<ResultSet> sources;
     private ResultSet source;
     private Connection connection;
     private Long timeout;
@@ -17,8 +20,17 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     private boolean consumed = true;
 
 
+
     public DataIterator(ResultSet source, Connection connection, Long timeout) throws SQLException {
-        this.source = source;
+        this(source!=null ? Arrays.asList(source) : null, connection, timeout);
+    }
+
+    public DataIterator(Collection<ResultSet> sources, Connection connection, Long timeout) throws SQLException {
+        if (sources==null || sources.size()==0)
+            throw new SQLException("No source data for the data producer iterator");
+
+        this.sources = sources.iterator();
+        this.source = this.sources.next();
         this.connection = connection;
         this.timeout = timeout;
 
@@ -30,6 +42,18 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
             new Timer().schedule(this, 1000);
         }
     }
+
+    private void close() {
+        try {
+            if (connection!=null && !connection.isClosed()) {
+                timeout = null;
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
     //TIMEOUT MANAGEMENT
@@ -52,20 +76,23 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
 
     //PRODUCER
     private Object[] loadNext() throws SQLException {
+        lastAction = System.currentTimeMillis();
         if (consumed) {
-            consumed = false;
             if (source.next()) {
                 next = new Object[columnsNumber];
                 for (int i = 0; i < columnsNumber; i++)
                     next[i] = source.getObject(i + 1);
-            } else
-                next = null;
+            } else {
+                for (source = null; sources.hasNext() && (source=sources.next())==null;);
+                if (source!=null)
+                    return loadNext();
+                else
+                    next = null;
+            }
+            consumed = false;
         }
-        //Close connection
-        if (next==null && connection!=null && !connection.isClosed()) {
-            connection.close();
-            timeout = null;
-        }
+        if (next==null)
+            close();
 
         return next;
     }
@@ -75,16 +102,18 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
         try {
             return loadNext()!=null;
         } catch (SQLException e) {
+            close();
             throw new RuntimeException(e);
         }
     }
 
     @Override
     public Object[] next() {
-        Object[] row = null;
+        Object[] row;
         try {
             row = loadNext();
         } catch (SQLException e) {
+            close();
             throw new RuntimeException(e);
         }
         consumed = true;

@@ -1,4 +1,4 @@
-package org.fao.fenix.commons.utils;
+package org.fao.fenix.commons.utils.database;
 
 public interface Iterator <T> extends java.util.Iterator<T> {
 
