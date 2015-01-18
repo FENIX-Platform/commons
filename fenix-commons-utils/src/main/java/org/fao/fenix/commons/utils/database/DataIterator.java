@@ -3,10 +3,7 @@ package org.fao.fenix.commons.utils.database;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class DataIterator extends TimerTask implements Iterator<Object[]> {
     private java.util.Iterator<ResultSet> sources;
@@ -16,16 +13,19 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     private long lastAction;
 
     private int columnsNumber;
-    private Object[] next = null;
+    private Object[] next;
     private boolean consumed = true;
 
+    private Object[] currentDefaultValues;
+    private Collection<Object[]> defaultValues;
 
 
-    public DataIterator(ResultSet source, Connection connection, Long timeout) throws SQLException {
-        this(source!=null ? Arrays.asList(source) : null, connection, timeout);
+
+    public DataIterator(ResultSet source, Connection connection, Long timeout, Object[] currentDefaultValues) throws SQLException {
+        this(source!=null ? Arrays.asList(source) : null, connection, timeout, currentDefaultValues!=null ? (Collection<Object[]>)Arrays.asList(currentDefaultValues) : null);
     }
 
-    public DataIterator(Collection<ResultSet> sources, Connection connection, Long timeout) throws SQLException {
+    public DataIterator(Collection<ResultSet> sources, Connection connection, Long timeout, Collection<Object[]> defaultValues) throws SQLException {
         if (sources==null || sources.size()==0)
             throw new SQLException("No source data for the data producer iterator");
 
@@ -83,10 +83,12 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
                 for (int i = 0; i < columnsNumber; i++)
                     next[i] = source.getObject(i + 1);
             } else {
+                //Try to switch to the next source
                 for (source = null; sources.hasNext() && (source=sources.next())==null;);
-                if (source!=null)
+                if (source!=null) {
+                    columnsNumber = source.getMetaData().getColumnCount();
                     return loadNext();
-                else
+                } else
                     next = null;
             }
             consumed = false;
