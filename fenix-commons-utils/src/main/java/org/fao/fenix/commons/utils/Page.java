@@ -2,7 +2,7 @@ package org.fao.fenix.commons.utils;
 
 import javax.servlet.ServletRequest;
 
-public class Page {
+public class  Page {
     public int skip = 0;
     public int length = 100000; //Default result maximum size
 
@@ -47,8 +47,7 @@ public class Page {
 
     //Utils
     public String toH2SQL() {
-        //TODO
-        return perPage>0 ? " skip "+skip+" limit "+length : " limit "+length;
+        return perPage>0 ? " LIMIT "+length+" OFFSET "+skip : "";
     }
     public String toOrientSQL() {
         return perPage>0 ? " skip "+skip+" limit "+length : " limit "+length;
