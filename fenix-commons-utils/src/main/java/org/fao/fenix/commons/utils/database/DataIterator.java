@@ -21,6 +21,7 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
 
 
 
+
     public DataIterator(ResultSet source, Connection connection, Long timeout, Object[] currentDefaultValues) throws SQLException {
         this(source!=null ? Arrays.asList(source) : null, connection, timeout, currentDefaultValues!=null ? (Collection<Object[]>)Arrays.asList(currentDefaultValues) : null);
     }

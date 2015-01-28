@@ -15,4 +15,5 @@ public interface Iterator <T> extends java.util.Iterator<T> {
      * @return Index position starting from 0.
      */
     public int getIndex();
+
 }
