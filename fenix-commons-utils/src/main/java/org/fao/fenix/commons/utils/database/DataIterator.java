@@ -19,6 +19,8 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     private Object[] currentDefaultValues;
     private Collection<Object[]> defaultValues;
 
+    private Timer timer;
+
 
 
 
@@ -40,16 +42,22 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
         //If a timeout exists start a timer to manage it
         if (connection!=null && timeout!=null) {
             lastAction = System.currentTimeMillis();
-            new Timer().schedule(this, 1000);
+            timer = new Timer();
+            timer.schedule(this, 1000, 1000);
         }
     }
 
     private void close() {
         try {
             if (connection!=null && !connection.isClosed()) {
-                timeout = null;
                 connection.close();
             }
+            if (timeout!=null) {
+                this.cancel();
+                timer.cancel();
+                timer.purge();
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -60,16 +68,8 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     //TIMEOUT MANAGEMENT
     @Override
     public void run() {
-        if (timeout!=null)
-            if (timeout < System.currentTimeMillis()-lastAction) {
-                try {
-                    if (!connection.isClosed())
-                        connection.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-            } else
-                new Timer().schedule(this, 1000);
+        if (timeout < System.currentTimeMillis()-lastAction)
+            close();
     }
 
 
