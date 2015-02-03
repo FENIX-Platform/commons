@@ -2,38 +2,52 @@ package org.fao.fenix.commons.msd.dto.data;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
+import org.fao.fenix.commons.msd.dto.full.DSD;
 import org.fao.fenix.commons.msd.dto.full.MeIdentification;
 
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.LinkedList;
 
-public abstract class Resource <T> extends JSONEntity implements Serializable {
+public class Resource <M extends DSD, D> extends JSONEntity implements Serializable {
 
-    @JsonProperty
-    private Collection<T> data;
+    @JsonProperty private Collection<D> data;
+    @JsonProperty private MeIdentification<M> metadata;
 
 
     public Resource() { }
 
-    public Resource(Collection<T> data) {
-        this.data = data;
+    public Resource(MeIdentification<M> metadata) {
+        this.metadata = metadata;
     }
 
-    public abstract MeIdentification getMetadata();
+    public Resource(MeIdentification<M> metadata, Collection<D> data) {
+        this.data = data;
+        this.metadata = metadata;
+    }
 
-    public Collection<T> getData() {
+
+
+
+    public Collection<D> getData() {
         return data;
     }
 
-    public void setData(Collection<T> data) {
+    public void setData(Collection<D> data) {
         this.data = data;
     }
 
+    public MeIdentification<M> getMetadata() {
+        return metadata;
+    }
 
-    //Utils
+    public void setMetadata(MeIdentification<M> metadata) {
+        this.metadata = metadata;
+    }
 
-    public void addData(T value) {
+//Utils
+
+    public void addData(D value) {
         if (data==null)
             data = new LinkedList<>();
         data.add(value);

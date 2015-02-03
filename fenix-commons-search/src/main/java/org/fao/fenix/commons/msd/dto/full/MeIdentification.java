@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.*;
 
-public abstract class MeIdentification <T extends DSD> extends JSONEntity implements Serializable {
+public class MeIdentification <T extends DSD> extends JSONEntity implements Serializable {
 
     //Properties
     @JsonProperty private String uid;
