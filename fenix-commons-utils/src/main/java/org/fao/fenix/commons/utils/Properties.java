@@ -23,8 +23,10 @@ public class Properties extends java.util.Properties {
 				else   //Classpath resource
 					try { inputStream = Properties.class.getResourceAsStream(path); } catch (Exception ex) { }
 
-				if (inputStream!=null)
+				if (inputStream!=null) {
 					properties.load(inputStream);
+					inputStream.close();
+				}
 			}
 
 		return properties;
