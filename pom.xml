@@ -18,7 +18,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jackson.version>2.4.3</jackson.version>
-        <orient.version>2.0.1</orient.version>
+        <orient.version>2.0.3</orient.version>
     </properties>
 
     <build>
