@@ -20,6 +20,10 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     @JsonProperty private Collection<Code> relations;
 
     public Code() { }
+    public Code(String code, Map<String, String> title) {
+        this.code = code;
+        this.title = title;
+    }
     public Code(MeIdentification codeList, String code) {
         this.codeList = codeList;
         this.code = code;
