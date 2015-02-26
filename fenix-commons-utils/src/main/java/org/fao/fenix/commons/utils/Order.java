@@ -21,12 +21,12 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
             return null;
         }
     }
-    private Language language;
 
+    private Language[] languages;
 
-    public Order(ServletRequest request) {
+    public Order(ServletRequest request, Language[] languages) {
         setOrder(request.getParameter("order"));
-        language = Language.getInstance(request.getParameter("label"));
+        this.languages = languages;
     }
     public Order(String orderingParameter) {
         setOrder(orderingParameter);
@@ -45,7 +45,8 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
     //Utils
     public String toH2SQL(String ... codeColumnsId) {
         Set<String> codeColumns = new HashSet<>();
-        if (language!=null && codeColumnsId!=null)
+        Language language = languages!=null && languages.length>0 ? languages[0] : null;
+        if (languages!=null && codeColumnsId!=null)
             codeColumns.addAll(Arrays.asList(codeColumnsId));
 
         StringBuilder buffer = new StringBuilder();
