@@ -1,9 +1,14 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.msd.dto.type.DataType;
+import org.fao.fenix.commons.utils.Language;
 
 import javax.persistence.Embedded;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 
 public class DSDDataset extends DSD {
 
@@ -29,6 +34,46 @@ public class DSDDataset extends DSD {
     @Embedded
     public void setColumns(Collection<DSDColumn> columns) {
         this.columns = columns;
+    }
+
+    //Utils
+    public DSDDataset extend (Language ... languages) {
+        Collection<DSDColumn> sourceColumns = getColumns();
+        //languages normalization
+        if (languages==null || languages.length==0)
+            languages = Language.values();
+        //create new columns (avoid duplicates)
+        if (sourceColumns!=null) {
+            Set<String> columnsId = new HashSet<>();
+            for (DSDColumn column : sourceColumns)
+                columnsId.add(column.getId());
+            Collection<DSDColumn> columns = new LinkedList<>(sourceColumns);
+
+            for (DSDColumn column : sourceColumns)
+                if (column.getDataType()== DataType.code || column.getDataType()==DataType.customCode)
+                    for (Language l : languages) {
+                        String id = column.getId() + '_' + l.getCode();
+                        if (!columnsId.contains(id)) {
+                            DSDColumn newColumn = new DSDColumn();
+                            newColumn.setId(id);
+                            newColumn.setDataType(DataType.text);
+                            newColumn.setTitle(column.getTitle());
+                            newColumn.setKey(false);
+                            newColumn.setVirtual(false);
+                            newColumn.setTransposed(false);
+                            columns.add(newColumn);
+                        }
+                    }
+
+            DSDDataset dsd = new DSDDataset();
+            dsd.setContextSystem(getContextSystem());
+            dsd.setDatasource(getDatasource());
+            dsd.setContextExtension(getContextExtension());
+            dsd.setAggregationRules(getAggregationRules());
+            dsd.setColumns(columns);
+            return dsd;
+        } else
+            return null;
     }
 
 }
