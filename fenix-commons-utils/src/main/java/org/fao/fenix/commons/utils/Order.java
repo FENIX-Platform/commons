@@ -35,7 +35,7 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
     public void setOrder(String orderingParameter) {
         clear();
         if (orderingParameter!=null)
-            for (String order : orderingParameter.split(",")){
+            for (String order : orderingParameter.split(",")) {
                 String[] orderEntry = order.split(":");
                 put(orderEntry[0], orderEntry.length>1 ? Sort.getByName(orderEntry[1]) : Sort.ASC);
             }
@@ -45,15 +45,15 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
     //Utils
     public String toH2SQL(String ... columnsId) {
         Set<String> codeColumns = new HashSet<>();
-        Language language = languages!=null && languages.length>0 ? languages[0] : null;
-        if (language!=null && columnsId!=null)
+        String languageSuffix = languages!=null && languages.length>0 ? '_'+languages[0].getCode() : null;
+        if (languageSuffix!=null && columnsId!=null)
             codeColumns.addAll(Arrays.asList(columnsId));
 
         StringBuilder buffer = new StringBuilder();
         for (Map.Entry<String,Sort> orderEntry : entrySet()) {
             String id = orderEntry.getKey();
-            if (language!=null && codeColumns.contains(id+'_'+language.getCode()))
-                id += '_'+language.getCode();
+            if (languageSuffix!=null && codeColumns.contains(id+languageSuffix))
+                id += languageSuffix;
 
             buffer.append(", ").append(id).append(' ').append(orderEntry.getValue().name());
         }
