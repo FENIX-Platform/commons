@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -8,9 +10,20 @@ import java.util.Map;
 
 public class SeDataValidation extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> dataValidationIntermediate;
-    @JsonProperty private Map<String, String> dataValidationOutput;
-    @JsonProperty private Map<String, String> dataValidationSource;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dataValidationIntermediate;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dataValidationOutput;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dataValidationSource;
 
 
     public Map<String, String> getDataValidationIntermediate() {

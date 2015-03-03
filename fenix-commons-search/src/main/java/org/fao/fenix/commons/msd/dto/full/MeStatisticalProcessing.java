@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -8,10 +10,20 @@ import java.io.Serializable;
 
 public class MeStatisticalProcessing extends JSONEntity implements Serializable {
 
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeDataSource seDataSource;
 
-    @JsonProperty private SeDataSource seDataSource;
-    @JsonProperty private SeDataCompilation seDataCompilation;
-    @JsonProperty private SeDataValidation seDataValidation;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeDataCompilation seDataCompilation;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeDataValidation seDataValidation;
 
 
     public SeDataSource getSeDataSource() {

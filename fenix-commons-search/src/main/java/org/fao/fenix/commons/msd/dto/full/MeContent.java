@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.RepresentationType;
 
@@ -11,14 +13,40 @@ import java.util.Map;
 
 public class MeContent extends JSONEntity implements Serializable {
 
-    @JsonProperty private RepresentationType resourceRepresentationType;
-    @JsonProperty private Collection<String> keywords;
-    @JsonProperty private Map<String, String> description;
-    @JsonProperty private Map<String, String> statisticalConceptsDefinitions;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private RepresentationType resourceRepresentationType;
 
-    @JsonProperty private SeReferencePopulation seReferencePopulation;
-    @JsonProperty private SeCoverage seCoverage;
-    @JsonProperty private SeCodeList seCodeList;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<String> keywords;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> description;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> statisticalConceptsDefinitions;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeReferencePopulation seReferencePopulation;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeCoverage seCoverage;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeCodeList seCodeList;
 
 
     public RepresentationType getResourceRepresentationType() {

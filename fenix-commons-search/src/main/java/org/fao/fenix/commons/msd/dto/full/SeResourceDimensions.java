@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.DimensionType;
 
@@ -11,11 +13,30 @@ import java.util.Map;
 
 public class SeResourceDimensions extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> dimensionName;
-    @JsonProperty private DimensionType dimensionType;
-    @JsonProperty private OjCodeList dimensionSubject;
-    @JsonProperty private Object dimensionContent;
-    @JsonProperty private OjMeasure dimensionMU;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dimensionName;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private DimensionType dimensionType;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList dimensionSubject;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Object dimensionContent;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjMeasure dimensionMU;
 
 
     public Map<String, String> getDimensionName() {

@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -9,23 +11,85 @@ import java.io.Serializable;
 public class SeProjectionParameters extends JSONEntity implements Serializable {
 
 
-    @JsonProperty private Integer zone;
-    @JsonProperty private Double standardParallel;
-    @JsonProperty private Double longitudeOfCentralMeridian;
-    @JsonProperty private Double latitudeOfProjectionOrigin;
-    @JsonProperty private Double falseEasting;
-    @JsonProperty private Double falseNorthing;
-    @JsonProperty private OjMeasure falseEastingNorthingUnits;
-    @JsonProperty private Double scaleFactorAtEquator;
-    @JsonProperty private Double heightOfProspectivePointAboveSurface;
-    @JsonProperty private Double longitudeOfProjectionCenter;
-    @JsonProperty private Double latitudeOfProjectionCenter;
-    @JsonProperty private Double scaleFactorAtCenterLine;
-    @JsonProperty private Double straightVerticalLongitudeFromPole;
-    @JsonProperty private Double scaleFactorAtProjectionOrigin;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Integer zone;
 
-    @JsonProperty private SeObliqueLineAzimuth seObliqueLineAzimuth;
-    @JsonProperty private SeObliqueLinePoint seObliqueLinePoint;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double standardParallel;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double longitudeOfCentralMeridian;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double latitudeOfProjectionOrigin;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double falseEasting;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double falseNorthing;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjMeasure falseEastingNorthingUnits;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double scaleFactorAtEquator;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double heightOfProspectivePointAboveSurface;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double longitudeOfProjectionCenter;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double latitudeOfProjectionCenter;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double scaleFactorAtCenterLine;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double straightVerticalLongitudeFromPole;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double scaleFactorAtProjectionOrigin;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeObliqueLineAzimuth seObliqueLineAzimuth;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeObliqueLinePoint seObliqueLinePoint;
 
 
     public Integer getZone() {

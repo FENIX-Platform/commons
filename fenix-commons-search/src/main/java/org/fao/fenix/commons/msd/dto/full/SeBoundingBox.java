@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -8,13 +10,35 @@ import java.io.Serializable;
 
 public class SeBoundingBox extends JSONEntity implements Serializable {
 
-    @JsonProperty private Double xmin;
-    @JsonProperty private Double xmax;
-    @JsonProperty private Double ymin;
-    @JsonProperty private Double ymax;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double xmin;
 
-    @JsonProperty private SeGridSpatialRepresentation seGridSpatialRepresentation;
-    @JsonProperty private SeVectorSpatialRepresentation seVectorSpatialRepresentation;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double xmax;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double ymin;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double ymax;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeGridSpatialRepresentation seGridSpatialRepresentation;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeVectorSpatialRepresentation seVectorSpatialRepresentation;
 
 
     public Double getXmin() {

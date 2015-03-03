@@ -2,6 +2,8 @@ package org.fao.fenix.commons.msd.dto.full;
 
 //import org.codehaus.jackson.annotate.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -10,8 +12,14 @@ import java.util.Map;
 public class SeDataRevision extends JSONEntity implements Serializable {
 
     @JsonProperty
+    @Label(en="")
+    @Description(en= "")
     private Map<String, String> revisionPolicy;
-    @JsonProperty private Map<String, String> revisionPractice;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> revisionPractice;
 
 
     public Map<String, String> getRevisionPolicy() {

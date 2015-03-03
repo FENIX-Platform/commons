@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -9,8 +11,15 @@ import java.util.Date;
 
 public class SeUpdate extends JSONEntity implements Serializable {
 
-    @JsonProperty private Date updateDate;
-    @JsonProperty private OjCodeList updatePeriodicity;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Date updateDate;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList updatePeriodicity;
 
 
     public Date getUpdateDate() {

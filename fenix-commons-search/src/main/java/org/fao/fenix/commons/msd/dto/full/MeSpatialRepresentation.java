@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.LayerType;
 
@@ -9,12 +11,30 @@ import java.io.Serializable;
 
 public class MeSpatialRepresentation extends JSONEntity implements Serializable {
 
-    @JsonProperty private LayerType layerType;
-    @JsonProperty private OjCodeList typeOfProduct;
-    @JsonProperty private OjCodeList processing;
-    @JsonProperty private String noDataValue;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private LayerType layerType;
 
-    @JsonProperty private SeBoundingBox seBoundingBox;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList typeOfProduct;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList processing;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String noDataValue;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeBoundingBox seBoundingBox;
 
 
     public LayerType getLayerType() {

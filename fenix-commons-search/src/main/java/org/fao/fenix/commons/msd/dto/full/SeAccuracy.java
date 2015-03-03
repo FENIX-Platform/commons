@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -8,8 +10,15 @@ import java.util.Map;
 
 public class SeAccuracy extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> accuracyNonSampling;
-    @JsonProperty private Map<String, String> accuracySampling;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> accuracyNonSampling;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> accuracySampling;
 
 
     public Map<String, String> getAccuracyNonSampling() {

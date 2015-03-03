@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -9,15 +11,50 @@ import java.util.*;
 
 public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     
-    @JsonProperty private MeIdentification codeList;
-    @JsonProperty private String code;
-    @JsonProperty private Integer level;
-    @JsonProperty private Map<String, String> title;
-    @JsonProperty private Map<String, String> description;
-    @JsonProperty private Period validityPeriod;
-    @JsonProperty private Collection<Code> parents;
-    @JsonProperty private Collection<Code> children;
-    @JsonProperty private Collection<Code> relations;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeIdentification codeList;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String code;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Integer level;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> title;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> description;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Period validityPeriod;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<Code> parents;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<Code> children;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<Code> relations;
 
     public Code() { }
     public Code(String code, Map<String, String> title) {

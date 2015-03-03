@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -9,11 +11,30 @@ import java.util.Map;
 
 public class SePrimaryDataCollection extends JSONEntity implements Serializable {
 
-    @JsonProperty private OjResponsibleParty dataCollector;
-    @JsonProperty private OjCodeList typeOfCollection;
-    @JsonProperty private Map<String, String> samplingProcedure;
-    @JsonProperty private Map<String, String> dataCollection;
-    @JsonProperty private OjCodeList collectionPeriodicity;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjResponsibleParty dataCollector;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList typeOfCollection;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> samplingProcedure;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dataCollection;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList collectionPeriodicity;
 
 
     public OjResponsibleParty getDataCollector() {

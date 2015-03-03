@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -9,10 +11,20 @@ import java.util.Map;
 
 public class SeProjection extends JSONEntity implements Serializable {
 
-    @JsonProperty private OjCodeList projection;
-    @JsonProperty private Map<String, String> projectionName;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList projection;
 
-    @JsonProperty private SeProjectionParameters seProjectionParameters;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> projectionName;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeProjectionParameters seProjectionParameters;
 
 
     public OjCodeList getProjection() {

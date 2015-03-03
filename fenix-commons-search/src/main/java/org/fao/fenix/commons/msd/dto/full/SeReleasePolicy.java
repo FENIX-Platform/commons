@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -10,10 +12,25 @@ import java.util.Map;
 
 public class SeReleasePolicy extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> releaseCalendar;
-    @JsonProperty private String releaseCalendarAccess;
-    @JsonProperty private OjCodeList disseminationPeriodicity;
-    @JsonProperty private OjPeriod embargoTime;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> releaseCalendar;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String releaseCalendarAccess;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList disseminationPeriodicity;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjPeriod embargoTime;
 
 
     public Map<String, String> getReleaseCalendar() {

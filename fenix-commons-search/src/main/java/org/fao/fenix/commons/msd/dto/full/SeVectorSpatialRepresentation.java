@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.GeometricObjects;
 
@@ -9,8 +11,15 @@ import java.io.Serializable;
 
 public class SeVectorSpatialRepresentation extends JSONEntity implements Serializable {
 
-    @JsonProperty private OjCodeList topologyLevel;
-    @JsonProperty private GeometricObjects geometricObjects;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList topologyLevel;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private GeometricObjects geometricObjects;
 
 
     public OjCodeList getTopologyLevel() {

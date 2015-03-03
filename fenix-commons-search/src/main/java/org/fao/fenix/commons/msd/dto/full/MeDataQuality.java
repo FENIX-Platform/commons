@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -9,15 +11,45 @@ import java.util.Map;
 
 public class MeDataQuality extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> qualityManagement;
-    @JsonProperty private Map<String, String> qualityAssessment;
-    @JsonProperty private Map<String, String> qualityAssurance;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> qualityManagement;
 
-    @JsonProperty private SeAccuracy seAccuracy;
-    @JsonProperty private SeDataRevision seDataRevision;
-    @JsonProperty private SeRelevance seRelevance;
-    @JsonProperty private SeComparability seComparability;
-    @JsonProperty private SeTimelinessPunctuality seTimelinessPunctuality;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> qualityAssessment;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> qualityAssurance;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeAccuracy seAccuracy;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeDataRevision seDataRevision;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeRelevance seRelevance;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeComparability seComparability;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeTimelinessPunctuality seTimelinessPunctuality;
 
 
     public Map<String, String> getQualityManagement() {

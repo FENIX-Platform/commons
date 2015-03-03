@@ -1,14 +1,23 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 
 public class Period extends JSONEntity implements Serializable {
 
-    @JsonProperty private Long from;
-    @JsonProperty private Long to;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Long from;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Long to;
 
     public Long getFrom() {
         return from;

@@ -1,6 +1,9 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Subject;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -10,32 +13,126 @@ import java.util.*;
 
 public class MeIdentification <T extends DSD> extends JSONEntity implements Serializable {
 
-    //Properties
-    @JsonProperty private String uid;
-    @JsonProperty private String version;
-    @JsonProperty private Collection<String> parentIdentifiers;
-    @JsonProperty private OjCodeList language;
-    @JsonProperty private Map<String, String> languageDetails;
-    @JsonProperty private Map<String, String> title;
-    @JsonProperty private Date creationDate;
-    @JsonProperty private OjCodeList characterSet;
-    @JsonProperty private String metadataStandardName;
-    @JsonProperty private String metadataStandardVersion;
-    @JsonProperty private OjCodeList metadataLanguage;
-    @JsonProperty private Collection<OjResponsibleParty> contacts;
-    @JsonProperty private String noDataValue;
-    //Connected entities
-    @JsonProperty private Collection<MeDocuments> meDocuments;
-    @JsonProperty private MeInstitutionalMandate meInstitutionalMandate;
-    @JsonProperty private MeAccessibility meAccessibility;
-    @JsonProperty private MeContent meContent;
-    @JsonProperty private MeDataQuality meDataQuality;
-    @JsonProperty private MeMaintenance meMaintenance;
-    @JsonProperty private MeReferenceSystem meReferenceSystem;
-    @JsonProperty private MeResourceStructure meResourceStructure;
-    @JsonProperty private MeSpatialRepresentation meSpatialRepresentation;
-    @JsonProperty private MeStatisticalProcessing meStatisticalProcessing;
-    //DSD
+    /* Properties */
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String uid;
+
+    @JsonProperty
+    @Label(en="Version")
+    @Description(en= "This is the version of the metadata.")
+    private String version;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<String> parentIdentifiers;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList language;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> languageDetails;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> title;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Date creationDate;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList characterSet;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String metadataStandardName;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String metadataStandardVersion;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList metadataLanguage;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<OjResponsibleParty> contacts;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String noDataValue;
+
+    /* Connected entities */
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<MeDocuments> meDocuments;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeInstitutionalMandate meInstitutionalMandate;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeAccessibility meAccessibility;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeContent meContent;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeDataQuality meDataQuality;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeMaintenance meMaintenance;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeReferenceSystem meReferenceSystem;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeResourceStructure meResourceStructure;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeSpatialRepresentation meSpatialRepresentation;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private MeStatisticalProcessing meStatisticalProcessing;
+
+    /* DSD */
     @JsonProperty private T dsd;
 
 

@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.CodeListType;
 
@@ -8,8 +10,15 @@ import java.io.Serializable;
 
 public class SeCodeList extends JSONEntity implements Serializable {
 
-    @JsonProperty private Integer numberOfLevels;
-    @JsonProperty private CodeListType typeOfCodeList;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Integer numberOfLevels;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private CodeListType typeOfCodeList;
 
 
     public Integer getNumberOfLevels() {

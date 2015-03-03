@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -8,8 +10,15 @@ import java.util.Collection;
 
 public class SeDistribution extends JSONEntity implements Serializable {
 
-    @JsonProperty private String onlineResource;
-    @JsonProperty private Collection<String> disseminationFormat;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String onlineResource;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Collection<String> disseminationFormat;
 
 
     public String getOnlineResource() {

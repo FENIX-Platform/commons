@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -10,14 +12,45 @@ import java.util.Map;
 
 public class SeDataCompilation extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> missingData;
-    @JsonProperty private Map<String, String> weights;
-    @JsonProperty private Map<String, String> aggregationProcessing;
-    @JsonProperty private String aggregationFormula;
-    @JsonProperty private OjCodeList dataAdjustment;
-    @JsonProperty private Map<String, String> dataAdjustmentDetails;
-    @JsonProperty private Map<String, String> indexType;
-    @JsonProperty private Date basePeriod;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> missingData;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> weights;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> aggregationProcessing;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String aggregationFormula;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList dataAdjustment;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dataAdjustmentDetails;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> indexType;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Date basePeriod;
 
 
     public Map<String, String> getMissingData() {

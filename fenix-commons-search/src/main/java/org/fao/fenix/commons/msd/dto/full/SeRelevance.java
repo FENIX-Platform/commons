@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -8,10 +10,25 @@ import java.util.Map;
 
 public class SeRelevance extends JSONEntity implements Serializable {
 
-    @JsonProperty private Map<String, String> userNeeds;
-    @JsonProperty private Map<String, String> userSatisfaction;
-    @JsonProperty private Map<String, String> completeness;
-    @JsonProperty private Double completenessPercentage;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> userNeeds;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> userSatisfaction;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> completeness;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double completenessPercentage;
 
 
     public Map<String, String> getUserNeeds() {

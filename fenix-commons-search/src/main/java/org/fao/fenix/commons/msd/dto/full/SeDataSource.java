@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -8,8 +10,15 @@ import java.io.Serializable;
 
 public class SeDataSource extends JSONEntity implements Serializable {
 
-    @JsonProperty private SePrimaryDataCollection sePrimaryDataCollection;
-    @JsonProperty private SeSecondaryDataCollection seSecondaryDataCollection;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SePrimaryDataCollection sePrimaryDataCollection;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private SeSecondaryDataCollection seSecondaryDataCollection;
 
 
     public SePrimaryDataCollection getSePrimaryDataCollection() {

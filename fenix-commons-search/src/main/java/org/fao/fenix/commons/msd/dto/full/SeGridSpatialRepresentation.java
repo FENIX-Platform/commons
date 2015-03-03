@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.CellGeometry;
 import org.fao.fenix.commons.msd.dto.type.CellOfOrigin;
@@ -11,11 +13,30 @@ import java.io.Serializable;
 
 public class SeGridSpatialRepresentation extends JSONEntity implements Serializable {
 
-    @JsonProperty private Integer numberOfDimensions;
-    @JsonProperty private OjAxis axisDimensionProperties;
-    @JsonProperty private CellGeometry cellGeometry;
-    @JsonProperty private CellOfOrigin cellOfOrigin;
-    @JsonProperty private XYPosition xyPosition;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Integer numberOfDimensions;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjAxis axisDimensionProperties;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private CellGeometry cellGeometry;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private CellOfOrigin cellOfOrigin;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private XYPosition xyPosition;
 
 
     public Integer getNumberOfDimensions() {

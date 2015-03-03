@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -10,10 +12,25 @@ import java.util.Map;
 
 public class SeCoverage extends JSONEntity implements Serializable {
 
-    @JsonProperty private OjCodeList coverageSectors;
-    @JsonProperty private Map<String, String> coverageSectorsDetails;
-    @JsonProperty private OjPeriod coverageTime;
-    @JsonProperty private OjCodeList coverageGeographic;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList coverageSectors;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> coverageSectorsDetails;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjPeriod coverageTime;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList coverageGeographic;
 
 
     public OjCodeList getCoverageSectors() {

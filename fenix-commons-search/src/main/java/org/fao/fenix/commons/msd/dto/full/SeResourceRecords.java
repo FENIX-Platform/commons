@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.ConfidentialityStatus;
 
@@ -11,14 +13,45 @@ import java.util.Map;
 
 public class SeResourceRecords extends JSONEntity implements Serializable {
 
-    @JsonProperty private String recordID;
-    @JsonProperty private OjCodeList originOfCollectedValue;
-    @JsonProperty private Date creationDate;
-    @JsonProperty private Map<String, String> dataReliabilityQualifier;
-    @JsonProperty private Double dataReliabilityIndicator;
-    @JsonProperty private ConfidentialityStatus confidentialityStatus;
-    @JsonProperty private OjCodeList observationStatus;
-    @JsonProperty private Map<String, String> remarks;
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private String recordID;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList originOfCollectedValue;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Date creationDate;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> dataReliabilityQualifier;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Double dataReliabilityIndicator;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private ConfidentialityStatus confidentialityStatus;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private OjCodeList observationStatus;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en= "")
+    private Map<String, String> remarks;
 
 
     public String getRecordID() {
