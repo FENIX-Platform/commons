@@ -7,7 +7,7 @@ import java.lang.annotation.Target;
  * @author <a href="mailto:guido.barbaglia@fao.org">Guido Barbaglia</a>
  * @author <a href="mailto:guido.barbaglia@gmail.com">Guido Barbaglia</a>
  */
-@Target(ElementType.PARAMETER)
+@Target(ElementType.FIELD)
 public @interface Subject {
 
     @Override
