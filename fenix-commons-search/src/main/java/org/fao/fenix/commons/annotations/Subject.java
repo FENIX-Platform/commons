@@ -10,7 +10,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Subject {
 
-    @Override
     public String value();
 
 }

@@ -10,13 +10,9 @@ import java.io.Serializable;
 public class Period extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Long from;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Long to;
 
     public Long getFrom() {

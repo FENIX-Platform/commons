@@ -12,48 +12,30 @@ import java.util.*;
 public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private MeIdentification codeList;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private String code;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Integer level;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Map<String, String> title;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Map<String, String> description;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Period validityPeriod;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Collection<Code> parents;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Collection<Code> children;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
     private Collection<Code> relations;
 
     public Code() { }
