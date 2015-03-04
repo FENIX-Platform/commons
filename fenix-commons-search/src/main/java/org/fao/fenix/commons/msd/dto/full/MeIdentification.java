@@ -22,7 +22,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
 
     @JsonProperty
     @Label(en="Version")
-    @Description(en= "This is the version of the metadata.")
+    @Description(en="This is the version of the metadata.")
     private String version;
 
     @JsonProperty
