@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.ResponsiblePartyRole;
 
@@ -10,13 +12,40 @@ import java.util.Map;
 
 public class OjResponsibleParty extends JSONEntity implements Serializable {
 
-    @JsonProperty private String pointOfContact;
-    @JsonProperty private Map<String, String> organization;
-    @JsonProperty private Map<String, String> organizationUnit;
-    @JsonProperty private Map<String, String> position;
-    @JsonProperty private ResponsiblePartyRole role;
-    @JsonProperty private Map<String, String> specify;
-    @JsonProperty private OjContact contactInfo;
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String pointOfContact;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> organization;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> organizationUnit;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> position;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private ResponsiblePartyRole role;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> specify;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private OjContact contactInfo;
 
 
 

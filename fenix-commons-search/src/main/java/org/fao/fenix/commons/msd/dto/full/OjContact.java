@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -8,11 +10,30 @@ import java.util.Map;
 
 public class OjContact extends JSONEntity implements Serializable {
     
-    @JsonProperty private String phone;
-    @JsonProperty private String address;
-    @JsonProperty private String emailAddress;
-    @JsonProperty private Map<String, String> hoursOfService;
-    @JsonProperty private Map<String, String> contactInstruction;
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String phone;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String address;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String emailAddress;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> hoursOfService;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> contactInstruction;
 
 
     public String getPhone() {

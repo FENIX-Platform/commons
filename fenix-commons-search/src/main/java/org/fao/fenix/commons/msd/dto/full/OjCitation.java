@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.DocumentType;
 
@@ -11,14 +13,45 @@ import java.util.Map;
 
 public class OjCitation extends JSONEntity implements Serializable {
 
-    @JsonProperty private DocumentType documentKind;
-    @JsonProperty private Map<String, String> title;
-    @JsonProperty private Date date;
-    @JsonProperty private OjResponsibleParty documentContact;
-    @JsonProperty private Map<String, String> notes;
-    @JsonProperty private String link;
-    @JsonProperty private String isbn;
-    @JsonProperty private String issn;
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private DocumentType documentKind;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> title;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Date date;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private OjResponsibleParty documentContact;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> notes;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String link;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String isbn;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String issn;
 
 
     public DocumentType getDocumentKind() {

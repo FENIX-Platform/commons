@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.AxisType;
 
@@ -9,9 +11,20 @@ import java.io.Serializable;
 
 public class OjAxis extends JSONEntity implements Serializable {
 
-    @JsonProperty private AxisType axisName;
-    @JsonProperty private Integer axisSize;
-    @JsonProperty private OjMeasure resolution;
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private AxisType axisName;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Integer axisSize;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private OjMeasure resolution;
 
 
     public AxisType getAxisName() {

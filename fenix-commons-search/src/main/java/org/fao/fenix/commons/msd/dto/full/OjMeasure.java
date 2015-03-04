@@ -1,17 +1,39 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 import java.util.Map;
 
 public class OjMeasure extends JSONEntity implements Serializable {
-    @JsonProperty private Map<String, String> extent;
-    @JsonProperty private Boolean composedMU;
-    @JsonProperty private Map<String, String> measurementSystem;
-    @JsonProperty private String nameMU;
-    @JsonProperty private Double conversionToStandard;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> extent;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Boolean composedMU;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> measurementSystem;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String nameMU;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Double conversionToStandard;
 
 
     public Map<String, String> getExtent() {

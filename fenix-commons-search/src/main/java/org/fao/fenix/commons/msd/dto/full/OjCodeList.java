@@ -1,6 +1,8 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -11,13 +13,40 @@ import java.util.Map;
 public class OjCodeList extends JSONEntity implements Serializable {
     private MeIdentification linkedCodeList;
 
-    @JsonProperty private Collection<OjCode> codes;
-    @JsonProperty private String idCodeList;
-    @JsonProperty private String version;
-    @JsonProperty private Map<String, String> extendedName;
-    @JsonProperty private OjResponsibleParty contactInfo;
-    @JsonProperty private Collection<OjCitation> codeListResources;
-    @JsonProperty private String link;
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Collection<OjCode> codes;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String idCodeList;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String version;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Map<String, String> extendedName;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private OjResponsibleParty contactInfo;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private Collection<OjCitation> codeListResources;
+
+    @JsonProperty
+    @Label(en="")
+    @Description(en="")
+    private String link;
 
 
     public String getIdCodeList() {
