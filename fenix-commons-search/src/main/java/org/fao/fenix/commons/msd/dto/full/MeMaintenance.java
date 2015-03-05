@@ -12,18 +12,18 @@ import java.util.Map;
 public class MeMaintenance extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Maintenance agency")
+    @Description(en= "Organization or other expert body that maintains the resource.")
     private Map<String, String> maintenanceAgency;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Update")
+    @Description(en= "This section involves maintenance operations concerning the periodic update of the resource.")
     private SeUpdate seUpdate;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="MAINTENANCE")
+    @Description(en= "This section involves maintenance operations concerning the periodic update of metadata to ensure that the resource is properly described.")
     private SeMetadataMaintenance seMetadataMaintenance;
 
 
