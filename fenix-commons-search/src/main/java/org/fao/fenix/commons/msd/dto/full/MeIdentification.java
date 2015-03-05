@@ -88,48 +88,48 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private Collection<MeDocuments> meDocuments;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="INSTITUTIONAL MANDATE")
+    @Description(en= "This section includes the formal set of instructions assigning responsibility as well as the authority to an organization for the collection, processing, and dissemination of statistics.")
     private MeInstitutionalMandate meInstitutionalMandate;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="ACCESSIBILITY")
+    @Description(en= "This section reports details about data distribution and sharing mechanisms. It includes information on conditions and formal agreements under which statistical information can be obtained. In addition it provides details on available options to obtain a resource, such as user accessibility to data and dissemination periodicity.")
     private MeAccessibility meAccessibility;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="CONTENT")
+    @Description(en= "This section includes a summary of the content of the resource and the description of the geographical, time and sector coverage.")
     private MeContent meContent;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="DATA QUALITY")
+    @Description(en= "This section provides a description and evaluation of the data quality. It allows to describe the data quality assurance process, inclusive of data validation, completeness and accuracy standards. In addition an assessment of the comparability and intern coherence of the resource is considered a quality dimension.")
     private MeDataQuality meDataQuality;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="MAINTENANCE")
+    @Description(en= "This section provides information about the frequency of resource upgrade and metadata maintenance.")
     private MeMaintenance meMaintenance;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="REFERENCE SYSTEM")
+    @Description(en= "This section includes temporal and coordinate identifiers. It contains all the required information to uniquely identify a point on the earth surface. It also defines the transformations and conversions parameters to convert from one coordinate reference system (CRS) to another. This metadata entity includes the parameters specifying the geospatial references that relate information represented in the data (features) to their geographic space. The considered reference system is only based on coordinates and not on geographic identifiers.")
     private MeReferenceSystem meReferenceSystem;
 
     @JsonProperty
     @Label(en="")
-    @Description(en= "")
+    @Description(en= "This section lists values and metadata of the dimensions of the resource. In a data table, dimensions may refer to geographical areas, time, commodities, gender, etc. . . It includes iterative elements representing 'n' dimensions and 'm' elements of each dimension. In addition ResourceRecord allows to report information at single-value level.")
     private MeResourceStructure meResourceStructure;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="SPATIAL REPRESENTATION")
+    @Description(en= "This section includes information about the mechanism to represent spatial information both in raster and vector formats. It includes concepts for describing and manipulating the spatial characteristics of geographic features. This metadata entity is only valid for geospatial resources like vector and raster layers or TINs. Depending on the value assumed by its resourceRepresentationType element, it extends to GridSpatialRepresentation entity (for resourceRepresentationType = 'raster') or VectorSpatialRepresentation (for resourceRepresentationType = 'vector' or 'tin').")
     private MeSpatialRepresentation meSpatialRepresentation;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="STATISTICAL PROCESSING")
+    @Description(en= "This section describes the statistical operations and transformations applied to data. It includes the process used to collect data, the description of raw data and a detailed review of the process used to compute processed resource.")
     private MeStatisticalProcessing meStatisticalProcessing;
 
     /* DSD */
