@@ -16,8 +16,8 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     /* Properties */
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Resource identification code")
+    @Description(en="Resource identifier. It is a code that creates the match between the resource and the metadata it is associated to.")
     private String uid;
 
     @JsonProperty
