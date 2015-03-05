@@ -10,19 +10,21 @@ import java.io.Serializable;
 
 public class MeAccessibility extends JSONEntity implements Serializable {
 
+
+    
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="DATA DISSEMINATION")
+    @Description(en= "This section reports the mode of distribution of the resource with a focus on how to access the resource, the supported formats.")
     private SeDataDissemination seDataDissemination;
-
+    
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Clarity")
+    @Description(en= "This section gives information about the availability of additional information (documentation, further metadata. . . ) linked to the resource.")
     private SeClarity seClarity;
-
+    
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Confidentiality")
+    @Description(en= "This section information on the level of confidentiality and the applied policy for releasing the resource. This metadata sub-entity concerns legislation (or any other formal provision) related to statistical condentiality applied to the resource as well as the actual condentiality data treatment applied (also with regard to the aggregated data disseminated).")
     private SeConfidentiality seConfidentiality;
 
 
