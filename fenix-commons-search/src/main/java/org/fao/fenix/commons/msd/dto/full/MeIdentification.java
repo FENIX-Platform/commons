@@ -26,28 +26,28 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private String version;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Parent(s) metadata ID")
+    @Description(en= "Identifier of the metadata record to which this metadata record is a subset of (i.e. parent metadata of hierarchical metadata records). The specification of the parentIdentifier allows to inherit a set of metadata information from the parent metadata record. The choice of which metadata elements must to be kept from the parent record and the one that has to be manually modified, it is subject to ad hoc controls.")
     private Collection<String> parentIdentifiers;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Language(s)")
+    @Description(en= "Language used by the resource for textual information.")
     private OjCodeList language;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Language details")
+    @Description(en= "Comments and additional details about the language used for the textual information of the resource. This field is addressed to highlight some particular inconsistencies in the language (or languages) used in the resource, if any. For example to alert that the resource is not completely homogeneous in the language used for textual information. Otherwise it can be leaved empty.")
     private Map<String, String> languageDetails;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Title")
+    @Description(en= "Textual label used as title of the resource.")
     private Map<String, String> title;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Creation date")
+    @Description(en= "Creation date of the resource.")
     private Date creationDate;
 
     @JsonProperty
@@ -56,35 +56,35 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private OjCodeList characterSet;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Character-set")
+    @Description(en= "Full name of the character coding standard used by the resource.")
     private String metadataStandardName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Used metadata standard")
+    @Description(en= "Name of the metadata standard specifications used. In FENIX framework this field would be pre-compiled by 'FENIX'.")
     private String metadataStandardVersion;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Version of metadata standard")
+    @Description(en= "Version of the metadata standard specifications used.")
     private OjCodeList metadataLanguage;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Contact(s)")
+    @Description(en= "Responsible party that could be identify as the data source. FENIX metadata contains more than one field of the type 'ResponsibleParty' addressed to report all the information necessary to contact party(ies) playing different roles in respect to the resource. In particular this field (belonging to the Identification entity) should report the party who owns authority on the resource.")
     private Collection<OjResponsibleParty> contacts;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Value assigned to No-data")
+    @Description(en= "Value assigned to the cells to represent the absence of data. Missing values are usually highlight through apposite ags, however the data matrix does not report empty cells but a predened combination of characters (such as 'NA', '000' . . . ) indicating the absence of data.")
     private String noDataValue;
 
     /* Connected entities */
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="DOCUMENTS")
+    @Description(en= "This section allows linking publications, news, or other relevant material to the considered resource.")
     private Collection<MeDocuments> meDocuments;
 
     @JsonProperty
