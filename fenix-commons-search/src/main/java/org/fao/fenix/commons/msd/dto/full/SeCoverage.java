@@ -13,23 +13,23 @@ import java.util.Map;
 public class SeCoverage extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Main sector(s) (coded)")
+    @Description(en= "Sector(s) the resource refers to as specified in the selected codelist. The word 'Sector' indicates the subject area the resource refers to. These sectors can be institutional sectors, economic or other sectors (e.g. local government sector, agriculture, forestry, business services, etc.).")
     private OjCodeList coverageSectors;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Main sector(s)")
+    @Description(en= "Textual element delimiting the statistical results with regard to the main sectors covered.")
     private Map<String, String> coverageSectorsDetails;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Coverage period")
+    @Description(en= "Information about the time period for which data are available. It requests to report the time window of reference (reporting the starting date and the ending date) even if it presents some lacks.")
     private OjPeriod coverageTime;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Geographic extent")
+    @Description(en= "Geographical coverage represented by the resource. It is highly recommended to make reference to officially recognized or easily identifiable macro-areas (e.g. South Saharan Africa, North America, OECD member countries..).")
     private OjCodeList coverageGeographic;
 
 
