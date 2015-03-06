@@ -14,13 +14,13 @@ import java.util.Map;
 public class SeResourceDimensions extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Dimension name")
+    @Description(en= "Name of the dimension as indicated in the resource.")
     private Map<String, String> dimensionName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Dimension type")
+    @Description(en= "Data type of the dimension (e.g. free-text, coded).")
     private DimensionType dimensionType;
 
     @JsonProperty
