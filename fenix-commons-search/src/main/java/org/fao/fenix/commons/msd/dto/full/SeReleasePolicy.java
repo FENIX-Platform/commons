@@ -13,23 +13,23 @@ import java.util.Map;
 public class SeReleasePolicy extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Release calendar")
+    @Description(en= "Policy regarding the release of the resource in accordance with the pre-announced schedule. It also provides information on the availability of the release calendar.")
     private Map<String, String> releaseCalendar;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Access to the release calendar")
+    @Description(en= "Link or references to the release calendar.")
     private String releaseCalendarAccess;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Dissemination periodicity")
+    @Description(en= "Frequency of data dissemination (e.g. daily, monthly, quarterly, yearly).")
     private OjCodeList disseminationPeriodicity;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Embargo time")
+    @Description(en= "Time span between the completion of the production process of statistical data and their publication.")
     private OjPeriod embargoTime;
 
 
