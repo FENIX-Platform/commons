@@ -14,28 +14,28 @@ import java.io.Serializable;
 public class SeGridSpatialRepresentation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Number of dimension")
+    @Description(en= "Number of independent spatial-temporal axes. For ex-ample, a grid dataset representing the topography of an area has 3 dimensions: x, y for the planar representation of the area and z reporting the elevation value of each cell.")
     private Integer numberOfDimensions;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Information about spatial-temporal axis properties")
+    @Description(en= "Reference to the OJ Dimensions object that reports information about spatial-temporal axis properties.")
     private OjAxis axisDimensionProperties;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Identication of grid data as point or cell")
+    @Description(en= "Specifies whether each pixel of the raster data represents a point or an area. A raster with the cell geometry as point assumes that the features to represent, or the values to report, refers to the center of the cell; cell geometry as area represents the whole area covered by the cell (e.g. averages of values falling within the cell; dominant feature of the cell, etc.).")
     private CellGeometry cellGeometry;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Origin of raster cell")
+    @Description(en= "Origin of the raster is the lower left or the upper left cell.")
     private CellOfOrigin cellOfOrigin;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Coordinate of the origin within the cell")
+    @Description(en= "Whether coordinates of the origin of the raster refer to the center or the corner of the cell of origin.")
     private XYPosition xyPosition;
 
 
