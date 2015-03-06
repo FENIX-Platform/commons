@@ -14,33 +14,33 @@ import java.util.Map;
 public class MeReferenceSystem extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Identifier of reference system")
+    @Description(en= "Identifier of the reference system. One of the most common standards for reference systems is the EPSG Geodetic Parameter Registry, created by the European Petroleum Survey Group.")
     private String referenceSystemIdentifier;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Extented name of reference system")
+    @Description(en= "Alias or the name of the reference system.")
     private Map<String, String> referenceSystemName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Reference system authority")
+    @Description(en= "It is an element of the type ResponsibleParty providing details on the authority linked to the referece system.")
     private OjResponsibleParty referenceSystemAuthority;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Projection")
+    @Description(en= "This section provides the identiers of the projection of the considered Coordinate Reference System (CRS).")
     private SeProjection seProjection;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Ellipsoid")
+    @Description(en= "This section provides the identifiers of the ellipsoid of the considered Coordinate Reference System (CRS).")
     private SeEllipsoid seEllipsoid;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Datum")
+    @Description(en= "This section provides the identifiers of the datum of the considered Coordinate Reference System (CRS).")
     private SeDatum seDatum;
 
 
