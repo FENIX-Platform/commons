@@ -12,13 +12,13 @@ import java.util.Collection;
 public class MeResourceStructure extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Resource Structure")
+    @Description(en= "Information on the type and content of the dimensions of the dataset.")
     private Collection<SeResourceDimensions> seResourceDimensions;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Resource record")
+    @Description(en= "Information at a sigle recod level.")
     private Collection<SeResourceRecords> seResourceRecords;
 
 
