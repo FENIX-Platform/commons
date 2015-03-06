@@ -12,18 +12,18 @@ import java.util.Map;
 public class SeProjection extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Projection")
+    @Description(en= "Iidentifier of the projection used.")
     private OjCodeList projection;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Name of projection")
+    @Description(en= "Name of the projection used.")contains the set of parameters that describe the projection.
     private Map<String, String> projectionName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="PROJECTION PARAMETERS")
+    @Description(en= "This section contains the set of parameters that describe the projection.")
     private SeProjectionParameters seProjectionParameters;
 
 
