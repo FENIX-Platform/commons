@@ -12,18 +12,18 @@ import java.util.Map;
 public class SeEllipsoid extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Ellipsoid")
+    @Description(en= "Identifier of the ellipsoid used.")
     private OjCodeList ellipsoid;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Name of elliosoid")
+    @Description(en= "Name of the ellipsoid used.")
     private Map<String, String> ellipsoidName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Ellipsoid Parameters")
+    @Description(en= "Set of parameters that describe the ellipsoid.")
     private SeEllipsoidParameters seEllipsoidParameters;
 
 
