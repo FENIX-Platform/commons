@@ -1,5 +1,6 @@
 package org.fao.fenix.commons.msd.dto.templates.export.dsd;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
@@ -11,6 +12,14 @@ public class DSD extends ResponseHandler {
     public DSD(Object source) {
         super(source);
     }
+
+    //Exclude RID informations
+    @Override
+    @JsonIgnore
+    public String getRID() {
+        return null;
+    }
+
 
     @JsonProperty
     public String getContextSystem() {
@@ -24,4 +33,7 @@ public class DSD extends ResponseHandler {
     public Map<String, Object> getContextExtension() {
         return null;
     }
+
+
+
 }

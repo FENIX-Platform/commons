@@ -1,5 +1,6 @@
 package org.fao.fenix.commons.msd.dto.templates.export.metadata;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
@@ -14,6 +15,13 @@ public class MeIdentification extends ResponseHandler {
         super(source);
     }
 
+
+    //Exclude RID informations
+    @Override
+    @JsonIgnore
+    public String getRID() {
+        return null;
+    }
 
 
     @JsonProperty

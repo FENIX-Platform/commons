@@ -1,19 +1,11 @@
 package org.fao.fenix.commons.msd.dto.templates.export.combined.codelist;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import org.fao.fenix.commons.msd.dto.templates.identification.DSDCodelist;
 
-public class Metadata extends org.fao.fenix.commons.msd.dto.templates.export.combined.Metadata<DSDCodelist> {
+public class Metadata extends org.fao.fenix.commons.msd.dto.templates.export.combined.Metadata {
 
     public Metadata() {}
     public Metadata(Object source) {
         super(source);
-    }
-
-    @Override
-    @JsonProperty
-    public DSDCodelist getDsd() {
-        return null;
     }
 
 }
