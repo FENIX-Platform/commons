@@ -13,43 +13,43 @@ import java.util.Map;
 public class SeDataCompilation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Missing data")
+    @Description(en= "It describe under which circumstance missing data are estimated or imputed and when the cells are left empty. It also describe methodologies used to estimate/impute missing values.")
     private Map<String, String> missingData;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Weights")
+    @Description(en= "Description of weights system (if any) used in order to produce accurate statistical results. This field reports the criteria for using weights in analysis of collection, the formulas and coefficients developed and how they are applied to data.")
     private Map<String, String> weights;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Process of aggregation")
+    @Description(en= "Information about the methodology used to aggregate data.")
     private Map<String, String> aggregationProcessing;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Aggregation formula")
+    @Description(en= "Formula used to aggregate data.")
     private String aggregationFormula;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Process of adjustment")
+    @Description(en= "Type of adjustment used represented by a code.")
     private OjCodeList dataAdjustment;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Details on process of adjustment")
+    @Description(en= "Set of procedures employed to modify statistical data to enable it to be conform with national or international standards (such as seasonal adjustment methods, time series decomposition, or other similar methods).")
     private Map<String, String> dataAdjustmentDetails;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Type of index")
+    @Description(en= "Type of index number used in the statistical production process.")
     private Map<String, String> indexType;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Base period")
+    @Description(en= "Period of time used as a base of an index number or to which a time series refers (e.g. base year 2000 for certain annual data).")
     private Date basePeriod;
 
 
