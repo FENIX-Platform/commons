@@ -24,18 +24,18 @@ public class SeResourceDimensions extends JSONEntity implements Serializable {
     private DimensionType dimensionType;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Dimension type")
+    @Description(en= "Coded element that indicates the CodeList main subject-theme.")
     private OjCodeList dimensionSubject;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Dimension content")
+    @Description(en= "List of the values of the considered dimension occurring in the resource.")
     private Object dimensionContent;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Measurement units")
+    @Description(en= "Measurement units of the data values.")
     private OjMeasure dimensionMU;
 
 
