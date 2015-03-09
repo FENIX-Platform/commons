@@ -22,8 +22,7 @@ public class MeStatisticalProcessing extends JSONEntity implements Serializable 
 
     @JsonProperty
     @Label(en="Data Validation")
-    @Description(en= "Methods and processes for assessing statistical data. It describes the process of
-monitoring data compilation progress and ensuring the quality of the statistical results.")
+    @Description(en= "Methods and processes for assessing statistical data. It describes the process of monitoring data compilation progress and ensuring the quality of the statistical results.")
     private SeDataValidation seDataValidation;
 
 
