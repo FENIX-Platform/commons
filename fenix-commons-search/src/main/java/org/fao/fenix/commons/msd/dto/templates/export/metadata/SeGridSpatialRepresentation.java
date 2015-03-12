@@ -30,30 +30,18 @@ public class SeGridSpatialRepresentation extends ResponseHandler {
     public CellGeometry getCellGeometry() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getCellGeometryLabel() {
-        CellGeometry value = getCellGeometry();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
     @JsonProperty
     public CellOfOrigin getCellOfOrigin() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getCellOfOriginLabel() {
-        CellOfOrigin value = getCellOfOrigin();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
     @JsonProperty
     public XYPosition getXyPosition() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getXyPositionLabel() {
-        XYPosition value = getXyPosition();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
 }

@@ -23,10 +23,6 @@ public class SeVectorSpatialRepresentation extends ResponseHandler {
     public GeometricObjects getGeometricObjects() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getGeometricObjectsLabel() {
-        GeometricObjects value = getGeometricObjects();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
 }

@@ -22,11 +22,7 @@ public class MeDocuments extends ResponseHandler {
     public ReferenceEntity getReferenceEntity() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getReferenceEntityLabel() {
-        ReferenceEntity value = getReferenceEntity();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
     @JsonProperty
     public String getReferenceElement() {

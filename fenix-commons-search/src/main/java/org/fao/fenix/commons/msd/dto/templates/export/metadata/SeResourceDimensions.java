@@ -22,11 +22,6 @@ public class SeResourceDimensions extends ResponseHandler {
     public DimensionType getDimensionType() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getDimensionTypeLabel() {
-        DimensionType value = getDimensionType();
-        return value!=null ? value.getLabel() : null;
-    }
 
     @JsonProperty
     public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getDimensionSubject() {

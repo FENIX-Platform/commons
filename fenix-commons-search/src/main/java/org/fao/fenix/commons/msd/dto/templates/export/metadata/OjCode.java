@@ -18,5 +18,8 @@ public class OjCode extends ResponseHandler {
     public String getCode() {
         return null;
     }
-
+    @JsonProperty
+    public Map<String, String> getLabel() {
+        return null;
+    }
 }

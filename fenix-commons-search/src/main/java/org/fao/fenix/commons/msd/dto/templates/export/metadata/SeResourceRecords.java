@@ -39,11 +39,7 @@ public class SeResourceRecords extends ResponseHandler {
     public ConfidentialityStatus getConfidentialityStatus() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getConfidentialityStatusLabel() {
-        ConfidentialityStatus value = getConfidentialityStatus();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
     @JsonProperty
     public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getObservationStatus() {

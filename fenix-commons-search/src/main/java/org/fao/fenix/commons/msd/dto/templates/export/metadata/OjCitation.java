@@ -19,11 +19,7 @@ public class OjCitation extends ResponseHandler {
     public DocumentType getDocumentKind() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getDocumentKindLabel() {
-        DocumentType value = getDocumentKind();
-        return value!=null ? value.getLabel() : null;
-    }
+
     @JsonProperty
     public Map<String, String> getTitle() {
         return null;

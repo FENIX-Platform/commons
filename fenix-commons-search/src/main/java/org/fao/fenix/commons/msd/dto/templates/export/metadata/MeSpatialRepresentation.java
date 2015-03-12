@@ -18,11 +18,7 @@ public class MeSpatialRepresentation extends ResponseHandler {
     public LayerType getLayerType() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getLayerTypeLabel() {
-        LayerType value = getLayerType();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
     @JsonProperty
     public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getTypeOfProduct() {

@@ -23,11 +23,7 @@ public class SeCodeList extends ResponseHandler {
     public CodeListType getTypeOfCodeList() {
         return null;
     }
-    @JsonProperty
-    public Map<String,String> getTypeOfCodeListLabel() {
-        CodeListType value = getTypeOfCodeList();
-        return value!=null ? value.getLabel() : null;
-    }
+
 
 
 }
