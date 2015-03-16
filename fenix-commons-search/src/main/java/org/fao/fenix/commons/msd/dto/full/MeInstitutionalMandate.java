@@ -12,13 +12,13 @@ import java.util.Map;
 public class MeInstitutionalMandate extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Legal acts/agreements")
+    @Description(en= "References (citations or website link) to legal acts or other formal or informal agreements that assign responsibility as well as authority to an agency for the collection, processing, and dissemination of the resource.")
     private Map<String, String> legalActsAgreements;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data sharing arrangements")
+    @Description(en= "References (citations or website link) to arrangements or procedures for data sharing and coordination.")
     private Map<String, String> institutionalMandateDataSharing;
 
     public Map<String, String> getLegalActsAgreements() {

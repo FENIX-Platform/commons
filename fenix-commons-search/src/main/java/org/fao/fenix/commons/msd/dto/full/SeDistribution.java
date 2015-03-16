@@ -11,13 +11,13 @@ import java.util.Collection;
 public class SeDistribution extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Link to the on-line resource")
+    @Description(en= "Link to the on-line resource. It is conditional to the policy governing distribution and sharing mechanism. For 'restricted' resources it is not available.")
     private String onlineResource;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Dissemination formats")
+    @Description(en= "Formats available for downloading the resources (e.g. excel, csv, pdf, etc.). . . It is conditional to the policy governing distribution and sharing mechanism. For 'restricted' resources it is not available.")
     private Collection<String> disseminationFormat;
 
 

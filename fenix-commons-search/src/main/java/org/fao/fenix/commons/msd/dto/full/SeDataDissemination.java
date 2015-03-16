@@ -11,8 +11,8 @@ import java.io.Serializable;
 public class SeDataDissemination extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Distribution")
+    @Description(en= "This section reports the mode of distribution of the resource with a focus on how to access the resource, the supported formats.")
     private SeDistribution seDistribution;
 
     @JsonProperty

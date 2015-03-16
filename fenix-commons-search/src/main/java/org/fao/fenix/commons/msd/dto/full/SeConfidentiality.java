@@ -12,18 +12,18 @@ import java.util.Map;
 public class SeConfidentiality extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Confidentiality - Policy")
+    @Description(en= "Legislative measures or other formal procedures which prevent unauthorized disclosure of data that identify a person or economic entity either directly or indirectly. It consists in textual description and references to legislation or other rules related to statistical confidentiality.")
     private Map<String, String> confidentialityPolicy;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Confidentiality - Data treatment")
+    @Description(en= "Rules applied for treating the resource to ensure confidentiality and prevent unauthorized disclosure.")
     private Map<String, String> confidentialityDataTreatment;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Status of confidentiality")
+    @Description(en= "Coded information describing the degree of condentiality of the resource.")
     private OjCodeList confidentialityStatus;
 
 
