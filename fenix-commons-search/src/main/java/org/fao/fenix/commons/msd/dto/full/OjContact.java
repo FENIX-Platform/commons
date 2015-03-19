@@ -11,28 +11,28 @@ import java.util.Map;
 public class OjContact extends JSONEntity implements Serializable {
     
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Telephone number")
+    @Description(en="Telephone numbers at which the organization or individual may be contacted.")
     private String phone;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Address")
+    @Description(en="Physical address at which the organization or individual may be contacted.")
     private String address;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="e-mail address")
+    @Description(en="E-mail address at which the organization or individual may be contacted.")
     private String emailAddress;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Hour of service")
+    @Description(en="Time period (including time zone) when individuals can contact the organization or individual.")
     private Map<String, String> hoursOfService;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Instruction")
+    @Description(en="Supplemental instructions on how or when to contact the individual or organization.")
     private Map<String, String> contactInstruction;
 
 
