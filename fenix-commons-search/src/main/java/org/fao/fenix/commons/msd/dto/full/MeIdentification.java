@@ -56,18 +56,18 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private OjCodeList characterSet;
 
     @JsonProperty
-    @Label(en="Character-set")
-    @Description(en= "Full name of the character coding standard used by the resource.")
-    private String metadataStandardName;
-
-    @JsonProperty
     @Label(en="Used metadata standard")
     @Description(en= "Name of the metadata standard specifications used. In FENIX framework this field would be pre-compiled by 'FENIX'.")
-    private String metadataStandardVersion;
+    private String metadataStandardName;
 
     @JsonProperty
     @Label(en="Version of metadata standard")
     @Description(en= "Version of the metadata standard specifications used.")
+    private String metadataStandardVersion;
+
+    @JsonProperty
+    @Label(en="Language(s) used for metadata")
+    @Description(en= "Language(s) used to compile the metadata record.")
     private OjCodeList metadataLanguage;
 
     @JsonProperty
@@ -118,7 +118,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private MeReferenceSystem meReferenceSystem;
 
     @JsonProperty
-    @Label(en="")
+    @Label(en="Resource structure")
     @Description(en= "This section lists values and metadata of the dimensions of the resource. In a data table, dimensions may refer to geographical areas, time, commodities, gender, etc. . . It includes iterative elements representing 'n' dimensions and 'm' elements of each dimension. In addition ResourceRecord allows to report information at single-value level.")
     private MeResourceStructure meResourceStructure;
 
