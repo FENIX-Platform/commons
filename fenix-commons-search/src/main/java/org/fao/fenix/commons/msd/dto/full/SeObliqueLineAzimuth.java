@@ -16,7 +16,7 @@ public class SeObliqueLineAzimuth extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Longitude of the map projection origin")
-    @Description(en=:"Longitude of the origin in the map projection.")
+    @Description(en="Longitude of the origin in the map projection.")
     private Double azimuthMeasurePointLongitude;
 
 

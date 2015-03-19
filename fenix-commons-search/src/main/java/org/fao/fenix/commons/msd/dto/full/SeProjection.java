@@ -18,7 +18,7 @@ public class SeProjection extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Name of projection")
-    @Description(en= "Name of the projection used.")contains the set of parameters that describe the projection.
+    @Description(en= "Name of the projection used contains the set of parameters that describe the projection.")
     private Map<String, String> projectionName;
 
     @JsonProperty
