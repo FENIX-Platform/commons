@@ -22,8 +22,8 @@ public class MeSpatialRepresentation extends JSONEntity implements Serializable 
     private OjCodeList typeOfProduct;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Processing")
+    @Description(en= "Type of process applied to the geographic resource, if any.")
     private OjCodeList processing;
 
     @JsonProperty
