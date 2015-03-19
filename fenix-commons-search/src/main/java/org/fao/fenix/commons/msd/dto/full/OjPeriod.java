@@ -12,13 +12,13 @@ import java.util.Map;
 public class OjPeriod extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Date from")
+    @Description(en="Start point of time delimiting a time interval.")
     private Date from;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Date to")
+    @Description(en="End point of time delimiting a time interval.")
     private Date to;
 
     public Date getFrom() {
