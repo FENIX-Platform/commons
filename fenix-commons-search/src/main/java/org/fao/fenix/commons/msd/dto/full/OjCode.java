@@ -15,13 +15,13 @@ public class OjCode extends JSONEntity implements Serializable {
     private Code linkedCode;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Code")
+    @Description(en="Alphanumeric sequence of characters that uniquely identify an attribute within a codelist.")
     private String code;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Label")
+    @Description(en="Descriptive term associated to each code within a codelist.")
     private Map<String, String> label;
 
 
