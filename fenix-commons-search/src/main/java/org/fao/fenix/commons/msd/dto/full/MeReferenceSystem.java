@@ -30,7 +30,7 @@ public class MeReferenceSystem extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Projection")
-    @Description(en= "This section provides the identiers of the projection of the considered Coordinate Reference System (CRS).")
+    @Description(en= "This section provides the identifiers of the projection of the considered Coordinate Reference System (CRS).")
     private SeProjection seProjection;
 
     @JsonProperty
