@@ -13,38 +13,38 @@ import java.util.Map;
 public class OjResponsibleParty extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Point of contact")
+    @Description(en="Responsible person-surname, given name, title separated by a delimiter. It contains information about the party who can be contacted for acquiring knowledge the resource.")
     private String pointOfContact;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Organization")
+    @Description(en="Name of the responsible organization.")
     private Map<String, String> organization;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Organization unit/division")
+    @Description(en="Addressable subdivision of an organization.")
     private Map<String, String> organizationUnit;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Position")
+    @Description(en="Role or position of the responsible person.")
     private Map<String, String> position;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Role")
+    @Description(en="Function performed by the responsible party concerning the resource (e.g. owner, distributor, user. . . )")
     private ResponsiblePartyRole role;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Specify")
+    @Description(en="Textual metadata element that allows to specify the role performed by the responsible party. This field is conditional to the element <role>.")
     private Map<String, String> specify;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Contact information")
+    @Description(en="Address/phone number/email of the responsible party.")
     private OjContact contactInfo;
 
 
