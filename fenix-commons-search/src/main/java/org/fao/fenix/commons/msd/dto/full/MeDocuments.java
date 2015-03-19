@@ -13,18 +13,18 @@ import java.util.Collection;
 public class MeDocuments extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Documents linked to the data")
+    @Description(en= "Regular or ad-hoc publications linked to the resource.")
     private OjCitation document;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Reference subject")
+    @Description(en= "The metadata entity(ies) the document refers to. This element allows users to contextualize the document by making reference to specific metadata areas.")
     private ReferenceEntity referenceEntity;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Reference element")
+    @Description(en= "The metadata element(s)the document refers to. This element allows users to contextualize the document by making reference to specific metadata element(s). The element(s) selected must belong to the metadata entity just specified in <<referenceEntity>>.")
     private String referenceElement;
 
 

@@ -13,23 +13,23 @@ import java.util.Map;
 public class SeSecondaryDataCollection extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Origin of collected data")
+    @Description(en= "Coded element which allows to specify in a standard way the origin of the resource.")
     private OjCodeList originOfCollectedData;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Organization")
+    @Description(en= "If the element <<originOfCollectedData>> has been generally specified as 'other International Organizations' this element requests to report the exact source of the resource.")
     private Map<String, String> organization;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Description of raw data")
+    @Description(en= "Characteristics and components of the raw statistical data used for compiling statistical aggregates. It indicates if data set is based on a survey or on administrative data source. If administrative registers are used, the description of registers should be given (source, year, primary purpose, potential deficiencies. . . ).")
     private Map<String, String> rawDataDescription;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data collection")
+    @Description(en= "Data collection details")
     private Map<String, String> dataCollection;
 
 

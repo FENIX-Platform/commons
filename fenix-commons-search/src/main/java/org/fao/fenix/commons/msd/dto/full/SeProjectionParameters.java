@@ -12,83 +12,83 @@ public class SeProjectionParameters extends JSONEntity implements Serializable {
 
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Zone")
+    @Description(en= "Unique identifier for 100,000-meter grid zone.")
     private Integer zone;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Standard parallel")
+    @Description(en= "Line of constant latitude where the projection surface intersects the earth.")
     private Double standardParallel;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Longitude of central meridian")
+    @Description(en= "Line of longitude at the center of a map projection generally used as the basis for constructing the projection.")
     private Double longitudeOfCentralMeridian;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Latitude of projection origin")
+    @Description(en= "Latitude chosen as the origin of the coordinates for a map projection.")
     private Double latitudeOfProjectionOrigin;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="False easting")
+    @Description(en= "Value added to all 'x' values to the coordinates for a map projection. It is expressed in the unit of measure identied in Planar Coordinate Unit.")
     private Double falseEasting;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="False northing")
+    @Description(en= "Value added to all 'y' values to the coordinates for a map projection. This value frequently is assigned to eliminate negative numbers. It is expressed in the unit of measure identified in Planar Coordinates Units.")
     private Double falseNorthing;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Unit of measure of false easting/northing")
+    @Description(en= "Unit of the falseEasting and falseNorthing.")
     private OjMeasure falseEastingNorthingUnits;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Scale factor at the equator")
+    @Description(en= "Ratio between the distance on earth and the corresponding map distance, along the equator.")
     private Double scaleFactorAtEquator;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Height of view point above the Earth (m)")
+    @Description(en= "Height of viewpoint above the Earth expressed in meters.")
     private Double heightOfProspectivePointAboveSurface;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Longitude of projection centre")
+    @Description(en= "Longitude of the point of projection for azimuthal projections.")
     private Double longitudeOfProjectionCenter;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Latitude of projection center")
+    @Description(en= "Latitude of the point of projection for azimuthal projections.")
     private Double latitudeOfProjectionCenter;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Scale factor at center line")
+    @Description(en= "Ratio between distance on earth and the corresponding map distance, along the center line.")
     private Double scaleFactorAtCenterLine;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Straight vertical longitude from pole")
+    @Description(en= "Longitude to be oriented straight up from the North Pole.")
     private Double straightVerticalLongitudeFromPole;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Scale factor at projection origin")
+    @Description(en= "Multiplier for reducing a distance obtained from a map by computation or scaling to the actual distance at the projection origin.")
     private Double scaleFactorAtProjectionOrigin;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Oblique Line Azimuth")
+    @Description(en= "Method used to describe the line along which an oblique Mercator map projection is centred using the map projection origin and an azimuth.")
     private SeObliqueLineAzimuth seObliqueLineAzimuth;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Oblique Line Point")
+    @Description(en= "Method used to describe the line along which an oblique mercator map projection is centred using two points near the limit of the mapped region that define the centre line.")
     private SeObliqueLinePoint seObliqueLinePoint;
 
 

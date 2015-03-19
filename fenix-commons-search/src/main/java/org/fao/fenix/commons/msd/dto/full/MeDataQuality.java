@@ -12,43 +12,43 @@ import java.util.Map;
 public class MeDataQuality extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Quality management")
+    @Description(en= "Structure, responsibilities and procedures established for guaranteeing the quality of the data.")
     private Map<String, String> qualityManagement;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data quality assessment")
+    @Description(en= "Overall qualitative assessment of the quality of the statistical outputs.")
     private Map<String, String> qualityAssessment;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Quality assurance")
+    @Description(en= "Description of the process assuring that the data production processes conforms to the statistical quality standards.")
     private Map<String, String> qualityAssurance;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="ACCURACY")
+    @Description(en= "Closeness of computations or estimates to the exact values that the statistics were intended to measure. Accuracy can contain either measures of numerical results of the methods for assessing the accuracy of data or qualitative assessment indicators. It may also be described in terms of the major sources of error that potentially cause inaccuracy (e.g. sampling, non-response, response error).")
     private SeAccuracy seAccuracy;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data revision")
+    @Description(en= "This section describes the policy and practice for identifying the revision status of the data, as well as the availability of revision studies and analysis.")
     private SeDataRevision seDataRevision;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Relevance")
+    @Description(en= "Evaluation of data-quality through user satisfaction involving also information about the resource-completeness.")
     private SeRelevance seRelevance;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Comparability Coherence")
+    @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by dierent statistical agencies. These surveys often refer to populations of different geographical areas, sometimes based on different methodologies.")
     private SeComparability seComparability;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Timeliness and Punctuality")
+    @Description(en= "Evaluation of the timeliness of the resource dissemination with respect to the phenomenon it describes. In addition this section take in to account the punctuality of data dissemination.")
     private SeTimelinessPunctuality seTimelinessPunctuality;
 
 

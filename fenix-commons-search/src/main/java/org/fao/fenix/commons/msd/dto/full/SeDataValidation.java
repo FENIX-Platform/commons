@@ -11,18 +11,18 @@ import java.util.Map;
 public class SeDataValidation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data validation - intermediate")
+    @Description(en= "Assessment of the quality and correctness of intermediate calculations leading to statistical outputs.")
     private Map<String, String> dataValidationIntermediate;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data validation - output")
+    @Description(en= "Assessment of discrepancies and/or inaccuracies observed in the statistical outputs.")
     private Map<String, String> dataValidationOutput;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data validation - source")
+    @Description(en= "Assessment of discrepancies and/or inaccuracies inherent to the data source.")
     private Map<String, String> dataValidationSource;
 
 

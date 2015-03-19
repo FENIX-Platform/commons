@@ -11,33 +11,33 @@ import java.io.Serializable;
 public class SeBoundingBox extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="West bound longitude")
+    @Description(en= "The smaller X coordinate value delimiting the resource.")
     private Double xmin;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="East bound longitude")
+    @Description(en= "The higher X coordinate value delimiting the resource.")
     private Double xmax;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="South bound latitude")
+    @Description(en= "The smaller Y coordinate value delimiting the resource (mandatory.")
     private Double ymin;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="North bound latitude")
+    @Description(en= "The higher Y coordinate value delimiting the resource.")
     private Double ymax;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Grid Spatial Representation")
+    @Description(en= "This section reports the parameters about a grid (raster) resource.")
     private SeGridSpatialRepresentation seGridSpatialRepresentation;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Vector Spatial Representation")
+    @Description(en= "This section reports information about the vector spatial objects in the dataset.")
     private SeVectorSpatialRepresentation seVectorSpatialRepresentation;
 
 

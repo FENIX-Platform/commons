@@ -11,18 +11,18 @@ import java.util.Map;
 public class SeComparability extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Geographic comparability")
+    @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by dierent statistical agencies. These surveys often refer to populations of dierent geographical areas, sometimes based on dierent methodologies.")
     private Map<String, String> comparabilityGeographical;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Time comparability")
+    @Description(en= "Extent to which data are comparable or reconcilable over time. It refers to the degree of comparability between the measures of a time series (e.g. related to a country, a commodity and a variable) included in the resource.")
     private Map<String, String> comparabilityTime;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Internal coherence")
+    @Description(en= "General estimate of the extent to which data are consistent within the resource.")
     private Map<String, String> coherenceIntern;
 
 

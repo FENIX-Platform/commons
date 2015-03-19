@@ -12,13 +12,13 @@ import java.util.Date;
 public class SeUpdate extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Last update date")
+    @Description(en= "Last physical update date.")
     private Date updateDate;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Frequency of update")
+    @Description(en= "Frequency of upgrade.")
     private OjCodeList updatePeriodicity;
 
 

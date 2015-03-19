@@ -14,43 +14,43 @@ import java.util.Map;
 public class SeResourceRecords extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Record identifier")
+    @Description(en= "Row identifier. A code that identies the measured value associated to each row of the dataset.")
     private String recordID;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Origin of collected value")
+    @Description(en= "The origin of collected data at single-value level.")
     private OjCodeList originOfCollectedValue;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Creation date")
+    @Description(en= "Creation date of the record.")
     private Date creationDate;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data reliability qualifier")
+    @Description(en= "Qualitative assessment of the consistence and stability of the observation.")
     private Map<String, String> dataReliabilityQualifier;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Quantitative indicator of reliability")
+    @Description(en= "Quantitative indicator of the consistence and stability of the observation.")
     private Double dataReliabilityIndicator;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Restriction in access")
+    @Description(en= "Level of confidentiality of single values (e.g. pubblic, shared, restricted ).")
     private ConfidentialityStatus confidentialityStatus;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Observation status")
+    @Description(en= "The status of the reported value (e.g. estmated value, missing value, time seies break . . . )")
     private OjCodeList observationStatus;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Remarks")
+    @Description(en= "Additional information related to a single data point.")
     private Map<String, String> remarks;
 
 

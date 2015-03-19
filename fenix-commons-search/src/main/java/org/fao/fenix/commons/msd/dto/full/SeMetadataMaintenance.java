@@ -11,18 +11,18 @@ import java.util.Date;
 public class SeMetadataMaintenance extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Metadata last certied")
+    @Description(en= "Latest date of certiFIcation of the metadata.")
     private Date metadataLastCertified;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Metadata last posted")
+    @Description(en= "Latest date of publication of the metadata. It is usually automatically updated by the metadata production system.")
     private Date metadataLastPosted;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Metadata last update")
+    @Description(en= "Most recent date of update of the metadata.")
     private Date metadataLastUpdate;
 
 

@@ -12,13 +12,13 @@ import java.io.Serializable;
 public class SeVectorSpatialRepresentation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Degree of complexity of the spatial relationships")
+    @Description(en= "Degree of complexity of the spatial relationships expressed through a code list.")
     private OjCodeList topologyLevel;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Geometric object")
+    @Description(en= "Information about the geometric objects used in the dataset (e.g. point, line, polygon, etc.) expressed through a multipleChoice.")
     private GeometricObjects geometricObjects;
 
 

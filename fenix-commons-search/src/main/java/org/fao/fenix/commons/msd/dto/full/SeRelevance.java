@@ -11,23 +11,23 @@ import java.util.Map;
 public class SeRelevance extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="User needs")
+    @Description(en= "Classification of users with some indication of their importance, an indication of the uses for which they want the statistical outputs and as well users and uses given special considerations. Unmet user needs and the reasons for not meeting them should be included as well.")
     private Map<String, String> userNeeds;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="User satisfaction")
+    @Description(en= "How the views and opinions of the users are collected. In addition the main results regarding the user satisfaction should be shown (in the form of a user satisfaction index if available) and the date of most recent user satisfaction survey.")
     private Map<String, String> userSatisfaction;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Completeness")
+    @Description(en= "State of completeness of the resource.")
     private Map<String, String> completeness;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Percentage of completeness")
+    @Description(en= "Percentage of the state of completeness of the resource.")
     private Double completenessPercentage;
 
 

@@ -10,13 +10,13 @@ import java.io.Serializable;
 public class SeObliqueLinePoint extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Oblique line latitude")
+    @Description(en= "Latitude of a point dening the oblique line.")
     private Double obliqueLineLatitude;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Oblique line longitude")
+    @Description(en= "Longitude of a point dening the oblique line.")
     private Double obliqueLineLongitude;
 
 

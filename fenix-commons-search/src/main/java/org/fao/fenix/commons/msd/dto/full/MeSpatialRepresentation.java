@@ -12,13 +12,13 @@ import java.io.Serializable;
 public class MeSpatialRepresentation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Type of layer")
+    @Description(en= "Layer typology: vector or raster spatial representation.")
     private LayerType layerType;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Type of product")
+    @Description(en= "Coded information about the product managed.")
     private OjCodeList typeOfProduct;
 
     @JsonProperty
@@ -27,13 +27,13 @@ public class MeSpatialRepresentation extends JSONEntity implements Serializable 
     private OjCodeList processing;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Value assigned to No-data")
+    @Description(en= "Value assigned to the cells to represent the absence of data.")
     private String noDataValue;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Bounding Box")
+    @Description(en= "This section includes the planar measurement units used to express the X,Y values. The bounding box indicates the smaller quadrilateral shape that includes all features of the considered resource.")
     private SeBoundingBox seBoundingBox;
 
 

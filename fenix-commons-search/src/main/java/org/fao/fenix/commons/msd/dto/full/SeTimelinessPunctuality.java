@@ -11,13 +11,13 @@ import java.util.Map;
 public class SeTimelinessPunctuality extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Timeliness")
+    @Description(en= "It refers to the speed of data availability, length of time between data availability and the event or phenomenon they describe.")
     private Map<String, String> timeliness;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Punctuality")
+    @Description(en= "Time lag between the release date of data and the target date announced in some official release calendar.")
     private Map<String, String> punctuality;
 
 

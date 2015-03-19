@@ -12,28 +12,28 @@ import java.util.Map;
 public class SePrimaryDataCollection extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data collector")
+    @Description(en= "The entity (individual, agency or institution) responsible for administering the questionnaire or interview or compiling the data.")
     private OjResponsibleParty dataCollector;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Type of collection")
+    @Description(en= "Coded element which specifies the type of data collection method (e.g. census, random sampling, etc.).")
     private OjCodeList typeOfCollection;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Sampling procedure")
+    @Description(en= "The type of sample design used to select the survey respondents to represent the population. It may refer to information on sample design, sample size, sample frame, sample updating etc.")
     private Map<String, String> samplingProcedure;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Data collection")
+    @Description(en= "Methods used to gather data from the respondents (e.g. postal survey, CAPI, on-line survey, face-to-face interviews etc.) and description of data collection methods. This metadata element also includes more precise information about the kind of questionnaire (structured, unstructured etc.) and if necessary somenoteworthy aspects of the data collection process.")
     private Map<String, String> dataCollection;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Periodicity of data collection")
+    @Description(en= "Frequency with which the data are collected from the sources.")
     private OjCodeList collectionPeriodicity;
 
 
