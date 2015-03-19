@@ -12,18 +12,18 @@ import java.io.Serializable;
 public class OjAxis extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Name of axis")
+    @Description(en="Name of the axis.")
     private AxisType axisName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Axis size")
+    @Description(en="Number of elements along the axis.")
     private Integer axisSize;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Resolution")
+    @Description(en="Degree of detail in the grid dataset.")
     private OjMeasure resolution;
 
 
