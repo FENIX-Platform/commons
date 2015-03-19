@@ -14,43 +14,43 @@ import java.util.Map;
 public class OjCitation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Kind of document")
+    @Description(en="Kind of resource attached to data.")
     private DocumentType documentKind;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Title")
+    @Description(en="Title by which the cited resource is known which offers a quick information about its content.")
     private Map<String, String> title;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Date")
+    @Description(en="Reference date for the cited document.")
     private Date date;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Contact")
+    @Description(en="Name and position information for an individual or organization that is responsible for the resource.")
     private OjResponsibleParty documentContact;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Notes")
+    @Description(en="Some additional details about the resource mainly concerning the domain to which the resource refers.")
     private Map<String, String> notes;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Resource hyperlink")
+    @Description(en="Web site link allowing the user access to the information resource.")
     private String link;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="ISBN code")
+    @Description(en="If available, the International Standard Book Number can be reported in order to uniquely identify the resource cited.")
     private String isbn;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="ISNN code")
+    @Description(en="If available, the International Standard Serial Number (used to identify periodical publications such as reviews and scientific journals) can be reported in order to uniquely identify the resource cited.")
     private String issn;
 
 
