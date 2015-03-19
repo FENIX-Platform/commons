@@ -51,8 +51,8 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private Date creationDate;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en= "")
+    @Label(en="Character-set")
+    @Description(en= "Full name of the character coding standard used by the resource.")
     private OjCodeList characterSet;
 
     @JsonProperty
