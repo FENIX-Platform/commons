@@ -14,38 +14,38 @@ public class OjCodeList extends JSONEntity implements Serializable {
     private MeIdentification linkedCodeList;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Code(s)")
+    @Description(en="Code corresponding to the element requested by the field it refers to.")
     private Collection<OjCode> codes;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Codelist identication")
+    @Description(en="Codelist identifier. It is an alphanumeric acronyme that identify the codelist.")
     private String idCodeList;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Version of the codelist")
+    @Description(en="Information about the version and the state of upgrade of the code list used.")
     private String version;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Extended name")
+    @Description(en="Full name of the codelist.")
     private Map<String, String> extendedName;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Contact(s)")
+    @Description(en="Individual/organizational contact points for a code list including information about the person(s)/maintenance agency and how to reach the contact points.")
     private OjResponsibleParty contactInfo;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Resource(s) linked to the codelist")
+    @Description(en="It allows to attach documents to the codelist or simply to cite a webpage linked to the code list to which it refers to.")
     private Collection<OjCitation> codeListResources;
 
     @JsonProperty
-    @Label(en="")
-    @Description(en="")
+    @Label(en="Codelist hyperlink")
+    @Description(en="Web site link allowing the user access to the information resource.")
     private String link;
 
 
