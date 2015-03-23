@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -14,16 +16,22 @@ public class MeMaintenance extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Maintenance agency")
     @Description(en= "Organization or other expert body that maintains the resource.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> maintenanceAgency;
 
     @JsonProperty
     @Label(en="Update")
     @Description(en= "This section involves maintenance operations concerning the periodic update of the resource.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private SeUpdate seUpdate;
 
     @JsonProperty
     @Label(en="MAINTENANCE")
     @Description(en= "This section involves maintenance operations concerning the periodic update of metadata to ensure that the resource is properly described.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private SeMetadataMaintenance seMetadataMaintenance;
 
 

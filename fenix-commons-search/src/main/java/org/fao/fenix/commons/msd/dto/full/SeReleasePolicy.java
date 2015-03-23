@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -15,21 +17,29 @@ public class SeReleasePolicy extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Release calendar")
     @Description(en= "Policy regarding the release of the resource in accordance with the pre-announced schedule. It also provides information on the availability of the release calendar.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> releaseCalendar;
 
     @JsonProperty
     @Label(en="Access to the release calendar")
     @Description(en= "Link or references to the release calendar.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String releaseCalendarAccess;
 
     @JsonProperty
     @Label(en="Dissemination periodicity")
     @Description(en= "Frequency of data dissemination (e.g. daily, monthly, quarterly, yearly).")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private OjCodeList disseminationPeriodicity;
 
     @JsonProperty
     @Label(en="Embargo time")
     @Description(en= "Time span between the completion of the production process of statistical data and their publication.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private OjPeriod embargoTime;
 
 

@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -13,16 +15,22 @@ public class SeDataValidation extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Data validation - intermediate")
     @Description(en= "Assessment of the quality and correctness of intermediate calculations leading to statistical outputs.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> dataValidationIntermediate;
 
     @JsonProperty
     @Label(en="Data validation - output")
     @Description(en= "Assessment of discrepancies and/or inaccuracies observed in the statistical outputs.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> dataValidationOutput;
 
     @JsonProperty
     @Label(en="Data validation - source")
     @Description(en= "Assessment of discrepancies and/or inaccuracies inherent to the data source.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> dataValidationSource;
 
 

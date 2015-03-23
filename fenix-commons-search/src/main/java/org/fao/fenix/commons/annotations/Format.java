@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 public @interface Format {
 
     enum FORMAT {
-        date, tel, email, textarea, url
+        string, date, tel, email, textarea, url
     }
 
     public FORMAT value();

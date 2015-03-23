@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -12,17 +14,23 @@ public class SeMetadataMaintenance extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Metadata last certied")
-    @Description(en= "Latest date of certiFIcation of the metadata.")
+    @Description(en= "Latest date of certification of the metadata.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Date metadataLastCertified;
 
     @JsonProperty
     @Label(en="Metadata last posted")
     @Description(en= "Latest date of publication of the metadata. It is usually automatically updated by the metadata production system.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Date metadataLastPosted;
 
     @JsonProperty
     @Label(en="Metadata last update")
     @Description(en= "Most recent date of update of the metadata.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Date metadataLastUpdate;
 
 

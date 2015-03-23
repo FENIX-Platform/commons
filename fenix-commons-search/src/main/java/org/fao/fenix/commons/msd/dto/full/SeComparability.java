@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -13,16 +15,22 @@ public class SeComparability extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Geographic comparability")
     @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by dierent statistical agencies. These surveys often refer to populations of dierent geographical areas, sometimes based on dierent methodologies.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> comparabilityGeographical;
 
     @JsonProperty
     @Label(en="Time comparability")
     @Description(en= "Extent to which data are comparable or reconcilable over time. It refers to the degree of comparability between the measures of a time series (e.g. related to a country, a commodity and a variable) included in the resource.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> comparabilityTime;
 
     @JsonProperty
     @Label(en="Internal coherence")
     @Description(en= "General estimate of the extent to which data are consistent within the resource.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> coherenceIntern;
 
 

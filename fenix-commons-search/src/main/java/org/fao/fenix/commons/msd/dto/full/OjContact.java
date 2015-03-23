@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -13,26 +15,36 @@ public class OjContact extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Telephone number")
     @Description(en="Telephone numbers at which the organization or individual may be contacted.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String phone;
 
     @JsonProperty
     @Label(en="Address")
     @Description(en="Physical address at which the organization or individual may be contacted.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String address;
 
     @JsonProperty
     @Label(en="e-mail address")
     @Description(en="E-mail address at which the organization or individual may be contacted.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String emailAddress;
 
     @JsonProperty
     @Label(en="Hour of service")
     @Description(en="Time period (including time zone) when individuals can contact the organization or individual.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> hoursOfService;
 
     @JsonProperty
     @Label(en="Instruction")
     @Description(en="Supplemental instructions on how or when to contact the individual or organization.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> contactInstruction;
 
 
