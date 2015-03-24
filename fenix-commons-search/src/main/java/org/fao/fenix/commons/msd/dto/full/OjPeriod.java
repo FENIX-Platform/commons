@@ -16,15 +16,15 @@ public class OjPeriod extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Date from")
     @Description(en="Start point of time delimiting a time interval.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.date)
     private Date from;
 
     @JsonProperty
     @Label(en="Date to")
     @Description(en="End point of time delimiting a time interval.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(2)
+    @Format(Format.FORMAT.date)
     private Date to;
 
     public Date getFrom() {
