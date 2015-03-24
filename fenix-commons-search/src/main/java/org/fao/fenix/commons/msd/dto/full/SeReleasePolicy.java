@@ -17,28 +17,28 @@ public class SeReleasePolicy extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Release calendar")
     @Description(en= "Policy regarding the release of the resource in accordance with the pre-announced schedule. It also provides information on the availability of the release calendar.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private Map<String, String> releaseCalendar;
 
     @JsonProperty
     @Label(en="Access to the release calendar")
     @Description(en= "Link or references to the release calendar.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private String releaseCalendarAccess;
 
     @JsonProperty
     @Label(en="Dissemination periodicity")
     @Description(en= "Frequency of data dissemination (e.g. daily, monthly, quarterly, yearly).")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private OjCodeList disseminationPeriodicity;
 
     @JsonProperty
     @Label(en="Embargo time")
     @Description(en= "Time span between the completion of the production process of statistical data and their publication.")
-    @Order(-1)
+    @Order(4)
     @Format(Format.FORMAT.string)
     private OjPeriod embargoTime;
 
