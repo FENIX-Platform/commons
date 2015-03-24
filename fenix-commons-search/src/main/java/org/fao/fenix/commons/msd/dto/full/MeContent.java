@@ -46,21 +46,21 @@ public class MeContent extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Reference population")
     @Description(en= "Information about the statistical population the resource refers to.")
-    @Order(-1)
+    @Order(5)
     @Format(Format.FORMAT.string)
     private SeReferencePopulation seReferencePopulation;
 
     @JsonProperty
     @Label(en="Coverage")
     @Description(en= "Size and extent of the resource. The term 'coverage' encompasses the descriptions of key dimensions delimiting the data, e.g. geographical, institutional, product, economic sector,etc., as well as relevant exceptions and exclusions.")
-    @Order(-1)
+    @Order(6)
     @Format(Format.FORMAT.string)
     private SeCoverage seCoverage;
 
     @JsonProperty
     @Label(en="Codelist")
-    @Description(en= "this section allows to report information specifically addressed to resources of the kind 'codelist'.")
-    @Order(-1)
+    @Description(en= "This section allows to report information specifically addressed to resources of the kind 'codelist'.")
+    @Order(7)
     @Format(Format.FORMAT.string)
     private SeCodeList seCodeList;
 
