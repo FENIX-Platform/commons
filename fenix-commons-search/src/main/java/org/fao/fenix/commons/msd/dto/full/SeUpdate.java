@@ -16,14 +16,14 @@ public class SeUpdate extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Last update date")
     @Description(en= "Last physical update date.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.date)
     private Date updateDate;
 
     @JsonProperty
     @Label(en="Frequency of update")
     @Description(en= "Frequency of upgrade.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private OjCodeList updatePeriodicity;
 
