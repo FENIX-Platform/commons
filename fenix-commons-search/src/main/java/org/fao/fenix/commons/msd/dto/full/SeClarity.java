@@ -15,14 +15,14 @@ public class SeClarity extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Clarity")
     @Description(en= "Extent to which easily comprehensible metadata are available. It indicates whether a resource is accompanied by appropriate metadata and other relevant documentation.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> clarity;
 
     @JsonProperty
     @Label(en="Metadata completeness rate")
     @Description(en= "The percentage of completeness of metadata offers a numerical evaluation of the extent to which the resource is documented.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Integer metadataCompletenessRate;
 
