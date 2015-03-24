@@ -16,21 +16,21 @@ public class SeConfidentiality extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Confidentiality - Policy")
     @Description(en= "Legislative measures or other formal procedures which prevent unauthorized disclosure of data that identify a person or economic entity either directly or indirectly. It consists in textual description and references to legislation or other rules related to statistical confidentiality.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> confidentialityPolicy;
 
     @JsonProperty
     @Label(en="Confidentiality - Data treatment")
     @Description(en= "Rules applied for treating the resource to ensure confidentiality and prevent unauthorized disclosure.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(2)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> confidentialityDataTreatment;
 
     @JsonProperty
     @Label(en="Status of confidentiality")
     @Description(en= "Coded information describing the degree of confidentiality of the resource.")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private OjCodeList confidentialityStatus;
 
