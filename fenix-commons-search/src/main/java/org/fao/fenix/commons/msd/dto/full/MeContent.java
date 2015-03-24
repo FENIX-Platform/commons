@@ -18,29 +18,29 @@ public class MeContent extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Type of resource")
     @Description(en= "Typology of the resource the metadata refers to. This metadata element determines whether certain meta-data entities are, or are not applicable. For example, the metadata entities 'SpatialRepresentation' and 'ReferenceSystem' are only available for geospatial resource types (e.g. raster; vector).")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private RepresentationType resourceRepresentationType;
 
     @JsonProperty
     @Label(en="Keywords")
     @Description(en= "Commonly used word(s), formalized word(s) or phrase(s) used to describe the resource.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Collection<String> keywords;
 
     @JsonProperty
-    @Label(en="Description")
+    @Label(en="Abstract")
     @Description(en= "Overview of the main characteristics of the resource and summary of the information contained in the resource, in an easily understandable manner, for technical and non-technical users.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(3)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> description;
 
     @JsonProperty
     @Label(en="Statistical concepts / definitions")
-    @Description(en= "Definitions of the statistical concepts under measure (i.e. the statistical domain) and the main variables provided. The considered types of variables (e.g. raw figures, annual growth rates, index, ow or stock data, ...) should be dened and described in accordance with internationally accepted statistical standards, guidelines, or good practices.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Description(en= "Definitions of the statistical concepts under measure (i.e. the statistical domain) and the main variables provided. The considered types of variables (e.g. raw figures, annual growth rates, index, ow or stock data, ...) should be defined and described in accordance with internationally accepted statistical standards, guidelines, or good practices.")
+    @Order(4)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> statisticalConceptsDefinitions;
 
     @JsonProperty
