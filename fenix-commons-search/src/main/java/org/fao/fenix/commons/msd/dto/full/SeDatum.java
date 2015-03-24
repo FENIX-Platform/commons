@@ -15,7 +15,7 @@ public class SeDatum extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Datum")
-    @Description(en= "Identifier of the datum used. Datum description is requested when the coordinate reference system citation is not supplied. A datum could be geodetic, vertical or engineering. A geodetic datum gives the relationship of a coordinate system to the Earth and is used as the basis for two or three dimensional system (in most cases it requires an ellipsoid denition). A vertical datum gives the relationship of gravity-related heights to a surface known as the geoid. A datum can be engineering if it is neither geodetic not vertical. For geodetic datum it could be useful to report the EPGS (European Petroleum Survey Group) coordinates.")
+    @Description(en= "Identifier of the datum used. Datum description is requested when the coordinate reference system citation is not supplied. A datum could be geodetic, vertical or engineering. A geodetic datum gives the relationship of a coordinate system to the Earth and is used as the basis for two or three dimensional system (in most cases it requires an ellipsoid definition). A vertical datum gives the relationship of gravity-related heights to a surface known as the geoid. A datum can be engineering if it is neither geodetic not vertical. For geodetic datum it could be useful to report the EPGS (European Petroleum Survey Group) coordinates.")
     @Order(-1)
     @Format(Format.FORMAT.string)
     private OjCodeList datum;
