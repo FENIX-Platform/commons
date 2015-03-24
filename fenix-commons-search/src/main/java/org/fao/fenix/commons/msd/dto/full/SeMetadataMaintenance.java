@@ -15,22 +15,22 @@ public class SeMetadataMaintenance extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Metadata last certified")
     @Description(en= "Latest date of certification of the metadata.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.date)
     private Date metadataLastCertified;
 
     @JsonProperty
     @Label(en="Metadata last posted")
     @Description(en= "Latest date of publication of the metadata. It is usually automatically updated by the metadata production system.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(2)
+    @Format(Format.FORMAT.date)
     private Date metadataLastPosted;
 
     @JsonProperty
     @Label(en="Metadata last update")
     @Description(en= "Most recent date of update of the metadata.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(3)
+    @Format(Format.FORMAT.date)
     private Date metadataLastUpdate;
 
 
