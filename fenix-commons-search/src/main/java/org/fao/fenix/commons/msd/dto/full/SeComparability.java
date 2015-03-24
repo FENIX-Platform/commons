@@ -14,7 +14,7 @@ public class SeComparability extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Geographic comparability")
-    @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by dierent statistical agencies. These surveys often refer to populations of dierent geographical areas, sometimes based on dierent methodologies.")
+    @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by different statistical agencies. These surveys often refer to populations of different geographical areas, sometimes based on different methodologies.")
     @Order(-1)
     @Format(Format.FORMAT.string)
     private Map<String, String> comparabilityGeographical;
