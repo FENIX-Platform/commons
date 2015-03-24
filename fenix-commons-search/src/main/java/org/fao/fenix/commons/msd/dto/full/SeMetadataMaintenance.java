@@ -13,7 +13,7 @@ import java.util.Date;
 public class SeMetadataMaintenance extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Metadata last certied")
+    @Label(en="Metadata last certified")
     @Description(en= "Latest date of certification of the metadata.")
     @Order(-1)
     @Format(Format.FORMAT.string)
