@@ -19,14 +19,14 @@ public class OjCode extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Code")
     @Description(en="Alphanumeric sequence of characters that uniquely identify an attribute within a codelist.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private String code;
 
     @JsonProperty
     @Label(en="Label")
     @Description(en="Descriptive term associated to each code within a codelist.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> label;
 
