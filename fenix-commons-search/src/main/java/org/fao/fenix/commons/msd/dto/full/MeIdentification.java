@@ -77,7 +77,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
 
     @JsonProperty
     @Label(en="Value assigned to No-data")
-    @Description(en= "Value assigned to the cells to represent the absence of data. Missing values are usually highlight through apposite ags, however the data matrix does not report empty cells but a predened combination of characters (such as 'NA', '000' . . . ) indicating the absence of data.")
+    @Description(en= "Value assigned to the cells to represent the absence of data. Missing values are usually highlight through apposite ags, however the data matrix does not report empty cells but a predefined combination of characters (such as 'NA', '000' . . . ) indicating the absence of data.")
     private String noDataValue;
 
     /* Connected entities */
