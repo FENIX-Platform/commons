@@ -16,21 +16,21 @@ public class MeMaintenance extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Maintenance agency")
     @Description(en= "Organization or other expert body that maintains the resource.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private Map<String, String> maintenanceAgency;
 
     @JsonProperty
     @Label(en="Update")
     @Description(en= "This section involves maintenance operations concerning the periodic update of the resource.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private SeUpdate seUpdate;
 
     @JsonProperty
-    @Label(en="MAINTENANCE")
+    @Label(en="Metadata Maintenance")
     @Description(en= "This section involves maintenance operations concerning the periodic update of metadata to ensure that the resource is properly described.")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private SeMetadataMaintenance seMetadataMaintenance;
 
