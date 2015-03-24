@@ -43,7 +43,7 @@ public class SeProjectionParameters extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="False easting")
-    @Description(en= "Value added to all 'x' values to the coordinates for a map projection. It is expressed in the unit of measure identied in Planar Coordinate Unit.")
+    @Description(en= "Value added to all 'x' values to the coordinates for a map projection. It is expressed in the unit of measure identified in Planar Coordinate Unit.")
     @Order(-1)
     @Format(Format.FORMAT.string)
     private Double falseEasting;
