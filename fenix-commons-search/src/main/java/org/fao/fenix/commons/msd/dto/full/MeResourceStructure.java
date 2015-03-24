@@ -16,14 +16,14 @@ public class MeResourceStructure extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Resource Dimentions")
     @Description(en= "Information on the type and content of the dimensions of the dataset.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private Collection<SeResourceDimensions> seResourceDimensions;
 
     @JsonProperty
     @Label(en="Resource Records")
     @Description(en= "Information at a sigle recod level.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Collection<SeResourceRecords> seResourceRecords;
 
