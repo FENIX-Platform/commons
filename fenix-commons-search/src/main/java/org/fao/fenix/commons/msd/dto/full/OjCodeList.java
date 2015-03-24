@@ -23,7 +23,7 @@ public class OjCodeList extends JSONEntity implements Serializable {
     private Collection<OjCode> codes;
 
     @JsonProperty
-    @Label(en="Codelist identication")
+    @Label(en="Codelist identification")
     @Description(en="Codelist identifier. It is an alphanumeric acronyme that identify the codelist.")
     @Order(-1)
     @Format(Format.FORMAT.string)

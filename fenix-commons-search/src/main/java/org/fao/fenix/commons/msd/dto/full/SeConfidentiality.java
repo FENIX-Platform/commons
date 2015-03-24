@@ -29,7 +29,7 @@ public class SeConfidentiality extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Status of confidentiality")
-    @Description(en= "Coded information describing the degree of condentiality of the resource.")
+    @Description(en= "Coded information describing the degree of confidentiality of the resource.")
     @Order(-1)
     @Format(Format.FORMAT.string)
     private OjCodeList confidentialityStatus;

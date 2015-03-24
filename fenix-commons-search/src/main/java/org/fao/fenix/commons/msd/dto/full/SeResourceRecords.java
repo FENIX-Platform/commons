@@ -17,7 +17,7 @@ public class SeResourceRecords extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Record identifier")
-    @Description(en= "Row identifier. A code that identies the measured value associated to each row of the dataset.")
+    @Description(en= "Row identifier. A code that identifies the measured value associated to each row of the dataset.")
     @Order(-1)
     @Format(Format.FORMAT.string)
     private String recordID;

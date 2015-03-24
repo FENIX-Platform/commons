@@ -30,7 +30,7 @@ public class SeGridSpatialRepresentation extends JSONEntity implements Serializa
     private OjAxis axisDimensionProperties;
 
     @JsonProperty
-    @Label(en="Identication of grid data as point or cell")
+    @Label(en="Identification of grid data as point or cell")
     @Description(en= "Specifies whether each pixel of the raster data represents a point or an area. A raster with the cell geometry as point assumes that the features to represent, or the values to report, refers to the center of the cell; cell geometry as area represents the whole area covered by the cell (e.g. averages of values falling within the cell; dominant feature of the cell, etc.).")
     @Order(-1)
     @Format(Format.FORMAT.string)

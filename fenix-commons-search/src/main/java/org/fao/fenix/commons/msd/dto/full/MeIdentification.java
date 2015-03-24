@@ -104,7 +104,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     @Format(Format.FORMAT.string)
     private String noDataValue;
 
-    /* Connected entities */con
+    /* Connected entities */
 
     @JsonProperty
     @Label(en="DOCUMENTS")
