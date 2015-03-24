@@ -15,22 +15,22 @@ public class SeDataValidation extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Data validation - intermediate")
     @Description(en= "Assessment of the quality and correctness of intermediate calculations leading to statistical outputs.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(2)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> dataValidationIntermediate;
 
     @JsonProperty
     @Label(en="Data validation - output")
     @Description(en= "Assessment of discrepancies and/or inaccuracies observed in the statistical outputs.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(3)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> dataValidationOutput;
 
     @JsonProperty
     @Label(en="Data validation - source")
     @Description(en= "Assessment of discrepancies and/or inaccuracies inherent to the data source.")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> dataValidationSource;
 
 
