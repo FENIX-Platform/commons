@@ -59,7 +59,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     @Label(en="Creation date")
     @Description(en= "Creation date of the resource.")
     @Order(6)
-    @Format(Format.FORMAT.string)
+    @Format(Format.FORMAT.date)
     private Date creationDate;
 
     @JsonProperty
