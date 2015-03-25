@@ -14,91 +14,91 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     /* Properties */
 
     @JsonProperty
-    @Label(en="Resource identification code")
+    @Label(en="Resource identification code", fr="Code d'identification de la ressource", es="Código de identificación de recursos")
     @Description(en="Resource identifier. It is a code that creates the match between the resource and the metadata it is associated to.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private String uid;
 
     @JsonProperty
-    @Label(en="Version")
-    @Description(en="This is the version of the metadata.")
+    @Label(en="Version",fr="Version de la ressource",es="Versión de Recursos")
+    @Description(en="This is the version of the metadata.",fr="",es="")
     @Order(2)
     @Format(Format.FORMAT.string)
     private String version;
 
     @JsonProperty
-    @Label(en="Parent(s) metadata ID")
+    @Label(en="Parent(s) metadata ID",fr="",es="")
     @Description(en= "Identifier of the metadata record to which this metadata record is a subset of (i.e. parent metadata of hierarchical metadata records). The specification of the parentIdentifier allows to inherit a set of metadata information from the parent metadata record. The choice of which metadata elements must to be kept from the parent record and the one that has to be manually modified, it is subject to ad hoc controls.")
     @Order(3)
     @Format(Format.FORMAT.string)
     private Collection<String> parentIdentifiers;
 
     @JsonProperty
-    @Label(en="Language(s)")
+    @Label(en="Language(s)",fr="Langue(s)",es="Idioma(s)")
     @Description(en= "Language used by the resource for textual information.")
     @Order(4)
     @Format(Format.FORMAT.string)
     private OjCodeList language;
 
     @JsonProperty
-    @Label(en="Language details")
+    @Label(en="Language details",fr="Détails de la langue",es="Detalles del idioma")
     @Description(en= "Comments and additional details about the language used for the textual information of the resource. This field is addressed to highlight some particular inconsistencies in the language (or languages) used in the resource, if any. For example to alert that the resource is not completely homogeneous in the language used for textual information. Otherwise it can be leaved empty.")
     @Order(5)
     @Format(Format.FORMAT.string)
     private Map<String, String> languageDetails;
 
     @JsonProperty
-    @Label(en="Title")
+    @Label(en="Title",fr="Titre",es="Título")
     @Description(en= "Textual label used as title of the resource.")
     @Order(-1)
     @Format(Format.FORMAT.string)
     private Map<String, String> title;
 
     @JsonProperty
-    @Label(en="Creation date")
+    @Label(en="Creation date",fr="Date de création",es="Fecha de creación")
     @Description(en= "Creation date of the resource.")
     @Order(6)
     @Format(Format.FORMAT.date)
     private Date creationDate;
 
     @JsonProperty
-    @Label(en="Character-set")
+    @Label(en="Character-set",fr="Caractère-set",es="Character-set")
     @Description(en= "Full name of the character coding standard used by the resource.")
     @Order(7)
     @Format(Format.FORMAT.string)
     private OjCodeList characterSet;
 
     @JsonProperty
-    @Label(en="Character-set")
+    @Label(en="Character-set",fr="Caractère-set",es="Character-set")
     @Description(en= "Full name of the character coding standard used by the resource.")
     @Order(8)
     @Format(Format.FORMAT.string)
     private String metadataStandardName;
 
     @JsonProperty
-    @Label(en="Used metadata standard")
+    @Label(en="Used metadata standard",fr="Normes utilisées pour les métadonnées",es="Estándares de metadatos usados")
     @Description(en= "Name of the metadata standard specifications used. In FENIX framework this field would be pre-compiled by 'FENIX'.")
     @Order(9)
     @Format(Format.FORMAT.string)
     private String metadataStandardVersion;
 
     @JsonProperty
-    @Label(en="Version of metadata standard")
+    @Label(en="Version of metadata standard",fr="Version des normes des métadonnées",es="Versión de los estándares de metadatos")
     @Description(en= "Version of the metadata standard specifications used.")
     @Order(10)
     @Format(Format.FORMAT.string)
     private OjCodeList metadataLanguage;
 
     @JsonProperty
-    @Label(en="Contact(s)")
+    @Label(en="Contact(s)",fr="Contact",es="Contacto")
     @Description(en= "Responsible party that could be identify as the data source. FENIX metadata contains more than one field of the type 'ResponsibleParty' addressed to report all the information necessary to contact party(ies) playing different roles in respect to the resource. In particular this field (belonging to the Identification entity) should report the party who owns authority on the resource.")
     @Order(11)
     @Format(Format.FORMAT.string)
     private Collection<OjResponsibleParty> contacts;
 
     @JsonProperty
-    @Label(en="Value assigned to No-data")
+    @Label(en="Value assigned to No-data",fr="Valeur affectée au No-données",es="Valor asignado al No-dato")
     @Description(en= "Value assigned to the cells to represent the absence of data. Missing values are usually highlight through apposite ags, however the data matrix does not report empty cells but a predefined combination of characters (such as 'NA', '000' . . . ) indicating the absence of data.")
     @Order(12)
     @Format(Format.FORMAT.string)
@@ -107,70 +107,70 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     /* Connected entities */
 
     @JsonProperty
-    @Label(en="DOCUMENTS")
+    @Label(en="DOCUMENTS",fr="DOCUMENT",es="DOCUMENTO")
     @Description(en= "This section allows linking publications, news, or other relevant material to the considered resource.")
     @Order(19)
     @Format(Format.FORMAT.string)
     private Collection<MeDocuments> meDocuments;
 
     @JsonProperty
-    @Label(en="INSTITUTIONAL MANDATE")
+    @Label(en="INSTITUTIONAL MANDATE",fr="MANDAT INSTITUTIONNEL",es="MANDATO INSTITUCIONAL")
     @Description(en= "This section includes the formal set of instructions assigning responsibility as well as the authority to an organization for the collection, processing, and dissemination of statistics.")
     @Order(14)
     @Format(Format.FORMAT.string)
     private MeInstitutionalMandate meInstitutionalMandate;
 
     @JsonProperty
-    @Label(en="ACCESSIBILITY")
+    @Label(en="ACCESSIBILITY",fr="ACCESSIBILITÉ",es="ACCESIBILIDAD")
     @Description(en= "This section reports details about data distribution and sharing mechanisms. It includes information on conditions and formal agreements under which statistical information can be obtained. In addition it provides details on available options to obtain a resource, such as user accessibility to data and dissemination periodicity.")
     @Order(17)
     @Format(Format.FORMAT.string)
     private MeAccessibility meAccessibility;
 
     @JsonProperty
-    @Label(en="CONTENT")
+    @Label(en="CONTENT",fr="CONTENU",es="CONTENIDO")
     @Description(en= "This section includes a summary of the content of the resource and the description of the geographical, time and sector coverage.")
     @Order(13)
     @Format(Format.FORMAT.string)
     private MeContent meContent;
 
     @JsonProperty
-    @Label(en="DATA QUALITY")
+    @Label(en="DATA QUALITY",fr="QUALITÉ DES DONNÉES",es="CALIDAD DE LOS DATOS")
     @Description(en= "This section provides a description and evaluation of the data quality. It allows to describe the data quality assurance process, inclusive of data validation, completeness and accuracy standards. In addition an assessment of the comparability and intern coherence of the resource is considered a quality dimension.")
     @Order(16)
     @Format(Format.FORMAT.string)
     private MeDataQuality meDataQuality;
 
     @JsonProperty
-    @Label(en="MAINTENANCE")
+    @Label(en="MAINTENANCE",fr="MAINTENANCE",es="MANTENIMIENTO")
     @Description(en= "This section provides information about the frequency of resource upgrade and metadata maintenance.")
     @Order(18)
     @Format(Format.FORMAT.string)
     private MeMaintenance meMaintenance;
 
     @JsonProperty
-    @Label(en="REFERENCE SYSTEM")
+    @Label(en="REFERENCE SYSTEM",fr="",es="")
     @Description(en= "This section includes temporal and coordinate identifiers. It contains all the required information to uniquely identify a point on the earth surface. It also defines the transformations and conversions parameters to convert from one coordinate reference system (CRS) to another. This metadata entity includes the parameters specifying the geospatial references that relate information represented in the data (features) to their geographic space. The considered reference system is only based on coordinates and not on geographic identifiers.")
     @Order(22)
     @Format(Format.FORMAT.string)
     private MeReferenceSystem meReferenceSystem;
 
     @JsonProperty
-    @Label(en="RESOURCE STRUCTURE")
+    @Label(en="RESOURCE STRUCTURE",fr="",es="")
     @Description(en= "This section lists values and metadata of the dimensions of the resource. In a data table, dimensions may refer to geographical areas, time, commodities, gender, etc. . . It includes iterative elements representing 'n' dimensions and 'm' elements of each dimension. In addition ResourceRecord allows to report information at single-value level.")
     @Order(20)
     @Format(Format.FORMAT.string)
     private MeResourceStructure meResourceStructure;
 
     @JsonProperty
-    @Label(en="SPATIAL REPRESENTATION")
+    @Label(en="SPATIAL REPRESENTATION",fr="",es="")
     @Description(en= "This section includes information about the mechanism to represent spatial information both in raster and vector formats. It includes concepts for describing and manipulating the spatial characteristics of geographic features. This metadata entity is only valid for geospatial resources like vector and raster layers or TINs. Depending on the value assumed by its resourceRepresentationType element, it extends to GridSpatialRepresentation entity (for resourceRepresentationType = 'raster') or VectorSpatialRepresentation (for resourceRepresentationType = 'vector' or 'tin').")
     @Order(21)
     @Format(Format.FORMAT.string)
     private MeSpatialRepresentation meSpatialRepresentation;
 
     @JsonProperty
-    @Label(en="STATISTICAL PROCESSING")
+    @Label(en="STATISTICAL PROCESSING",fr="TRAITEMENT STATISTIQUE",es="PROCESAMIENTO ESTADÍSTICO")
     @Description(en= "This section describes the statistical operations and transformations applied to data. It includes the process used to collect data, the description of raw data and a detailed review of the process used to compute processed resource.")
     @Order(15)
     @Format(Format.FORMAT.string)
