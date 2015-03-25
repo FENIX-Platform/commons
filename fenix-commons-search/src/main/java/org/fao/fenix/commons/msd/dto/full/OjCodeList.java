@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
@@ -16,36 +18,50 @@ public class OjCodeList extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Code(s)")
     @Description(en="Code corresponding to the element requested by the field it refers to.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Collection<OjCode> codes;
 
     @JsonProperty
-    @Label(en="Codelist identication")
+    @Label(en="Codelist identification")
     @Description(en="Codelist identifier. It is an alphanumeric acronyme that identify the codelist.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String idCodeList;
 
     @JsonProperty
     @Label(en="Version of the codelist")
     @Description(en="Information about the version and the state of upgrade of the code list used.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String version;
 
     @JsonProperty
     @Label(en="Extended name")
     @Description(en="Full name of the codelist.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> extendedName;
 
     @JsonProperty
     @Label(en="Contact(s)")
     @Description(en="Individual/organizational contact points for a code list including information about the person(s)/maintenance agency and how to reach the contact points.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private OjResponsibleParty contactInfo;
 
     @JsonProperty
     @Label(en="Resource(s) linked to the codelist")
     @Description(en="It allows to attach documents to the codelist or simply to cite a webpage linked to the code list to which it refers to.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Collection<OjCitation> codeListResources;
 
     @JsonProperty
     @Label(en="Codelist hyperlink")
     @Description(en="Web site link allowing the user access to the information resource.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String link;
 
 

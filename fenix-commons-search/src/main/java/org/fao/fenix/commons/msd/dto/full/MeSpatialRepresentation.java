@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.LayerType;
 
@@ -14,26 +16,36 @@ public class MeSpatialRepresentation extends JSONEntity implements Serializable 
     @JsonProperty
     @Label(en="Type of layer")
     @Description(en= "Layer typology: vector or raster spatial representation.")
+    @Order(1)
+    @Format(Format.FORMAT.string)
     private LayerType layerType;
 
     @JsonProperty
     @Label(en="Type of product")
     @Description(en= "Coded information about the product managed.")
+    @Order(2)
+    @Format(Format.FORMAT.string)
     private OjCodeList typeOfProduct;
 
     @JsonProperty
     @Label(en="Processing")
-    @Description(en= "Type of process applied to the geographic resource, if any.")
+    @Description(en= "Analytical method used to process the geographic dataset.")
+    @Order(3)
+    @Format(Format.FORMAT.string)
     private OjCodeList processing;
 
     @JsonProperty
     @Label(en="Value assigned to No-data")
     @Description(en= "Value assigned to the cells to represent the absence of data.")
+    @Order(4)
+    @Format(Format.FORMAT.string)
     private String noDataValue;
 
     @JsonProperty
     @Label(en="Bounding Box")
     @Description(en= "This section includes the planar measurement units used to express the X,Y values. The bounding box indicates the smaller quadrilateral shape that includes all features of the considered resource.")
+    @Order(5)
+    @Format(Format.FORMAT.string)
     private SeBoundingBox seBoundingBox;
 
 

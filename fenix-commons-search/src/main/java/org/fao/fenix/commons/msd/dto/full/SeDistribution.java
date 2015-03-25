@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
@@ -13,11 +15,15 @@ public class SeDistribution extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Link to the on-line resource")
     @Description(en= "Link to the on-line resource. It is conditional to the policy governing distribution and sharing mechanism. For 'restricted' resources it is not available.")
+    @Order(1)
+    @Format(Format.FORMAT.url)
     private String onlineResource;
 
     @JsonProperty
     @Label(en="Dissemination formats")
     @Description(en= "Formats available for downloading the resources (e.g. excel, csv, pdf, etc.). . . It is conditional to the policy governing distribution and sharing mechanism. For 'restricted' resources it is not available.")
+    @Order(2)
+    @Format(Format.FORMAT.string)
     private Collection<String> disseminationFormat;
 
 

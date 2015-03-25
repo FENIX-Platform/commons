@@ -2,7 +2,9 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.Description;
+import org.fao.fenix.commons.annotations.Format;
 import org.fao.fenix.commons.annotations.Label;
+import org.fao.fenix.commons.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.ConfidentialityStatus;
 
@@ -15,12 +17,16 @@ public class SeResourceRecords extends JSONEntity implements Serializable {
 
     @JsonProperty
     @Label(en="Record identifier")
-    @Description(en= "Row identifier. A code that identies the measured value associated to each row of the dataset.")
+    @Description(en= "Row identifier. A code that identifies the measured value associated to each row of the dataset.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private String recordID;
 
     @JsonProperty
     @Label(en="Origin of collected value")
     @Description(en= "The origin of collected data at single-value level.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private OjCodeList originOfCollectedValue;
 
     @JsonProperty
@@ -31,26 +37,36 @@ public class SeResourceRecords extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Data reliability qualifier")
     @Description(en= "Qualitative assessment of the consistence and stability of the observation.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> dataReliabilityQualifier;
 
     @JsonProperty
     @Label(en="Quantitative indicator of reliability")
     @Description(en= "Quantitative indicator of the consistence and stability of the observation.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Double dataReliabilityIndicator;
 
     @JsonProperty
     @Label(en="Restriction in access")
     @Description(en= "Level of confidentiality of single values (e.g. pubblic, shared, restricted ).")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private ConfidentialityStatus confidentialityStatus;
 
     @JsonProperty
     @Label(en="Observation status")
     @Description(en= "The status of the reported value (e.g. estmated value, missing value, time seies break . . . )")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private OjCodeList observationStatus;
 
     @JsonProperty
     @Label(en="Remarks")
     @Description(en= "Additional information related to a single data point.")
+    @Order(-1)
+    @Format(Format.FORMAT.string)
     private Map<String, String> remarks;
 
 
