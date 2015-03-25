@@ -26,7 +26,7 @@ public class DSD extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public String getDatasource() {
+    public String[] getDatasources() {
         return null;
     }
     @JsonProperty
