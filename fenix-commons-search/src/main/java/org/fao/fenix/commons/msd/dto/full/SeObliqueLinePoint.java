@@ -14,14 +14,14 @@ public class SeObliqueLinePoint extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Oblique line latitude")
     @Description(en= "Latitude of a point defining the oblique line.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private Double obliqueLineLatitude;
 
     @JsonProperty
     @Label(en="Oblique line longitude")
     @Description(en= "Longitude of a point defining the oblique line.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Double obliqueLineLongitude;
 
