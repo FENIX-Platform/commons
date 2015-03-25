@@ -16,21 +16,21 @@ public class OjAxis extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Name of axis")
     @Description(en="Name of the axis.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private AxisType axisName;
 
     @JsonProperty
     @Label(en="Axis size")
     @Description(en="Number of elements along the axis.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Integer axisSize;
 
     @JsonProperty
     @Label(en="Resolution")
     @Description(en="Degree of detail in the grid dataset.")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private OjMeasure resolution;
 
