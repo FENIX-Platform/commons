@@ -15,35 +15,35 @@ public class OjMeasure extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Extent")
     @Description(en="Description of the type of magnitude has been measured (e.g. a length, an area, a volume).")
-    @Order(-1)
-    @Format(Format.FORMAT.string)
+    @Order(1)
+    @Format(Format.FORMAT.textarea)
     private Map<String, String> extent;
 
     @JsonProperty
     @Label(en="Composed unit of measurement")
     @Description(en="Since a wide variety of phenomenon is measured combining several simple unit of measure, it is requested a Boolean element indicating whether simple or composed unit of measure is used.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Boolean composedMU;
 
     @JsonProperty
     @Label(en="Measurement system")
     @Description(en="System devised to measure some physical quantity (such distance or area. . . ). Example are the English System of feet and inches or the metric system of millimetres, centimetres and meters, also the International System of Units (SI).")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private Map<String, String> measurementSystem;
 
     @JsonProperty
     @Label(en="Measurement unit name")
     @Description(en="Name of the simple/composed unit of measure adopted.")
-    @Order(-1)
+    @Order(4)
     @Format(Format.FORMAT.string)
     private String nameMU;
 
     @JsonProperty
     @Label(en="Conversion to the standard")
     @Description(en="Allows to convert the unit of measure used in a standard measurement system.")
-    @Order(-1)
+    @Order(5)
     @Format(Format.FORMAT.string)
     private Double conversionToStandard;
 
