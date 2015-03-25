@@ -16,21 +16,21 @@ public class SeProjection extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Projection")
     @Description(en= "Identifier of the projection used.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private OjCodeList projection;
 
     @JsonProperty
     @Label(en="Name of projection")
     @Description(en= "Name of the projection used contains the set of parameters that describe the projection.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> projectionName;
 
     @JsonProperty
     @Label(en="PROJECTION PARAMETERS")
     @Description(en= "This section contains the set of parameters that describe the projection.")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private SeProjectionParameters seProjectionParameters;
 
