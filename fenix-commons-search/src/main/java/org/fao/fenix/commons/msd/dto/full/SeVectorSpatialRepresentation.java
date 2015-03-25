@@ -16,14 +16,14 @@ public class SeVectorSpatialRepresentation extends JSONEntity implements Seriali
     @JsonProperty
     @Label(en="Degree of complexity of the spatial relationships")
     @Description(en= "Degree of complexity of the spatial relationships expressed through a code list.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private OjCodeList topologyLevel;
 
     @JsonProperty
     @Label(en="Geometric object")
     @Description(en= "Information about the geometric objects used in the dataset (e.g. point, line, polygon, etc.) expressed through a multipleChoice.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private GeometricObjects geometricObjects;
 
