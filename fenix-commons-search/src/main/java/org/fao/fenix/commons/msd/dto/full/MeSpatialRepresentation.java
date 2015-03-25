@@ -29,7 +29,7 @@ public class MeSpatialRepresentation extends JSONEntity implements Serializable 
 
     @JsonProperty
     @Label(en="Processing")
-    @Description(en= "")
+    @Description(en= "Analytical method used to process the geographic dataset.")
     @Order(3)
     @Format(Format.FORMAT.string)
     private OjCodeList processing;
