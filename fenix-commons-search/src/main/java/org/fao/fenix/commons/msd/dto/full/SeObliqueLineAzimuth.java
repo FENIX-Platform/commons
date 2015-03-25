@@ -14,14 +14,14 @@ public class SeObliqueLineAzimuth extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Azimuth angle")
     @Description(en= "Measure clockwise from north and express in degree of the angle.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private Double azimuthAngle;
 
     @JsonProperty
     @Label(en="Longitude of the map projection origin")
     @Description(en="Longitude of the origin in the map projection.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Double azimuthMeasurePointLongitude;
 
