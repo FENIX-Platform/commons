@@ -15,42 +15,42 @@ public class SeBoundingBox extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="West bound longitude")
     @Description(en= "The smaller X coordinate value delimiting the resource.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private Double xmin;
 
     @JsonProperty
     @Label(en="East bound longitude")
     @Description(en= "The higher X coordinate value delimiting the resource.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Double xmax;
 
     @JsonProperty
     @Label(en="South bound latitude")
     @Description(en= "The smaller Y coordinate value delimiting the resource (mandatory.")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private Double ymin;
 
     @JsonProperty
     @Label(en="North bound latitude")
     @Description(en= "The higher Y coordinate value delimiting the resource.")
-    @Order(-1)
+    @Order(4)
     @Format(Format.FORMAT.string)
     private Double ymax;
 
     @JsonProperty
     @Label(en="Grid Spatial Representation")
     @Description(en= "This section reports the parameters about a grid (raster) resource.")
-    @Order(-1)
+    @Order(5)
     @Format(Format.FORMAT.string)
     private SeGridSpatialRepresentation seGridSpatialRepresentation;
 
     @JsonProperty
     @Label(en="Vector Spatial Representation")
     @Description(en= "This section reports information about the vector spatial objects in the dataset.")
-    @Order(-1)
+    @Order(6)
     @Format(Format.FORMAT.string)
     private SeVectorSpatialRepresentation seVectorSpatialRepresentation;
 
