@@ -18,42 +18,42 @@ public class MeReferenceSystem extends JSONEntity implements Serializable {
     @JsonProperty
     @Label(en="Identifier of reference system")
     @Description(en= "Identifier of the reference system. One of the most common standards for reference systems is the EPSG Geodetic Parameter Registry, created by the European Petroleum Survey Group.")
-    @Order(-1)
+    @Order(1)
     @Format(Format.FORMAT.string)
     private String referenceSystemIdentifier;
 
     @JsonProperty
     @Label(en="Extented name of reference system")
     @Description(en= "Alias or the name of the reference system.")
-    @Order(-1)
+    @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> referenceSystemName;
 
     @JsonProperty
     @Label(en="Reference system authority")
     @Description(en= "It is an element of the type ResponsibleParty providing details on the authority linked to the referece system.")
-    @Order(-1)
+    @Order(3)
     @Format(Format.FORMAT.string)
     private OjResponsibleParty referenceSystemAuthority;
 
     @JsonProperty
     @Label(en="Projection")
     @Description(en= "This section provides the identifiers of the projection of the considered Coordinate Reference System (CRS).")
-    @Order(-1)
+    @Order(4)
     @Format(Format.FORMAT.string)
     private SeProjection seProjection;
 
     @JsonProperty
     @Label(en="Ellipsoid")
     @Description(en= "This section provides the identifiers of the ellipsoid of the considered Coordinate Reference System (CRS).")
-    @Order(-1)
+    @Order(5)
     @Format(Format.FORMAT.string)
     private SeEllipsoid seEllipsoid;
 
     @JsonProperty
     @Label(en="Datum")
     @Description(en= "This section provides the identifiers of the datum of the considered Coordinate Reference System (CRS).")
-    @Order(-1)
+    @Order(6)
     @Format(Format.FORMAT.string)
     private SeDatum seDatum;
 
