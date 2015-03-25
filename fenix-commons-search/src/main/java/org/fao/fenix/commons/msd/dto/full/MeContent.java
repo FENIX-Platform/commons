@@ -43,7 +43,7 @@ public class MeContent extends JSONEntity implements Serializable {
     @Format(Format.FORMAT.textarea)
     private Map<String, String> statisticalConceptsDefinitions;
 
-    @JsonPropertyPopulation Reference
+    @JsonProperty
     @Label(en="Reference population",fr="Population de Reference",es="Population Reference")
     @Description(en= "Information about the statistical population the resource refers to.")
     @Order(5)
