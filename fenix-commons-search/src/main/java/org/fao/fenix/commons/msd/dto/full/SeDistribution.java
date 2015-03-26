@@ -13,7 +13,7 @@ import java.util.Collection;
 public class SeDistribution extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Link to the on-line resource",fr="Lien vers la ressource en ligne",es="")
+    @Label(en="Link to the on-line resource",fr="Lien vers la ressource en ligne",es="Hipervínculo Recursos")
     @Description(en= "Link to the on-line resource. It is conditional to the policy governing distribution and sharing mechanism. For 'restricted' resources it is not available.")
     @Order(1)
     @Format(Format.FORMAT.url)
