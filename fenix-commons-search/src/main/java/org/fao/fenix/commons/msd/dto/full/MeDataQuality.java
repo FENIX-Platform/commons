@@ -14,56 +14,56 @@ import java.util.Map;
 public class MeDataQuality extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Quality management")
+    @Label(en="Quality management",fr="Gestion de la qualité",es="Gestión de la calidad")
     @Description(en= "Structure, responsibilities and procedures established for guaranteeing the quality of the data.")
     @Order(1)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> qualityManagement;
 
     @JsonProperty
-    @Label(en="Data quality assessment")
+    @Label(en="Data quality assessment",fr="Évaluation de la qualité des données",es="Evaluación de la calidad de datos")
     @Description(en= "Overall qualitative assessment of the quality of the statistical outputs.")
     @Order(3)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> qualityAssessment;
 
     @JsonProperty
-    @Label(en="Quality assurance")
+    @Label(en="Quality assurance",fr="Assurance de la qualité",es="Seguro de calidad")
     @Description(en= "Description of the process assuring that the data production processes conforms to the statistical quality standards.")
     @Order(2)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> qualityAssurance;
 
     @JsonProperty
-    @Label(en="ACCURACY")
+    @Label(en="Accuracy",fr="Précision",es="Precisión")
     @Description(en= "Closeness of computations or estimates to the exact values that the statistics were intended to measure. Accuracy can contain either measures of numerical results of the methods for assessing the accuracy of data or qualitative assessment indicators. It may also be described in terms of the major sources of error that potentially cause inaccuracy (e.g. sampling, non-response, response error).")
     @Order(6)
     @Format(Format.FORMAT.string)
     private SeAccuracy seAccuracy;
 
     @JsonProperty
-    @Label(en="Data revision")
+    @Label(en="Data revision",fr="Révision des données",es="Fecha de revisión")
     @Description(en= "This section describes the policy and practice for identifying the revision status of the data, as well as the availability of revision studies and analysis.")
     @Order(7)
     @Format(Format.FORMAT.string)
     private SeDataRevision seDataRevision;
 
     @JsonProperty
-    @Label(en="Relevance")
+    @Label(en="Relevance", fr="Pertinence", es="Pertinencia")
     @Description(en= "Evaluation of data-quality through user satisfaction involving also information about the resource-completeness.")
     @Order(4)
     @Format(Format.FORMAT.string)
     private SeRelevance seRelevance;
 
     @JsonProperty
-    @Label(en="Comparability Coherence")
+    @Label(en="Comparability Coherence", fr="Comparabilité, cohérence", es="Comparabilidad y coherencia")
     @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by different statistical agencies. These surveys often refer to populations of different geographical areas, sometimes based on different methodologies.")
     @Order(8)
     @Format(Format.FORMAT.string)
     private SeComparability seComparability;
 
     @JsonProperty
-    @Label(en="Timeliness and Punctuality")
+    @Label(en="Timeliness and Punctuality",fr="Actualité et ponctualité",es="Actualidad y puntualidad")
     @Description(en= "Evaluation of the timeliness of the resource dissemination with respect to the phenomenon it describes. In addition this section take in to account the punctuality of data dissemination.")
     @Order(5)
     @Format(Format.FORMAT.string)
