@@ -13,14 +13,14 @@ import java.io.Serializable;
 public class SeDataDissemination extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Distribution")
+    @Label(en="Distribution",fr="Distribution",es="Distribución")
     @Description(en= "This section reports the mode of distribution of the resource with a focus on how to access the resource, the supported formats.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private SeDistribution seDistribution;
 
     @JsonProperty
-    @Label(en="")
+    @Label(en="Release Policy",fr="Politique de publication",es="Política de lanzamiento")
     @Description(en= "")
     @Order(2)
     @Format(Format.FORMAT.string)
