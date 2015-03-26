@@ -15,28 +15,28 @@ import java.util.Map;
 public class SeSecondaryDataCollection extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Origin of collected data")
+    @Label(en="Origin of collected data",fr="Origine des données recueillies",es="Origen de los datos recogidos")
     @Description(en= "Coded element which allows to specify in a standard way the origin of the resource.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private OjCodeList originOfCollectedData;
 
     @JsonProperty
-    @Label(en="Organization")
+    @Label(en="Organization",fr="Organisation",es="Organización")
     @Description(en= "If the element <<originOfCollectedData>> has been generally specified as 'other International Organizations' this element requests to report the exact source of the resource.")
     @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> organization;
 
     @JsonProperty
-    @Label(en="Description of raw data")
+    @Label(en="Description of raw data",fr="Description des données brutes",es="Descripción de los datos en bruto")
     @Description(en= "Characteristics and components of the raw statistical data used for compiling statistical aggregates. It indicates if data set is based on a survey or on administrative data source. If administrative registers are used, the description of registers should be given (source, year, primary purpose, potential deficiencies. . . ).")
     @Order(3)
     @Format(Format.FORMAT.string)
     private Map<String, String> rawDataDescription;
 
     @JsonProperty
-    @Label(en="Data collection")
+    @Label(en="Data collection",fr="Collecte des données",es="Recolección de datos")
     @Description(en= "Data collection details")
     @Order(4)
     @Format(Format.FORMAT.string)
