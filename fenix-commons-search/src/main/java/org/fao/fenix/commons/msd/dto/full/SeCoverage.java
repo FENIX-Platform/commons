@@ -15,28 +15,28 @@ import java.util.Map;
 public class SeCoverage extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Main sector(s) (coded)")
+    @Label(en="Main sector(s) (coded)", fr="Secteur(s) principal  (code)",es="Sector(es) principal (codificado)")
     @Description(en= "Sector(s) the resource refers to as specified in the selected codelist. The word 'Sector' indicates the subject area the resource refers to. These sectors can be institutional sectors, economic or other sectors (e.g. local government sector, agriculture, forestry, business services, etc.).")
     @Order(1)
     @Format(Format.FORMAT.string)
     private OjCodeList coverageSectors;
 
     @JsonProperty
-    @Label(en="Main sector(s)")
+    @Label(en="Main sector(s)",fr="Secteur(s) principal",es="Sector(es) principal")
     @Description(en= "Textual element delimiting the statistical results with regard to the main sectors covered.")
     @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> coverageSectorsDetails;
 
     @JsonProperty
-    @Label(en="Coverage period")
+    @Label(en="Coverage period",fr="Temps de couverture",es="Cobertura temporal")
     @Description(en= "Information about the time period for which data are available. It requests to report the time window of reference (reporting the starting date and the ending date) even if it presents some lacks.")
     @Order(3)
     @Format(Format.FORMAT.string)
     private OjPeriod coverageTime;
 
     @JsonProperty
-    @Label(en="Geographic extent")
+    @Label(en="Geographic extent",fr="Étendue géographique",es="Extensión geográfica")
     @Description(en= "Geographical coverage represented by the resource. It is highly recommended to make reference to officially recognized or easily identifiable macro-areas (e.g. South Saharan Africa, North America, OECD member countries..).")
     @Order(4)
     @Format(Format.FORMAT.string)

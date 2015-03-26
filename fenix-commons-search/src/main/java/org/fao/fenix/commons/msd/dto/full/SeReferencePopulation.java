@@ -14,28 +14,28 @@ import java.util.Map;
 public class SeReferencePopulation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Statistical population")
+    @Label(en="Statistical population",fr="Population statistique",es="Población estadística")
     @Description(en= "Target statistical population (one or more) the resource refers to.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private Map<String, String> statisticalPopulation;
 
     @JsonProperty
-    @Label(en="Statistical unit")
+    @Label(en="Statistical unit",fr="Unité statistique",es="Unidad estadística")
     @Description(en= "Simplest unit for which information is sought and for which statistics are ultimately compiled.")
     @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> statisticalUnit;
 
     @JsonProperty
-    @Label(en="Period of reference")
+    @Label(en="Period of reference",fr="Période de référence",es="Período de referencia")
     @Description(en= "Specific time periods (e.g. a day, a week, a month, a fiscal year, a calendar year or several calendar years) the statistical variables refer to.")
     @Order(3)
     @Format(Format.FORMAT.string)
     private OjCodeList referencePeriod;
 
     @JsonProperty
-    @Label(en="Area of reference")
+    @Label(en="Area of reference",fr="Area de référence",es="Área de referencia")
     @Description(en= "Type of geographical units the resource represents or refers to. Note that the spatial resolution must refer to the minimum mapping unit whose bounds are officially recognized indipendently from the measurement process of the phonomenon taken into account. Examples are: countries, administrative level 2, etc.")
     @Order(4)
     @Format(Format.FORMAT.string)

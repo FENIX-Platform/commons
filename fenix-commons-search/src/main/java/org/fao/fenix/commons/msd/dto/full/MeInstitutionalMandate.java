@@ -14,14 +14,14 @@ import java.util.Map;
 public class MeInstitutionalMandate extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Legal acts/agreements")
+    @Label(en="Legal acts/agreements",fr="Actes juridiques / accords",es="Actos jurídicos / acuerdos")
     @Description(en= "References (citations or website link) to legal acts or other formal or informal agreements that assign responsibility as well as authority to an agency for the collection, processing, and dissemination of the resource.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private Map<String, String> legalActsAgreements;
 
     @JsonProperty
-    @Label(en="Data sharing arrangements")
+    @Label(en="Data sharing arrangements",fr="Dispositions pour le partage des données",es="Acuerdos de Datos")
     @Description(en= "References (citations or website link) to arrangements or procedures for data sharing and coordination.")
     @Order(2)
     @Format(Format.FORMAT.string)

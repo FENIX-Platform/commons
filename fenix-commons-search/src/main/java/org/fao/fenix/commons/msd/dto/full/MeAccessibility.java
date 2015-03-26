@@ -15,21 +15,21 @@ public class MeAccessibility extends JSONEntity implements Serializable {
 
     
     @JsonProperty
-    @Label(en="DATA DISSEMINATION")
+    @Label(en="DATA DISSEMINATION",fr="DIFFUSION DE DONNÉES",es="DISTRIBUCIÓN DE DATOS")
     @Description(en= "This section reports the mode of distribution of the resource with a focus on how to access the resource, the supported formats.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private SeDataDissemination seDataDissemination;
     
     @JsonProperty
-    @Label(en="Clarity")
+    @Label(en="Clarity",fr="Clarté",es="Claridad")
     @Description(en= "This section gives information about the availability of additional information (documentation, further metadata. . . ) linked to the resource.")
     @Order(2)
     @Format(Format.FORMAT.string)
     private SeClarity seClarity;
     
     @JsonProperty
-    @Label(en="Confidentiality")
+    @Label(en="Confidentiality",fr="Confidentialité",es="Confidencialidad")
     @Description(en= "This section information on the level of confidentiality and the applied policy for releasing the resource. This metadata sub-entity concerns legislation (or any other formal provision) related to statistical confidentiality applied to the resource as well as the actual confidentiality data treatment applied (also with regard to the aggregated data disseminated).")
     @Order(3)
     @Format(Format.FORMAT.string)
