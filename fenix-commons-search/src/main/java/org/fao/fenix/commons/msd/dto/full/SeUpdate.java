@@ -14,14 +14,14 @@ import java.util.Date;
 public class SeUpdate extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Last update date")
+    @Label(en="Last update date",fr="Dernière date de mise à jour",es="Última fecha de actualización")
     @Description(en= "Last physical update date.")
     @Order(1)
     @Format(Format.FORMAT.date)
     private Date updateDate;
 
     @JsonProperty
-    @Label(en="Frequency of update")
+    @Label(en="Frequency of update",fr="Fréquence de mise à jour",es="Frecuencia de actualización")
     @Description(en= "Frequency of upgrade.")
     @Order(2)
     @Format(Format.FORMAT.string)
