@@ -13,21 +13,21 @@ import java.util.Map;
 public class SeDataValidation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Data validation - intermediate")
+    @Label(en="Data validation - intermediate", fr="Validation des données - intermédiaire", es="Validación de datos - intermedio")
     @Description(en= "Assessment of the quality and correctness of intermediate calculations leading to statistical outputs.")
     @Order(2)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> dataValidationIntermediate;
 
     @JsonProperty
-    @Label(en="Data validation - output")
+    @Label(en="Data validation - output", fr="Validation des données - output", es="Validación de datos - salida")
     @Description(en= "Assessment of discrepancies and/or inaccuracies observed in the statistical outputs.")
     @Order(3)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> dataValidationOutput;
 
     @JsonProperty
-    @Label(en="Data validation - source")
+    @Label(en="Data validation - source", fr="Validation des données - sources", es="Validación de datos - fuente")
     @Description(en= "Assessment of discrepancies and/or inaccuracies inherent to the data source.")
     @Order(1)
     @Format(Format.FORMAT.textarea)
