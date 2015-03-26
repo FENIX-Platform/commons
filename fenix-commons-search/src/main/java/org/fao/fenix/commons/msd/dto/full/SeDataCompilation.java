@@ -15,56 +15,56 @@ import java.util.Map;
 public class SeDataCompilation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Missing data")
+    @Label(en="Missing data",fr="Les données manquantes",es="Datos que faltan")
     @Description(en= "It describe under which circumstance missing data are estimated or imputed and when the cells are left empty. It also describe methodologies used to estimate/impute missing values.")
     @Order(1)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> missingData;
 
     @JsonProperty
-    @Label(en="Weights")
+    @Label(en="Weights",fr="Poids",es="Pesos")
     @Description(en= "Description of weights system (if any) used in order to produce accurate statistical results. This field reports the criteria for using weights in analysis of collection, the formulas and coefficients developed and how they are applied to data.")
     @Order(2)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> weights;
 
     @JsonProperty
-    @Label(en="Process of aggregation")
+    @Label(en="Process of aggregation",fr="Processus d'agrégation",es="Proceso de agregación")
     @Description(en= "Information about the methodology used to aggregate data.")
     @Order(3)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> aggregationProcessing;
 
     @JsonProperty
-    @Label(en="Aggregation formula")
+    @Label(en="Aggregation formula",fr="Formule d'agrégation",es="Fórmula de agregación")
     @Description(en= "Formula used to aggregate data.")
     @Order(4)
     @Format(Format.FORMAT.string)
     private String aggregationFormula;
 
     @JsonProperty
-    @Label(en="Process of adjustment")
+    @Label(en="Process of adjustment",fr="Processus d'ajustement",es="Proceso de ajuste")
     @Description(en= "Type of adjustment used represented by a code.")
     @Order(5)
     @Format(Format.FORMAT.string)
     private OjCodeList dataAdjustment;
 
     @JsonProperty
-    @Label(en="Details on process of adjustment")
+    @Label(en="Details on process of adjustment",fr="Détails sur le processus d'ajustement",es="Detalles sobre el proceso de ajuste")
     @Description(en= "Set of procedures employed to modify statistical data to enable it to be conform with national or international standards (such as seasonal adjustment methods, time series decomposition, or other similar methods).")
     @Order(6)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> dataAdjustmentDetails;
 
     @JsonProperty
-    @Label(en="Type of index")
-    @Description(en= "Type of index number used in the statistical production process.")
+    @Label(en="Type of index",fr="Type d'indice",es="Tipo de índice")
+    @Description(en= "Type of index number used in the statistical production process.",fr="",es="")
     @Order(7)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> indexType;
 
     @JsonProperty
-    @Label(en="Base period")
+    @Label(en="Base period",fr="Période de base",es="Período-base ")
     @Description(en= "Period of time used as a base of an index number or to which a time series refers (e.g. base year 2000 for certain annual data).")
     @Order(8)
     @Format(Format.FORMAT.date)
