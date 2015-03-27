@@ -70,22 +70,22 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private OjCodeList characterSet;
 
     @JsonProperty
-    @Label(en="Character-set",fr="Caractère-set",es="Character-set")
-    @Description(en= "Full name of the character coding standard used by the resource.")
+    @Label(en="Used metadata standard",fr="Normes utilisées pour les métadonnées",es="Estándares de metadatos usados")
+    @Description(en= "Name of the metadata standard specifications used. In FENIX framework this field would be pre-compiled by 'FENIX'.")
     @Order(8)
     @Format(Format.FORMAT.string)
     private String metadataStandardName;
 
     @JsonProperty
-    @Label(en="Used metadata standard",fr="Normes utilisées pour les métadonnées",es="Estándares de metadatos usados")
-    @Description(en= "Name of the metadata standard specifications used. In FENIX framework this field would be pre-compiled by 'FENIX'.")
+    @Label(en="Version of metadata standard",fr="Version des normes des métadonnées",es="Versión de los estándares de metadatos")
+    @Description(en= "Version of the metadata standard specifications used.")
     @Order(9)
     @Format(Format.FORMAT.string)
     private String metadataStandardVersion;
 
     @JsonProperty
-    @Label(en="Version of metadata standard",fr="Version des normes des métadonnées",es="Versión de los estándares de metadatos")
-    @Description(en= "Version of the metadata standard specifications used.")
+    @Label(en="Language(s) used for metadata",fr="Langue (s) utilisée pour les métadonnées",es="Idioma (s) que se utiliza para los metadatos")
+    @Description(en= "")
     @Order(10)
     @Format(Format.FORMAT.string)
     private OjCodeList metadataLanguage;
