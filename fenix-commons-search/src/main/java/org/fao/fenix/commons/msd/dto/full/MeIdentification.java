@@ -51,7 +51,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     @JsonProperty
     @Label(en="Title",fr="Titre",es="Título")
     @Description(en= "Textual label used as title of the resource.")
-    @Order(-1)
+    @Order(1000)
     @Format(Format.FORMAT.string)
     private Map<String, String> title;
 
