@@ -2,6 +2,10 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.annotations.*;
+import org.fao.fenix.commons.mdsd.annotations.Description;
+import org.fao.fenix.commons.mdsd.annotations.Format;
+import org.fao.fenix.commons.mdsd.annotations.Label;
+import org.fao.fenix.commons.mdsd.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;

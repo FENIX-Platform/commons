@@ -1,8 +1,6 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.fao.fenix.commons.annotations.Description;
-import org.fao.fenix.commons.annotations.Label;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;

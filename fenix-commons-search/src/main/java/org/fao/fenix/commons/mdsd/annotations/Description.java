@@ -1,4 +1,4 @@
-package org.fao.fenix.commons.annotations;
+package org.fao.fenix.commons.mdsd.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,8 +11,18 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Subject {
+public @interface Description {
 
-    public String value();
+    public String en();
+
+    public String fr() default "";
+
+    public String es() default "";
+
+    public String ar() default "";
+
+    public String cn() default "";
+
+    public String ru() default "";
 
 }

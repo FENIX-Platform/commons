@@ -1,4 +1,4 @@
-package org.fao.fenix.commons.annotations;
+package org.fao.fenix.commons.mdsd.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -11,12 +11,8 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Format {
+public @interface Subject {
 
-    enum FORMAT {
-        string, date, tel, email, textarea, url
-    }
-
-    public FORMAT value();
+    public String value();
 
 }

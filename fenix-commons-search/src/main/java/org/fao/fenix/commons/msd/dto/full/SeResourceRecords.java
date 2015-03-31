@@ -1,10 +1,10 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.fao.fenix.commons.annotations.Description;
-import org.fao.fenix.commons.annotations.Format;
-import org.fao.fenix.commons.annotations.Label;
-import org.fao.fenix.commons.annotations.Order;
+import org.fao.fenix.commons.mdsd.annotations.Description;
+import org.fao.fenix.commons.mdsd.annotations.Format;
+import org.fao.fenix.commons.mdsd.annotations.Label;
+import org.fao.fenix.commons.mdsd.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 import org.fao.fenix.commons.msd.dto.type.ConfidentialityStatus;
 
