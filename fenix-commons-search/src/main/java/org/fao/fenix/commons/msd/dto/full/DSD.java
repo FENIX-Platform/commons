@@ -15,7 +15,7 @@ public class DSD extends JSONEntity implements Serializable {
     private String contextSystem;
 
     @JsonProperty
-    private String datasource;
+    private String[] datasources;
 
 
     public String getContextSystem() {
@@ -26,12 +26,12 @@ public class DSD extends JSONEntity implements Serializable {
         this.contextSystem = contextSystem;
     }
 
-    public String getDatasource() {
-        return datasource;
+    public String[] getDatasources() {
+        return datasources;
     }
 
-    public void setDatasource(String datasource) {
-        this.datasource = datasource;
+    public void setDatasources(String[] datasources) {
+        this.datasources = datasources;
     }
 
     public Map<String, Object> getContextExtension() {
