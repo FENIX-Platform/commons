@@ -16,56 +16,56 @@ import java.util.Map;
 public class OjCitation extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Kind of document")
+    @Label(en="Kind of document",fr="Type de document",es="Tipo de documento")
     @Description(en="Kind of resource attached to data.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private DocumentType documentKind;
 
     @JsonProperty
-    @Label(en="Title")
+    @Label(en="Title",fr="Titre",es="Título")
     @Description(en="Title by which the cited resource is known which offers a quick information about its content.")
     @Order(2)
     @Format(Format.FORMAT.string)
     private Map<String, String> title;
 
     @JsonProperty
-    @Label(en="Date")
+    @Label(en="Date",fr="Date",es="Fecha")
     @Description(en="Reference date for the cited document.")
     @Order(3)
     @Format(Format.FORMAT.date)
     private Date date;
 
     @JsonProperty
-    @Label(en="Contact")
+    @Label(en="Contact",fr="Contact",es="Contacto")
     @Description(en="Name and position information for an individual or organization that is responsible for the resource.")
     @Order(4)
     @Format(Format.FORMAT.string)
     private OjResponsibleParty documentContact;
 
     @JsonProperty
-    @Label(en="Notes")
+    @Label(en="Notes",fr="Remarques",es="Notas")
     @Description(en="Some additional details about the resource mainly concerning the domain to which the resource refers.")
     @Order(5)
     @Format(Format.FORMAT.textarea)
     private Map<String, String> notes;
 
     @JsonProperty
-    @Label(en="Resource hyperlink")
+    @Label(en="Resource hyperlink",fr="Lien hypertexte de documents",es="Hipervínculo Documento")
     @Description(en="Web site link allowing the user access to the information resource.")
     @Order(6)
     @Format(Format.FORMAT.url)
     private String link;
 
     @JsonProperty
-    @Label(en="ISBN code")
+    @Label(en="ISBN code",fr="Code ISBN",es="Código ISBN")
     @Description(en="If available, the International Standard Book Number can be reported in order to uniquely identify the resource cited.")
     @Order(7)
     @Format(Format.FORMAT.string)
     private String isbn;
 
     @JsonProperty
-    @Label(en="ISNN code")
+    @Label(en="ISNN code",fr="Code ISSN",es="Código ISSN")
     @Description(en="If available, the International Standard Serial Number (used to identify periodical publications such as reviews and scientific journals) can be reported in order to uniquely identify the resource cited.")
     @Order(8)
     @Format(Format.FORMAT.string)

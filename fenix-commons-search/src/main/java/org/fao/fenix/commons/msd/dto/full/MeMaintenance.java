@@ -14,21 +14,21 @@ import java.util.Map;
 public class MeMaintenance extends JSONEntity implements Serializable {
 
     @JsonProperty
-    @Label(en="Maintenance agency")
+    @Label(en="Maintenance agency",fr="Agence de Maintenance",es="Agencia de Mantenimiento")
     @Description(en= "Organization or other expert body that maintains the resource.")
     @Order(1)
     @Format(Format.FORMAT.string)
     private Map<String, String> maintenanceAgency;
 
     @JsonProperty
-    @Label(en="Update")
+    @Label(en="Update",fr="Mise à jour",es="Actualización")
     @Description(en= "This section involves maintenance operations concerning the periodic update of the resource.")
     @Order(2)
     @Format(Format.FORMAT.string)
     private SeUpdate seUpdate;
 
     @JsonProperty
-    @Label(en="Metadata Maintenance")
+    @Label(en="Metadata Maintenance",fr="Maintenance des Métadonnées",es="Mantenimiento de metadatos")
     @Description(en= "This section involves maintenance operations concerning the periodic update of metadata to ensure that the resource is properly described.")
     @Order(3)
     @Format(Format.FORMAT.string)
