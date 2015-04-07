@@ -1,6 +1,5 @@
 package org.fao.fenix.commons.find.dto.filter;
 
-import org.fao.fenix.commons.find.dto.filter.StandardFilter;
 
 import java.util.Collection;
 import java.util.LinkedList;
