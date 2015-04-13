@@ -5,10 +5,13 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 
 import java.io.Reader;
 import java.io.Writer;
+import java.lang.reflect.Type;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -45,8 +48,26 @@ public class JSONUtils {
 
 	public static <T> T convertValue(Object obj, Class<T> objClass) throws Exception { return mapper.convertValue(obj, objClass); }
 
-	public static Map<String,Object> toMap(String json) throws Exception { return mapper.readValue(json, new TypeReference<Map<String, Object>>() {}); }
+	public static Map<String,Object> toMap(String json) throws Exception { return mapper.readValue(json, new TypeReference<Map<String, Object>>() {
+    }); }
 	
 	public static Object cloneByJSON (Object obj) throws Exception { return obj!=null ? toObject(toJSON(obj),obj.getClass()) : null; }
+
+
+
+    public static <T> T decode(String source, Class<T> beanClass, Type ... types) throws Exception {
+        TypeFactory factory = mapper.getTypeFactory();
+
+        JavaType jacksonType = null;
+        if (types!=null) {
+            JavaType[] jacksonTypes = new JavaType[types.length];
+            for (int i=0; i<types.length; i++)
+                jacksonTypes[i] = factory.constructType(types[i]);
+            jacksonType = factory.constructParametricType(beanClass, jacksonTypes);
+        } else
+            jacksonType = factory.constructType(beanClass);
+
+        return source!=null ? (T)mapper.readValue(source, jacksonType) : null;
+    }
 
 }

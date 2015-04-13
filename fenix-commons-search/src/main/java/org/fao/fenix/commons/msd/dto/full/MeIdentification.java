@@ -400,5 +400,16 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
         return true;
     }
 
+    public void setLastUpdate(Date date) {
+        MeMaintenance meMaintenance = getMeMaintenance();
+        if (meMaintenance==null)
+            setMeMaintenance(meMaintenance = new MeMaintenance());
+        SeUpdate seUpdate = meMaintenance.getSeUpdate();
+        if (seUpdate==null)
+            meMaintenance.setSeUpdate(seUpdate=new SeUpdate());
+        if (seUpdate.getUpdateDate()==null)
+            seUpdate.setUpdateDate(date);
+    }
+
 
 }

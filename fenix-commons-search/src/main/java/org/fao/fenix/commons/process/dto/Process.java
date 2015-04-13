@@ -2,10 +2,10 @@ package org.fao.fenix.commons.process.dto;
 
 import java.util.Map;
 
-public class Process {
+public class Process<T> {
 
     private String name;
-    private Map<String,Object> parameters;
+    private T parameters;
 
 
 
@@ -16,7 +16,7 @@ public class Process {
         this.name = name;
     }
 
-    public Process(String name, Map<String,Object> parameters) {
+    public Process(String name, T parameters) {
         this.name = name;
         this.parameters = parameters;
     }
@@ -31,11 +31,11 @@ public class Process {
         this.name = name;
     }
 
-    public Map<String,Object> getParameters() {
+    public T getParameters() {
         return parameters;
     }
 
-    public void setParameters(Map<String,Object> parameters) {
+    public void setParameters(T parameters) {
         this.parameters = parameters;
     }
 }
