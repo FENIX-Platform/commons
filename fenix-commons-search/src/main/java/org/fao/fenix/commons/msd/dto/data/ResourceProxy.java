@@ -16,16 +16,18 @@ public class ResourceProxy {
 
     @JsonProperty private Object metadata;
     @JsonProperty private Collection data;
+    @JsonProperty private Integer size;
     @JsonProperty private Map<String,Map<String,String>> datasources;
 
 
     public ResourceProxy(Object metadata, Collection data) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        this(metadata, data, null, null);
+        this(metadata, data, null, null, data!=null ? data.size() : null);
     }
-    public ResourceProxy(Object metadata, Collection data, Class<? extends ResponseHandler> dataProxyClass, Map<String,Map<String,String>> datasources) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public ResourceProxy(Object metadata, Collection data, Class<? extends ResponseHandler> dataProxyClass, Map<String,Map<String,String>> datasources, Integer size) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         this.metadata = metadata;
         this.data = dataProxyClass!=null && data!=null ? ResponseBeanFactory.getInstances(data, dataProxyClass) : data;
         this.datasources = datasources;
+        this.size = size;
     }
 
 
