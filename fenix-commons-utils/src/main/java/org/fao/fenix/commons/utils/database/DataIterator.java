@@ -130,10 +130,10 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
 
 
     @Override
-    public void skip(int amount) {
+    public void skip(long amount) {
         try {
             if (amount>=0) {
-                source.relative(amount);
+                source.relative((int)amount);
                 consumed = true;
                 loadNext();
             }
@@ -143,7 +143,7 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     }
 
     @Override
-    public int getIndex() {
+    public long getIndex() {
         try {
             return source.getRow();
         } catch (SQLException e) {

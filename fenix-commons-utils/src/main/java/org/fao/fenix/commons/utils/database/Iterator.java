@@ -7,13 +7,13 @@ public interface Iterator <T> extends java.util.Iterator<T> {
      * An UnsupportedOperationException can be thrown if the operation isn't available in the current implementation.
      * @param amount Positive skip amount.
      */
-    public void skip(int amount);
+    public void skip(long amount);
 
     /**
      * Current cursor index position.
      * An UnsupportedOperationException can be thrown if the operation isn't available in the current implementation.
      * @return Index position starting from 0.
      */
-    public int getIndex();
+    public long getIndex();
 
 }

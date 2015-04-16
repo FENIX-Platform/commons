@@ -23,12 +23,12 @@ public class DatabaseUtils {
         return iterator instanceof Iterator ? (Iterator)iterator :
                 new Iterator<Object[]>() {
                     @Override
-                    public void skip(int amount) {
+                    public void skip(long amount) {
                         throw new UnsupportedOperationException();
                     }
 
                     @Override
-                    public int getIndex() {
+                    public long getIndex() {
                         throw new UnsupportedOperationException();
                     }
 
