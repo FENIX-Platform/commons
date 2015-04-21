@@ -2,17 +2,31 @@ package org.fao.fenix.commons.utils.database;
 
 import java.sql.*;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class DatabaseUtils {
 
 
 
-    public void fillStatement(PreparedStatement statement, int[] types, Object... row) throws SQLException {
+    public PreparedStatement fillStatement(PreparedStatement statement, int[] types, Object... row) throws SQLException {
         for (int i=0; i<row.length; i++)
             if (row[i]!=null)
                 statement.setObject(i+1, row[i], types[i]);
             else
                 statement.setNull(i+1, types[i]);
+        return statement;
+    }
+
+    public Collection<Object[]> getDataCollection (ResultSet rawData) throws SQLException {
+        Collection<Object[]> data = new LinkedList<>();
+        int columnsNumber = rawData.getMetaData().getColumnCount();
+        while (rawData.next()) {
+            Object[] row = new Object[columnsNumber];
+            for (int i=0; i<columnsNumber; i++)
+                row[i] = rawData.getObject(i+1);
+            data.add(row);
+        }
+        return data;
     }
 
 
