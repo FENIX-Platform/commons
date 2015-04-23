@@ -8,12 +8,21 @@ public class DatabaseUtils {
 
 
 
-    public PreparedStatement fillStatement(PreparedStatement statement, int[] types, Object... row) throws SQLException {
-        for (int i=0; i<row.length; i++)
-            if (row[i]!=null)
-                statement.setObject(i+1, row[i], types[i]);
-            else
-                statement.setNull(i+1, types[i]);
+    public PreparedStatement fillStatement(PreparedStatement statement, int[] types, Object ... params) throws SQLException {
+        if (params!=null && params.length>0)
+            if (types==null || types.length!=params.length) {
+                for (int i = 0; i < params.length; i++)
+                    if (params[i] != null)
+                        statement.setObject(i + 1, params[i]);
+                    else
+                        throw new SQLException("Unknown type for 'null' query parameter");
+            } else {
+                for (int i = 0; i < params.length; i++)
+                    if (params[i] != null)
+                        statement.setObject(i + 1, params[i], types[i]);
+                    else
+                        statement.setNull(i + 1, types[i]);
+            }
         return statement;
     }
 

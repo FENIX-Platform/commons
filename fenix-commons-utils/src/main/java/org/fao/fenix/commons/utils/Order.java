@@ -24,6 +24,9 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
 
     private Language[] languages;
 
+    public Order() {
+    }
+
     public Order(ServletRequest request, Language[] languages) {
         setOrder(request.getParameter("order"));
         this.languages = languages;

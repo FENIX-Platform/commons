@@ -10,6 +10,9 @@ public class  Page {
     public int perPage = -1;
     public int pages = 1;
 
+    public Page() {
+    }
+
     public Page(ServletRequest request) {
         String page = request.getParameter("page");
         String perPage = request.getParameter("perPage");
@@ -29,7 +32,47 @@ public class  Page {
     }
 
 
+    //GET-SET
 
+    public int getSkip() {
+        return skip;
+    }
+
+    public void setSkip(int skip) {
+        this.skip = skip;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
+    }
+
+    public int getPage() {
+        return page;
+    }
+
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getPerPage() {
+        return perPage;
+    }
+
+    public void setPerPage(int perPage) {
+        this.perPage = perPage;
+    }
+
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
 
     private void init(Integer page, Integer perPage, Integer pages, Integer limit) {
         if (perPage!=null && perPage>0) {
@@ -45,7 +88,7 @@ public class  Page {
 
 
 
-    //Utils
+    //UTILS
     public String toH2SQL() {
         return perPage>0 ? " LIMIT "+length+" OFFSET "+skip : "";
     }
