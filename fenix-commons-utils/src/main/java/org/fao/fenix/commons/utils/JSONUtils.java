@@ -59,7 +59,7 @@ public class JSONUtils {
         TypeFactory factory = mapper.getTypeFactory();
 
         JavaType jacksonType = null;
-        if (types!=null) {
+        if (types!=null && types.length>0) {
             JavaType[] jacksonTypes = new JavaType[types.length];
             for (int i=0; i<types.length; i++)
                 jacksonTypes[i] = factory.constructType(types[i]);
