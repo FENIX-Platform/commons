@@ -171,16 +171,16 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     //Compare
     @Override
     public boolean equals(Object obj) {
-        return obj!=null && obj instanceof Code && ((Code)obj).code.equals(code);
+        return obj!=null && obj instanceof Code && ((Code)obj).getCode().equals(getCode());
     }
 
     @Override
     public int compareTo(Code o) {
-        return code.compareTo(o.code);
+        return getCode().compareTo(o.getCode());
     }
 
     @Override
     public int hashCode() {
-        return code.hashCode();
+        return getCode().hashCode();
     }
 }
