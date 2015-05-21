@@ -4,12 +4,14 @@ import javax.servlet.ServletRequest;
 
 public class  Page {
     public int skip = 0;
-    public int length = 100000; //Default result maximum size
+    public int length = Integer.MAX_VALUE;
 
     public int page = 1;
     public int perPage = -1;
     public int pages = 1;
+    public int limit = -1;
 
+    //INIT
     public Page() {
     }
 
@@ -19,16 +21,37 @@ public class  Page {
         String pages = request.getParameter("pages");
         String limit = request.getParameter("limit");
 
-        init(page!=null?new Integer(page):null, perPage!=null?new Integer(perPage):null, pages!=null?new Integer(pages):null, limit!=null?new Integer(limit):null);
+        if (page!=null)
+            this.page = Integer.parseInt(page);
+        if (perPage!=null)
+            this.perPage = Integer.parseInt(perPage);
+        if (pages!=null)
+            this.pages = Integer.parseInt(pages);
+        if (limit!=null)
+            this.limit = Integer.parseInt(limit);
+
+        init();
     }
 
-    public Page(Integer page, Integer perPage, Integer pages, Integer limit) {
-        init(page,perPage,pages,limit);
+    public Page(int page, int perPage, int pages) {
+        this.page = page;
+        this.perPage = perPage;
+        this.pages = pages;
+
+        init();
     }
 
     public Page(int skip, int length) {
         this.skip = skip;
         this.length = length;
+    }
+
+    public void init() {
+        if (perPage>0) {
+            length = perPage*pages;
+            skip = (page-1)*perPage;
+        } else if (limit>0)
+            length = limit;
     }
 
 
@@ -74,25 +97,21 @@ public class  Page {
         this.pages = pages;
     }
 
-    private void init(Integer page, Integer perPage, Integer pages, Integer limit) {
-        if (perPage!=null && perPage>0) {
-            this.perPage = perPage;
-            this.page = page = page != null && page > 0 ? page : 1;
-            this.pages = pages = pages != null && pages > 0 ? pages : 1;
-
-            length = perPage*pages;
-            skip = (page-1)*perPage;
-        } else if (limit!=null)
-            length = limit>0 ? limit : -1;
+    public int getLimit() {
+        return limit;
     }
 
+    public void setLimit(int limit) {
+        this.limit = limit;
+    }
 
 
     //UTILS
+
     public String toH2SQL() {
-        return perPage>0 ? " LIMIT "+length+" OFFSET "+skip : "";
+        return perPage>0 ? " LIMIT "+length+" OFFSET "+skip : " LIMIT "+length;
     }
     public String toOrientSQL() {
-        return perPage>0 ? " skip "+skip+" limit "+length : " limit "+length;
+        return perPage>0 ? " SKIP "+skip+" LIMIT "+length : " LIMIT "+length;
     }
 }
