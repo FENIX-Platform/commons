@@ -37,6 +37,17 @@ public class DSDDataset extends DSD {
     }
 
     //Utils
+    public DSDColumn getColumn(String id) {
+        Collection<DSDColumn> sourceColumns = getColumns();
+
+        if (sourceColumns!=null)
+            for (DSDColumn column : sourceColumns)
+                if (column.getId().equals(id))
+                    return column;
+
+        return null;
+    }
+
     public DSDDataset extend (Language ... languages) {
         Collection<DSDColumn> sourceColumns = getColumns();
         //languages normalization
