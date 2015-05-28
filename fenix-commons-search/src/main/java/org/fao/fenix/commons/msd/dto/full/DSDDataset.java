@@ -37,7 +37,7 @@ public class DSDDataset extends DSD {
     }
 
     //Utils
-    public DSDColumn getColumn(String id) {
+    public DSDColumn findColumn(String id) {
         Collection<DSDColumn> sourceColumns = getColumns();
 
         if (sourceColumns!=null)
