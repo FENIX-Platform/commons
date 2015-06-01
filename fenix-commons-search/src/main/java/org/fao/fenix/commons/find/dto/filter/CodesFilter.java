@@ -8,6 +8,7 @@ public class CodesFilter {
     public String uid;
     public String version;
     public Collection<String> codes;
+    public String label;
 
     public Integer level;
     public Integer levels;

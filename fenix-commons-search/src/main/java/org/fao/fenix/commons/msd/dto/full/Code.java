@@ -36,6 +36,8 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     @JsonProperty
     private Collection<Code> relations;
 
+    private String indexLabel;
+
     public Code() { }
     public Code(String code, Map<String, String> title) {
         this.code = code;
@@ -167,6 +169,13 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         return parents!=null && parents.size()>0;
     }
 
+    public String getIndexLabel() {
+        return indexLabel;
+    }
+
+    public void setIndexLabel(String indexLabel) {
+        this.indexLabel = indexLabel;
+    }
 
     //Compare
     @Override
