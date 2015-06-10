@@ -1,13 +1,9 @@
 package org.fao.ess.widget.filter; 
 
-import java.io.ByteArrayInputStream; 
-import java.io.IOException; 
-import java.io.InputStream; 
-import java.io.InputStreamReader; 
-import java.io.Reader; 
+import java.io.*;
 
-import javax.servlet.ServletInputStream; 
-import javax.servlet.http.HttpServletRequest; 
+import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper; 
 
 public class CrossDomainRequestWrapper extends HttpServletRequestWrapper { 
@@ -19,15 +15,16 @@ public class CrossDomainRequestWrapper extends HttpServletRequestWrapper {
      
     private String newBody, newMethod, newContentType; 
 
-    public CrossDomainRequestWrapper(HttpServletRequest request) throws IOException { 
-        super(request); 
+    public CrossDomainRequestWrapper(HttpServletRequest request) throws IOException {
+        super(request);
         init(request); 
     } 
      
     private void init(HttpServletRequest request) throws IOException { 
         //Read body 
-        StringBuilder stringBuilder = new StringBuilder(); 
-        Reader bufferedReader = new InputStreamReader(getInputStream()); 
+        StringBuilder stringBuilder = new StringBuilder();
+        //InputStream input = getInputStream();
+        Reader bufferedReader = new InputStreamReader(getInputStream());
         char[] charBuffer = new char[128]; 
         for (int bytesRead = bufferedReader.read(charBuffer); bytesRead > 0; bytesRead = bufferedReader.read(charBuffer)) 
             stringBuilder.append(charBuffer, 0, bytesRead); 
@@ -61,6 +58,11 @@ public class CrossDomainRequestWrapper extends HttpServletRequestWrapper {
         }; 
     } 
      
-    @Override public int getContentLength() { return newBody!=null ? newBody.length() : super.getContentLength(); } 
-     
+    @Override public int getContentLength() { return newBody!=null ? newBody.length() : super.getContentLength(); }
+
+
+    @Override
+    public BufferedReader getReader() throws IOException {
+        return newBody!=null ? new BufferedReader(new InputStreamReader(new ByteArrayInputStream(newBody.getBytes())), 1024) : super.getReader();
+    }
 }

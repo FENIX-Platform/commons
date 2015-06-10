@@ -4,11 +4,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class DSD extends JSONEntity implements Serializable {
 
-    @JsonProperty private String contextSystem;
-    @JsonProperty private String datasource;
+    @JsonProperty
+    private Map<String,Object> contextExtension;
+
+    @JsonProperty
+    private String contextSystem;
+
+    @JsonProperty
+    private String[] datasources;
 
 
     public String getContextSystem() {
@@ -19,11 +26,19 @@ public class DSD extends JSONEntity implements Serializable {
         this.contextSystem = contextSystem;
     }
 
-    public String getDatasource() {
-        return datasource;
+    public String[] getDatasources() {
+        return datasources;
     }
 
-    public void setDatasource(String datasource) {
-        this.datasource = datasource;
+    public void setDatasources(String[] datasources) {
+        this.datasources = datasources;
+    }
+
+    public Map<String, Object> getContextExtension() {
+        return contextExtension;
+    }
+
+    public void setContextExtension(Map<String, Object> contextExtension) {
+        this.contextExtension = contextExtension;
     }
 }

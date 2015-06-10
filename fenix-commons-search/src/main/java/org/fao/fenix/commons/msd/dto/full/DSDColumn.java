@@ -7,6 +7,7 @@ import org.fao.fenix.commons.msd.dto.type.DataType;
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -115,4 +116,5 @@ public class DSDColumn extends JSONEntity implements Serializable {
     public void setVirtual(Boolean virtual) {
         this.virtual = virtual;
     }
+
 }

@@ -1,14 +1,29 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.mdsd.annotations.Description;
+import org.fao.fenix.commons.mdsd.annotations.Format;
+import org.fao.fenix.commons.mdsd.annotations.Label;
+import org.fao.fenix.commons.mdsd.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 
 public class SeObliqueLineAzimuth extends JSONEntity implements Serializable {
 
-    @JsonProperty private Double azimuthAngle;
-    @JsonProperty private Double azimuthMeasurePointLongitude;
+    @JsonProperty
+    @Label(en="Azimuth angle")
+    @Description(en= "Measure clockwise from north and express in degree of the angle.")
+    @Order(1)
+    @Format(Format.FORMAT.string)
+    private Double azimuthAngle;
+
+    @JsonProperty
+    @Label(en="Longitude of the map projection origin")
+    @Description(en="Longitude of the origin in the map projection.")
+    @Order(2)
+    @Format(Format.FORMAT.string)
+    private Double azimuthMeasurePointLongitude;
 
 
     public Double getAzimuthAngle() {

@@ -1,24 +1,59 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.mdsd.annotations.Description;
+import org.fao.fenix.commons.mdsd.annotations.Format;
+import org.fao.fenix.commons.mdsd.annotations.Label;
+import org.fao.fenix.commons.mdsd.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.Date;
 import java.util.Map;
 
 public class MeReferenceSystem extends JSONEntity implements Serializable {
 
+    @JsonProperty
+    @Label(en="Identifier of reference system")
+    @Description(en= "Identifier of the reference system. One of the most common standards for reference systems is the EPSG Geodetic Parameter Registry, created by the European Petroleum Survey Group.")
+    @Order(1)
+    @Format(Format.FORMAT.string)
+    private String referenceSystemIdentifier;
 
-    @JsonProperty private String referenceSystemIdentifier;
-    @JsonProperty private Map<String, String> referenceSystemName;
-    @JsonProperty private OjResponsibleParty referenceSystemAuthority;
+    @JsonProperty
+    @Label(en="Extented name of reference system")
+    @Description(en= "Alias or the name of the reference system.")
+    @Order(2)
+    @Format(Format.FORMAT.string)
+    private Map<String, String> referenceSystemName;
 
-    @JsonProperty private SeProjection seProjection;
-    @JsonProperty private SeEllipsoid seEllipsoid;
-    @JsonProperty private SeDatum seDatum;
+    @JsonProperty
+    @Label(en="Reference system authority")
+    @Description(en= "It is an element of the type ResponsibleParty providing details on the authority linked to the referece system.")
+    @Order(3)
+    @Format(Format.FORMAT.string)
+    private OjResponsibleParty referenceSystemAuthority;
+
+    @JsonProperty
+    @Label(en="Projection")
+    @Description(en= "This section provides the identifiers of the projection of the considered Coordinate Reference System (CRS).")
+    @Order(4)
+    @Format(Format.FORMAT.string)
+    private SeProjection seProjection;
+
+    @JsonProperty
+    @Label(en="Ellipsoid")
+    @Description(en= "This section provides the identifiers of the ellipsoid of the considered Coordinate Reference System (CRS).")
+    @Order(5)
+    @Format(Format.FORMAT.string)
+    private SeEllipsoid seEllipsoid;
+
+    @JsonProperty
+    @Label(en="Datum")
+    @Description(en= "This section provides the identifiers of the datum of the considered Coordinate Reference System (CRS).")
+    @Order(6)
+    @Format(Format.FORMAT.string)
+    private SeDatum seDatum;
 
 
     public String getReferenceSystemIdentifier() {

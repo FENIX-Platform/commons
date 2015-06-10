@@ -4,6 +4,7 @@ import com.orientechnologies.orient.object.db.OObjectLazyMap;
 import javassist.util.proxy.MethodHandler;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -24,6 +25,7 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
         this.sources = sources; //Multiple sources to support inheritance
         sourceClass = sources!=null && sources.length>0 ? sources[0].getClass() : null;
     }
+
 
     @Override
     public Object invoke(Object self, Method m, Method processed, Object[] args) throws Throwable {
@@ -50,8 +52,9 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
             returnedDTOChecked.add(key);
         }
 
-        //Call original bean method stack
-        Object sourceReturn = !"getRID".equals(m.getName()) ? processed.invoke(self) : null; //Priority to the current bean
+
+        //Call source bean method stack
+        Object sourceReturn = !"getRID".equals(m.getName()) ? processed.invoke(self) : null;
         if (sourceReturn==null)
             try {
                 Method sourceMethod = sourceClass.getMethod(m.getName());
@@ -77,7 +80,9 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
                 } else
                     for (int i=0; i<sources.length && sourceReturn==null ; i++) //Manage single values
                         sourceReturn = sourceMethod.invoke(sources[i]);
-            } catch (NoSuchMethodException ex) { }
+            } catch (NoSuchMethodException ex) {
+                //Ignore unknown methods error
+            }
 
         //Return response
         if (returnHandlerClass!=null) //Override response if recursion is needed

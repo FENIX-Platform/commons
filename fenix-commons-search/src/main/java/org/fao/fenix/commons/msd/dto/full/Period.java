@@ -7,8 +7,11 @@ import java.io.Serializable;
 
 public class Period extends JSONEntity implements Serializable {
 
-    @JsonProperty private Long from;
-    @JsonProperty private Long to;
+    @JsonProperty
+    private Long from;
+
+    @JsonProperty
+    private Long to;
 
     public Long getFrom() {
         return from;

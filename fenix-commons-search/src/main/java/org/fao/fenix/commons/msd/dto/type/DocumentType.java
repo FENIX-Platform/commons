@@ -5,7 +5,7 @@ import java.util.Map;
 
 public enum DocumentType {
     scientificPaper (new String[]{"EN", "Scientific paper"}),
-    mothodologicalNotes (new String[]{"EN", "Mothodological notes"}),
+    methodologicalNotes (new String[]{"EN", "Methodological notes"}),
     legalDocument (new String[]{"EN", "Legal document"}),
     handbook (new String[]{"EN", "Handbook"}),
     guidelines (new String[]{"EN", "Guidelines"}),

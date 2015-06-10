@@ -9,17 +9,40 @@ import java.util.*;
 
 public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     
-    @JsonProperty private MeIdentification codeList;
-    @JsonProperty private String code;
-    @JsonProperty private Integer level;
-    @JsonProperty private Map<String, String> title;
-    @JsonProperty private Map<String, String> description;
-    @JsonProperty private Period validityPeriod;
-    @JsonProperty private Collection<Code> parents;
-    @JsonProperty private Collection<Code> children;
-    @JsonProperty private Collection<Code> relations;
+    @JsonProperty
+    private MeIdentification codeList;
+
+    @JsonProperty
+    private String code;
+
+    @JsonProperty
+    private Integer level;
+
+    @JsonProperty
+    private Map<String, String> title;
+
+    @JsonProperty
+    private Map<String, String> description;
+
+    @JsonProperty
+    private Period validityPeriod;
+
+    @JsonProperty
+    private Collection<Code> parents;
+
+    @JsonProperty
+    private Collection<Code> children;
+
+    @JsonProperty
+    private Collection<Code> relations;
+
+    private String indexLabel;
 
     public Code() { }
+    public Code(String code, Map<String, String> title) {
+        this.code = code;
+        this.title = title;
+    }
     public Code(MeIdentification codeList, String code) {
         this.codeList = codeList;
         this.code = code;
@@ -146,20 +169,27 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         return parents!=null && parents.size()>0;
     }
 
+    public String getIndexLabel() {
+        return indexLabel;
+    }
+
+    public void setIndexLabel(String indexLabel) {
+        this.indexLabel = indexLabel;
+    }
 
     //Compare
     @Override
     public boolean equals(Object obj) {
-        return obj!=null && obj instanceof Code && ((Code)obj).code.equals(code);
+        return obj!=null && obj instanceof Code && ((Code)obj).getCode().equals(getCode());
     }
 
     @Override
     public int compareTo(Code o) {
-        return code.compareTo(o.code);
+        return getCode().compareTo(o.getCode());
     }
 
     @Override
     public int hashCode() {
-        return code.hashCode();
+        return getCode().hashCode();
     }
 }

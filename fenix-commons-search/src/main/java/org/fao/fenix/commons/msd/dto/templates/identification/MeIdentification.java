@@ -25,6 +25,10 @@ public class MeIdentification extends ResponseHandler {
     public Map<String, String> getTitle() {
         return null;
     }
+    @JsonProperty
+    public DSD getDsd() {
+        return null;
+    }
 
 
 }

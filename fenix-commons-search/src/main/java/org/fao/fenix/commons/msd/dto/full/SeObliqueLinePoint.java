@@ -1,14 +1,29 @@
 package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.fao.fenix.commons.mdsd.annotations.Description;
+import org.fao.fenix.commons.mdsd.annotations.Format;
+import org.fao.fenix.commons.mdsd.annotations.Label;
+import org.fao.fenix.commons.mdsd.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
 
 public class SeObliqueLinePoint extends JSONEntity implements Serializable {
 
-    @JsonProperty private Double obliqueLineLatitude;
-    @JsonProperty private Double obliqueLineLongitude;
+    @JsonProperty
+    @Label(en="Oblique line latitude")
+    @Description(en= "Latitude of a point defining the oblique line.")
+    @Order(1)
+    @Format(Format.FORMAT.string)
+    private Double obliqueLineLatitude;
+
+    @JsonProperty
+    @Label(en="Oblique line longitude")
+    @Description(en= "Longitude of a point defining the oblique line.")
+    @Order(2)
+    @Format(Format.FORMAT.string)
+    private Double obliqueLineLongitude;
 
 
     public Double getObliqueLineLatitude() {

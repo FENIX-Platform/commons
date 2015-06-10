@@ -28,6 +28,12 @@ public class OjResponsibleParty extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public Map<String,String> getRoleLabel() {
+        ResponsiblePartyRole value = getRole();
+        return value!=null ? value.getLabel() : null;
+    }
+
+    @JsonProperty
     public Map<String, String> getSpecify() {
         return null;
     }
