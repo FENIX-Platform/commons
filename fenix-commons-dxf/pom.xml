@@ -6,8 +6,8 @@
         <artifactId>fenix-commons</artifactId>
         <version>1.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>fenix-commons-search</artifactId>
-  <name>FENIX cross platform search elements</name>
+  <artifactId>fenix-commons-dxf</artifactId>
+  <name>FENIX cross platform Data eXchange Format</name>
 
 
   <dependencies>

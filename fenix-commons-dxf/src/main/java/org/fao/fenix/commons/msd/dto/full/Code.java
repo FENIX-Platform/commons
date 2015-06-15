@@ -36,7 +36,12 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     @JsonProperty
     private Collection<Code> relations;
 
+    @JsonProperty
+    private Boolean leaf;
+
     private String indexLabel;
+
+
 
     public Code() { }
     public Code(String code, Map<String, String> title) {
@@ -120,6 +125,14 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         this.level = level;
     }
 
+    public Boolean getLeaf() {
+        return leaf;
+    }
+
+    public void setLeaf(Boolean leaf) {
+        this.leaf = leaf;
+    }
+
     //Utils
     public void addTitle(String language, String label) {
         if (title == null)
@@ -166,7 +179,7 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     }
 
     public boolean isChild() {
-        return parents!=null && parents.size()>0;
+        return getParents()!=null && getParents().size()>0;
     }
 
     public String getIndexLabel() {

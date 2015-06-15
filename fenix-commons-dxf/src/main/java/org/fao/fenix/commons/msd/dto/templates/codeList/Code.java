@@ -42,9 +42,8 @@ public class Code extends ResponseHandler {
         return currentLevel!=null && levelParameters!=null && ((levelParameters[0]!=null && currentLevel<levelParameters[0]) || (levelParameters[1]!=null && currentLevel>=levelParameters[1])) ? new LinkedList<Code>() : null;
     }
     @JsonProperty
-    public boolean isLeaf() {
-        Collection<Code> children = getChildren();
-        return children==null || children.size()==0;
+    public Boolean getLeaf() {
+        return null;
     }
 
 

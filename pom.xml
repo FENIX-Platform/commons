@@ -12,7 +12,8 @@
 
     <modules>
         <module>fenix-commons-utils</module>
-        <module>fenix-commons-search</module>
+        <module>fenix-commons-dxf</module>
+        <module>fenix-cross-domain</module>
     </modules>
 
     <properties>
