@@ -53,6 +53,17 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         this.code = code;
     }
 
+    public Code(String code, Integer level, Map<String, String> title, Map<String, String> description, Period validityPeriod, Boolean leaf, String indexLabel, MeIdentification codeList) {
+        this.code = code;
+        this.level = level;
+        this.title = title;
+        this.description = description;
+        this.validityPeriod = validityPeriod;
+        this.leaf = leaf;
+        this.indexLabel = indexLabel;
+        this.codeList = codeList;
+    }
+
     public MeIdentification getCodeList() {
         return codeList;
     }
@@ -204,5 +215,25 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     @Override
     public int hashCode() {
         return getCode().hashCode();
+    }
+
+    //Clone
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Map<String,String> title = getTitle();
+        Map<String,String> description = getDescription();
+        Period period = getValidityPeriod();
+
+        return new Code(
+                getCode(),
+                getLevel(),
+                title!=null ? new HashMap<>(title) : null,
+                description!=null ? new HashMap<>(description) : null,
+                period!=null ? (Period)period.clone() : null,
+                getLeaf(),
+                getIndexLabel(),
+                getCodeList()
+        );
     }
 }

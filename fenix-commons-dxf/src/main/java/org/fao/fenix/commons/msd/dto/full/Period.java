@@ -13,6 +13,13 @@ public class Period extends JSONEntity implements Serializable {
     @JsonProperty
     private Long to;
 
+    public Period() {
+    }
+    public Period(Long from, Long to) {
+        this.from = from;
+        this.to = to;
+    }
+
     public Long getFrom() {
         return from;
     }
@@ -27,5 +34,13 @@ public class Period extends JSONEntity implements Serializable {
 
     public void setTo(Long to) {
         this.to = to;
+    }
+
+
+    //Clone
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Period(getFrom(),getTo());
     }
 }
