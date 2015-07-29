@@ -14,7 +14,7 @@ public class FieldFilter {
 
 
     //Utils
-    public FieldFilterType getFilterType() {
+    public FieldFilterType retrieveFilterType() {
         if (ids!=null && ids.size()>0)
             return FieldFilterType.id;
         if (codes!=null && codes.size()>0)
