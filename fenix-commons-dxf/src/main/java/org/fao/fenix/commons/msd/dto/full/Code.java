@@ -22,7 +22,13 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     private Map<String, String> title;
 
     @JsonProperty
+    private Map<String, String> shortTitle;
+
+    @JsonProperty
     private Map<String, String> description;
+
+    @JsonProperty
+    private Map<String, String> supplemental;
 
     @JsonProperty
     private Period validityPeriod;
@@ -53,11 +59,13 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         this.code = code;
     }
 
-    public Code(String code, Integer level, Map<String, String> title, Map<String, String> description, Period validityPeriod, Boolean leaf, String indexLabel, MeIdentification codeList) {
+    public Code(String code, Integer level, Map<String, String> title, Map<String, String> shortTitle, Map<String, String> description, Map<String, String> supplemental, Period validityPeriod, Boolean leaf, String indexLabel, MeIdentification codeList) {
         this.code = code;
         this.level = level;
         this.title = title;
+        this.shortTitle = shortTitle;
         this.description = description;
+        this.supplemental = supplemental;
         this.validityPeriod = validityPeriod;
         this.leaf = leaf;
         this.indexLabel = indexLabel;
@@ -88,12 +96,28 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
         this.title = title;
     }
 
+    public Map<String, String> getShortTitle() {
+        return shortTitle;
+    }
+
+    public void setShortTitle(Map<String, String> shortTitle) {
+        this.shortTitle = shortTitle;
+    }
+
     public Map<String, String> getDescription() {
         return description;
     }
 
     public void setDescription(Map<String, String> description) {
         this.description = description;
+    }
+
+    public Map<String, String> getSupplemental() {
+        return supplemental;
+    }
+
+    public void setSupplemental(Map<String, String> supplemental) {
+        this.supplemental = supplemental;
     }
 
     public Period getValidityPeriod() {
@@ -150,10 +174,20 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
             title = new HashMap<>();
         title.put(language, label);
     }
+    public void addShortTitle(String language, String label) {
+        if (shortTitle == null)
+            shortTitle = new HashMap<>();
+        shortTitle.put(language, label);
+    }
     public void addDescription(String language, String label) {
         if (description == null)
             description = new HashMap<>();
         description.put(language, label);
+    }
+    public void addSupplemental(String language, String label) {
+        if (supplemental == null)
+            supplemental = new HashMap<>();
+        supplemental.put(language, label);
     }
 
     public void addParent(Code code) {
@@ -222,14 +256,18 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     @Override
     public Object clone() throws CloneNotSupportedException {
         Map<String,String> title = getTitle();
+        Map<String,String> shortTitle = getShortTitle();
         Map<String,String> description = getDescription();
+        Map<String,String> supplemental = getSupplemental();
         Period period = getValidityPeriod();
 
         return new Code(
                 getCode(),
                 getLevel(),
                 title!=null ? new HashMap<>(title) : null,
+                shortTitle!=null ? new HashMap<>(shortTitle) : null,
                 description!=null ? new HashMap<>(description) : null,
+                supplemental!=null ? new HashMap<>(supplemental) : null,
                 period!=null ? (Period)period.clone() : null,
                 getLeaf(),
                 getIndexLabel(),

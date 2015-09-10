@@ -28,7 +28,15 @@ public class Code extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public Map<String, String> getShortTitle() {
+        return null;
+    }
+    @JsonProperty
     public Map<String, String> getDescription() {
+        return null;
+    }
+    @JsonProperty
+    public Map<String, String> getSupplemental() {
         return null;
     }
     @JsonProperty
