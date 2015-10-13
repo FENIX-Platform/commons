@@ -108,6 +108,9 @@ public class  Page {
 
     //UTILS
 
+    public String toH2SQLWhereCondition() {
+        return perPage>0 ? "_ROWID_ between "+(skip+1)+" and "+(skip+length) : null;
+    }
     public String toH2SQL() {
         return perPage>0 ? " LIMIT "+length+" OFFSET "+skip : " LIMIT "+length;
     }
