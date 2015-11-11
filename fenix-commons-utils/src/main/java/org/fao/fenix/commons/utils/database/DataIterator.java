@@ -50,6 +50,7 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     private void close() {
         try {
             if (connection!=null && !connection.isClosed()) {
+                connection.setAutoCommit(true);
                 connection.close();
             }
             if (timeout!=null) {
