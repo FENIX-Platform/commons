@@ -17,7 +17,7 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     private boolean consumed = true;
 
     private Object[] currentDefaultValues;
-    private Collection<Object[]> defaultValues;
+    private java.util.Iterator<Object[]> defaultValues;
 
     private Timer timer;
 
@@ -36,6 +36,9 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
         this.source = this.sources.next();
         this.connection = connection;
         this.timeout = timeout;
+        this.defaultValues = defaultValues!=null ? defaultValues.iterator() : null;
+        currentDefaultValues = this.defaultValues!=null ? this.defaultValues.next() : null;
+
 
         columnsNumber = source.getMetaData().getColumnCount();
 
@@ -89,6 +92,7 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
                 for (source = null; sources.hasNext() && (source=sources.next())==null;);
                 if (source!=null) {
                     columnsNumber = source.getMetaData().getColumnCount();
+                    currentDefaultValues = defaultValues!=null ? defaultValues.next() : null;
                     return loadNext();
                 } else
                     next = null;
@@ -116,6 +120,10 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
         Object[] row;
         try {
             row = loadNext();
+            if (currentDefaultValues!=null)
+                for (int i=0; i<row.length; i++)
+                    if (row[i]==null)
+                        row[i] = currentDefaultValues[i];
         } catch (SQLException e) {
             close();
             throw new RuntimeException(e);
