@@ -20,6 +20,5 @@ public abstract class DSD<T extends org.fao.fenix.commons.msd.dto.templates.expo
         return null;
     }
 
-
     public abstract T getDsd();
 }

@@ -33,6 +33,10 @@ public class DSD extends ResponseHandler {
     public Map<String, Object> getContextExtension() {
         return null;
     }
+    @JsonProperty
+    public DSDCache getCache() {
+        return null;
+    }
 
 
 
