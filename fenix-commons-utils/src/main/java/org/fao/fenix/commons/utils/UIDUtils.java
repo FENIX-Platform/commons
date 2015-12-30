@@ -15,7 +15,7 @@ public class UIDUtils {
                 if (p!=null)
                     id.append(p).append('_');
         UUID uid = id.length()>0 ? UUID.fromString(id.toString()) : UUID.randomUUID();
-        return String.valueOf(uid.getMostSignificantBits())+String.valueOf(uid.getLeastSignificantBits());
+        return String.valueOf(Math.abs(uid.getMostSignificantBits()))+String.valueOf(Math.abs(uid.getLeastSignificantBits()));
     }
 
     public String getId() {

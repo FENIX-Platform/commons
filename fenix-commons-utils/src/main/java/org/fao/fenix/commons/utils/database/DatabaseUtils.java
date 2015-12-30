@@ -8,7 +8,7 @@ public class DatabaseUtils {
 
 
 
-    public PreparedStatement fillStatement(PreparedStatement statement, int[] types, Object ... params) throws SQLException {
+    public PreparedStatement fillStatement(PreparedStatement statement, Integer[] types, Object ... params) throws SQLException {
         if (params!=null && params.length>0)
             if (types==null || types.length!=params.length) {
                 for (int i = 0; i < params.length; i++)
