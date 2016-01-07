@@ -79,6 +79,7 @@ public class DSDDataset extends DSD {
             DSDDataset dsd = new DSDDataset();
             dsd.setContextSystem(getContextSystem());
             dsd.setDatasources(getDatasources());
+            dsd.setCache(getCache());
             dsd.setContextExtension(getContextExtension());
             dsd.setAggregationRules(getAggregationRules());
             dsd.setColumns(columns);
