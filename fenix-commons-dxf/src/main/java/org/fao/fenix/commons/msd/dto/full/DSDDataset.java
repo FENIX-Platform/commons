@@ -48,7 +48,7 @@ public class DSDDataset extends DSD {
         return null;
     }
 
-    public DSDDataset extend (Language ... languages) {
+    public DSDDataset extend (boolean copy, Language ... languages) {
         Collection<DSDColumn> sourceColumns = getColumns();
         //languages normalization
         if (languages==null || languages.length==0)
@@ -75,17 +75,20 @@ public class DSDDataset extends DSD {
                             columns.add(newColumn);
                         }
                     }
+            if (copy) {
+                DSDDataset dsd = new DSDDataset();
+                dsd.setContextSystem(getContextSystem());
+                dsd.setDatasources(getDatasources());
+                dsd.setCache(getCache());
+                dsd.setContextExtension(getContextExtension());
+                dsd.setAggregationRules(getAggregationRules());
+                dsd.setColumns(columns);
+                return dsd;
+            } else
+                setColumns(columns);
+        }
 
-            DSDDataset dsd = new DSDDataset();
-            dsd.setContextSystem(getContextSystem());
-            dsd.setDatasources(getDatasources());
-            dsd.setCache(getCache());
-            dsd.setContextExtension(getContextExtension());
-            dsd.setAggregationRules(getAggregationRules());
-            dsd.setColumns(columns);
-            return dsd;
-        } else
-            return null;
+        return this;
     }
 
 }
