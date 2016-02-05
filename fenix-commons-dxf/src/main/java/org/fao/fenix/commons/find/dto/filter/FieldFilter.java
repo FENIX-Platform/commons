@@ -27,4 +27,5 @@ public class FieldFilter {
             return FieldFilterType.time;
         return FieldFilterType.other;
     }
+
 }
