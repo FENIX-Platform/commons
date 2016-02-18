@@ -1,16 +1,17 @@
 package org.fao.fenix.commons.utils;
 
-import org.fao.fenix.commons.utils.database.Iterator;
-
 import java.io.*;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Locale;
 
 public class CSVWriter {
     public static final char DEFAULT_SEPARATOR = ',';
     public static final String DEFAULT_DATE_FORMAT = "dd/MM/YYYY";
-    public static final String DEFAULT_NUMBER_FORMAT = "###.##";
+    public static final String DEFAULT_NUMBER_FORMAT = "###.##########";
 
     Writer out; char separator; boolean useQuote; boolean windows; boolean close; String[] header;
     SimpleDateFormat dateFormatter;
@@ -32,12 +33,12 @@ public class CSVWriter {
         this.header = header;
 
         dateFormatter = new SimpleDateFormat(dateFromat!=null ? dateFromat : DEFAULT_DATE_FORMAT);
-        numberFormatter = new DecimalFormat(numberFormat!=null ? numberFormat : DEFAULT_NUMBER_FORMAT);
+        numberFormatter = numberFormat!=null ? new DecimalFormat(numberFormat) : new DecimalFormat(DEFAULT_NUMBER_FORMAT, new DecimalFormatSymbols(Locale.US));
     }
 
     public static void main(String[] args) {
         SimpleDateFormat dateFormatter = new SimpleDateFormat(DEFAULT_DATE_FORMAT);
-        DecimalFormat numberFormatter = new DecimalFormat(DEFAULT_NUMBER_FORMAT);
+        DecimalFormat numberFormatter = new DecimalFormat(DEFAULT_NUMBER_FORMAT, new DecimalFormatSymbols(Locale.US));
 
         double n = 20010.756;
         Date date = new Date();
@@ -45,13 +46,15 @@ public class CSVWriter {
         System.out.println("num: "+numberFormatter.format(n));
         System.out.println("date: "+dateFormatter.format(date));
 
+        System.out.println("ss\"ddd\"".replaceAll("\"", "\\\\\""));
     }
 
-    public void write(Iterator<Object[]> data) throws Exception {
+    public int write(Iterator<Object[]> data, int size) throws Exception {
         StringBuilder row = new StringBuilder();
+        int count = 0;
 
         if (data!=null)
-            while (data.hasNext()) {
+            while (data.hasNext() && count<size) {
                 for (Object cell : data.next()) {
                     if (cell==null)
                         row.append(separator);
@@ -61,22 +64,26 @@ public class CSVWriter {
                         row.append(dateFormatter.format(cell)).append(separator);
                     else {
                         if (useQuote)
-                            row.append('"').append(cell.toString()).append('"').append(separator);
+                            row.append('"').append(cell.toString().replaceAll("\"", "\\\\\"")).append('"').append(separator);
                         else
                             row.append(cell.toString()).append(separator);
                     }
-                    if (windows) {
-                        row.setCharAt(row.length() - 1, '\r');
-                        row.append('\n');
-                    } else
-                        row.setCharAt(row.length()-1,'\n');
                 }
+                if (windows) {
+                    row.setCharAt(row.length() - 1, '\r');
+                    row.append('\n');
+                } else
+                    row.setCharAt(row.length()-1,'\n');
+
                 out.write(row.toString());
                 row.setLength(0);
+                count++;
             }
 
         out.flush();
         if (close)
             out.close();
+
+        return count;
     }
 }
