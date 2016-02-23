@@ -1,11 +1,15 @@
 package org.fao.fenix.commons.utils.database;
 
+import org.apache.log4j.Logger;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 
 public class DataIterator extends TimerTask implements Iterator<Object[]> {
+    private static final Logger LOGGER = Logger.getLogger(DataIterator.class);
+
     private java.util.Iterator<ResultSet> sources;
     private ResultSet source;
     private Connection connection;
@@ -29,6 +33,8 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
     }
 
     public DataIterator(Collection<ResultSet> sources, Connection connection, Long timeout, Collection<Object[]> defaultValues) throws SQLException {
+        LOGGER.debug("Created connection: timeout = "+timeout+" - connection = "+connection);
+
         if (sources==null || sources.size()==0)
             throw new SQLException("No source data for the data producer iterator");
 
@@ -50,9 +56,10 @@ public class DataIterator extends TimerTask implements Iterator<Object[]> {
         }
     }
 
-    private void close() {
+    public void close() {
         try {
             if (connection!=null && !connection.isClosed()) {
+                LOGGER.debug("Closing connection: connection = "+connection);
                 connection.setAutoCommit(true);
                 connection.close();
             }
