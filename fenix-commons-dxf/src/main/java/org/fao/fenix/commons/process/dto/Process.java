@@ -1,13 +1,12 @@
 package org.fao.fenix.commons.process.dto;
 
-import java.util.Map;
 
 public class Process<T> {
 
     private String name;
     private T parameters;
-    private String rid; //Optional result id for cached processes
-    private String[] sid; //Optional source ids
+    private StepId rid; //Optional result id for cached processes
+    private StepId[] sid; //Optional source ids
 
 
 
@@ -41,19 +40,19 @@ public class Process<T> {
         this.parameters = parameters;
     }
 
-    public String getRid() {
+    public StepId getRid() {
         return rid;
     }
 
-    public void setRid(String rid) {
+    public void setRid(StepId rid) {
         this.rid = rid;
     }
 
-    public String[] getSid() {
+    public StepId[] getSid() {
         return sid;
     }
 
-    public void setSid(String[] sid) {
+    public void setSid(StepId[] sid) {
         this.sid = sid;
     }
 }
