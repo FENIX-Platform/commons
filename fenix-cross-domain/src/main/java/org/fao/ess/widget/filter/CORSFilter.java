@@ -18,8 +18,8 @@ public class CORSFilter implements Filter {
         String origin = ((HttpServletRequest) request).getHeader("Origin");
         String headers = ((HttpServletRequest) request).getHeader("Access-Control-Request-Headers");
         String methods = ((HttpServletRequest) request).getHeader("Access-Control-Request-Method");
-        if (origin!=null)
-            request = new CrossDomainRequestWrapper((HttpServletRequest) request);
+        //if (origin!=null)
+            //request = new CrossDomainRequestWrapper((HttpServletRequest) request);
 
         //Echo requested permissions without checks
         if (origin!=null)
