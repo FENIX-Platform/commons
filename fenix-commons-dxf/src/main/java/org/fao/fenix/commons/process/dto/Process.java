@@ -1,12 +1,14 @@
 package org.fao.fenix.commons.process.dto;
 
 
-public class Process<T> {
+public class Process<T> implements Comparable<Process> {
 
     private String name;
     private T parameters;
     private StepId rid; //Optional result id for cached processes
     private StepId[] sid; //Optional source ids
+
+    public int index;
 
 
 
@@ -54,5 +56,33 @@ public class Process<T> {
 
     public void setSid(StepId[] sid) {
         this.sid = sid;
+    }
+
+
+    //Utils
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj!=null && obj instanceof Process && ((Process) obj).index==index;
+    }
+
+    @Override
+    public int hashCode() {
+        return index;
+    }
+
+    @Override
+    public int compareTo(Process o) {
+        int otherIndex = o!=null ? o.index : -1;
+        if (index==otherIndex)
+            return 0;
+        if (index>otherIndex)
+            return 1;
+        return -1;
+    }
+
+    @Override
+    public String toString() {
+        return String.valueOf(index);
     }
 }

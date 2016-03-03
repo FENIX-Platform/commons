@@ -4,6 +4,12 @@ public class StepId implements Comparable<StepId> {
     private String uid;
     private String version;
 
+    public StepId() {
+    }
+    public StepId(String uid, String version) {
+        this.uid = uid;
+        this.version = version;
+    }
 
     public String getUid() {
         return uid;
@@ -51,5 +57,10 @@ public class StepId implements Comparable<StepId> {
             return 1;
         else
             return id.compareTo(objId);
+    }
+
+    @Override
+    public String toString() {
+        return getId();
     }
 }
