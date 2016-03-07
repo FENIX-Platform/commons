@@ -28,6 +28,23 @@ public class DSDColumn extends JSONEntity implements Serializable {
     @JsonProperty private Boolean transposed;
     @JsonProperty private Boolean virtual;
 
+    @Override
+    public DSDColumn clone() {
+        DSDColumn clone = new DSDColumn();
+        clone.setId(getId());
+        clone.setTitle(getTitle());
+        clone.setSupplemental(getSupplemental());
+        clone.setSubject(getSubject());
+        clone.setDataType(getDataType());
+        clone.setValues(getValues()!=null ? getValues().clone() : null);
+        clone.setDomain(getDomain()!=null ? getDomain().clone() : null);
+        clone.setColumnLink(getColumnLink());
+        clone.setKey(getKey());
+        clone.setTransposed(getTransposed());
+        clone.setVirtual(getVirtual());
+        return clone;
+    }
+
 
     public String getId() {
         return id;
@@ -116,5 +133,6 @@ public class DSDColumn extends JSONEntity implements Serializable {
     public void setVirtual(Boolean virtual) {
         this.virtual = virtual;
     }
+
 
 }

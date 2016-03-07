@@ -6,6 +6,7 @@ import org.fao.fenix.commons.msd.dto.JSONEntity;
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.LinkedList;
 
 public class DSDDomain extends JSONEntity implements Serializable {
 
@@ -45,5 +46,28 @@ public class DSDDomain extends JSONEntity implements Serializable {
 
     public void setTimeList(Collection<Long> timeList) {
         this.timeList = timeList;
+    }
+
+
+    @Override
+    public DSDDomain clone() {
+        DSDDomain clone = new DSDDomain();
+
+        clone.setEnumeration(getEnumeration()!=null ? new LinkedList<>(getEnumeration()) : null);
+        clone.setTimeList(getTimeList()!=null ? new LinkedList<>(getTimeList()) : null);
+        clone.setPeriod(getPeriod()!=null ? getPeriod().clone() : null);
+        clone.setCodes(cloneCodes());
+
+        return clone;
+    }
+
+    private Collection<OjCodeList> cloneCodes() {
+        Collection<OjCodeList> clone = null;
+        if (getCodes()!=null) {
+            clone = new LinkedList<>();
+            for (OjCodeList codeList : getCodes())
+                clone.add(codeList.clone());
+        }
+        return clone;
     }
 }

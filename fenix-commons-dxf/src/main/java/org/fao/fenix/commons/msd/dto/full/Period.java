@@ -37,10 +37,11 @@ public class Period extends JSONEntity implements Serializable {
     }
 
 
-    //Clone
-
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return new Period(getFrom(),getTo());
+    public Period clone() {
+        Period clone = new Period();
+        clone.setFrom(getFrom());
+        clone.setTo(getTo());
+        return clone;
     }
 }

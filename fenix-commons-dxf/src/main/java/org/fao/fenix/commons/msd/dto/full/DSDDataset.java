@@ -5,10 +5,7 @@ import org.fao.fenix.commons.msd.dto.type.DataType;
 import org.fao.fenix.commons.utils.Language;
 
 import javax.persistence.Embedded;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 public class DSDDataset extends DSD {
 
@@ -48,6 +45,8 @@ public class DSDDataset extends DSD {
         return null;
     }
 
+
+    //TODO remove copy parameter from extend
     public DSDDataset extend (boolean copy, Language ... languages) {
         Collection<DSDColumn> sourceColumns = getColumns();
         //languages normalization
@@ -92,11 +91,38 @@ public class DSDDataset extends DSD {
     }
 
 
-    //TODO remove copy parameter from extend and implement the clone function (without get/set and with nulls chek)
-
-
+    //The clone function use only with get/set for proxy compatibility
+    //The copy has no RID
     @Override
     public DSDDataset clone() {
-        return null;
+        DSDDataset clone = new DSDDataset();
+        //Superclass properties
+        clone.setContextExtension(getContextExtension()!=null ? new HashMap<>(getContextExtension()) : null);
+        clone.setContextSystem(getContextSystem());
+        clone.setDatasources(getDatasources());
+        clone.setCache(getCache()!=null ? getCache().clone() : null);
+        //Other properties
+        clone.setAggregationRules(cloneRules());
+        clone.setColumns(cloneColumns());
+        //Return clone
+        return clone;
+    }
+    private Collection<DSDColumn> cloneColumns() {
+        Collection<DSDColumn> clone = null;
+        if (getColumns()!=null) {
+            clone = new LinkedList<>();
+            for (DSDColumn column : getColumns())
+                clone.add(column.clone());
+        }
+        return clone;
+    }
+    private Collection<DSDAggregationRule> cloneRules() {
+        Collection<DSDAggregationRule> clone = null;
+        if (getAggregationRules()!=null) {
+            clone = new LinkedList<>();
+            for (DSDAggregationRule rule : getAggregationRules())
+                clone.add(rule.clone());
+        }
+        return clone;
     }
 }

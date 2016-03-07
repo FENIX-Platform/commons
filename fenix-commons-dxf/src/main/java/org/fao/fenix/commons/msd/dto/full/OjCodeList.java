@@ -10,6 +10,7 @@ import org.fao.fenix.commons.msd.dto.JSONEntity;
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Map;
 
 public class OjCodeList extends JSONEntity implements Serializable {
@@ -127,5 +128,17 @@ public class OjCodeList extends JSONEntity implements Serializable {
     @Embedded
     public void setCodeListResources(Collection<OjCitation> codeListResources) {
         this.codeListResources = codeListResources;
+    }
+
+
+    @Override
+    public OjCodeList clone() {
+        OjCodeList clone = new OjCodeList();
+        clone.setIdCodeList(getIdCodeList());
+        clone.setVersion(getVersion());
+        clone.setLink(getLink());
+        clone.setExtendedName(getExtendedName());
+        clone.setCodes(getCodes()!=null ? new LinkedList<>(getCodes()) : null);
+        return clone;
     }
 }
