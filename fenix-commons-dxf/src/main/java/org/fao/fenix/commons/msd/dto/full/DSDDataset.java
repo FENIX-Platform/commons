@@ -91,4 +91,12 @@ public class DSDDataset extends DSD {
         return this;
     }
 
+
+    //TODO remove copy parameter from extend and implement the clone function (without get/set and with nulls chek)
+
+
+    @Override
+    public DSDDataset clone() {
+        return null;
+    }
 }
