@@ -2,11 +2,11 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
+import org.fao.fenix.commons.msd.dto.type.DataType;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.LinkedList;
+import java.util.*;
 
 public class DSDDomain extends JSONEntity implements Serializable {
 
@@ -69,5 +69,80 @@ public class DSDDomain extends JSONEntity implements Serializable {
                 clone.add(codeList.clone());
         }
         return clone;
+    }
+
+
+    public boolean extend(DataType columnType, DSDDomain domain) {
+        if (columnType!=null && domain!=null)
+            switch (columnType) {
+                case code:
+                    {
+                        Collection<OjCodeList> codeLists = getCodes();
+                        OjCodeList codeList = codeLists!=null && codeLists.size()>0 ? codeLists.iterator().next() : null;
+                        String uid = codeList!=null ? codeList.getIdCodeList() : null;
+                        String version = codeList!=null ? codeList.getVersion() : null;
+
+                        Collection<OjCodeList> domainCodeLists = domain.getCodes();
+                        OjCodeList domainCodeList = domainCodeLists!=null && domainCodeLists.size()>0 ? domainCodeLists.iterator().next() : null;
+                        String domainUid = domainCodeList!=null ? domainCodeList.getIdCodeList() : null;
+                        String domainVersion = domainCodeList!=null ? domainCodeList.getVersion() : null;
+
+                        if (uid==null || domainUid==null || !uid.equals(domainUid) || (version!=null && (domainVersion==null || !version.equals(domainVersion))) || domainVersion!=null )
+                            return false;
+
+                        Collection<OjCode> codes = codeList.getCodes();
+                        Collection<OjCode> domainCodes = domainCodeList.getCodes();
+                        if (codes!=null && codes.size()>0 && domainCodes!=null && domainCodes.size()>0) {
+                            Set<String> codesValue = new HashSet<>();
+                            for (OjCode code : codes)
+                                codesValue.add(code.getCode());
+                            for (OjCode code : domainCodes)
+                                if (!codesValue.contains(code.getCode()))
+                                    codes.add(code);
+                        }
+                    }
+                    break;
+                case customCode:
+                    {
+                        Collection<OjCodeList> codeLists = getCodes();
+                        OjCodeList codeList = codeLists!=null && codeLists.size()>0 ? codeLists.iterator().next() : null;
+                        Collection<OjCode> codes = codeList!=null ? codeList.getCodes() : null;
+
+                        Collection<OjCodeList> domainCodeLists = domain.getCodes();
+                        OjCodeList domainCodeList = domainCodeLists!=null && domainCodeLists.size()>0 ? domainCodeLists.iterator().next() : null;
+                        Collection<OjCode> domainCodes = domainCodeList!=null ? domainCodeList.getCodes() : null;
+
+                        if (codes==null || domainCodes==null)
+                            return false;
+
+                        Set<String> codesValue = new HashSet<>();
+                        for (OjCode code : codes)
+                            codesValue.add(code.getCode());
+                        for (OjCode code : domainCodes)
+                            if (!codesValue.contains(code.getCode()))
+                                codes.add(code);
+                    }
+                    break;
+                case enumeration:
+                    {
+                        Collection<String> enumeration = getEnumeration();
+                        Collection<String> domainEnumeration = getEnumeration();
+
+                        if (enumeration==null || domainEnumeration==null)
+                            return false;
+
+                        enumeration = new LinkedHashSet<>(enumeration);
+                        enumeration.addAll(domainEnumeration);
+                        setEnumeration(enumeration);
+                    }
+                    break;
+                case year:
+                case month:
+                case date:
+                case time:
+                    //TODO
+                    break;
+            }
+        return true;
     }
 }
