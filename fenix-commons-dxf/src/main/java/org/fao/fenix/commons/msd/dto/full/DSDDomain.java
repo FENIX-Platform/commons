@@ -140,7 +140,28 @@ public class DSDDomain extends JSONEntity implements Serializable {
                 case month:
                 case date:
                 case time:
-                    //TODO
+                    Collection<Long> timeList = getTimeList();
+                    if (timeList!=null && timeList.size()>0) {
+                        Collection<Long> domainTimeList = domain.getTimeList();
+                        if (domainTimeList!=null && domainTimeList.size()>0) {
+                            timeList.addAll(domainTimeList);
+                            setTimeList(new TreeSet<>(timeList));
+                        } else
+                            setTimeList(null);
+                        setPeriod(null);
+                    } else {
+                        Period period = getPeriod();
+                        Long from = period!=null ? period.getFrom() : null;
+                        Long to = period!=null ? period.getTo() : null;
+                        Period domainPeriod = domain.getPeriod();
+                        Long domainFrom = domainPeriod!=null ? period.getFrom() : null;
+                        Long domainTo = domainPeriod!=null ? period.getTo() : null;
+
+                        from = from!=null && domainFrom!=null ? Math.min(from,domainFrom) : null;
+                        to = to!=null && domainTo!=null ? Math.max(to,domainTo) : null;
+                        setPeriod(from!=null || to!=null ? new Period(from, to) : null);
+                        setTimeList(null);
+                    }
                     break;
             }
         return true;
