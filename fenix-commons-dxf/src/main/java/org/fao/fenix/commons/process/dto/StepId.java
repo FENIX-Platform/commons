@@ -29,7 +29,7 @@ public class StepId implements Comparable<StepId> {
 
     //Utils
     public String getId() {
-        return uid!=null ? (version!=null ? uid+'|'+version : uid) : null;
+        return uid!=null ? (version!=null ? uid+"___"+version : uid) : null;
     }
 
     @Override

@@ -87,7 +87,7 @@ public class DSDDomain extends JSONEntity implements Serializable {
                         String domainUid = domainCodeList!=null ? domainCodeList.getIdCodeList() : null;
                         String domainVersion = domainCodeList!=null ? domainCodeList.getVersion() : null;
 
-                        if (uid==null || domainUid==null || !uid.equals(domainUid) || (version!=null && (domainVersion==null || !version.equals(domainVersion))) || domainVersion!=null )
+                        if (uid==null || domainUid==null || !uid.equals(domainUid) || (version!=null && (domainVersion==null || !version.equals(domainVersion))) || (version==null && domainVersion!=null) )
                             return false;
 
                         Collection<OjCode> codes = codeList.getCodes();
