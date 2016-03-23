@@ -28,4 +28,13 @@ public class DSDCache extends JSONEntity implements Serializable {
     public void setStorage(String storage) {
         this.storage = storage;
     }
+
+
+    @Override
+    public DSDCache clone() {
+        DSDCache clone = new DSDCache();
+        clone.setManager(getManager());
+        clone.setStorage(getStorage());
+        return clone;
+    }
 }

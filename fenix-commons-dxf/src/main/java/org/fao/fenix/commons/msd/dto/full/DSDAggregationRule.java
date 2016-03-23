@@ -3,6 +3,7 @@ package org.fao.fenix.commons.msd.dto.full;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DSDAggregationRule extends JSONEntity implements Serializable {
@@ -25,4 +26,14 @@ public class DSDAggregationRule extends JSONEntity implements Serializable {
         this.parameters = parameters;
     }
 
+
+    //The clone function use only with get/set for proxy compatibility
+    //The copy has no RID
+    @Override
+    public DSDAggregationRule clone() {
+        DSDAggregationRule clone = new DSDAggregationRule();
+        clone.setName(getName());
+        clone.setParameters(getParameters()!=null ? new HashMap<>(getParameters()) : null);
+        return clone;
+    }
 }

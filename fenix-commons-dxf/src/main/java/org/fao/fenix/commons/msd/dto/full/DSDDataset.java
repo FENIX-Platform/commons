@@ -5,10 +5,7 @@ import org.fao.fenix.commons.msd.dto.type.DataType;
 import org.fao.fenix.commons.utils.Language;
 
 import javax.persistence.Embedded;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
 
 public class DSDDataset extends DSD {
 
@@ -48,7 +45,8 @@ public class DSDDataset extends DSD {
         return null;
     }
 
-    public DSDDataset extend (boolean copy, Language ... languages) {
+
+    public void extend (Language ... languages) {
         Collection<DSDColumn> sourceColumns = getColumns();
         //languages normalization
         if (languages==null || languages.length==0)
@@ -75,20 +73,43 @@ public class DSDDataset extends DSD {
                             columns.add(newColumn);
                         }
                     }
-            if (copy) {
-                DSDDataset dsd = new DSDDataset();
-                dsd.setContextSystem(getContextSystem());
-                dsd.setDatasources(getDatasources());
-                dsd.setCache(getCache());
-                dsd.setContextExtension(getContextExtension());
-                dsd.setAggregationRules(getAggregationRules());
-                dsd.setColumns(columns);
-                return dsd;
-            } else
-                setColumns(columns);
+            setColumns(columns);
         }
-
-        return this;
     }
 
+
+    //The clone function use only with get/set for proxy compatibility
+    //The copy has no RID
+    @Override
+    public DSDDataset clone() {
+        DSDDataset clone = new DSDDataset();
+        //Superclass properties
+        clone.setContextExtension(getContextExtension()!=null ? new HashMap<>(getContextExtension()) : null);
+        clone.setContextSystem(getContextSystem());
+        clone.setDatasources(getDatasources());
+        clone.setCache(getCache()!=null ? getCache().clone() : null);
+        //Other properties
+        clone.setAggregationRules(cloneRules());
+        clone.setColumns(cloneColumns());
+        //Return clone
+        return clone;
+    }
+    private Collection<DSDColumn> cloneColumns() {
+        Collection<DSDColumn> clone = null;
+        if (getColumns()!=null) {
+            clone = new LinkedList<>();
+            for (DSDColumn column : getColumns())
+                clone.add(column.clone());
+        }
+        return clone;
+    }
+    private Collection<DSDAggregationRule> cloneRules() {
+        Collection<DSDAggregationRule> clone = null;
+        if (getAggregationRules()!=null) {
+            clone = new LinkedList<>();
+            for (DSDAggregationRule rule : getAggregationRules())
+                clone.add(rule.clone());
+        }
+        return clone;
+    }
 }
