@@ -24,5 +24,14 @@ public class SeVectorSpatialRepresentation extends ResponseHandler {
         return null;
     }
 
+    @JsonProperty
+    public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getMapUnit() {
+        return null;
+    }
+
+    @JsonProperty
+    public org.fao.fenix.commons.msd.dto.templates.export.metadata.OJScale getScaleRange() {
+        return null;
+    }
 
 }

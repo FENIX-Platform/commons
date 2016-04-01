@@ -12,6 +12,7 @@ import org.fao.fenix.commons.msd.dto.type.XYPosition;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
+import java.util.Collection;
 
 public class SeGridSpatialRepresentation extends JSONEntity implements Serializable {
 
@@ -49,6 +50,13 @@ public class SeGridSpatialRepresentation extends JSONEntity implements Serializa
     @Order(5)
     @Format(Format.FORMAT.string)
     private XYPosition xyPosition;
+
+    @JsonProperty
+    @Label(en="Band Collection")
+    @Description(en= "Band Collection")
+    @Order(6)
+    @Format(Format.FORMAT.string)
+    private Collection<SeBand> mdBand;
 
 
     public Integer getNumberOfDimensions() {
@@ -89,5 +97,14 @@ public class SeGridSpatialRepresentation extends JSONEntity implements Serializa
 
     public void setXyPosition(XYPosition xyPosition) {
         this.xyPosition = xyPosition;
+    }
+
+    public Collection<SeBand> getMdBand() {
+        return mdBand;
+    }
+
+    @Embedded
+    public void setMdBand(Collection<SeBand> mdBand) {
+        this.mdBand = mdBand;
     }
 }

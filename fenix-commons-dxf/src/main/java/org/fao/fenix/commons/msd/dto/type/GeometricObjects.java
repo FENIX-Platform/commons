@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum GeometricObjects {
-    curve (new String[]{"EN", "Curve"}),
     point (new String[]{"EN", "Point"}),
-    solid (new String[]{"EN", "Solid"}),
-    surface (new String[]{"EN", "Surface"})
+    linestring (new String[]{"EN", "LineString"}),
+    polygon (new String[]{"EN", "Polygon"}),
+    multipoint (new String[]{"EN", "MultiPoint"}),
+    multilinestring (new String[]{"EN", "MultiLineString"}),
+    multipolygon (new String[]{"EN", "MultiPolygon"});
 
-    ;private Map<String,String> label = new HashMap<>();
+    private Map<String,String> label = new HashMap<>();
     private GeometricObjects(String[]... labels) { //EN,FR,ES,PT
         for (String[] l : labels)
             label.put(l[0],l[1]);

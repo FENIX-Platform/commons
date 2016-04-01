@@ -6,6 +6,7 @@ import org.fao.fenix.commons.msd.dto.type.CellGeometry;
 import org.fao.fenix.commons.msd.dto.type.CellOfOrigin;
 import org.fao.fenix.commons.msd.dto.type.XYPosition;
 
+import java.util.Collection;
 import java.util.Map;
 
 
@@ -31,17 +32,17 @@ public class SeGridSpatialRepresentation extends ResponseHandler {
         return null;
     }
 
-
     @JsonProperty
     public CellOfOrigin getCellOfOrigin() {
         return null;
     }
 
-
     @JsonProperty
     public XYPosition getXyPosition() {
         return null;
     }
-
-
+    @JsonProperty
+    public Collection<SeBand> getMdBand() {
+        return null;
+    }
 }
