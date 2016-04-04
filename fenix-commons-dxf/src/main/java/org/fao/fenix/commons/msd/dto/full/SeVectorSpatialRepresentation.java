@@ -27,7 +27,6 @@ public class SeVectorSpatialRepresentation extends JSONEntity implements Seriali
     @Format(Format.FORMAT.string)
     private GeometricObjects geometricObjects;
 
-
     @JsonProperty
     @Label(en="Map Unit")
     @Description(en= "Map Unit")
@@ -40,7 +39,7 @@ public class SeVectorSpatialRepresentation extends JSONEntity implements Seriali
     @Description(en= "Scale Range")
     @Order(4)
     @Format(Format.FORMAT.string)
-    private OJScale scaleRange;
+    private OjScale scaleRange;
 
 
     public OjCodeList getTopologyLevel() {
@@ -68,12 +67,12 @@ public class SeVectorSpatialRepresentation extends JSONEntity implements Seriali
         this.mapUnit = mapUnit;
     }
 
-    public OJScale getScaleRange() {
+    public OjScale getScaleRange() {
         return scaleRange;
     }
 
     @Embedded
-    public void setScaleRange(OJScale scaleRange) {
+    public void setScaleRange(OjScale scaleRange) {
         this.scaleRange = scaleRange;
     }
 }

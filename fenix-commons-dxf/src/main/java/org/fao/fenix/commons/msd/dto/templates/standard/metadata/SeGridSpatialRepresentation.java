@@ -2,10 +2,12 @@ package org.fao.fenix.commons.msd.dto.templates.standard.metadata;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
+import org.fao.fenix.commons.msd.dto.templates.export.metadata.*;
 import org.fao.fenix.commons.msd.dto.type.CellGeometry;
 import org.fao.fenix.commons.msd.dto.type.CellOfOrigin;
 import org.fao.fenix.commons.msd.dto.type.XYPosition;
 
+import java.util.Collection;
 import java.util.Map;
 
 
@@ -15,8 +17,6 @@ public class SeGridSpatialRepresentation extends ResponseHandler {
     public SeGridSpatialRepresentation(Object source) {
         super(source);
     }
-
-
 
     @JsonProperty
     public Integer getNumberOfDimensions() {
@@ -56,4 +56,8 @@ public class SeGridSpatialRepresentation extends ResponseHandler {
         return value!=null ? value.getLabel() : null;
     }
 
+    @JsonProperty
+    public Collection<SeBand> getMdBand() {
+        return  null;
+    }
 }

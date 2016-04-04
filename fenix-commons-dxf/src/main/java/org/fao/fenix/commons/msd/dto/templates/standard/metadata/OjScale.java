@@ -1,12 +1,13 @@
-package org.fao.fenix.commons.msd.dto.templates.export.metadata;
+package org.fao.fenix.commons.msd.dto.templates.standard.metadata;
+
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
-public class OJScale extends ResponseHandler {
+public class OjScale extends ResponseHandler {
 
-    public OJScale() {}
-    public OJScale(Object source) {
+    public OjScale() {}
+    public OjScale(Object source) {
         super(source);
     }
 
@@ -18,4 +19,5 @@ public class OJScale extends ResponseHandler {
     public Double getMinScaleFactor() {
         return null;
     }
+
 }

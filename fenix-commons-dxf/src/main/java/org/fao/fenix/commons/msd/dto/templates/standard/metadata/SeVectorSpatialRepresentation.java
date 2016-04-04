@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 import org.fao.fenix.commons.msd.dto.type.GeometricObjects;
 
+
 import java.util.Map;
 
 
@@ -13,7 +14,6 @@ public class SeVectorSpatialRepresentation extends ResponseHandler {
     public SeVectorSpatialRepresentation(Object source) {
         super(source);
     }
-
 
     @JsonProperty
     public OjCodeList getTopologyLevel() {
@@ -29,4 +29,8 @@ public class SeVectorSpatialRepresentation extends ResponseHandler {
         return value!=null ? value.getLabel() : null;
     }
 
+    @JsonProperty
+    public OjScale getScaleRange() {
+        return null;
+    }
 }
