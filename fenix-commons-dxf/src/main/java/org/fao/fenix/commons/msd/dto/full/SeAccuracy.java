@@ -26,6 +26,12 @@ public class SeAccuracy extends JSONEntity implements Serializable {
     @Format(Format.FORMAT.textarea)
     private Map<String, String> accuracySampling;
 
+    @JsonProperty
+    @Label(en="Completeness",fr="Exhaustivité",es="Exhaustividad")
+    @Description(en= "State of completeness of the resource.")
+    @Order(3)
+    @Format(Format.FORMAT.textarea)
+    private Map<String, String> completeness;
 
     public Map<String, String> getAccuracyNonSampling() {
         return accuracyNonSampling;
@@ -41,5 +47,13 @@ public class SeAccuracy extends JSONEntity implements Serializable {
 
     public void setAccuracySampling(Map<String, String> accuracySampling) {
         this.accuracySampling = accuracySampling;
+    }
+
+    public Map<String, String> getCompleteness() {
+        return completeness;
+    }
+
+    public void setCompleteness(Map<String, String> completeness) {
+        this.completeness = completeness;
     }
 }

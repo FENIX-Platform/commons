@@ -21,5 +21,9 @@ public class SeAccuracy extends ResponseHandler {
     public Map<String, String> getAccuracySampling() {
         return null;
     }
+    @JsonProperty
+    public Map<String, String> getCompleteness() {
+        return null;
+    }
 
 }

@@ -49,25 +49,11 @@ public class MeDataQuality extends JSONEntity implements Serializable {
     private SeDataRevision seDataRevision;
 
     @JsonProperty
-    @Label(en="Relevance", fr="Pertinence", es="Pertinencia")
-    @Description(en= "Evaluation of data-quality through user satisfaction involving also information about the resource-completeness.")
-    @Order(4)
-    @Format(Format.FORMAT.string)
-    private SeRelevance seRelevance;
-
-    @JsonProperty
     @Label(en="Comparability Coherence", fr="Comparabilité, cohérence", es="Comparabilidad y coherencia")
     @Description(en= "Degree of data comparability across the geographic areas or regions referenced by the resource. Data might be derived from surveys that in general are conducted by different statistical agencies. These surveys often refer to populations of different geographical areas, sometimes based on different methodologies.")
     @Order(8)
     @Format(Format.FORMAT.string)
     private SeComparability seComparability;
-
-    @JsonProperty
-    @Label(en="Timeliness and Punctuality",fr="Actualité et ponctualité",es="Actualidad y puntualidad")
-    @Description(en= "Evaluation of the timeliness of the resource dissemination with respect to the phenomenon it describes. In addition this section take in to account the punctuality of data dissemination.")
-    @Order(5)
-    @Format(Format.FORMAT.string)
-    private SeTimelinessPunctuality seTimelinessPunctuality;
 
 
     public Map<String, String> getQualityManagement() {
@@ -110,27 +96,11 @@ public class MeDataQuality extends JSONEntity implements Serializable {
         this.seDataRevision = seDataRevision;
     }
 
-    public SeRelevance getSeRelevance() {
-        return seRelevance;
-    }
-    @Embedded
-    public void setSeRelevance(SeRelevance seRelevance) {
-        this.seRelevance = seRelevance;
-    }
-
     public SeComparability getSeComparability() {
         return seComparability;
     }
     @Embedded
     public void setSeComparability(SeComparability seComparability) {
         this.seComparability = seComparability;
-    }
-
-    public SeTimelinessPunctuality getSeTimelinessPunctuality() {
-        return seTimelinessPunctuality;
-    }
-    @Embedded
-    public void setSeTimelinessPunctuality(SeTimelinessPunctuality seTimelinessPunctuality) {
-        this.seTimelinessPunctuality = seTimelinessPunctuality;
     }
 }

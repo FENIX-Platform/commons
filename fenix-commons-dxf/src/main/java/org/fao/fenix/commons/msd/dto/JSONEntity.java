@@ -13,7 +13,7 @@ import javax.persistence.Version;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonAutoDetect(fieldVisibility=JsonAutoDetect.Visibility.NONE, getterVisibility=JsonAutoDetect.Visibility.NONE)
-public class JSONEntity {
+public class JSONEntity extends V {
     private ORID orid;
     @Version private Object oVersion;
 

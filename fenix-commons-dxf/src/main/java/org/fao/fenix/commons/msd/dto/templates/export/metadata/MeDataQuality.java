@@ -26,7 +26,7 @@ public class MeDataQuality extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.SeAccuracy getSeAccuracy() {
+    public SeAccuracy getSeAccuracy() {
         return null;
     }
     @JsonProperty
@@ -34,15 +34,7 @@ public class MeDataQuality extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public SeRelevance getSeRelevance() {
-        return null;
-    }
-    @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.SeComparability getSeComparability() {
-        return null;
-    }
-    @JsonProperty
-    public SeTimelinessPunctuality getSeTimelinessPunctuality() {
+    public SeComparability getSeComparability() {
         return null;
     }
 }

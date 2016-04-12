@@ -34,15 +34,7 @@ public class MeDataQuality extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public SeRelevance getSeRelevance() {
-        return null;
-    }
-    @JsonProperty
     public SeComparability getSeComparability() {
-        return null;
-    }
-    @JsonProperty
-    public SeTimelinessPunctuality getSeTimelinessPunctuality() {
         return null;
     }
 }
