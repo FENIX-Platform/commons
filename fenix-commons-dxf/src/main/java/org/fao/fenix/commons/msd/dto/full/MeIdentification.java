@@ -6,13 +6,14 @@ import org.fao.fenix.commons.mdsd.annotations.Format;
 import org.fao.fenix.commons.mdsd.annotations.Label;
 import org.fao.fenix.commons.mdsd.annotations.Order;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
+import org.fao.fenix.commons.msd.dto.MetadataEntity;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.*;
 
-public class MeIdentification <T extends DSD> extends JSONEntity implements Serializable {
+public class MeIdentification <T extends DSD> extends JSONEntity implements Serializable, MetadataEntity {
 
     /* Properties */
 
@@ -382,6 +383,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
 
 
     //Utils
+    @Override
     public boolean isIdentificationOnly() throws IllegalAccessException {
         for (Field field : MeIdentification.class.getDeclaredFields()) {
             String fieldName = field.getName();

@@ -2,12 +2,13 @@ package org.fao.fenix.commons.msd.dto.full;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.JSONEntity;
+import org.fao.fenix.commons.msd.dto.MetadataEntity;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
 import java.util.Map;
 
-public class DSD extends JSONEntity implements Serializable {
+public class DSD extends JSONEntity implements Serializable, MetadataEntity {
 
     @JsonProperty
     private Map<String,Object> contextExtension;
@@ -52,5 +53,14 @@ public class DSD extends JSONEntity implements Serializable {
     @Embedded
     public void setCache(DSDCache cache) {
         this.cache = cache;
+    }
+
+
+    @Override
+    public boolean isIdentificationOnly() throws IllegalAccessException {
+        return (contextExtension==null || contextExtension.size()==0)
+                && cache==null
+                && (datasources==null || datasources.length==0)
+                && (contextSystem==null || contextSystem.trim().length()==0);
     }
 }
