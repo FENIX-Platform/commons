@@ -8,7 +8,7 @@ import java.util.Map;
 public class OjContact extends ResponseHandler {
 
     public OjContact() {}
-    public OjContact(Object source) {
+    public OjContact(Object ... source) {
         super(source);
     }
 

@@ -8,7 +8,7 @@ import org.fao.fenix.commons.msd.dto.type.GeometricObjects;
 public class SeVectorSpatialRepresentation extends ResponseHandler {
 
     public SeVectorSpatialRepresentation() {}
-    public SeVectorSpatialRepresentation(Object source) {
+    public SeVectorSpatialRepresentation(Object ... source) {
         super(source);
     }
 

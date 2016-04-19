@@ -10,7 +10,7 @@ import java.util.Map;
 public class SeCodeList extends ResponseHandler {
 
     public SeCodeList() {}
-    public SeCodeList(Object source) {
+    public SeCodeList(Object ... source) {
         super(source);
     }
 

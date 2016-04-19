@@ -8,7 +8,7 @@ import java.util.Collection;
 public class SeDistribution extends ResponseHandler {
 
     public SeDistribution() {}
-    public SeDistribution(Object source) {
+    public SeDistribution(Object ... source) {
         super(source);
     }
 

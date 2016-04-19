@@ -6,7 +6,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class OjScale extends ResponseHandler {
 
     public OjScale() {}
-    public OjScale(Object source) {
+    public OjScale(Object ... source) {
         super(source);
     }
 

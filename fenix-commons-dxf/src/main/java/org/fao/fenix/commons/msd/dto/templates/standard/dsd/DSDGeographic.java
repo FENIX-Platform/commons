@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class DSDGeographic extends DSD {
 
     public DSDGeographic() {}
-    public DSDGeographic(Object source) {
+    public DSDGeographic(Object ... source) {
         super(source);
     }
 

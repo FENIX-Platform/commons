@@ -9,7 +9,7 @@ import java.util.Map;
 public class OjResponsibleParty extends ResponseHandler {
 
     public OjResponsibleParty() {}
-    public OjResponsibleParty(Object source) {
+    public OjResponsibleParty(Object ... source) {
         super(source);
         this.source = source;
     }

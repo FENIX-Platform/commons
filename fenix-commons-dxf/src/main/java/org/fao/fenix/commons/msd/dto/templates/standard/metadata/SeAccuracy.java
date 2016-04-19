@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeAccuracy extends ResponseHandler {
 
     public SeAccuracy() {}
-    public SeAccuracy(Object source) {
+    public SeAccuracy(Object ... source) {
         super(source);
     }
 

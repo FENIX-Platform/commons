@@ -9,7 +9,7 @@ import java.util.Map;
 public class OjCode extends ResponseHandler {
 
     public OjCode() {}
-    public OjCode(Object source) {
+    public OjCode(Object ... source) {
         super(source);
     }
 

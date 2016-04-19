@@ -10,7 +10,7 @@ import java.util.Map;
 public class OjAxis extends ResponseHandler {
 
     public OjAxis() {}
-    public OjAxis(Object source) {
+    public OjAxis(Object ... source) {
         super(source);
     }
 

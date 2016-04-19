@@ -11,7 +11,7 @@ import java.util.Map;
 public class MeIdentification extends ResponseHandler {
 
     public MeIdentification() {}
-    public MeIdentification(Object source) {
+    public MeIdentification(Object ... source) {
         super(source);
     }
 
@@ -33,7 +33,7 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getLanguage() {
+    public OjCodeList getLanguage() {
         return null;
     }
     @JsonProperty
@@ -49,11 +49,11 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getCharacterSet() {
+    public OjCodeList getCharacterSet() {
         return null;
     }
     @JsonProperty
-    public Collection<String> getParentIdentifiers() {
+    public Collection<org.fao.fenix.commons.msd.dto.templates.identification.MeIdentification> getParents() {
         return null;
     }
     @JsonProperty
@@ -65,7 +65,7 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getMetadataLanguage() {
+    public OjCodeList getMetadataLanguage() {
         return null;
     }
     @JsonProperty
@@ -80,7 +80,7 @@ public class MeIdentification extends ResponseHandler {
 
     //Connected entities
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.MeContent getMeContent() {
+    public MeContent getMeContent() {
         return null;
     }
     @JsonProperty
@@ -96,15 +96,15 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.MeDataQuality getMeDataQuality() {
+    public MeDataQuality getMeDataQuality() {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.MeMaintenance getMeMaintenance() {
+    public MeMaintenance getMeMaintenance() {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.MeReferenceSystem getMeReferenceSystem() {
+    public MeReferenceSystem getMeReferenceSystem() {
         return null;
     }
     @JsonProperty
@@ -116,7 +116,7 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public org.fao.fenix.commons.msd.dto.templates.export.metadata.MeStatisticalProcessing getMeStatisticalProcessing() {
+    public MeStatisticalProcessing getMeStatisticalProcessing() {
         return null;
     }
 

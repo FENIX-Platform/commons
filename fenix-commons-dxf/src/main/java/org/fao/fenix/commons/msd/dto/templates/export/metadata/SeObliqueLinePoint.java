@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeObliqueLinePoint extends ResponseHandler {
 
     public SeObliqueLinePoint() {}
-    public SeObliqueLinePoint(Object source) {
+    public SeObliqueLinePoint(Object ... source) {
         super(source);
     }
 

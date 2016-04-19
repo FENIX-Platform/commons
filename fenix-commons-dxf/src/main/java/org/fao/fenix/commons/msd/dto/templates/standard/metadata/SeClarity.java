@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeClarity extends ResponseHandler {
 
     public SeClarity() {}
-    public SeClarity(Object source) {
+    public SeClarity(Object ... source) {
         super(source);
     }
 

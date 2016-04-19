@@ -10,7 +10,7 @@ import java.util.Map;
 public class SeResourceRecords extends ResponseHandler {
 
     public SeResourceRecords() {}
-    public SeResourceRecords(Object source) {
+    public SeResourceRecords(Object ... source) {
         super(source);
     }
 

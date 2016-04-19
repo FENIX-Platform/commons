@@ -6,7 +6,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class Period extends ResponseHandler {
 
     public Period() {}
-    public Period(Object source) {
+    public Period(Object ... source) {
         super(source);
     }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeDatum extends ResponseHandler {
 
     public SeDatum() {}
-    public SeDatum(Object source) {
+    public SeDatum(Object ... source) {
         super(source);
     }
 

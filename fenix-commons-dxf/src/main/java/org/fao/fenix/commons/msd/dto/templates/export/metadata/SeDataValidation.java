@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeDataValidation extends ResponseHandler {
 
     public SeDataValidation() {}
-    public SeDataValidation(Object source) {
+    public SeDataValidation(Object ... source) {
         super(source);
     }
 

@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeBoundingBox extends ResponseHandler {
 
     public SeBoundingBox() {}
-    public SeBoundingBox(Object source) {
+    public SeBoundingBox(Object ... source) {
         super(source);
     }
 

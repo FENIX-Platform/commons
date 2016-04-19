@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeCoverage extends ResponseHandler {
 
     public SeCoverage() {}
-    public SeCoverage(Object source) {
+    public SeCoverage(Object ... source) {
         super(source);
     }
 

@@ -6,7 +6,7 @@ import org.fao.fenix.commons.msd.dto.templates.standard.metadata.MeIdentificatio
 public abstract class Metadata<T extends DSD> extends MeIdentification {
 
     public Metadata() {}
-    public Metadata(Object source) {
+    public Metadata(Object ... source) {
         super(source);
     }
 

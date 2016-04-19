@@ -8,7 +8,7 @@ import java.util.Date;
 public class SeMetadataMaintenance extends ResponseHandler {
 
     public SeMetadataMaintenance() {}
-    public SeMetadataMaintenance(Object source) {
+    public SeMetadataMaintenance(Object ... source) {
         super(source);
     }
 

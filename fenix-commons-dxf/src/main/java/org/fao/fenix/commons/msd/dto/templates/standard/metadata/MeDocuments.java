@@ -9,7 +9,7 @@ import java.util.Map;
 public class MeDocuments extends ResponseHandler {
 
     public MeDocuments() {}
-    public MeDocuments(Object source) {
+    public MeDocuments(Object ... source) {
         super(source);
     }
 

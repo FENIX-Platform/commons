@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeComparability extends ResponseHandler {
 
     public SeComparability() {}
-    public SeComparability(Object source) {
+    public SeComparability(Object ... source) {
         super(source);
     }
 

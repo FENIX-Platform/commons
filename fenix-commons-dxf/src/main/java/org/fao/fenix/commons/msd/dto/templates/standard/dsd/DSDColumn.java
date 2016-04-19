@@ -9,7 +9,7 @@ import java.util.Map;
 public class DSDColumn extends ResponseHandler {
 
     public DSDColumn() {}
-    public DSDColumn(Object source) {
+    public DSDColumn(Object ... source) {
         super(source);
     }
 

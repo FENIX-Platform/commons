@@ -9,7 +9,7 @@ import java.util.Map;
 public class DSDCache extends ResponseHandler {
 
     public DSDCache() {}
-    public DSDCache(Object source) {
+    public DSDCache(Object ... source) {
         super(source);
     }
 

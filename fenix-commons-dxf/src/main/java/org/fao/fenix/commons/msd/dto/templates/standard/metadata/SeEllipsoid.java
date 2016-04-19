@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeEllipsoid extends ResponseHandler {
 
     public SeEllipsoid() {}
-    public SeEllipsoid(Object source) {
+    public SeEllipsoid(Object ... source) {
         super(source);
     }
 

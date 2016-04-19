@@ -10,7 +10,7 @@ import java.util.Collection;
 public class OjCodeList extends ResponseHandler {
 
     public OjCodeList() {}
-    public OjCodeList(Object source) {
+    public OjCodeList(Object ... source) {
         super(source);
     }
 

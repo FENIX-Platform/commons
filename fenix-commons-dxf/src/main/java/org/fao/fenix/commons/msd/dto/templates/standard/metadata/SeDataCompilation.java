@@ -9,7 +9,7 @@ import java.util.Map;
 public class SeDataCompilation extends ResponseHandler {
 
     public SeDataCompilation() {}
-    public SeDataCompilation(Object source) {
+    public SeDataCompilation(Object ... source) {
         super(source);
     }
 

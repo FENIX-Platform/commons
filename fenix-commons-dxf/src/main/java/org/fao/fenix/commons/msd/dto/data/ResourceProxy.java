@@ -8,6 +8,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.Map;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -25,7 +26,7 @@ public class ResourceProxy {
     }
     public ResourceProxy(Object metadata, Collection data, Class<? extends ResponseHandler> dataProxyClass, Map<String,Map<String,String>> datasources, Long size) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         this.metadata = metadata;
-        this.data = dataProxyClass!=null && data!=null ? ResponseBeanFactory.getInstances(data, dataProxyClass) : data;
+        this.data = dataProxyClass!=null && data!=null ? ResponseBeanFactory.getInstances(dataProxyClass, data) : data;
         this.datasources = datasources;
         this.size = size;
     }

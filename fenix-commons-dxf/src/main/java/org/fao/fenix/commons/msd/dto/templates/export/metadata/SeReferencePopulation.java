@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeReferencePopulation extends ResponseHandler {
 
     public SeReferencePopulation() {}
-    public SeReferencePopulation(Object source) {
+    public SeReferencePopulation(Object ... source) {
         super(source);
     }
 

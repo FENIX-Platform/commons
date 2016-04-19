@@ -8,7 +8,7 @@ import java.util.Map;
 public class MeReferenceSystem extends ResponseHandler {
 
     public MeReferenceSystem() {}
-    public MeReferenceSystem(Object source) {
+    public MeReferenceSystem(Object ... source) {
         super(source);
     }
 

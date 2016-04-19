@@ -13,7 +13,7 @@ import java.util.Map;
 public class SeGridSpatialRepresentation extends ResponseHandler {
 
     public SeGridSpatialRepresentation() {}
-    public SeGridSpatialRepresentation(Object source) {
+    public SeGridSpatialRepresentation(Object ... source) {
         super(source);
     }
 

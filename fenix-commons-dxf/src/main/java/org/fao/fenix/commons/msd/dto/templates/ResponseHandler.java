@@ -87,9 +87,9 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
         //Return response
         if (returnHandlerClass!=null) //Override response if recursion is needed
             if (collection)
-                return ResponseBeanFactory.getInstances((Collection)sourceReturn, returnHandlerClass);
+                return ResponseBeanFactory.getInstances(returnHandlerClass, (Collection)sourceReturn);
             else
-                return ResponseBeanFactory.getInstance(sourceReturn, returnHandlerClass);
+                return ResponseBeanFactory.getInstance(returnHandlerClass, sourceReturn);
         else //Return original response
             return sourceReturn;
     }

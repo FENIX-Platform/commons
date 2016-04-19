@@ -10,7 +10,7 @@ import java.util.Map;
 public class MeIdentification extends ResponseHandler {
 
     public MeIdentification() {}
-    public MeIdentification(Object source) {
+    public MeIdentification(Object ... source) {
         super(source);
     }
 
@@ -45,7 +45,7 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public Collection<String> getParentIdentifiers() {
+    public Collection<org.fao.fenix.commons.msd.dto.templates.identification.MeIdentification> getParents() {
         return null;
     }
     @JsonProperty

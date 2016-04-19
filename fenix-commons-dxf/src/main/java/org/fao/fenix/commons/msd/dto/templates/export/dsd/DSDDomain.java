@@ -9,7 +9,7 @@ import java.util.Collection;
 public class DSDDomain extends ResponseHandler {
 
     public DSDDomain() {}
-    public DSDDomain(Object source) {
+    public DSDDomain(Object ... source) {
         super(source);
     }
 

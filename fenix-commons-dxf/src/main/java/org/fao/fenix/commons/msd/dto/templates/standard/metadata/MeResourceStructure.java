@@ -8,7 +8,7 @@ import java.util.Collection;
 public class MeResourceStructure extends ResponseHandler {
 
     public MeResourceStructure() {}
-    public MeResourceStructure(Object source) {
+    public MeResourceStructure(Object ... source) {
         super(source);
     }
 

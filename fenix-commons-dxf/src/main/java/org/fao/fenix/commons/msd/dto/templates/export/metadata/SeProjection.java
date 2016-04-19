@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeProjection extends ResponseHandler {
 
     public SeProjection() {}
-    public SeProjection(Object source) {
+    public SeProjection(Object ... source) {
         super(source);
     }
 

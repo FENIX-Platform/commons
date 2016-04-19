@@ -6,16 +6,14 @@ import javassist.util.proxy.ProxyFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ResponseBeanFactory {
 
     private static Map<Class,Class> proxiedClasses = new HashMap<>();
 
-    public static <T extends ResponseHandler> T getInstance(Object source, Class<T> destinationClass) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    public static <T extends ResponseHandler> T getInstance(Class<T> destinationClass, Object ... source) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+        source = compactSources(source);
         if (source==null || destinationClass==null)
             return null;
         Class proxyClass = proxiedClasses.get(destinationClass);
@@ -32,17 +30,27 @@ public class ResponseBeanFactory {
             proxiedClasses.put(destinationClass, proxyClass = proxyFactory.createClass());
         }
         T instance = (T)proxyClass.newInstance();
-        ((Proxy)instance).setHandler(destinationClass.getConstructor(Object.class).newInstance(source));
+        ((Proxy)instance).setHandler(destinationClass.getConstructor(Object[].class).newInstance(new Object[]{source}));
         return instance;
     }
 
-    public static <T extends ResponseHandler> Collection<T> getInstances(Collection<?> sourceCollection, Class<T> destinationClass) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
+    public static <T extends ResponseHandler> Collection<T> getInstances(Class<T> destinationClass, Collection sourceCollection) throws IllegalAccessException, InstantiationException, NoSuchMethodException, InvocationTargetException {
         Collection<T> instances = null;
         if (sourceCollection!=null) {
             instances = new ArrayList<>(sourceCollection.size());
             for (Object source : sourceCollection)
-                instances.add(getInstance(source, destinationClass));
+                instances.add(getInstance(destinationClass, source));
         }
         return instances;
+    }
+
+
+
+    private static Object[] compactSources(Object[] sources) {
+        Collection<Object> compactSourceList = new LinkedList<>();
+        for (Object source : sources)
+            if (source!=null)
+                compactSourceList.add(source);
+        return compactSourceList.size()>0 ? compactSourceList.toArray() : null;
     }
 }

@@ -6,7 +6,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public abstract class DSD<T extends org.fao.fenix.commons.msd.dto.templates.standard.dsd.DSD> extends ResponseHandler {
 
     public DSD() {}
-    public DSD(Object source) {
+    public DSD(Object ... source) {
         super(source);
     }
 

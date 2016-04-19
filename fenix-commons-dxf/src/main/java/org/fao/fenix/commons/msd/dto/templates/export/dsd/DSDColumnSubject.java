@@ -8,7 +8,7 @@ import java.util.Map;
 public class DSDColumnSubject extends ResponseHandler {
 
     public DSDColumnSubject() {}
-    public DSDColumnSubject(Object source) {
+    public DSDColumnSubject(Object ... source) {
         super(source);
     }
 

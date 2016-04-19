@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class MeAccessibility extends ResponseHandler {
 
     public MeAccessibility() {}
-    public MeAccessibility(Object source) {
+    public MeAccessibility(Object ... source) {
         super(source);
     }
 

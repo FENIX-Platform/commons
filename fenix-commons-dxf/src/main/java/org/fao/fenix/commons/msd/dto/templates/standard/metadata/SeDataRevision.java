@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeDataRevision extends ResponseHandler {
 
     public SeDataRevision() {}
-    public SeDataRevision(Object source) {
+    public SeDataRevision(Object ... source) {
         super(source);
     }
 

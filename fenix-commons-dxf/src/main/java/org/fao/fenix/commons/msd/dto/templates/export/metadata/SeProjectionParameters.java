@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeProjectionParameters extends ResponseHandler {
 
     public SeProjectionParameters() {}
-    public SeProjectionParameters(Object source) {
+    public SeProjectionParameters(Object ... source) {
         super(source);
     }
 

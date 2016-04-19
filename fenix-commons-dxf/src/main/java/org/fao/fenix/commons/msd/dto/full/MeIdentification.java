@@ -249,11 +249,11 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
         this.characterSet = characterSet;
     }
 
-    public Collection<MeIdentification> getParentIdentifiers() {
+    public Collection<MeIdentification> getParents() {
         return parents;
     }
 
-    public void setParentIdentifiers(Collection<MeIdentification> parents) {
+    public void setParents(Collection<MeIdentification> parents) {
         this.parents = parents;
     }
 

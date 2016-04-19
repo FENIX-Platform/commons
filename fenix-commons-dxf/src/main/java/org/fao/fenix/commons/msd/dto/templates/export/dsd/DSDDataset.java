@@ -7,7 +7,7 @@ import java.util.Collection;
 public class DSDDataset extends org.fao.fenix.commons.msd.dto.templates.export.dsd.DSD {
 
     public DSDDataset() {}
-    public DSDDataset(Object source) {
+    public DSDDataset(Object ... source) {
         super(source);
     }
 

@@ -8,7 +8,7 @@ import java.util.Date;
 public class SeUpdate extends ResponseHandler {
 
     public SeUpdate() {}
-    public SeUpdate(Object source) {
+    public SeUpdate(Object ... source) {
         super(source);
     }
 

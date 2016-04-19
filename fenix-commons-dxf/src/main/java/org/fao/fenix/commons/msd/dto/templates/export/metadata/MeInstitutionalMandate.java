@@ -8,7 +8,7 @@ import java.util.Map;
 public class MeInstitutionalMandate extends ResponseHandler {
 
     public MeInstitutionalMandate() {}
-    public MeInstitutionalMandate(Object source) {
+    public MeInstitutionalMandate(Object ... source) {
         super(source);
     }
 

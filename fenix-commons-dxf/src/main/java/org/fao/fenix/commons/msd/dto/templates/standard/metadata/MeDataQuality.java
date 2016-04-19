@@ -8,7 +8,7 @@ import java.util.Map;
 public class MeDataQuality extends ResponseHandler {
 
     public MeDataQuality() {}
-    public MeDataQuality(Object source) {
+    public MeDataQuality(Object ... source) {
         super(source);
     }
 

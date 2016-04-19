@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeReleasePolicy extends ResponseHandler {
 
     public SeReleasePolicy() {}
-    public SeReleasePolicy(Object source) {
+    public SeReleasePolicy(Object ... source) {
         super(source);
     }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeConfidentiality extends ResponseHandler {
 
     public SeConfidentiality() {}
-    public SeConfidentiality(Object source) {
+    public SeConfidentiality(Object ... source) {
         super(source);
     }
 

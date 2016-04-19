@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeObliqueLineAzimuth extends ResponseHandler {
 
     public SeObliqueLineAzimuth() {}
-    public SeObliqueLineAzimuth(Object source) {
+    public SeObliqueLineAzimuth(Object ... source) {
         super(source);
     }
 

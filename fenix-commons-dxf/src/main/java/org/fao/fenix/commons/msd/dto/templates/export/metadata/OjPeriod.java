@@ -8,7 +8,7 @@ import java.util.Date;
 public class OjPeriod extends ResponseHandler {
 
     public OjPeriod() {}
-    public OjPeriod(Object source) {
+    public OjPeriod(Object ... source) {
         super(source);
     }
 

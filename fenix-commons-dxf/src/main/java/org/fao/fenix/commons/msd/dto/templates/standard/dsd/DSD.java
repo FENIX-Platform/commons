@@ -8,7 +8,7 @@ import java.util.Map;
 public class DSD extends ResponseHandler {
 
     public DSD() {}
-    public DSD(Object source) {
+    public DSD(Object ... source) {
         super(source);
     }
 

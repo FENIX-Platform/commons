@@ -6,7 +6,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeBand  extends ResponseHandler {
 
     public SeBand() {}
-    public SeBand(Object source) {
+    public SeBand(Object ... source) {
         super(source);
     }
 

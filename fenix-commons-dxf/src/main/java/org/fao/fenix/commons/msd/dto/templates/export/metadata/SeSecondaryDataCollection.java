@@ -8,7 +8,7 @@ import java.util.Map;
 public class SeSecondaryDataCollection extends ResponseHandler {
 
     public SeSecondaryDataCollection() {}
-    public SeSecondaryDataCollection(Object source) {
+    public SeSecondaryDataCollection(Object ... source) {
         super(source);
     }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 public class MeIdentification extends ResponseHandler {
 
     public MeIdentification() {}
-    public MeIdentification(Object source) {
+    public MeIdentification(Object ... source) {
         super(source);
     }
 

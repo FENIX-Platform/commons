@@ -8,7 +8,7 @@ import java.util.Map;
 public class SePrimaryDataCollection extends ResponseHandler {
 
     public SePrimaryDataCollection() {}
-    public SePrimaryDataCollection(Object source) {
+    public SePrimaryDataCollection(Object ... source) {
         super(source);
     }
 

@@ -8,7 +8,7 @@ import java.util.Map;
 public class OjMeasure extends ResponseHandler {
 
     public OjMeasure() {}
-    public OjMeasure(Object source) {
+    public OjMeasure(Object ... source) {
         super(source);
     }
 

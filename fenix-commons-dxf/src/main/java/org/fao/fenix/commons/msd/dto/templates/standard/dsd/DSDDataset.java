@@ -7,7 +7,7 @@ import java.util.Collection;
 public class DSDDataset extends DSD {
 
     public DSDDataset() {}
-    public DSDDataset(Object source) {
+    public DSDDataset(Object ... source) {
         super(source);
     }
 

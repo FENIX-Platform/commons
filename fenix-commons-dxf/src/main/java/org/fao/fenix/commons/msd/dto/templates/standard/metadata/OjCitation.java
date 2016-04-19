@@ -10,7 +10,7 @@ import java.util.Map;
 public class OjCitation extends ResponseHandler {
 
     public OjCitation() {}
-    public OjCitation(Object source) {
+    public OjCitation(Object ... source) {
         super(source);
     }
 

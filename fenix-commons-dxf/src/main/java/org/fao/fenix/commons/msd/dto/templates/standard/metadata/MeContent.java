@@ -10,7 +10,7 @@ import java.util.Map;
 public class MeContent extends ResponseHandler {
 
     public MeContent() {}
-    public MeContent(Object source) {
+    public MeContent(Object ... source) {
         super(source);
     }
 

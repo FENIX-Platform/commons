@@ -9,7 +9,7 @@ import java.util.Map;
 public class SeResourceDimensions extends ResponseHandler {
 
     public SeResourceDimensions() {}
-    public SeResourceDimensions(Object source) {
+    public SeResourceDimensions(Object ... source) {
         super(source);
     }
 

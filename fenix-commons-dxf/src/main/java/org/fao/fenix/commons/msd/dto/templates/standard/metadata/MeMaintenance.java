@@ -8,7 +8,7 @@ import java.util.Map;
 public class MeMaintenance extends ResponseHandler {
 
     public MeMaintenance() {}
-    public MeMaintenance(Object source) {
+    public MeMaintenance(Object ... source) {
         super(source);
     }
 

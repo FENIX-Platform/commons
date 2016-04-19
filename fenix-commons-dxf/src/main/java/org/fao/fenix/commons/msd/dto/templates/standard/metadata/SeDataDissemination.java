@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeDataDissemination extends ResponseHandler {
 
     public SeDataDissemination() {}
-    public SeDataDissemination(Object source) {
+    public SeDataDissemination(Object ... source) {
         super(source);
     }
 

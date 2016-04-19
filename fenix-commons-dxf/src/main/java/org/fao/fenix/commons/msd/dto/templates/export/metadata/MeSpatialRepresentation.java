@@ -9,7 +9,7 @@ import java.util.Map;
 public class MeSpatialRepresentation extends ResponseHandler {
 
     public MeSpatialRepresentation() {}
-    public MeSpatialRepresentation(Object source) {
+    public MeSpatialRepresentation(Object ... source) {
         super(source);
     }
 

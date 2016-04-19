@@ -7,7 +7,7 @@ import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
 public class SeDataSource  extends ResponseHandler {
 
     public SeDataSource() {}
-    public SeDataSource(Object source) {
+    public SeDataSource(Object ... source) {
         super(source);
     }
 
