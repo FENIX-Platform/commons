@@ -381,6 +381,20 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     }
 
 
+    //Hierarchy
+    public MeIdentification[] loadHierarchy() {
+        Collection<MeIdentification> hierarchy = new LinkedList<>();
+        loadHierarchy(this, hierarchy);
+        return hierarchy.toArray(new MeIdentification[hierarchy.size()]);
+    }
+    private void loadHierarchy(MeIdentification metadata, Collection<MeIdentification> hierarchy) {
+        hierarchy.add(metadata);
+        Collection<MeIdentification> parents = metadata.getParents();
+        if (parents!=null)
+            for (MeIdentification parent : parents)
+                if (parent!=null)
+                    loadHierarchy(parent, hierarchy);
+    }
 
     //Utils
     @Override
@@ -412,6 +426,5 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
         if (seUpdate.getUpdateDate()==null)
             seUpdate.setUpdateDate(date);
     }
-
 
 }
