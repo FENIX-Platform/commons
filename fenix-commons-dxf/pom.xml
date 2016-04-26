@@ -31,5 +31,12 @@
           <scope>provided</scope>
       </dependency>
 
+      <!-- Reactive -->
+      <dependency>
+          <groupId>io.reactivex</groupId>
+          <artifactId>rxjava</artifactId>
+          <version>1.0.10</version>
+      </dependency>
+
   </dependencies>
 </project>
