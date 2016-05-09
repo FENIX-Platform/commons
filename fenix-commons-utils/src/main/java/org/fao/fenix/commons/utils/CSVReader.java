@@ -48,7 +48,8 @@ public class CSVReader implements Iterable<String[]> {
 		}
         if (nextRow!=null && nextRow.length>0)
             for (int i=0; i<nextRow.length; i++) {
-                if (nextRow[i].length()>2 && nextRow[i].charAt(0)=='"' && nextRow[i].charAt(nextRow[i].length()-1)=='"')
+                nextRow[i] = nextRow[i].trim();
+                if (nextRow[i].length()>=2 && nextRow[i].charAt(0)=='"' && nextRow[i].charAt(nextRow[i].length()-1)=='"')
                     nextRow[i] = nextRow[i].substring(1, nextRow[i].length()-1);
             }
 		return nextRow;
