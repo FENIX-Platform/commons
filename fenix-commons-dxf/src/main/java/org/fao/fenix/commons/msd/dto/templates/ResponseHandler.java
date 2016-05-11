@@ -54,8 +54,8 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
 
 
         //Call source bean method stack
-        Object sourceReturn = !"getRID".equals(m.getName()) ? processed.invoke(self) : null;
-        if (sourceReturn==null)
+        Object sourceReturn = !"getRID".equals(m.getName()) ? processed.invoke(self, args) : null;
+        if (sourceReturn==null && !processed.getReturnType().equals(void.class))
             try {
                 Method sourceMethod = sourceClass.getMethod(m.getName());
 
