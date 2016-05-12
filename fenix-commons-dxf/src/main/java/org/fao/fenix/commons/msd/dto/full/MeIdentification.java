@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.*;
 
-public class MeIdentification <T extends DSD> extends JSONEntity implements Serializable, MetadataEntity {
+public class MeIdentification <T extends DSD> extends JSONEntity implements Serializable, MetadataEntity, Comparable<MeIdentification> {
 
     /* Properties */
 
@@ -427,4 +427,20 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
             seUpdate.setUpdateDate(date);
     }
 
+    //Compare
+    public String id() {
+        String uid = getUid();
+        String version = getVersion();
+        return version!=null ? uid+'|'+version : uid;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return obj instanceof MeIdentification && ((MeIdentification)obj).id().equals(id());
+    }
+
+    @Override
+    public int compareTo(MeIdentification o) {
+        return id().compareTo(o.id());
+    }
 }
