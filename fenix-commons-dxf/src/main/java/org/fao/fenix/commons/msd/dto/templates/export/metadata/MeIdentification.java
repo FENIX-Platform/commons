@@ -46,10 +46,6 @@ public class MeIdentification extends ResponseHandler {
         return null;
     }
     @JsonProperty
-    public Date getCreationDate() {
-        return null;
-    }
-    @JsonProperty
     public OjCodeList getCharacterSet() {
         return null;
     }

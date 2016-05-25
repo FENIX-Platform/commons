@@ -4,10 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum LayerType {
+    layergroup (new String[]{"EN", "Layers group"}),
     vector (new String[]{"EN", "Vector"}),
     raster (new String[]{"EN", "Raster"})
+    ;
 
-    ;private Map<String,String> label = new HashMap<>();
+    private Map<String,String> label = new HashMap<>();
     private LayerType(String[]... labels) { //EN,FR,ES,PT
         for (String[] l : labels)
             label.put(l[0],l[1]);

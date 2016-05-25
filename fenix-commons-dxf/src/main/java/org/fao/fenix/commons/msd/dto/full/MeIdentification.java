@@ -436,11 +436,11 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof MeIdentification && ((MeIdentification)obj).id().equals(id());
+        return obj!=null && obj instanceof MeIdentification && ((MeIdentification)obj).id().equals(id());
     }
 
     @Override
     public int compareTo(MeIdentification o) {
-        return id().compareTo(o.id());
+        return o!=null ? id().compareTo(o.id()) : 1;
     }
 }
