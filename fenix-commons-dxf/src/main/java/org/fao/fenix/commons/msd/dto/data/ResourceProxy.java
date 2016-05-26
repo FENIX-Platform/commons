@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.fao.fenix.commons.msd.dto.templates.ResponseBeanFactory;
 import org.fao.fenix.commons.msd.dto.templates.ResponseHandler;
+import org.fao.fenix.commons.utils.LimitedList;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -22,13 +23,15 @@ public class ResourceProxy {
 
 
     public ResourceProxy(Object metadata, Collection data) throws NoSuchMethodException, InstantiationException, IllegalAccessException, InvocationTargetException {
-        this(metadata, data, null, null, data!=null ? (long)data.size() : null);
+        this(metadata, data, null, null, data!=null ? (long)data.size() : null, null);
     }
-    public ResourceProxy(Object metadata, Collection data, Class<? extends ResponseHandler> dataProxyClass, Map<String,Map<String,String>> datasources, Long size) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
+    public ResourceProxy(Object metadata, Collection data, Class<? extends ResponseHandler> dataProxyClass, Map<String,Map<String,String>> datasources, Long size, Integer limit) throws InvocationTargetException, NoSuchMethodException, InstantiationException, IllegalAccessException {
         this.metadata = metadata;
         this.data = dataProxyClass!=null && data!=null ? ResponseBeanFactory.getInstances(dataProxyClass, data) : data;
         this.datasources = datasources;
         this.size = size;
+        if (this.data!=null && limit!=null && limit>0)
+            this.data = new LimitedList(data, limit);
     }
 
 
