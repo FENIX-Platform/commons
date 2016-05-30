@@ -1,6 +1,7 @@
 package org.fao.fenix.commons.utils;
 
 
+import javax.ws.rs.NotAcceptableException;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -19,28 +20,28 @@ public class LimitedList <T> extends LinkedList<T> {
     @Override
     public boolean add(T t) {
         if (++size>limit)
-            throw new LimitedListExceedException();
+            throw new NotAcceptableException();
         return super.add(t);
     }
 
     @Override
     public void add(int index, T element) {
         if (++size>limit)
-            throw new LimitedListExceedException();
+            throw new NotAcceptableException();
         super.add(index, element);
     }
 
     @Override
     public void addFirst(T t) {
         if (++size>limit)
-            throw new LimitedListExceedException();
+            throw new NotAcceptableException();
         super.addFirst(t);
     }
 
     @Override
     public void addLast(T t) {
         if (++size>limit)
-            throw new LimitedListExceedException();
+            throw new NotAcceptableException();
         super.addLast(t);
     }
 

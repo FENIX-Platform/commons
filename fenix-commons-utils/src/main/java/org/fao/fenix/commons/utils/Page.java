@@ -109,12 +109,16 @@ public class  Page {
     //UTILS
 
     public String toH2SQLWhereCondition() {
-        return skip>0 || length<Integer.MAX_VALUE ? "_ROWID_ between "+(skip+1)+" and "+(skip+length) : null;
+        return isInitialized() ? "_ROWID_ between "+(skip+1)+" and "+(skip+length) : null;
     }
     public String toH2SQL() {
-        return skip>0 || length<Integer.MAX_VALUE ? " LIMIT "+length+" OFFSET "+skip : " LIMIT "+length;
+        return isInitialized() ? " LIMIT "+length+" OFFSET "+skip : " LIMIT "+length;
     }
     public String toOrientSQL() {
-        return skip>0 || length<Integer.MAX_VALUE ? " SKIP "+skip+" LIMIT "+length : " LIMIT "+length;
+        return isInitialized() ? " SKIP "+skip+" LIMIT "+length : " LIMIT "+length;
+    }
+
+    public boolean isInitialized() {
+        return skip>0 || length<Integer.MAX_VALUE;
     }
 }

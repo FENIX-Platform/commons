@@ -70,5 +70,7 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
         return size()>0 ? " order by"+buffer.substring(1) : "";
     }
 
-
+    public boolean isInitialized() {
+        return size()>0;
+    }
 }
