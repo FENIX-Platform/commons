@@ -402,7 +402,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
         for (Field field : MeIdentification.class.getDeclaredFields()) {
             String fieldName = field.getName();
             Object fieldValue = field.get(this);
-            if (!fieldName.equals("uid") && !fieldName.equals("version") && fieldValue!=null) {
+            if (!fieldName.equals("uid") && !fieldName.equals("version") && !fieldName.equals("meContent") && fieldValue!=null) {
                 if (fieldValue instanceof Collection) {
                     if (((Collection)fieldValue).size()>0)
                         return false;
@@ -413,7 +413,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
                     return false;
             }
         }
-        return true;
+        return getMeContent()!=null ? getMeContent().isRepresentationTypeOnly() : true;
     }
 
     public void setLastUpdate(Date date) {

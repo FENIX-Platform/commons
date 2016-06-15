@@ -10,6 +10,7 @@ import org.fao.fenix.commons.msd.dto.type.RepresentationType;
 
 import javax.persistence.Embedded;
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.Collection;
 import java.util.Map;
 
@@ -119,5 +120,25 @@ public class MeContent extends JSONEntity implements Serializable {
     @Embedded
     public void setSeCodeList(SeCodeList seCodeList) {
         this.seCodeList = seCodeList;
+    }
+
+
+    //Utils
+    public boolean isRepresentationTypeOnly() throws IllegalAccessException {
+        for (Field field : MeContent.class.getDeclaredFields()) {
+            String fieldName = field.getName();
+            Object fieldValue = field.get(this);
+            if (!fieldName.equals("resourceRepresentationType") && fieldValue!=null) {
+                if (fieldValue instanceof Collection) {
+                    if (((Collection)fieldValue).size()>0)
+                        return false;
+                } else if (fieldValue instanceof Map) {
+                    if (((Map)fieldValue).size()>0)
+                        return false;
+                } else
+                    return false;
+            }
+        }
+        return true;
     }
 }
