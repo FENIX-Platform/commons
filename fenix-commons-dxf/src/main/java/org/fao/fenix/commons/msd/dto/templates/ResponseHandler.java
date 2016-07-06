@@ -20,6 +20,10 @@ public abstract class ResponseHandler extends JSONEntity implements MethodHandle
     private Object[] sources;
     private Class sourceClass;
 
+    public Object currentSources() {
+        return sources;
+    }
+
     public ResponseHandler() {}
     public ResponseHandler(Object ... sources) {
         this.sources = sources; //Multiple sources to support inheritance

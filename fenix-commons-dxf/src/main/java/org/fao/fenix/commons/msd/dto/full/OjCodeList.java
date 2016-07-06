@@ -139,6 +139,7 @@ public class OjCodeList extends JSONEntity implements Serializable {
         clone.setLink(getLink());
         clone.setExtendedName(getExtendedName());
         clone.setCodes(getCodes()!=null ? new LinkedList<>(getCodes()) : null);
+        clone.setLinkedCodeList(getLinkedCodeList());
         return clone;
     }
 }
