@@ -26,14 +26,6 @@ public class MeIdentification extends ResponseHandler {
 
 
     @JsonProperty
-    public String getUid() {
-        return null;
-    }
-    @JsonProperty
-    public String getVersion() {
-        return null;
-    }
-    @JsonProperty
     public OjCodeList getLanguage() {
         return null;
     }

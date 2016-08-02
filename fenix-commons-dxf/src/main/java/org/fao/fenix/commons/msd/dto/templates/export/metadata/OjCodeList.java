@@ -17,13 +17,11 @@ public class OjCodeList extends ResponseHandler {
 
     @JsonProperty
     public String getIdCodeList() {
-        MeIdentification linked = getLinkedCodeList();
-        return linked!=null ? linked.getUid() : null;
+        return null;
     }
     @JsonProperty
     public String getVersion() {
-        MeIdentification linked = getLinkedCodeList();
-        return linked!=null ? linked.getVersion() : null;
+        return null;
     }
     @JsonProperty
     public Collection<OjCode> getCodes() {
