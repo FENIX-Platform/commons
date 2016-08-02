@@ -4,6 +4,7 @@ import java.io.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Locale;
@@ -16,6 +17,7 @@ public class CSVWriter {
     Writer out; char separator; boolean useQuote; boolean windows; boolean close; String[] header;
     SimpleDateFormat dateFormatter;
     DecimalFormat numberFormatter;
+    boolean writeHeader;
 
     public CSVWriter (String fileName, Character separator, Boolean useQuote, Boolean windows, String dateFromat, String numberFormat, String[] header) throws IOException {
         this(new FileWriter(fileName),separator,useQuote,windows,null,dateFromat,numberFormat,header);
@@ -31,6 +33,7 @@ public class CSVWriter {
         this.windows = windows!=null ? windows : true;
         this.close = close!=null ? close : true;
         this.header = header;
+        this.writeHeader = header!=null && header.length>0;
 
         dateFormatter = new SimpleDateFormat(dateFromat!=null ? dateFromat : DEFAULT_DATE_FORMAT);
         numberFormatter = numberFormat!=null ? new DecimalFormat(numberFormat) : new DecimalFormat(DEFAULT_NUMBER_FORMAT, new DecimalFormatSymbols(Locale.US));
@@ -49,7 +52,19 @@ public class CSVWriter {
         System.out.println("ss\"ddd\"".replaceAll("\"", "\\\\\""));
     }
 
+    private void writeHeader() throws Exception {
+        boolean closeOriginalValue = close;
+        close = false;
+        write(Arrays.asList(new Object[][]{header}).iterator(), 1);
+        close = closeOriginalValue;
+    }
+
     public int write(Iterator<Object[]> data, int size) throws Exception {
+        if (writeHeader) {
+            writeHeader=false;
+            writeHeader();
+        }
+
         StringBuilder row = new StringBuilder();
         int count = 0;
 
