@@ -6,6 +6,7 @@ import java.util.Map;
 public enum ResponsiblePartyRole {
     owner (new String[]{"EN", "Owner"}),
     distributor (new String[]{"EN", "Distributor"}),
+    producer (new String[]{"EN", "Producer"}),
     other (new String[]{"EN", "Other"});
 /*
     resourceProvider (new String[]{"EN", "Resource provider"}),
