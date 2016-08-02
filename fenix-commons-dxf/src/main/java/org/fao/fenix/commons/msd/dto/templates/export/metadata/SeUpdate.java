@@ -14,10 +14,6 @@ public class SeUpdate extends ResponseHandler {
 
 
     @JsonProperty
-    public Date getUpdateDate() {
-        return null;
-    }
-    @JsonProperty
     public org.fao.fenix.commons.msd.dto.templates.export.metadata.OjCodeList getUpdatePeriodicity() {
         return null;
     }
