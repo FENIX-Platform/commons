@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.TypeFactory;
@@ -40,6 +41,7 @@ public class JSONUtils {
     }
 
 	public static <T> T toObject(String json, Class<T> objClass) throws Exception { return mapper.readValue(json, objClass); }
+	public static <T> T updateObject(String json, T obj) throws Exception { return mapper.readerForUpdating(obj).readValue(json); }
 
 	public static JsonParser createParser(Reader reader) throws Exception { return jsonFactory.createJsonParser(reader); }
 	public static JsonParser createParser(String content) throws Exception { return jsonFactory.createJsonParser(content); }
@@ -67,7 +69,8 @@ public class JSONUtils {
         } else
             jacksonType = factory.constructType(beanClass);
 
-        return source!=null ? (T)mapper.readValue(source, jacksonType) : null;
+        //return source!=null ? (T)mapper.reader(jacksonType).without(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).readValue(source) : null;
+        return source!=null ? (T)mapper.reader(jacksonType).readValue(source) : null;
     }
 
 }

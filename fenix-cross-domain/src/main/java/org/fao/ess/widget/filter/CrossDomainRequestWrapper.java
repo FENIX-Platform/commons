@@ -2,6 +2,7 @@ package org.fao.ess.widget.filter;
 
 import java.io.*;
 
+import javax.servlet.ReadListener;
 import javax.servlet.ServletInputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper; 
@@ -52,8 +53,27 @@ public class CrossDomainRequestWrapper extends HttpServletRequestWrapper {
     @Override 
     public ServletInputStream getInputStream() throws IOException{ 
         final InputStream stream = newBody!=null ? new ByteArrayInputStream(newBody.getBytes()) : super.getInputStream(); 
-        return new ServletInputStream() { 
-            public int read() throws IOException{ return stream.read(); } 
+        return new ServletInputStream() {
+            @Override
+            public boolean isFinished() {
+                try {
+                    return available()==0;
+                } catch (IOException e) {
+                    return false;
+                }
+            }
+
+            @Override
+            public boolean isReady() {
+                return true;
+            }
+
+            @Override
+            public void setReadListener(ReadListener readListener) {
+                //TODO
+            }
+
+            public int read() throws IOException{ return stream.read(); }
             public int available() throws IOException{ return stream.available(); } 
         }; 
     } 
