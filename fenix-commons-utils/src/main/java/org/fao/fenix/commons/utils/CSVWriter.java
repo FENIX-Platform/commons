@@ -1,5 +1,8 @@
 package org.fao.fenix.commons.utils;
 
+import org.apache.log4j.Logger;
+import org.fao.fenix.commons.utils.database.DataIterator;
+
 import java.io.*;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -10,6 +13,8 @@ import java.util.Iterator;
 import java.util.Locale;
 
 public class CSVWriter {
+    private static final Logger LOGGER = Logger.getLogger("access");
+
     public static final char DEFAULT_SEPARATOR = ',';
     public static final String DEFAULT_DATE_FORMAT = "dd/MM/YYYY";
     public static final String DEFAULT_NUMBER_FORMAT = "###.##########";
@@ -18,6 +23,7 @@ public class CSVWriter {
     SimpleDateFormat dateFormatter;
     DecimalFormat numberFormatter;
     boolean writeHeader;
+
 
     public CSVWriter (String fileName, Character separator, Boolean useQuote, Boolean windows, String dateFromat, String numberFormat, String[] header) throws IOException {
         this(new FileWriter(fileName),separator,useQuote,windows,null,dateFromat,numberFormat,header);
@@ -64,7 +70,6 @@ public class CSVWriter {
             writeHeader=false;
             writeHeader();
         }
-
         StringBuilder row = new StringBuilder();
         int count = 0;
 
@@ -79,7 +84,7 @@ public class CSVWriter {
                         row.append(dateFormatter.format(cell)).append(separator);
                     else {
                         if (useQuote)
-                            row.append('"').append(cell.toString().replaceAll("\"", "\\\\\"")).append('"').append(separator);
+                            row.append('"').append(cell.toString().replaceAll("\"", "\\\\\"").replaceAll(";", "\\"+separator+"")).append('"').append(separator);
                         else
                             row.append(cell.toString()).append(separator);
                     }
@@ -89,7 +94,6 @@ public class CSVWriter {
                     row.append('\n');
                 } else
                     row.setCharAt(row.length()-1,'\n');
-
                 out.write(row.toString());
                 row.setLength(0);
                 count++;
@@ -101,4 +105,6 @@ public class CSVWriter {
 
         return count;
     }
+
+
 }
