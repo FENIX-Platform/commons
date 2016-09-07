@@ -84,7 +84,7 @@ public class CSVWriter {
                         row.append(dateFormatter.format(cell)).append(separator);
                     else {
                         if (useQuote)
-                            row.append('"').append(cell.toString().replaceAll("\"", "\\\\\"")/*.replaceAll(";", "\\"+separator+"")*/).append('"').append(separator);
+                            row.append('"').append(cell.toString().replaceAll("\"", "\\\\\"").replaceAll(";", "\\"+separator+"")).append('"').append(separator);
                         else
                             row.append(cell.toString()).append(separator);
                     }
