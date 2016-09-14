@@ -11,6 +11,7 @@ public class FieldFilter {
     public Collection<ContactFilter> contacts;
     public Collection<String> enumeration;
     public Collection<TimeFilter> time;
+    public Collection<TableFilter> tables;
 
 
     //Utils
@@ -25,6 +26,8 @@ public class FieldFilter {
             return FieldFilterType.enumeration;
         if (time!=null && time.size()>0)
             return FieldFilterType.time;
+        if (tables!=null && tables.size()>0)
+            return FieldFilterType.table;
         return FieldFilterType.other;
     }
 
