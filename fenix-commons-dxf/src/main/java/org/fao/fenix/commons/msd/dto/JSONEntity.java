@@ -29,7 +29,9 @@ public class JSONEntity  {
     }
 
     public ORID getORID() {
-        return orid==null && this instanceof Proxy ? ((OObjectProxyMethodHandler) ProxyFactory.getHandler((Proxy) this)).getDoc().getIdentity() : orid;
+        if (orid==null && this instanceof Proxy)
+            try { return ((OObjectProxyMethodHandler) ProxyFactory.getHandler((Proxy) this)).getDoc().getIdentity(); } catch (ClassCastException ex) {};
+        return orid;
     }
     public void setORID(ORID orid) {
         this.orid = orid;
