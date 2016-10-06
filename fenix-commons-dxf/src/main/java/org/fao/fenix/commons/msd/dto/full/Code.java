@@ -191,20 +191,32 @@ public class Code extends JSONEntity implements Serializable, Comparable<Code> {
     }
 
     public void addParent(Code code) {
-        if (parents == null)
-            parents = new LinkedHashSet<>();
-        parents.add(code);
+        if (code!=null) {
+            if (parents == null)
+                parents = new LinkedHashSet<>();
+            parents.add(code);
+        }
+    }
+    public void addParents(Collection<Code> codes) {
+        if (codes!=null) {
+            if (parents == null)
+                parents = new LinkedHashSet<>();
+            parents.addAll(codes);
+        }
     }
     public void addChild(Code code) {
-        if (children == null)
-            children = new LinkedHashSet<>();
-        children.add(code);
+        if (code!=null) {
+            if (children == null)
+                children = new LinkedHashSet<>();
+            children.add(code);
+        }
     }
     public void addChildren(Collection<Code> codes) {
-        if (children == null)
-            children = new LinkedHashSet<>();
-        if (codes!=null)
+        if (codes!=null) {
+            if (children == null)
+                children = new LinkedHashSet<>();
             children.addAll(codes);
+        }
     }
     public void addRelation(Code code) {
         if (relations == null)
