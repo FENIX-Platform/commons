@@ -32,10 +32,10 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private String version;
 
     @JsonProperty
-    @Label(en="Parent(s) metadata",fr="",es="")
-    @Description(en= "metadata record to which this metadata record is a subset of (i.e. parent metadata of hierarchical metadata records). The specification of the parentIdentifier allows to inherit a set of metadata information from the parent metadata record. The choice of which metadata elements must to be kept from the parent record and the one that has to be manually modified, it is subject to ad hoc controls.")
-    @Order(3)
-    @Format(Format.FORMAT.string)
+//    @Label(en="Parent(s) metadata",fr="",es="")
+//    @Description(en= "metadata record to which this metadata record is a subset of (i.e. parent metadata of hierarchical metadata records). The specification of the parentIdentifier allows to inherit a set of metadata information from the parent metadata record. The choice of which metadata elements must to be kept from the parent record and the one that has to be manually modified, it is subject to ad hoc controls.")
+//    @Order(3)
+//    @Format(Format.FORMAT.string)
     private Collection<MeIdentification> parents;
 
     @JsonProperty
@@ -160,10 +160,10 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private Collection<MeDocuments> meDocuments;
 
     @JsonProperty
-    @Label(en="RESOURCE STRUCTURE",fr="",es="")
-    @Description(en= "This section lists values and metadata of the dimensions of the resource. In a data table, dimensions may refer to geographical areas, time, commodities, gender, etc. . . It includes iterative elements representing 'n' dimensions and 'm' elements of each dimension. In addition ResourceRecord allows to report information at single-value level.")
-    @Order(20)
-    @Format(Format.FORMAT.string)
+//    @Label(en="RESOURCE STRUCTURE",fr="",es="")
+//    @Description(en= "This section lists values and metadata of the dimensions of the resource. In a data table, dimensions may refer to geographical areas, time, commodities, gender, etc. . . It includes iterative elements representing 'n' dimensions and 'm' elements of each dimension. In addition ResourceRecord allows to report information at single-value level.")
+//    @Order(20)
+//    @Format(Format.FORMAT.string)
     private MeResourceStructure meResourceStructure;
 
     @JsonProperty
