@@ -15,7 +15,7 @@ public enum DocumentType {
     other (new String[]{"EN", "Other"});
 
     private Map<String,String> label = new HashMap<>();
-    private DocumentType(String[] ... labels) { //EN,FR,ES,PT
+    DocumentType(String[] ... labels) { //EN,FR,ES,PT
         for (String[] l : labels)
             label.put(l[0],l[1]);
     }
