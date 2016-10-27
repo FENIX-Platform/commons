@@ -14,6 +14,7 @@ public class FieldFilter {
     public Collection<NumberFilter> number;
     public Collection<TableFilter> tables;
     public Boolean bool;
+    public String freeText;
 
 
     //Utils
@@ -34,6 +35,8 @@ public class FieldFilter {
             return FieldFilterType.table;
         if (bool!=null)
             return FieldFilterType.bool;
+        if (freeText!=null)
+            return FieldFilterType.free;
         return FieldFilterType.other;
     }
 
