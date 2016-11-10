@@ -180,6 +180,13 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     @Format(Format.FORMAT.string)
     private MeReferenceSystem meReferenceSystem;
 
+    @JsonProperty
+    @Label(en="REFERENCE SYSTEM",fr="",es="")
+    @Description(en= "This section includes additional metadata fields currently unavailable into the core metadata fields set).")
+    @Order(23)
+    @Format(Format.FORMAT.string)
+    private Map<String,Object> contextExtension;
+
     /* DSD */
     @JsonProperty private T dsd;
 
@@ -297,7 +304,13 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
         this.noDataValue = noDataValue;
     }
 
+    public Map<String, Object> getContextExtension() {
+        return contextExtension;
+    }
 
+    public void setContextExtension(Map<String, Object> contextExtension) {
+        this.contextExtension = contextExtension;
+    }
 
     //Connected entities
     public MeContent getMeContent() {

@@ -78,6 +78,10 @@ public class MeIdentification extends ResponseHandler {
     public void setChildren(Collection<MeIdentification> children) {
         this.children = children;
     }
+    @JsonProperty
+    public Map<String, Object> getContextExtension() {
+        return null;
+    }
 
 
     //Connected entities
