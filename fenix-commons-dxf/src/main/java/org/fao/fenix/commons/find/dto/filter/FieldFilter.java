@@ -15,6 +15,7 @@ public class FieldFilter {
     public Collection<TableFilter> tables;
     public Boolean bool;
     public String text;
+    public String variable;
 
 
     //Utils
@@ -37,6 +38,8 @@ public class FieldFilter {
             return FieldFilterType.bool;
         if (text !=null)
             return FieldFilterType.free;
+        if (variable!=null)
+            return FieldFilterType.var;
         return FieldFilterType.other;
     }
 

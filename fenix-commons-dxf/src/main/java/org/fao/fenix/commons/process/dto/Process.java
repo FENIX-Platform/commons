@@ -7,7 +7,7 @@ public class Process<T> implements Comparable<Process> {
     private T parameters;
     private StepId rid; //Optional result id for cached processes
     private StepId[] sid; //Optional source ids
-    private boolean result = false;
+    private Boolean result; //Optional. null means automatic
 
     public int index;
 
@@ -59,11 +59,11 @@ public class Process<T> implements Comparable<Process> {
         this.sid = sid;
     }
 
-    public boolean isResult() {
+    public Boolean getResult() {
         return result;
     }
 
-    public void setResult(boolean result) {
+    public void setResult(Boolean result) {
         this.result = result;
     }
 
