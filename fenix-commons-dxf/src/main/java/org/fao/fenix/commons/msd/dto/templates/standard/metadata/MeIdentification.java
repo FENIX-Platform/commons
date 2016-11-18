@@ -79,7 +79,7 @@ public class MeIdentification extends ResponseHandler {
         this.children = children;
     }
     @JsonProperty
-    public Map<String, Object> getContextExtension() {
+    public Map<String, Object> getAdditions() {
         return null;
     }
 

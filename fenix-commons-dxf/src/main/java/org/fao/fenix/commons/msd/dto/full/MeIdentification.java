@@ -185,7 +185,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     @Description(en= "This section includes additional metadata fields currently unavailable into the core metadata fields set).")
     @Order(23)
     @Format(Format.FORMAT.string)
-    private Map<String,Object> contextExtension;
+    private Map<String,Object> additions;
 
     /* DSD */
     @JsonProperty private T dsd;
@@ -304,12 +304,12 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
         this.noDataValue = noDataValue;
     }
 
-    public Map<String, Object> getContextExtension() {
-        return contextExtension;
+    public Map<String, Object> getAdditions() {
+        return additions;
     }
 
-    public void setContextExtension(Map<String, Object> contextExtension) {
-        this.contextExtension = contextExtension;
+    public void setAdditions(Map<String, Object> additions) {
+        this.additions = additions;
     }
 
     //Connected entities
