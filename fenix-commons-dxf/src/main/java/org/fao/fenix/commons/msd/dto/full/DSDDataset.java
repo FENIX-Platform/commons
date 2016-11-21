@@ -45,6 +45,17 @@ public class DSDDataset extends DSD {
         return null;
     }
 
+    public DSDColumn findColumnBySubject(String subject) {
+        Collection<DSDColumn> sourceColumns = getColumns();
+
+        if (sourceColumns!=null && subject!=null)
+            for (DSDColumn column : sourceColumns)
+                if (subject.equals(column.getSubject()))
+                    return column;
+
+        return null;
+    }
+
 
     public void extend (Language ... languages) {
         Collection<DSDColumn> sourceColumns = getColumns();
