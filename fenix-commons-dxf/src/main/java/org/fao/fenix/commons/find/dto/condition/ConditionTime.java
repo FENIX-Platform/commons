@@ -9,4 +9,15 @@ public class ConditionTime extends TimeFilter {
     public static final String fromFieldNameSuffix = "|from";
     public static final String toFieldNameSuffix = "|to";
 
+
+    public ConditionTime() {
+
+    }
+
+    public ConditionTime(Long from , Long to) {
+        this.from = from;
+        this.to = to;
+    }
+
+
 }
