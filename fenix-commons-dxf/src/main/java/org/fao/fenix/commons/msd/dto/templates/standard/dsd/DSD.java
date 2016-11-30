@@ -17,6 +17,10 @@ public class DSD extends ResponseHandler {
         return null;
     }
     @JsonProperty
+    public String getUserName() {
+        return null;
+    }
+    @JsonProperty
     public String[] getDatasources() {
         return null;
     }

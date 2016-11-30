@@ -17,6 +17,9 @@ public class DSD extends JSONEntity implements Serializable, MetadataEntity {
     private String contextSystem;
 
     @JsonProperty
+    private String userName;
+
+    @JsonProperty
     private String[] datasources;
 
     @JsonProperty
@@ -29,6 +32,14 @@ public class DSD extends JSONEntity implements Serializable, MetadataEntity {
 
     public void setContextSystem(String contextSystem) {
         this.contextSystem = contextSystem;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String[] getDatasources() {
