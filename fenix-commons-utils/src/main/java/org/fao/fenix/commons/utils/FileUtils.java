@@ -3,10 +3,12 @@ package org.fao.fenix.commons.utils;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import java.io.*;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipInputStream;
@@ -31,6 +33,8 @@ public class FileUtils {
             toDelete.delete();
         }
     }
+
+    public String readTextFileFromURL(String url) throws IOException { return readTextFile(new URL(url).openStream());}
 
     public String readTextFile(String file) throws IOException { return readTextFile(new FileInputStream(file), UTF8); }
     public String readTextFile(File file) throws IOException { return readTextFile(new FileInputStream(file), UTF8); }
