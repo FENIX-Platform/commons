@@ -56,4 +56,17 @@ public class Properties extends java.util.Properties {
 		return properties;
 	}
 
+	public static java.util.Properties getProperties(ClassLoader classLoader, String propertiesFile) {
+		java.util.Properties properties = new java.util.Properties();
+		try {
+			InputStream input = classLoader.getResourceAsStream(propertiesFile);
+			if (input != null) {
+				properties.load(input);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return properties;
+	}
+
 }
