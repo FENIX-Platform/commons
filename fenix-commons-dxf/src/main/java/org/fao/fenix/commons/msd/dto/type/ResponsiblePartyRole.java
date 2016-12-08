@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ResponsiblePartyRole {
-    owner (new String[][]{{"EN", "Owner"},{"FR", "Propriétaire"}}),
+    owner (new String[][]{{"EN", "Producer"},{"FR", "Producteur"}}),
     distributor (new String[][]{{"EN", "Distributor"},{"FR", "Distributeur"}}),
-    producer (new String[][]{{"EN", "Producer"},{"FR", "Producteur"}}),
+    producer (new String[][]{{"EN", "Processor"},{"FR", "Processeur"}}),
     other (new String[][]{{"EN", "Other"},{"FR", "Autre"}});
 /*
     resourceProvider (new String[]{"EN", "Resource provider"}),

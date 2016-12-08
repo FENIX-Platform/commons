@@ -181,7 +181,7 @@ public class MeIdentification <T extends DSD> extends JSONEntity implements Seri
     private MeReferenceSystem meReferenceSystem;
 
     @JsonProperty
-    @Label(en="REFERENCE SYSTEM",fr="",es="")
+    @Label(en="Additional info",fr="",es="")
     @Description(en= "This section includes additional metadata fields currently unavailable into the core metadata fields set).")
     @Order(23)
     @Format(Format.FORMAT.string)
