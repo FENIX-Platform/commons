@@ -1,4 +1,4 @@
-package org.fao.fenix.commons.utils.find;
+package org.fao.fenix.commons.utils.annotations.find;
 
 
 import java.lang.annotation.*;
@@ -6,6 +6,6 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface Engine {
+public @interface Business {
     String value() default "";
 }

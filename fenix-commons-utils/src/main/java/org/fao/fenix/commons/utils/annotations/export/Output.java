@@ -1,11 +1,10 @@
-package org.fao.fenix.commons.utils.find;
-
+package org.fao.fenix.commons.utils.annotations.export;
 
 import java.lang.annotation.*;
 
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited
-public @interface Business {
+public @interface Output {
     String value() default "";
 }
