@@ -6,6 +6,7 @@ public class PercentageFilter {
     private Double total;
     private boolean inclusive = false;
     private StandardFilter totalRows;
+    private String valueColumnId;
 
 
 
@@ -31,5 +32,13 @@ public class PercentageFilter {
 
     public void setTotalRows(StandardFilter totalRows) {
         this.totalRows = totalRows;
+    }
+
+    public String getValueColumnId() {
+        return valueColumnId;
+    }
+
+    public void setValueColumnId(String valueColumnId) {
+        this.valueColumnId = valueColumnId;
     }
 }

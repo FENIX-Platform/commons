@@ -30,8 +30,10 @@ public class ResourceProxy {
         this.data = dataProxyClass!=null && data!=null ? ResponseBeanFactory.getInstances(dataProxyClass, data) : data;
         this.datasources = datasources;
         this.size = size;
-        if (this.data!=null && limit!=null && limit>0)
+        if (this.data!=null && limit!=null && limit>0) {
             this.data = new LimitedList(data, limit);
+            this.size = (long)this.data.size();
+        }
     }
 
 
