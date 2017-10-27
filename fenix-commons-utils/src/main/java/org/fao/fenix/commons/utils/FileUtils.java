@@ -8,6 +8,7 @@ import java.nio.charset.Charset;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
@@ -18,53 +19,70 @@ import java.util.zip.ZipOutputStream;
 public class FileUtils {
     public static final Charset UTF8 = Charset.forName("UTF-8");
 
-    public void copy (File source, File destination) throws IOException {
+    public void copy(File source, File destination) throws IOException {
         Files.copy(source.toPath(), destination.toPath(), StandardCopyOption.REPLACE_EXISTING);
         if (source.isDirectory())
             for (File sourceFile : source.listFiles())
-                copy(sourceFile,new File (destination,sourceFile.getName()));
+                copy(sourceFile, new File(destination, sourceFile.getName()));
     }
 
     public void delete(File toDelete) {
-        if (toDelete!=null && toDelete.exists()) {
+        if (toDelete != null && toDelete.exists()) {
             if (toDelete.isDirectory())
-                for (File f:toDelete.listFiles())
+                for (File f : toDelete.listFiles())
                     delete(f);
             toDelete.delete();
         }
     }
 
-    public String readTextFileFromURL(String url) throws IOException { return readTextFile(new URL(url).openStream());}
+    public String readTextFileFromURL(String url) throws IOException {
+        return readTextFile(new URL(url).openStream());
+    }
 
-    public String readTextFile(String file) throws IOException { return readTextFile(new FileInputStream(file), UTF8); }
-    public String readTextFile(File file) throws IOException { return readTextFile(new FileInputStream(file), UTF8); }
-    public String readTextFile(String file, Charset charset) throws IOException { return readTextFile(new FileInputStream(file), charset); }
-    public String readTextFile(File file, Charset charset) throws IOException {return readTextFile(new FileInputStream(file),charset); }
-    public String readTextFile(InputStream in) throws IOException { return readTextFile(in, UTF8); }
+    public String readTextFile(String file) throws IOException {
+        return readTextFile(new FileInputStream(file), UTF8);
+    }
+
+    public String readTextFile(File file) throws IOException {
+        return readTextFile(new FileInputStream(file), UTF8);
+    }
+
+    public String readTextFile(String file, Charset charset) throws IOException {
+        return readTextFile(new FileInputStream(file), charset);
+    }
+
+    public String readTextFile(File file, Charset charset) throws IOException {
+        return readTextFile(new FileInputStream(file), charset);
+    }
+
+    public String readTextFile(InputStream in) throws IOException {
+        return readTextFile(in, UTF8);
+    }
+
     public String readTextFile(InputStream in, Charset charset) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(in,charset));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(in, charset));
         StringBuilder buffer = new StringBuilder();
-        for (String line = reader.readLine(); line!=null; line = reader.readLine())
+        for (String line = reader.readLine(); line != null; line = reader.readLine())
             buffer.append('\n').append(line);
-        return buffer.length()>0 ? buffer.substring(1) : null;
+        return buffer.length() > 0 ? buffer.substring(1) : null;
     }
 
     public void writeTextFile(File file, String text) throws IOException {
-        BufferedWriter out = new BufferedWriter(new FileWriter(file,false), 1024);
+        BufferedWriter out = new BufferedWriter(new FileWriter(file, false), 1024);
         out.write(text);
         out.flush();
         out.close();
     }
 
 
-
     public void unzip(File source, File destination, boolean overwrite) throws IOException {
-        if (source==null || !source.exists() || !source.isFile())
-            throw new FileNotFoundException(source!=null ? source.getAbsolutePath() : null);
+        if (source == null || !source.exists() || !source.isFile())
+            throw new FileNotFoundException(source != null ? source.getAbsolutePath() : null);
         unzip(new FileInputStream(source), destination, overwrite);
     }
+
     public void unzip(InputStream source, File destination, boolean overwrite) throws IOException {
-        if (destination==null || destination.isFile())
+        if (destination == null || destination.isFile())
             throw new FileNotFoundException("<destination>");
         if (!destination.exists())
             destination.mkdirs();
@@ -88,34 +106,36 @@ public class FileUtils {
                 }
             }
         } finally {
-            if (in!=null)
+            if (in != null)
                 in.close();
         }
     }
 
     public void zip(File source, File destination, boolean overwrite) throws IOException {
-        if (destination==null)
+        if (destination == null)
             throw new FileNotFoundException("<destination>");
         if (destination.exists())
             if (overwrite)
                 delete(destination);
             else
-                throw new IOException("Cannot overwrite an existing destination file: "+destination.getAbsolutePath());
+                throw new IOException("Cannot overwrite an existing destination file: " + destination.getAbsolutePath());
 
         zip(source, new FileOutputStream(destination), overwrite);
     }
+
     public void zip(File source, OutputStream destination, boolean overwrite) throws IOException {
-        if (source==null || !source.exists())
-            throw new FileNotFoundException(source!=null ? source.getAbsolutePath() : null);
+        if (source == null || !source.exists())
+            throw new FileNotFoundException(source != null ? source.getAbsolutePath() : null);
 
         ZipOutputStream out = new ZipOutputStream(destination);
         try {
             zip(source, out, "");
         } finally {
-            if (out!=null)
+            if (out != null)
                 out.close();
         }
     }
+
     private void zip(File source, ZipOutputStream out, String entryPath) throws IOException {
         entryPath += source.getName() + (source.isDirectory() ? File.separatorChar : "");
         try {
@@ -134,10 +154,61 @@ public class FileUtils {
             System.out.println(ex.getMessage());
         }
     }
-    private void copy (OutputStream out, InputStream in) throws IOException {
+
+    /**
+     * Build a zip file containing the 'filesToInclude'
+     *
+     * @param zipFile        the {@link File} object of the zip file to create
+     * @param filesToInclude the {@link File} objects of the files to include
+     * @throws IOException  in case of problems while reading the input files
+     * @throws ZipException in case of compression problems
+     */
+    public static void zip(File zipFile, File... filesToInclude) throws IOException {
+        try (FileOutputStream fos = new FileOutputStream(zipFile);
+             ZipOutputStream zipOut = new ZipOutputStream(fos)) {
+
+            for (File fileToZip : filesToInclude) {
+                try (FileInputStream fis = new FileInputStream(fileToZip)) {
+                    zipOut.putNextEntry(new ZipEntry(fileToZip.getName()));
+                    copy(zipOut, fis);
+                }
+            }
+        }
+    }
+
+    /**
+     * Build a zip file containing files referenced by filesToInclude and those built from fileStreamsToInclude.
+     * The keys of the map ust be the (output) file names.
+     *
+     * @param zipFile              the {@link File} object of the zip file to create
+     * @param fileStreamsToInclude the {@link InputStream} objects of the files to include
+     * @param filesToInclude       the {@link File} objects of the files to include
+     * @throws IOException  in case of problems while reading the input files
+     * @throws ZipException in case of compression problems
+     */
+    public static void zip(File zipFile, Map<String, InputStream> fileStreamsToInclude, Map<String, File> filesToInclude) throws IOException {
+        try (FileOutputStream fos = new FileOutputStream(zipFile);
+             ZipOutputStream zipOut = new ZipOutputStream(fos)) {
+
+            for (Map.Entry<String, InputStream> entry : fileStreamsToInclude.entrySet()) {
+                zipOut.putNextEntry(new ZipEntry(entry.getKey()));
+                copy(zipOut, entry.getValue());
+            }
+
+            for (Map.Entry<String, File> entry : filesToInclude.entrySet()) {
+                try (FileInputStream fis = new FileInputStream(entry.getValue())) {
+                    zipOut.putNextEntry(new ZipEntry(entry.getKey()));
+                    copy(zipOut, fis);
+                }
+            }
+        }
+    }
+
+
+    private static void copy(OutputStream out, InputStream in) throws IOException {
         byte[] buffer = new byte[1024];
-        for (int c=in.read(buffer); c>0; c=in.read(buffer))
-            out.write(buffer,0,c);
+        for (int c = in.read(buffer); c > 0; c = in.read(buffer))
+            out.write(buffer, 0, c);
         out.flush();
     }
 
