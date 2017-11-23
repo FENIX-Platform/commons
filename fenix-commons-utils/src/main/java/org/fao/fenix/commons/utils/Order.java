@@ -67,7 +67,7 @@ public class Order extends LinkedHashMap<String,Order.Sort> {
         StringBuilder buffer = new StringBuilder();
         for (Map.Entry<String,Sort> orderEntry : entrySet())
             buffer.append(", ").append(orderEntry.getKey()).append(' ').append(orderEntry.getValue().name());
-        return size()>0 ? " order by"+buffer.substring(1) + " NULLS LAST " : "";
+        return size()>0 ? " order by"+buffer.substring(1)  : "";
     }
 
     public boolean isInitialized() {
