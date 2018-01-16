@@ -4,6 +4,8 @@ import org.apache.log4j.Logger;
 import org.fao.fenix.commons.utils.database.DataIterator;
 
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -18,6 +20,7 @@ public class CSVWriter {
     public static final char DEFAULT_SEPARATOR = ',';
     public static final String DEFAULT_DATE_FORMAT = "dd/MM/YYYY";
     public static final String DEFAULT_NUMBER_FORMAT = "###.##########";
+    public static final String DEFAULT_CHARSET = "UTF8";
 
     Writer out; char separator; boolean useQuote; boolean windows; boolean close; String[] header;
     SimpleDateFormat dateFormatter;
@@ -28,8 +31,8 @@ public class CSVWriter {
     public CSVWriter (String fileName, Character separator, Boolean useQuote, Boolean windows, String dateFromat, String numberFormat, String[] header) throws IOException {
         this(new FileWriter(fileName),separator,useQuote,windows,null,dateFromat,numberFormat,header);
     }
-    public CSVWriter (OutputStream out, Character separator, Boolean useQuote, Boolean windows, Boolean close, String dateFromat, String numberFormat, String[] header) {
-        this(new OutputStreamWriter(out),separator,useQuote,windows,close,dateFromat,numberFormat,header);
+    public CSVWriter(OutputStream out, Character separator, Boolean useQuote, Boolean windows, Boolean close, String dateFromat, String numberFormat, String[] header, String charsetName) throws UnsupportedEncodingException {
+        this(new OutputStreamWriter(out, charsetName==null? StandardCharsets.UTF_8.name() : charsetName.toString()),separator,useQuote,windows,close,dateFromat,numberFormat,header);
     }
 
     public CSVWriter(Writer out, Character separator, Boolean useQuote, Boolean windows, Boolean close, String dateFromat, String numberFormat, String[] header) {
